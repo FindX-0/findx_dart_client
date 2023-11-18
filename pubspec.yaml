@@ -8,16 +8,11 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  dio: ^5.3.3
-  graphql: ^5.1.3
-  gql_dio_link: ^1.0.1+1
-  flutter_secure_storage: ^9.0.0
-  synchronized: ^3.1.0
+  gql_client:
+    path: ./packages/gql_client
 
-  common_network_components:
-    git:
-      url: https://github.com/kume1a/flutter_common.git
-      path: packages/common_network_components
+  gql_types:
+    path: ./packages/gql_types
 
 dev_dependencies:
   flutter_lints: ^3.0.1

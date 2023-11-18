@@ -1,0 +1,108 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthPayloadObject {
+  accessToken: String!
+  hasEmailVerified: Boolean
+  refreshToken: String!
+}
+
+enum AuthProvider {
+  APPLE
+  EMAIL
+  FACEBOOK
+  GOOGLE
+}
+
+input CreateMathFieldInput {
+  name: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input EmailSignInInput {
+  email: String!
+  password: String!
+}
+
+input EmailSignUpInput {
+  email: String!
+  password: String!
+  userName: String!
+}
+
+input EnqueueTicketInput {
+  mathFieldId: String!
+}
+
+input GoogleSignInInput {
+  accessToken: String!
+}
+
+input IdentifierInput {
+  id: ID!
+}
+
+input LastIdPageParamsObject {
+  lastId: ID!
+  limit: Int!
+}
+
+type MathFieldObject {
+  createdAt: DateTime!
+  id: ID!
+  name: String!
+}
+
+type MathFieldPageObject {
+  count: Int!
+  data: [MathFieldObject!]!
+}
+
+type Mutation {
+  createMathField(input: CreateMathFieldInput!): MathFieldObject!
+  deleteMathField(input: IdentifierInput!): SuccessObject!
+  emailSignIn(input: EmailSignInInput!): AuthPayloadObject!
+  emailSignUp(input: EmailSignUpInput!): AuthPayloadObject!
+  enqueueTicket(input: EnqueueTicketInput!): SuccessObject!
+  googleSignIn(input: GoogleSignInInput!): AuthPayloadObject!
+  refreshToken(input: RefreshTokenInput!): AuthPayloadObject!
+  updateMathField(input: UpdateMathFieldInput!): MathFieldObject!
+}
+
+type Query {
+  filterMathFields(input: LastIdPageParamsObject!): MathFieldPageObject!
+  getAuthUser: UserObject!
+  getMathFieldById(input: IdentifierInput!): MathFieldObject!
+  getServerTime: ServerTimeObject!
+}
+
+input RefreshTokenInput {
+  refreshToken: String!
+}
+
+type ServerTimeObject {
+  serverTime: Float!
+}
+
+type SuccessObject {
+  success: Boolean!
+}
+
+input UpdateMathFieldInput {
+  id: ID!
+  name: String
+}
+
+type UserObject {
+  authProvider: AuthProvider!
+  createdAt: DateTime!
+  email: String!
+  id: ID!
+  isCompleted: Boolean!
+  userName: String
+}
