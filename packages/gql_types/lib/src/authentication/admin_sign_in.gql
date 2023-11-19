@@ -1,0 +1,9 @@
+mutation AdminSignIn($email: String!, $password: String!) {
+  adminSignIn(input: {
+    email: $email,
+    password: $password
+  }) {
+    accessToken
+    refreshToken
+  }
+}

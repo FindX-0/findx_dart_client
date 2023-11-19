@@ -3,7 +3,6 @@ query GetAuthUser {
     authProvider
     createdAt
     email
-    gender
     id
     isCompleted
     userName
