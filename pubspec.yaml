@@ -20,5 +20,10 @@ dependencies:
       url: git@github.com:FindX-0/findx_dart_client.git
       path: packages/gql_types
 
+  common_models:
+    git:
+      url: https://github.com/kume1a/flutter_common.git
+      path: packages/common_models
+
 dev_dependencies:
   flutter_lints: ^3.0.1
