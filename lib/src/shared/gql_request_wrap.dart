@@ -4,7 +4,6 @@ import 'package:common_models/common_models.dart';
 import 'package:graphql/client.dart';
 
 import 'gql_api_error_code.dart';
-import 'gql_error_response.dart';
 
 mixin GqlRequestWrap {
   Future<Either<F, T>> callCatch<F, R, T>(
@@ -16,9 +15,10 @@ mixin GqlRequestWrap {
     try {
       final result = await request();
 
-      final firstError = _parseFirstError<F, T>(result.data, unknownFailure, onError);
-      if (firstError != null) {
-        return left(firstError);
+      if (result.hasException) {
+        final firstError = _parseFirstError<F, T>(result.exception, unknownFailure, onError);
+
+        return left(firstError ?? unknownFailure);
       }
 
       if (result.parsedData == null) {
@@ -34,25 +34,20 @@ mixin GqlRequestWrap {
   }
 
   F? _parseFirstError<F, T>(
-    Map<String, dynamic>? data,
+    OperationException? exception,
     F unknownFailure,
     F Function(GqlApiErrorCode code) onError,
   ) {
-    if (data == null) {
-      return unknownFailure;
-    }
-
-    final errorResponse = GqlErrorResponse.fromJson(data ?? {});
-    if (errorResponse.errors == null) {
+    if (exception == null) {
       return null;
     }
 
-    final firstError = errorResponse.errors!.isNotEmpty ? errorResponse.errors!.first : null;
-    if (firstError == null || firstError.message == null) {
+    final firstError = exception.graphqlErrors.isNotEmpty ? exception.graphqlErrors.first : null;
+    if (firstError == null) {
       return unknownFailure;
     }
 
-    final errorCode = GqlApiErrorCode.fromApiString(firstError.message!);
+    final errorCode = GqlApiErrorCode.fromApiString(firstError.message);
 
     return onError(errorCode);
   }
