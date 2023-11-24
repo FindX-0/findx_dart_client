@@ -62,7 +62,7 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
   }
 
   @override
-  Future<Either<FetchFailure, MathFieldPage>> filter({
+  Future<Either<FetchFailure, DataPage<MathFieldPageItem>>> filter({
     required int limit,
     String? lastId,
   }) {
@@ -75,7 +75,12 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
           ),
         ),
       ),
-      mapper: (r) => r.filterMathFields,
+      mapper: (r) {
+        return DataPage(
+          items: r.filterMathFields.data,
+          count: r.filterMathFields.count,
+        );
+      },
     );
   }
 

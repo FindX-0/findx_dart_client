@@ -17,7 +17,7 @@ abstract interface class MathFieldRemoteRepository {
 
   Future<Either<FetchFailure, MathFieldGetByIdRes>> getById(String id);
 
-  Future<Either<FetchFailure, MathFieldPage>> filter({
+  Future<Either<FetchFailure, DataPage<MathFieldPageItem>>> filter({
     required int limit,
     String? lastId,
   });
