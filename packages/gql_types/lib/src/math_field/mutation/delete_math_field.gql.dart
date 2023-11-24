@@ -262,12 +262,7 @@ const documentNodeMutationDeleteMathField = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'id'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              )
-            ]),
+            value: EnumValueNode(name: NameNode(value: 'IdentifierInput')),
           )
         ],
         directives: [],

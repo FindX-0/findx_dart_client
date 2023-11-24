@@ -1,8 +1,5 @@
 mutation AdminSignIn($email: String!, $password: String!) {
-  adminSignIn(input: {
-    email: $email,
-    password: $password
-  }) {
+  adminSignIn(input: AdminSignInInput) {
     accessToken
     refreshToken
   }

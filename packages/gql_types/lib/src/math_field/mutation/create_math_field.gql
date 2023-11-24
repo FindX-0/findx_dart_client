@@ -1,7 +1,5 @@
 mutation CreateMathField($name: String!) {
-  createMathField(input: {
-    name: $name
-  }) {
+  createMathField(input: CreateMathFieldInput) {
     ...MathField
   }
 } 

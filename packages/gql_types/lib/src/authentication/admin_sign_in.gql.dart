@@ -296,16 +296,7 @@ const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'email'),
-                value: VariableNode(name: NameNode(value: 'email')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'password'),
-                value: VariableNode(name: NameNode(value: 'password')),
-              ),
-            ]),
+            value: EnumValueNode(name: NameNode(value: 'AdminSignInInput')),
           )
         ],
         directives: [],

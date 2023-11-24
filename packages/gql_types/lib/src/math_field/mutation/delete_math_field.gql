@@ -1,9 +1,7 @@
 mutation DeleteMathField(
   $id: ID!
 ) {
-  deleteMathField(input: {
-    id: $id
-  }) {
+  deleteMathField(input: IdentifierInput) {
     ...SuccessObject
   }
 }

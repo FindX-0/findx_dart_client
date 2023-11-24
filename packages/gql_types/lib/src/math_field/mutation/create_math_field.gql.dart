@@ -262,12 +262,7 @@ const documentNodeMutationCreateMathField = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')),
-              )
-            ]),
+            value: EnumValueNode(name: NameNode(value: 'CreateMathFieldInput')),
           )
         ],
         directives: [],
