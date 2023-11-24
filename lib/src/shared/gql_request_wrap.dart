@@ -6,6 +6,30 @@ import 'package:graphql/client.dart';
 import 'gql_api_error_code.dart';
 
 mixin GqlRequestWrap {
+  Future<Either<SimpleActionFailure, T>> callCatchWithSimpleActionFailure<R, T>(
+    Future<QueryResult<R>> Function() request, {
+    required T Function(R r) mapper,
+  }) async {
+    return callCatch(
+      request,
+      mapper: mapper,
+      unknownFailure: SimpleActionFailure.unknown,
+      onError: (code) => SimpleActionFailure.unknown,
+    );
+  }
+
+  Future<Either<FetchFailure, T>> callCatchWithFetchFailure<R, T>(
+    Future<QueryResult<R>> Function() request, {
+    required T Function(R r) mapper,
+  }) async {
+    return callCatch(
+      request,
+      mapper: mapper,
+      unknownFailure: FetchFailure.unknown,
+      onError: (code) => FetchFailure.unknown,
+    );
+  }
+
   Future<Either<F, T>> callCatch<F, R, T>(
     Future<QueryResult<R>> Function() request, {
     required T Function(R r) mapper,

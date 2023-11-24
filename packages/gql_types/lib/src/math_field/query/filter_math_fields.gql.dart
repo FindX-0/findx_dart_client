@@ -5,11 +5,11 @@ import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$FilterMathFields {
   factory Variables$Query$FilterMathFields({
-    required int lastId,
+    String? lastId,
     required int limit,
   }) =>
       Variables$Query$FilterMathFields._({
-        r'lastId': lastId,
+        if (lastId != null) r'lastId': lastId,
         r'limit': limit,
       });
 
@@ -17,8 +17,10 @@ class Variables$Query$FilterMathFields {
 
   factory Variables$Query$FilterMathFields.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$lastId = data['lastId'];
-    result$data['lastId'] = (l$lastId as int);
+    if (data.containsKey('lastId')) {
+      final l$lastId = data['lastId'];
+      result$data['lastId'] = (l$lastId as String?);
+    }
     final l$limit = data['limit'];
     result$data['limit'] = (l$limit as int);
     return Variables$Query$FilterMathFields._(result$data);
@@ -26,14 +28,16 @@ class Variables$Query$FilterMathFields {
 
   Map<String, dynamic> _$data;
 
-  int get lastId => (_$data['lastId'] as int);
+  String? get lastId => (_$data['lastId'] as String?);
 
   int get limit => (_$data['limit'] as int);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$lastId = lastId;
-    result$data['lastId'] = l$lastId;
+    if (_$data.containsKey('lastId')) {
+      final l$lastId = lastId;
+      result$data['lastId'] = l$lastId;
+    }
     final l$limit = limit;
     result$data['limit'] = l$limit;
     return result$data;
@@ -56,6 +60,9 @@ class Variables$Query$FilterMathFields {
     }
     final l$lastId = lastId;
     final lOther$lastId = other.lastId;
+    if (_$data.containsKey('lastId') != other._$data.containsKey('lastId')) {
+      return false;
+    }
     if (l$lastId != lOther$lastId) {
       return false;
     }
@@ -72,7 +79,7 @@ class Variables$Query$FilterMathFields {
     final l$lastId = lastId;
     final l$limit = limit;
     return Object.hashAll([
-      l$lastId,
+      _$data.containsKey('lastId') ? l$lastId : const {},
       l$limit,
     ]);
   }
@@ -88,7 +95,7 @@ abstract class CopyWith$Variables$Query$FilterMathFields<TRes> {
       _CopyWithStubImpl$Variables$Query$FilterMathFields;
 
   TRes call({
-    int? lastId,
+    String? lastId,
     int? limit,
   });
 }
@@ -112,7 +119,7 @@ class _CopyWithImpl$Variables$Query$FilterMathFields<TRes>
   }) =>
       _then(Variables$Query$FilterMathFields._({
         ..._instance._$data,
-        if (lastId != _undefined && lastId != null) 'lastId': (lastId as int),
+        if (lastId != _undefined) 'lastId': (lastId as String?),
         if (limit != _undefined && limit != null) 'limit': (limit as int),
       }));
 }
@@ -124,7 +131,7 @@ class _CopyWithStubImpl$Variables$Query$FilterMathFields<TRes>
   TRes _res;
 
   call({
-    int? lastId,
+    String? lastId,
     int? limit,
   }) =>
       _res;
@@ -274,8 +281,8 @@ const documentNodeQueryFilterMathFields = DocumentNode(definitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'lastId')),
         type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
+          name: NameNode(value: 'String'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -298,16 +305,8 @@ const documentNodeQueryFilterMathFields = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'lastId'),
-                value: VariableNode(name: NameNode(value: 'lastId')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'limit'),
-                value: VariableNode(name: NameNode(value: 'limit')),
-              ),
-            ]),
+            value:
+                EnumValueNode(name: NameNode(value: 'LastIdPageParamsObject')),
           )
         ],
         directives: [],
