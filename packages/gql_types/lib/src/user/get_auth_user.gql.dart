@@ -349,7 +349,7 @@ class Query$GetAuthUser$getAuthUser {
     final l$$__typename = json['__typename'];
     return Query$GetAuthUser$getAuthUser(
       authProvider: fromJson$Enum$AuthProvider((l$authProvider as String)),
-      createdAt: (l$createdAt as String),
+      createdAt: DateTime.parse((l$createdAt as String)),
       email: (l$email as String),
       id: (l$id as String),
       isCompleted: (l$isCompleted as bool),
@@ -360,7 +360,7 @@ class Query$GetAuthUser$getAuthUser {
 
   final Enum$AuthProvider authProvider;
 
-  final String createdAt;
+  final DateTime createdAt;
 
   final String email;
 
@@ -377,7 +377,7 @@ class Query$GetAuthUser$getAuthUser {
     final l$authProvider = authProvider;
     _resultData['authProvider'] = toJson$Enum$AuthProvider(l$authProvider);
     final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
+    _resultData['createdAt'] = l$createdAt.toIso8601String();
     final l$email = email;
     _resultData['email'] = l$email;
     final l$id = id;
@@ -479,7 +479,7 @@ abstract class CopyWith$Query$GetAuthUser$getAuthUser<TRes> {
 
   TRes call({
     Enum$AuthProvider? authProvider,
-    String? createdAt,
+    DateTime? createdAt,
     String? email,
     String? id,
     bool? isCompleted,
@@ -516,7 +516,7 @@ class _CopyWithImpl$Query$GetAuthUser$getAuthUser<TRes>
             : (authProvider as Enum$AuthProvider),
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
-            : (createdAt as String),
+            : (createdAt as DateTime),
         email: email == _undefined || email == null
             ? _instance.email
             : (email as String),
@@ -540,7 +540,7 @@ class _CopyWithStubImpl$Query$GetAuthUser$getAuthUser<TRes>
 
   call({
     Enum$AuthProvider? authProvider,
-    String? createdAt,
+    DateTime? createdAt,
     String? email,
     String? id,
     bool? isCompleted,

@@ -1,0 +1,5 @@
+fragment MathField on MathFieldObject {
+  id
+  name
+  createdAt
+}
