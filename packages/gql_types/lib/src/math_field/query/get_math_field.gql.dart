@@ -259,7 +259,12 @@ const documentNodeQueryGetMathFieldById = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: EnumValueNode(name: NameNode(value: 'IdentifierInput')),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
+              )
+            ]),
           )
         ],
         directives: [],

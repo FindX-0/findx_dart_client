@@ -305,8 +305,16 @@ const documentNodeQueryFilterMathFields = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value:
-                EnumValueNode(name: NameNode(value: 'LastIdPageParamsObject')),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'lastId'),
+                value: VariableNode(name: NameNode(value: 'lastId')),
+              ),
+              ObjectFieldNode(
+                name: NameNode(value: 'limit'),
+                value: VariableNode(name: NameNode(value: 'limit')),
+              ),
+            ]),
           )
         ],
         directives: [],

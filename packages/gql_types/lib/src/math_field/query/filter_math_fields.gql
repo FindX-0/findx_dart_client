@@ -2,7 +2,10 @@ query FilterMathFields(
   $lastId: String,
   $limit: Int!
 ) {
-  filterMathFields(input: LastIdPageParamsObject) {
+  filterMathFields(input: {
+    lastId: $lastId,
+    limit: $limit
+  }) {
     count
     data {
       ...MathField
