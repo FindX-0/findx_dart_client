@@ -281,7 +281,7 @@ const documentNodeQueryFilterMathFields = DocumentNode(definitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'lastId')),
         type: NamedTypeNode(
-          name: NameNode(value: 'String'),
+          name: NameNode(value: 'ID'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),

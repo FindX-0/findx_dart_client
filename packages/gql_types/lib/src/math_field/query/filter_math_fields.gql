@@ -1,5 +1,5 @@
 query FilterMathFields(
-  $lastId: String,
+  $lastId: ID,
   $limit: Int!
 ) {
   filterMathFields(input: {
