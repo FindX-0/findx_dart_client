@@ -939,11 +939,11 @@ class _CopyWithStubImpl$Input$IdentifierInput<TRes>
 
 class Input$LastIdPageParamsObject {
   factory Input$LastIdPageParamsObject({
-    required String lastId,
+    String? lastId,
     required int limit,
   }) =>
       Input$LastIdPageParamsObject._({
-        r'lastId': lastId,
+        if (lastId != null) r'lastId': lastId,
         r'limit': limit,
       });
 
@@ -951,8 +951,10 @@ class Input$LastIdPageParamsObject {
 
   factory Input$LastIdPageParamsObject.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$lastId = data['lastId'];
-    result$data['lastId'] = (l$lastId as String);
+    if (data.containsKey('lastId')) {
+      final l$lastId = data['lastId'];
+      result$data['lastId'] = (l$lastId as String?);
+    }
     final l$limit = data['limit'];
     result$data['limit'] = (l$limit as int);
     return Input$LastIdPageParamsObject._(result$data);
@@ -960,14 +962,16 @@ class Input$LastIdPageParamsObject {
 
   Map<String, dynamic> _$data;
 
-  String get lastId => (_$data['lastId'] as String);
+  String? get lastId => (_$data['lastId'] as String?);
 
   int get limit => (_$data['limit'] as int);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$lastId = lastId;
-    result$data['lastId'] = l$lastId;
+    if (_$data.containsKey('lastId')) {
+      final l$lastId = lastId;
+      result$data['lastId'] = l$lastId;
+    }
     final l$limit = limit;
     result$data['limit'] = l$limit;
     return result$data;
@@ -990,6 +994,9 @@ class Input$LastIdPageParamsObject {
     }
     final l$lastId = lastId;
     final lOther$lastId = other.lastId;
+    if (_$data.containsKey('lastId') != other._$data.containsKey('lastId')) {
+      return false;
+    }
     if (l$lastId != lOther$lastId) {
       return false;
     }
@@ -1006,7 +1013,7 @@ class Input$LastIdPageParamsObject {
     final l$lastId = lastId;
     final l$limit = limit;
     return Object.hashAll([
-      l$lastId,
+      _$data.containsKey('lastId') ? l$lastId : const {},
       l$limit,
     ]);
   }
@@ -1046,8 +1053,7 @@ class _CopyWithImpl$Input$LastIdPageParamsObject<TRes>
   }) =>
       _then(Input$LastIdPageParamsObject._({
         ..._instance._$data,
-        if (lastId != _undefined && lastId != null)
-          'lastId': (lastId as String),
+        if (lastId != _undefined) 'lastId': (lastId as String?),
         if (limit != _undefined && limit != null) 'limit': (limit as int),
       }));
 }
