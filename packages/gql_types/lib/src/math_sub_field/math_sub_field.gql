@@ -1,0 +1,6 @@
+fragment MathSubField on MathSubFieldObject {
+  id
+  name
+  mathFieldId
+  createdAt
+}

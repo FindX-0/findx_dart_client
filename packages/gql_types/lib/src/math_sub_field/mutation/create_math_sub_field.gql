@@ -1,0 +1,11 @@
+mutation CreateMathSubField(
+  $name: String!,
+  $mathFieldId: ID!
+) {
+  createMathSubField(input: {
+    name: $name,
+    mathFieldId: $mathFieldId
+  }) {
+    ...MathSubField
+  }
+} 

@@ -370,6 +370,335 @@ class _CopyWithStubImpl$Input$CreateMathFieldInput<TRes>
   call({String? name}) => _res;
 }
 
+class Input$CreateMathProblemInput {
+  factory Input$CreateMathProblemInput({
+    required int difficulty,
+    required String mathFieldId,
+    required String mathSubFieldId,
+    String? tex,
+    String? text,
+  }) =>
+      Input$CreateMathProblemInput._({
+        r'difficulty': difficulty,
+        r'mathFieldId': mathFieldId,
+        r'mathSubFieldId': mathSubFieldId,
+        if (tex != null) r'tex': tex,
+        if (text != null) r'text': text,
+      });
+
+  Input$CreateMathProblemInput._(this._$data);
+
+  factory Input$CreateMathProblemInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$difficulty = data['difficulty'];
+    result$data['difficulty'] = (l$difficulty as int);
+    final l$mathFieldId = data['mathFieldId'];
+    result$data['mathFieldId'] = (l$mathFieldId as String);
+    final l$mathSubFieldId = data['mathSubFieldId'];
+    result$data['mathSubFieldId'] = (l$mathSubFieldId as String);
+    if (data.containsKey('tex')) {
+      final l$tex = data['tex'];
+      result$data['tex'] = (l$tex as String?);
+    }
+    if (data.containsKey('text')) {
+      final l$text = data['text'];
+      result$data['text'] = (l$text as String?);
+    }
+    return Input$CreateMathProblemInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int get difficulty => (_$data['difficulty'] as int);
+
+  String get mathFieldId => (_$data['mathFieldId'] as String);
+
+  String get mathSubFieldId => (_$data['mathSubFieldId'] as String);
+
+  String? get tex => (_$data['tex'] as String?);
+
+  String? get text => (_$data['text'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$difficulty = difficulty;
+    result$data['difficulty'] = l$difficulty;
+    final l$mathFieldId = mathFieldId;
+    result$data['mathFieldId'] = l$mathFieldId;
+    final l$mathSubFieldId = mathSubFieldId;
+    result$data['mathSubFieldId'] = l$mathSubFieldId;
+    if (_$data.containsKey('tex')) {
+      final l$tex = tex;
+      result$data['tex'] = l$tex;
+    }
+    if (_$data.containsKey('text')) {
+      final l$text = text;
+      result$data['text'] = l$text;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$CreateMathProblemInput<Input$CreateMathProblemInput>
+      get copyWith => CopyWith$Input$CreateMathProblemInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$CreateMathProblemInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$difficulty = difficulty;
+    final lOther$difficulty = other.difficulty;
+    if (l$difficulty != lOther$difficulty) {
+      return false;
+    }
+    final l$mathFieldId = mathFieldId;
+    final lOther$mathFieldId = other.mathFieldId;
+    if (l$mathFieldId != lOther$mathFieldId) {
+      return false;
+    }
+    final l$mathSubFieldId = mathSubFieldId;
+    final lOther$mathSubFieldId = other.mathSubFieldId;
+    if (l$mathSubFieldId != lOther$mathSubFieldId) {
+      return false;
+    }
+    final l$tex = tex;
+    final lOther$tex = other.tex;
+    if (_$data.containsKey('tex') != other._$data.containsKey('tex')) {
+      return false;
+    }
+    if (l$tex != lOther$tex) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (_$data.containsKey('text') != other._$data.containsKey('text')) {
+      return false;
+    }
+    if (l$text != lOther$text) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$difficulty = difficulty;
+    final l$mathFieldId = mathFieldId;
+    final l$mathSubFieldId = mathSubFieldId;
+    final l$tex = tex;
+    final l$text = text;
+    return Object.hashAll([
+      l$difficulty,
+      l$mathFieldId,
+      l$mathSubFieldId,
+      _$data.containsKey('tex') ? l$tex : const {},
+      _$data.containsKey('text') ? l$text : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$CreateMathProblemInput<TRes> {
+  factory CopyWith$Input$CreateMathProblemInput(
+    Input$CreateMathProblemInput instance,
+    TRes Function(Input$CreateMathProblemInput) then,
+  ) = _CopyWithImpl$Input$CreateMathProblemInput;
+
+  factory CopyWith$Input$CreateMathProblemInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CreateMathProblemInput;
+
+  TRes call({
+    int? difficulty,
+    String? mathFieldId,
+    String? mathSubFieldId,
+    String? tex,
+    String? text,
+  });
+}
+
+class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
+    implements CopyWith$Input$CreateMathProblemInput<TRes> {
+  _CopyWithImpl$Input$CreateMathProblemInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$CreateMathProblemInput _instance;
+
+  final TRes Function(Input$CreateMathProblemInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? difficulty = _undefined,
+    Object? mathFieldId = _undefined,
+    Object? mathSubFieldId = _undefined,
+    Object? tex = _undefined,
+    Object? text = _undefined,
+  }) =>
+      _then(Input$CreateMathProblemInput._({
+        ..._instance._$data,
+        if (difficulty != _undefined && difficulty != null)
+          'difficulty': (difficulty as int),
+        if (mathFieldId != _undefined && mathFieldId != null)
+          'mathFieldId': (mathFieldId as String),
+        if (mathSubFieldId != _undefined && mathSubFieldId != null)
+          'mathSubFieldId': (mathSubFieldId as String),
+        if (tex != _undefined) 'tex': (tex as String?),
+        if (text != _undefined) 'text': (text as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$CreateMathProblemInput<TRes>
+    implements CopyWith$Input$CreateMathProblemInput<TRes> {
+  _CopyWithStubImpl$Input$CreateMathProblemInput(this._res);
+
+  TRes _res;
+
+  call({
+    int? difficulty,
+    String? mathFieldId,
+    String? mathSubFieldId,
+    String? tex,
+    String? text,
+  }) =>
+      _res;
+}
+
+class Input$CreateMathSubFieldInput {
+  factory Input$CreateMathSubFieldInput({
+    required String mathFieldId,
+    required String name,
+  }) =>
+      Input$CreateMathSubFieldInput._({
+        r'mathFieldId': mathFieldId,
+        r'name': name,
+      });
+
+  Input$CreateMathSubFieldInput._(this._$data);
+
+  factory Input$CreateMathSubFieldInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$mathFieldId = data['mathFieldId'];
+    result$data['mathFieldId'] = (l$mathFieldId as String);
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    return Input$CreateMathSubFieldInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get mathFieldId => (_$data['mathFieldId'] as String);
+
+  String get name => (_$data['name'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$mathFieldId = mathFieldId;
+    result$data['mathFieldId'] = l$mathFieldId;
+    final l$name = name;
+    result$data['name'] = l$name;
+    return result$data;
+  }
+
+  CopyWith$Input$CreateMathSubFieldInput<Input$CreateMathSubFieldInput>
+      get copyWith => CopyWith$Input$CreateMathSubFieldInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$CreateMathSubFieldInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$mathFieldId = mathFieldId;
+    final lOther$mathFieldId = other.mathFieldId;
+    if (l$mathFieldId != lOther$mathFieldId) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$mathFieldId = mathFieldId;
+    final l$name = name;
+    return Object.hashAll([
+      l$mathFieldId,
+      l$name,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$CreateMathSubFieldInput<TRes> {
+  factory CopyWith$Input$CreateMathSubFieldInput(
+    Input$CreateMathSubFieldInput instance,
+    TRes Function(Input$CreateMathSubFieldInput) then,
+  ) = _CopyWithImpl$Input$CreateMathSubFieldInput;
+
+  factory CopyWith$Input$CreateMathSubFieldInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CreateMathSubFieldInput;
+
+  TRes call({
+    String? mathFieldId,
+    String? name,
+  });
+}
+
+class _CopyWithImpl$Input$CreateMathSubFieldInput<TRes>
+    implements CopyWith$Input$CreateMathSubFieldInput<TRes> {
+  _CopyWithImpl$Input$CreateMathSubFieldInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$CreateMathSubFieldInput _instance;
+
+  final TRes Function(Input$CreateMathSubFieldInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? mathFieldId = _undefined,
+    Object? name = _undefined,
+  }) =>
+      _then(Input$CreateMathSubFieldInput._({
+        ..._instance._$data,
+        if (mathFieldId != _undefined && mathFieldId != null)
+          'mathFieldId': (mathFieldId as String),
+        if (name != _undefined && name != null) 'name': (name as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$CreateMathSubFieldInput<TRes>
+    implements CopyWith$Input$CreateMathSubFieldInput<TRes> {
+  _CopyWithStubImpl$Input$CreateMathSubFieldInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? mathFieldId,
+    String? name,
+  }) =>
+      _res;
+}
+
 class Input$EmailSignInInput {
   factory Input$EmailSignInInput({
     required String email,
@@ -1298,6 +1627,409 @@ class _CopyWithStubImpl$Input$UpdateMathFieldInput<TRes>
 
   call({
     String? id,
+    String? name,
+  }) =>
+      _res;
+}
+
+class Input$UpdateMathProblemInput {
+  factory Input$UpdateMathProblemInput({
+    double? difficulty,
+    required String id,
+    String? mathFieldId,
+    String? mathSubFieldId,
+    String? tex,
+    String? text,
+  }) =>
+      Input$UpdateMathProblemInput._({
+        if (difficulty != null) r'difficulty': difficulty,
+        r'id': id,
+        if (mathFieldId != null) r'mathFieldId': mathFieldId,
+        if (mathSubFieldId != null) r'mathSubFieldId': mathSubFieldId,
+        if (tex != null) r'tex': tex,
+        if (text != null) r'text': text,
+      });
+
+  Input$UpdateMathProblemInput._(this._$data);
+
+  factory Input$UpdateMathProblemInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('difficulty')) {
+      final l$difficulty = data['difficulty'];
+      result$data['difficulty'] = (l$difficulty as num?)?.toDouble();
+    }
+    final l$id = data['id'];
+    result$data['id'] = (l$id as String);
+    if (data.containsKey('mathFieldId')) {
+      final l$mathFieldId = data['mathFieldId'];
+      result$data['mathFieldId'] = (l$mathFieldId as String?);
+    }
+    if (data.containsKey('mathSubFieldId')) {
+      final l$mathSubFieldId = data['mathSubFieldId'];
+      result$data['mathSubFieldId'] = (l$mathSubFieldId as String?);
+    }
+    if (data.containsKey('tex')) {
+      final l$tex = data['tex'];
+      result$data['tex'] = (l$tex as String?);
+    }
+    if (data.containsKey('text')) {
+      final l$text = data['text'];
+      result$data['text'] = (l$text as String?);
+    }
+    return Input$UpdateMathProblemInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  double? get difficulty => (_$data['difficulty'] as double?);
+
+  String get id => (_$data['id'] as String);
+
+  String? get mathFieldId => (_$data['mathFieldId'] as String?);
+
+  String? get mathSubFieldId => (_$data['mathSubFieldId'] as String?);
+
+  String? get tex => (_$data['tex'] as String?);
+
+  String? get text => (_$data['text'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('difficulty')) {
+      final l$difficulty = difficulty;
+      result$data['difficulty'] = l$difficulty;
+    }
+    final l$id = id;
+    result$data['id'] = l$id;
+    if (_$data.containsKey('mathFieldId')) {
+      final l$mathFieldId = mathFieldId;
+      result$data['mathFieldId'] = l$mathFieldId;
+    }
+    if (_$data.containsKey('mathSubFieldId')) {
+      final l$mathSubFieldId = mathSubFieldId;
+      result$data['mathSubFieldId'] = l$mathSubFieldId;
+    }
+    if (_$data.containsKey('tex')) {
+      final l$tex = tex;
+      result$data['tex'] = l$tex;
+    }
+    if (_$data.containsKey('text')) {
+      final l$text = text;
+      result$data['text'] = l$text;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$UpdateMathProblemInput<Input$UpdateMathProblemInput>
+      get copyWith => CopyWith$Input$UpdateMathProblemInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$UpdateMathProblemInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$difficulty = difficulty;
+    final lOther$difficulty = other.difficulty;
+    if (_$data.containsKey('difficulty') !=
+        other._$data.containsKey('difficulty')) {
+      return false;
+    }
+    if (l$difficulty != lOther$difficulty) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$mathFieldId = mathFieldId;
+    final lOther$mathFieldId = other.mathFieldId;
+    if (_$data.containsKey('mathFieldId') !=
+        other._$data.containsKey('mathFieldId')) {
+      return false;
+    }
+    if (l$mathFieldId != lOther$mathFieldId) {
+      return false;
+    }
+    final l$mathSubFieldId = mathSubFieldId;
+    final lOther$mathSubFieldId = other.mathSubFieldId;
+    if (_$data.containsKey('mathSubFieldId') !=
+        other._$data.containsKey('mathSubFieldId')) {
+      return false;
+    }
+    if (l$mathSubFieldId != lOther$mathSubFieldId) {
+      return false;
+    }
+    final l$tex = tex;
+    final lOther$tex = other.tex;
+    if (_$data.containsKey('tex') != other._$data.containsKey('tex')) {
+      return false;
+    }
+    if (l$tex != lOther$tex) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (_$data.containsKey('text') != other._$data.containsKey('text')) {
+      return false;
+    }
+    if (l$text != lOther$text) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$difficulty = difficulty;
+    final l$id = id;
+    final l$mathFieldId = mathFieldId;
+    final l$mathSubFieldId = mathSubFieldId;
+    final l$tex = tex;
+    final l$text = text;
+    return Object.hashAll([
+      _$data.containsKey('difficulty') ? l$difficulty : const {},
+      l$id,
+      _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
+      _$data.containsKey('mathSubFieldId') ? l$mathSubFieldId : const {},
+      _$data.containsKey('tex') ? l$tex : const {},
+      _$data.containsKey('text') ? l$text : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$UpdateMathProblemInput<TRes> {
+  factory CopyWith$Input$UpdateMathProblemInput(
+    Input$UpdateMathProblemInput instance,
+    TRes Function(Input$UpdateMathProblemInput) then,
+  ) = _CopyWithImpl$Input$UpdateMathProblemInput;
+
+  factory CopyWith$Input$UpdateMathProblemInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$UpdateMathProblemInput;
+
+  TRes call({
+    double? difficulty,
+    String? id,
+    String? mathFieldId,
+    String? mathSubFieldId,
+    String? tex,
+    String? text,
+  });
+}
+
+class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
+    implements CopyWith$Input$UpdateMathProblemInput<TRes> {
+  _CopyWithImpl$Input$UpdateMathProblemInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$UpdateMathProblemInput _instance;
+
+  final TRes Function(Input$UpdateMathProblemInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? difficulty = _undefined,
+    Object? id = _undefined,
+    Object? mathFieldId = _undefined,
+    Object? mathSubFieldId = _undefined,
+    Object? tex = _undefined,
+    Object? text = _undefined,
+  }) =>
+      _then(Input$UpdateMathProblemInput._({
+        ..._instance._$data,
+        if (difficulty != _undefined) 'difficulty': (difficulty as double?),
+        if (id != _undefined && id != null) 'id': (id as String),
+        if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
+        if (mathSubFieldId != _undefined)
+          'mathSubFieldId': (mathSubFieldId as String?),
+        if (tex != _undefined) 'tex': (tex as String?),
+        if (text != _undefined) 'text': (text as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$UpdateMathProblemInput<TRes>
+    implements CopyWith$Input$UpdateMathProblemInput<TRes> {
+  _CopyWithStubImpl$Input$UpdateMathProblemInput(this._res);
+
+  TRes _res;
+
+  call({
+    double? difficulty,
+    String? id,
+    String? mathFieldId,
+    String? mathSubFieldId,
+    String? tex,
+    String? text,
+  }) =>
+      _res;
+}
+
+class Input$UpdateMathSubFieldInput {
+  factory Input$UpdateMathSubFieldInput({
+    required String id,
+    String? mathFieldId,
+    String? name,
+  }) =>
+      Input$UpdateMathSubFieldInput._({
+        r'id': id,
+        if (mathFieldId != null) r'mathFieldId': mathFieldId,
+        if (name != null) r'name': name,
+      });
+
+  Input$UpdateMathSubFieldInput._(this._$data);
+
+  factory Input$UpdateMathSubFieldInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$id = data['id'];
+    result$data['id'] = (l$id as String);
+    if (data.containsKey('mathFieldId')) {
+      final l$mathFieldId = data['mathFieldId'];
+      result$data['mathFieldId'] = (l$mathFieldId as String?);
+    }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return Input$UpdateMathSubFieldInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get id => (_$data['id'] as String);
+
+  String? get mathFieldId => (_$data['mathFieldId'] as String?);
+
+  String? get name => (_$data['name'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$id = id;
+    result$data['id'] = l$id;
+    if (_$data.containsKey('mathFieldId')) {
+      final l$mathFieldId = mathFieldId;
+      result$data['mathFieldId'] = l$mathFieldId;
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$UpdateMathSubFieldInput<Input$UpdateMathSubFieldInput>
+      get copyWith => CopyWith$Input$UpdateMathSubFieldInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$UpdateMathSubFieldInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$mathFieldId = mathFieldId;
+    final lOther$mathFieldId = other.mathFieldId;
+    if (_$data.containsKey('mathFieldId') !=
+        other._$data.containsKey('mathFieldId')) {
+      return false;
+    }
+    if (l$mathFieldId != lOther$mathFieldId) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$mathFieldId = mathFieldId;
+    final l$name = name;
+    return Object.hashAll([
+      l$id,
+      _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
+      _$data.containsKey('name') ? l$name : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$UpdateMathSubFieldInput<TRes> {
+  factory CopyWith$Input$UpdateMathSubFieldInput(
+    Input$UpdateMathSubFieldInput instance,
+    TRes Function(Input$UpdateMathSubFieldInput) then,
+  ) = _CopyWithImpl$Input$UpdateMathSubFieldInput;
+
+  factory CopyWith$Input$UpdateMathSubFieldInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$UpdateMathSubFieldInput;
+
+  TRes call({
+    String? id,
+    String? mathFieldId,
+    String? name,
+  });
+}
+
+class _CopyWithImpl$Input$UpdateMathSubFieldInput<TRes>
+    implements CopyWith$Input$UpdateMathSubFieldInput<TRes> {
+  _CopyWithImpl$Input$UpdateMathSubFieldInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$UpdateMathSubFieldInput _instance;
+
+  final TRes Function(Input$UpdateMathSubFieldInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? mathFieldId = _undefined,
+    Object? name = _undefined,
+  }) =>
+      _then(Input$UpdateMathSubFieldInput._({
+        ..._instance._$data,
+        if (id != _undefined && id != null) 'id': (id as String),
+        if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
+        if (name != _undefined) 'name': (name as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$UpdateMathSubFieldInput<TRes>
+    implements CopyWith$Input$UpdateMathSubFieldInput<TRes> {
+  _CopyWithStubImpl$Input$UpdateMathSubFieldInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? mathFieldId,
     String? name,
   }) =>
       _res;

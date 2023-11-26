@@ -1,0 +1,13 @@
+mutation UpdateMathSubField(
+  $id: ID!,
+  $name: String,
+  $mathFieldId: ID
+) {
+  updateMathSubField(input: {
+    id: $id,
+    name: $name,
+    mathFieldId: $mathFieldId
+  }) {
+    ...MathSubField
+  }
+}

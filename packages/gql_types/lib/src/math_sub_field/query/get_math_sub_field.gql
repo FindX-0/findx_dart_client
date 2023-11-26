@@ -1,0 +1,9 @@
+query GetMathSubFieldById(
+  $id: ID!
+) {
+  getMathSubFieldById(input: {
+    id: $id
+  }) {
+    ...MathSubField
+  }
+}
