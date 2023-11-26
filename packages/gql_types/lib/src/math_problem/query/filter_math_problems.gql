@@ -1,0 +1,14 @@
+query FilterMathProblems(
+  $lastId: ID,
+  $limit: Int!
+) {
+  filterMathProblems(input: {
+    lastId: $lastId,
+    limit: $limit
+  }) {
+    count
+    data {
+      ...MathProblem
+    }
+  }
+}

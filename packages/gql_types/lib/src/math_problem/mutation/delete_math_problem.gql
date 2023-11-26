@@ -1,0 +1,9 @@
+mutation DeleteMathProblem(
+  $id: ID!
+) {
+  deleteMathProblem(input: {
+    id: $id
+  }) {
+    ...SuccessObject
+  }
+}

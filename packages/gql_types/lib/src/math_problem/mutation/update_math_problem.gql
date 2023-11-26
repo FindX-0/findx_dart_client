@@ -1,0 +1,19 @@
+mutation UpdateMathProblem(
+  $id: ID!,
+  $difficulty: Int,
+  $text: String,
+  $tex: String,
+  $mathFieldId: ID,
+  $mathSubFieldId: ID
+) {
+  updateMathField(input: {
+    id: $id,
+    difficulty: $difficulty,
+    text: $text,
+    tex: $tex,
+    mathFieldId: $mathFieldId,
+    mathSubFieldId: $mathSubFieldId
+  }) {
+    ...MathProblem
+  }
+}

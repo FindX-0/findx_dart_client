@@ -1,0 +1,17 @@
+mutation CreateMathProblem(
+  $difficulty: Int!,
+  $text: String,
+  $tex: String,
+  $mathFieldId: ID!,
+  $mathSubFieldId: ID!
+) {
+  createMathProblem(input: {
+    difficulty: $difficulty,
+    text: $text,
+    tex: $tex,
+    mathFieldId: $mathFieldId,
+    mathSubFieldId: $mathSubFieldId
+  }) {
+    ...MathProblem
+  }
+} 

@@ -1,0 +1,9 @@
+query GetMathProblemById(
+  $id: ID!
+) {
+  getMathProblemById(input: {
+    id: $id
+  }) {
+    ...MathProblem
+  }
+}
