@@ -249,28 +249,28 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateMathProblem<TRes>
 
 class Mutation$UpdateMathProblem {
   Mutation$UpdateMathProblem({
-    required this.updateMathField,
+    required this.updateMathProblem,
     this.$__typename = 'Mutation',
   });
 
   factory Mutation$UpdateMathProblem.fromJson(Map<String, dynamic> json) {
-    final l$updateMathField = json['updateMathField'];
+    final l$updateMathProblem = json['updateMathProblem'];
     final l$$__typename = json['__typename'];
     return Mutation$UpdateMathProblem(
-      updateMathField: Mutation$UpdateMathProblem$updateMathField.fromJson(
-          (l$updateMathField as Map<String, dynamic>)),
+      updateMathProblem: Fragment$MathProblem.fromJson(
+          (l$updateMathProblem as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$UpdateMathProblem$updateMathField updateMathField;
+  final Fragment$MathProblem updateMathProblem;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$updateMathField = updateMathField;
-    _resultData['updateMathField'] = l$updateMathField.toJson();
+    final l$updateMathProblem = updateMathProblem;
+    _resultData['updateMathProblem'] = l$updateMathProblem.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -278,10 +278,10 @@ class Mutation$UpdateMathProblem {
 
   @override
   int get hashCode {
-    final l$updateMathField = updateMathField;
+    final l$updateMathProblem = updateMathProblem;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$updateMathField,
+      l$updateMathProblem,
       l$$__typename,
     ]);
   }
@@ -295,9 +295,9 @@ class Mutation$UpdateMathProblem {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$updateMathField = updateMathField;
-    final lOther$updateMathField = other.updateMathField;
-    if (l$updateMathField != lOther$updateMathField) {
+    final l$updateMathProblem = updateMathProblem;
+    final lOther$updateMathProblem = other.updateMathProblem;
+    if (l$updateMathProblem != lOther$updateMathProblem) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -328,10 +328,10 @@ abstract class CopyWith$Mutation$UpdateMathProblem<TRes> {
       _CopyWithStubImpl$Mutation$UpdateMathProblem;
 
   TRes call({
-    Mutation$UpdateMathProblem$updateMathField? updateMathField,
+    Fragment$MathProblem? updateMathProblem,
     String? $__typename,
   });
-  CopyWith$Mutation$UpdateMathProblem$updateMathField<TRes> get updateMathField;
+  CopyWith$Fragment$MathProblem<TRes> get updateMathProblem;
 }
 
 class _CopyWithImpl$Mutation$UpdateMathProblem<TRes>
@@ -348,24 +348,23 @@ class _CopyWithImpl$Mutation$UpdateMathProblem<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? updateMathField = _undefined,
+    Object? updateMathProblem = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$UpdateMathProblem(
-        updateMathField: updateMathField == _undefined ||
-                updateMathField == null
-            ? _instance.updateMathField
-            : (updateMathField as Mutation$UpdateMathProblem$updateMathField),
+        updateMathProblem:
+            updateMathProblem == _undefined || updateMathProblem == null
+                ? _instance.updateMathProblem
+                : (updateMathProblem as Fragment$MathProblem),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Mutation$UpdateMathProblem$updateMathField<TRes>
-      get updateMathField {
-    final local$updateMathField = _instance.updateMathField;
-    return CopyWith$Mutation$UpdateMathProblem$updateMathField(
-        local$updateMathField, (e) => call(updateMathField: e));
+  CopyWith$Fragment$MathProblem<TRes> get updateMathProblem {
+    final local$updateMathProblem = _instance.updateMathProblem;
+    return CopyWith$Fragment$MathProblem(
+        local$updateMathProblem, (e) => call(updateMathProblem: e));
   }
 }
 
@@ -376,14 +375,13 @@ class _CopyWithStubImpl$Mutation$UpdateMathProblem<TRes>
   TRes _res;
 
   call({
-    Mutation$UpdateMathProblem$updateMathField? updateMathField,
+    Fragment$MathProblem? updateMathProblem,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Mutation$UpdateMathProblem$updateMathField<TRes>
-      get updateMathField =>
-          CopyWith$Mutation$UpdateMathProblem$updateMathField.stub(_res);
+  CopyWith$Fragment$MathProblem<TRes> get updateMathProblem =>
+      CopyWith$Fragment$MathProblem.stub(_res);
 }
 
 const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
@@ -449,7 +447,7 @@ const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
     directives: [],
     selectionSet: SelectionSetNode(selections: [
       FieldNode(
-        name: NameNode(value: 'updateMathField'),
+        name: NameNode(value: 'updateMathProblem'),
         alias: null,
         arguments: [
           ArgumentNode(
@@ -606,99 +604,4 @@ extension ClientExtension$Mutation$UpdateMathProblem on graphql.GraphQLClient {
       watchMutation$UpdateMathProblem(
               WatchOptions$Mutation$UpdateMathProblem options) =>
           this.watchMutation(options);
-}
-
-class Mutation$UpdateMathProblem$updateMathField {
-  Mutation$UpdateMathProblem$updateMathField(
-      {this.$__typename = 'MathFieldObject'});
-
-  factory Mutation$UpdateMathProblem$updateMathField.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return Mutation$UpdateMathProblem$updateMathField(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Mutation$UpdateMathProblem$updateMathField) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$UpdateMathProblem$updateMathField
-    on Mutation$UpdateMathProblem$updateMathField {
-  CopyWith$Mutation$UpdateMathProblem$updateMathField<
-          Mutation$UpdateMathProblem$updateMathField>
-      get copyWith => CopyWith$Mutation$UpdateMathProblem$updateMathField(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$UpdateMathProblem$updateMathField<TRes> {
-  factory CopyWith$Mutation$UpdateMathProblem$updateMathField(
-    Mutation$UpdateMathProblem$updateMathField instance,
-    TRes Function(Mutation$UpdateMathProblem$updateMathField) then,
-  ) = _CopyWithImpl$Mutation$UpdateMathProblem$updateMathField;
-
-  factory CopyWith$Mutation$UpdateMathProblem$updateMathField.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$UpdateMathProblem$updateMathField;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImpl$Mutation$UpdateMathProblem$updateMathField<TRes>
-    implements CopyWith$Mutation$UpdateMathProblem$updateMathField<TRes> {
-  _CopyWithImpl$Mutation$UpdateMathProblem$updateMathField(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$UpdateMathProblem$updateMathField _instance;
-
-  final TRes Function(Mutation$UpdateMathProblem$updateMathField) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Mutation$UpdateMathProblem$updateMathField(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImpl$Mutation$UpdateMathProblem$updateMathField<TRes>
-    implements CopyWith$Mutation$UpdateMathProblem$updateMathField<TRes> {
-  _CopyWithStubImpl$Mutation$UpdateMathProblem$updateMathField(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
 }

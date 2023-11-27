@@ -6,7 +6,7 @@ mutation UpdateMathProblem(
   $mathFieldId: ID,
   $mathSubFieldId: ID
 ) {
-  updateMathField(input: {
+  updateMathProblem(input: {
     id: $id,
     difficulty: $difficulty,
     text: $text,
