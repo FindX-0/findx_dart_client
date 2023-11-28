@@ -19,9 +19,18 @@ final class NetworkClientFactory {
       DioLink('/graphql', client: dio),
     ]);
 
+    final policies = Policies(
+      fetch: FetchPolicy.noCache,
+    );
+
     return GraphQLClient(
       cache: GraphQLCache(),
       link: link,
+      defaultPolicies: DefaultPolicies(
+        watchQuery: policies,
+        query: policies,
+        mutate: policies,
+      ),
     );
   }
 
