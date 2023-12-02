@@ -7,10 +7,12 @@ class Variables$Query$FilterMathSubFields {
   factory Variables$Query$FilterMathSubFields({
     String? lastId,
     required int limit,
+    String? mathFieldId,
   }) =>
       Variables$Query$FilterMathSubFields._({
         if (lastId != null) r'lastId': lastId,
         r'limit': limit,
+        if (mathFieldId != null) r'mathFieldId': mathFieldId,
       });
 
   Variables$Query$FilterMathSubFields._(this._$data);
@@ -24,6 +26,10 @@ class Variables$Query$FilterMathSubFields {
     }
     final l$limit = data['limit'];
     result$data['limit'] = (l$limit as int);
+    if (data.containsKey('mathFieldId')) {
+      final l$mathFieldId = data['mathFieldId'];
+      result$data['mathFieldId'] = (l$mathFieldId as String?);
+    }
     return Variables$Query$FilterMathSubFields._(result$data);
   }
 
@@ -33,6 +39,8 @@ class Variables$Query$FilterMathSubFields {
 
   int get limit => (_$data['limit'] as int);
 
+  String? get mathFieldId => (_$data['mathFieldId'] as String?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('lastId')) {
@@ -41,6 +49,10 @@ class Variables$Query$FilterMathSubFields {
     }
     final l$limit = limit;
     result$data['limit'] = l$limit;
+    if (_$data.containsKey('mathFieldId')) {
+      final l$mathFieldId = mathFieldId;
+      result$data['mathFieldId'] = l$mathFieldId;
+    }
     return result$data;
   }
 
@@ -73,6 +85,15 @@ class Variables$Query$FilterMathSubFields {
     if (l$limit != lOther$limit) {
       return false;
     }
+    final l$mathFieldId = mathFieldId;
+    final lOther$mathFieldId = other.mathFieldId;
+    if (_$data.containsKey('mathFieldId') !=
+        other._$data.containsKey('mathFieldId')) {
+      return false;
+    }
+    if (l$mathFieldId != lOther$mathFieldId) {
+      return false;
+    }
     return true;
   }
 
@@ -80,9 +101,11 @@ class Variables$Query$FilterMathSubFields {
   int get hashCode {
     final l$lastId = lastId;
     final l$limit = limit;
+    final l$mathFieldId = mathFieldId;
     return Object.hashAll([
       _$data.containsKey('lastId') ? l$lastId : const {},
       l$limit,
+      _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
     ]);
   }
 }
@@ -99,6 +122,7 @@ abstract class CopyWith$Variables$Query$FilterMathSubFields<TRes> {
   TRes call({
     String? lastId,
     int? limit,
+    String? mathFieldId,
   });
 }
 
@@ -118,11 +142,13 @@ class _CopyWithImpl$Variables$Query$FilterMathSubFields<TRes>
   TRes call({
     Object? lastId = _undefined,
     Object? limit = _undefined,
+    Object? mathFieldId = _undefined,
   }) =>
       _then(Variables$Query$FilterMathSubFields._({
         ..._instance._$data,
         if (lastId != _undefined) 'lastId': (lastId as String?),
         if (limit != _undefined && limit != null) 'limit': (limit as int),
+        if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
       }));
 }
 
@@ -135,6 +161,7 @@ class _CopyWithStubImpl$Variables$Query$FilterMathSubFields<TRes>
   call({
     String? lastId,
     int? limit,
+    String? mathFieldId,
   }) =>
       _res;
 }
@@ -304,6 +331,15 @@ const documentNodeQueryFilterMathSubFields = DocumentNode(definitions: [
         defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'mathFieldId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ID'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -321,6 +357,10 @@ const documentNodeQueryFilterMathSubFields = DocumentNode(definitions: [
               ObjectFieldNode(
                 name: NameNode(value: 'limit'),
                 value: VariableNode(name: NameNode(value: 'limit')),
+              ),
+              ObjectFieldNode(
+                name: NameNode(value: 'mathFieldId'),
+                value: VariableNode(name: NameNode(value: 'mathFieldId')),
               ),
             ]),
           )

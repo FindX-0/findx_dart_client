@@ -373,6 +373,7 @@ class _CopyWithStubImpl$Input$CreateMathFieldInput<TRes>
 class Input$CreateMathProblemInput {
   factory Input$CreateMathProblemInput({
     required int difficulty,
+    required List<String> imageMediaIds,
     required String mathFieldId,
     required String mathSubFieldId,
     String? tex,
@@ -380,6 +381,7 @@ class Input$CreateMathProblemInput {
   }) =>
       Input$CreateMathProblemInput._({
         r'difficulty': difficulty,
+        r'imageMediaIds': imageMediaIds,
         r'mathFieldId': mathFieldId,
         r'mathSubFieldId': mathSubFieldId,
         if (tex != null) r'tex': tex,
@@ -392,6 +394,9 @@ class Input$CreateMathProblemInput {
     final result$data = <String, dynamic>{};
     final l$difficulty = data['difficulty'];
     result$data['difficulty'] = (l$difficulty as int);
+    final l$imageMediaIds = data['imageMediaIds'];
+    result$data['imageMediaIds'] =
+        (l$imageMediaIds as List<dynamic>).map((e) => (e as String)).toList();
     final l$mathFieldId = data['mathFieldId'];
     result$data['mathFieldId'] = (l$mathFieldId as String);
     final l$mathSubFieldId = data['mathSubFieldId'];
@@ -411,6 +416,8 @@ class Input$CreateMathProblemInput {
 
   int get difficulty => (_$data['difficulty'] as int);
 
+  List<String> get imageMediaIds => (_$data['imageMediaIds'] as List<String>);
+
   String get mathFieldId => (_$data['mathFieldId'] as String);
 
   String get mathSubFieldId => (_$data['mathSubFieldId'] as String);
@@ -423,6 +430,8 @@ class Input$CreateMathProblemInput {
     final result$data = <String, dynamic>{};
     final l$difficulty = difficulty;
     result$data['difficulty'] = l$difficulty;
+    final l$imageMediaIds = imageMediaIds;
+    result$data['imageMediaIds'] = l$imageMediaIds.map((e) => e).toList();
     final l$mathFieldId = mathFieldId;
     result$data['mathFieldId'] = l$mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
@@ -458,6 +467,18 @@ class Input$CreateMathProblemInput {
     if (l$difficulty != lOther$difficulty) {
       return false;
     }
+    final l$imageMediaIds = imageMediaIds;
+    final lOther$imageMediaIds = other.imageMediaIds;
+    if (l$imageMediaIds.length != lOther$imageMediaIds.length) {
+      return false;
+    }
+    for (int i = 0; i < l$imageMediaIds.length; i++) {
+      final l$imageMediaIds$entry = l$imageMediaIds[i];
+      final lOther$imageMediaIds$entry = lOther$imageMediaIds[i];
+      if (l$imageMediaIds$entry != lOther$imageMediaIds$entry) {
+        return false;
+      }
+    }
     final l$mathFieldId = mathFieldId;
     final lOther$mathFieldId = other.mathFieldId;
     if (l$mathFieldId != lOther$mathFieldId) {
@@ -490,12 +511,14 @@ class Input$CreateMathProblemInput {
   @override
   int get hashCode {
     final l$difficulty = difficulty;
+    final l$imageMediaIds = imageMediaIds;
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
     final l$tex = tex;
     final l$text = text;
     return Object.hashAll([
       l$difficulty,
+      Object.hashAll(l$imageMediaIds.map((v) => v)),
       l$mathFieldId,
       l$mathSubFieldId,
       _$data.containsKey('tex') ? l$tex : const {},
@@ -515,6 +538,7 @@ abstract class CopyWith$Input$CreateMathProblemInput<TRes> {
 
   TRes call({
     int? difficulty,
+    List<String>? imageMediaIds,
     String? mathFieldId,
     String? mathSubFieldId,
     String? tex,
@@ -537,6 +561,7 @@ class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
 
   TRes call({
     Object? difficulty = _undefined,
+    Object? imageMediaIds = _undefined,
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
     Object? tex = _undefined,
@@ -546,6 +571,8 @@ class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
         ..._instance._$data,
         if (difficulty != _undefined && difficulty != null)
           'difficulty': (difficulty as int),
+        if (imageMediaIds != _undefined && imageMediaIds != null)
+          'imageMediaIds': (imageMediaIds as List<String>),
         if (mathFieldId != _undefined && mathFieldId != null)
           'mathFieldId': (mathFieldId as String),
         if (mathSubFieldId != _undefined && mathSubFieldId != null)
@@ -563,6 +590,7 @@ class _CopyWithStubImpl$Input$CreateMathProblemInput<TRes>
 
   call({
     int? difficulty,
+    List<String>? imageMediaIds,
     String? mathFieldId,
     String? mathSubFieldId,
     String? tex,
@@ -1071,6 +1099,167 @@ class _CopyWithStubImpl$Input$EnqueueTicketInput<TRes>
   TRes _res;
 
   call({String? mathFieldId}) => _res;
+}
+
+class Input$FilterMathSubFieldsInput {
+  factory Input$FilterMathSubFieldsInput({
+    String? lastId,
+    required int limit,
+    String? mathFieldId,
+  }) =>
+      Input$FilterMathSubFieldsInput._({
+        if (lastId != null) r'lastId': lastId,
+        r'limit': limit,
+        if (mathFieldId != null) r'mathFieldId': mathFieldId,
+      });
+
+  Input$FilterMathSubFieldsInput._(this._$data);
+
+  factory Input$FilterMathSubFieldsInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('lastId')) {
+      final l$lastId = data['lastId'];
+      result$data['lastId'] = (l$lastId as String?);
+    }
+    final l$limit = data['limit'];
+    result$data['limit'] = (l$limit as int);
+    if (data.containsKey('mathFieldId')) {
+      final l$mathFieldId = data['mathFieldId'];
+      result$data['mathFieldId'] = (l$mathFieldId as String?);
+    }
+    return Input$FilterMathSubFieldsInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get lastId => (_$data['lastId'] as String?);
+
+  int get limit => (_$data['limit'] as int);
+
+  String? get mathFieldId => (_$data['mathFieldId'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('lastId')) {
+      final l$lastId = lastId;
+      result$data['lastId'] = l$lastId;
+    }
+    final l$limit = limit;
+    result$data['limit'] = l$limit;
+    if (_$data.containsKey('mathFieldId')) {
+      final l$mathFieldId = mathFieldId;
+      result$data['mathFieldId'] = l$mathFieldId;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$FilterMathSubFieldsInput<Input$FilterMathSubFieldsInput>
+      get copyWith => CopyWith$Input$FilterMathSubFieldsInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$FilterMathSubFieldsInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$lastId = lastId;
+    final lOther$lastId = other.lastId;
+    if (_$data.containsKey('lastId') != other._$data.containsKey('lastId')) {
+      return false;
+    }
+    if (l$lastId != lOther$lastId) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$mathFieldId = mathFieldId;
+    final lOther$mathFieldId = other.mathFieldId;
+    if (_$data.containsKey('mathFieldId') !=
+        other._$data.containsKey('mathFieldId')) {
+      return false;
+    }
+    if (l$mathFieldId != lOther$mathFieldId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$lastId = lastId;
+    final l$limit = limit;
+    final l$mathFieldId = mathFieldId;
+    return Object.hashAll([
+      _$data.containsKey('lastId') ? l$lastId : const {},
+      l$limit,
+      _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$FilterMathSubFieldsInput<TRes> {
+  factory CopyWith$Input$FilterMathSubFieldsInput(
+    Input$FilterMathSubFieldsInput instance,
+    TRes Function(Input$FilterMathSubFieldsInput) then,
+  ) = _CopyWithImpl$Input$FilterMathSubFieldsInput;
+
+  factory CopyWith$Input$FilterMathSubFieldsInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$FilterMathSubFieldsInput;
+
+  TRes call({
+    String? lastId,
+    int? limit,
+    String? mathFieldId,
+  });
+}
+
+class _CopyWithImpl$Input$FilterMathSubFieldsInput<TRes>
+    implements CopyWith$Input$FilterMathSubFieldsInput<TRes> {
+  _CopyWithImpl$Input$FilterMathSubFieldsInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$FilterMathSubFieldsInput _instance;
+
+  final TRes Function(Input$FilterMathSubFieldsInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? lastId = _undefined,
+    Object? limit = _undefined,
+    Object? mathFieldId = _undefined,
+  }) =>
+      _then(Input$FilterMathSubFieldsInput._({
+        ..._instance._$data,
+        if (lastId != _undefined) 'lastId': (lastId as String?),
+        if (limit != _undefined && limit != null) 'limit': (limit as int),
+        if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$FilterMathSubFieldsInput<TRes>
+    implements CopyWith$Input$FilterMathSubFieldsInput<TRes> {
+  _CopyWithStubImpl$Input$FilterMathSubFieldsInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? lastId,
+    int? limit,
+    String? mathFieldId,
+  }) =>
+      _res;
 }
 
 class Input$GoogleSignInInput {
@@ -1636,6 +1825,7 @@ class Input$UpdateMathProblemInput {
   factory Input$UpdateMathProblemInput({
     double? difficulty,
     required String id,
+    List<String>? imageMediaIds,
     String? mathFieldId,
     String? mathSubFieldId,
     String? tex,
@@ -1644,6 +1834,7 @@ class Input$UpdateMathProblemInput {
       Input$UpdateMathProblemInput._({
         if (difficulty != null) r'difficulty': difficulty,
         r'id': id,
+        if (imageMediaIds != null) r'imageMediaIds': imageMediaIds,
         if (mathFieldId != null) r'mathFieldId': mathFieldId,
         if (mathSubFieldId != null) r'mathSubFieldId': mathSubFieldId,
         if (tex != null) r'tex': tex,
@@ -1660,6 +1851,12 @@ class Input$UpdateMathProblemInput {
     }
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
+    if (data.containsKey('imageMediaIds')) {
+      final l$imageMediaIds = data['imageMediaIds'];
+      result$data['imageMediaIds'] = (l$imageMediaIds as List<dynamic>?)
+          ?.map((e) => (e as String))
+          .toList();
+    }
     if (data.containsKey('mathFieldId')) {
       final l$mathFieldId = data['mathFieldId'];
       result$data['mathFieldId'] = (l$mathFieldId as String?);
@@ -1685,6 +1882,8 @@ class Input$UpdateMathProblemInput {
 
   String get id => (_$data['id'] as String);
 
+  List<String>? get imageMediaIds => (_$data['imageMediaIds'] as List<String>?);
+
   String? get mathFieldId => (_$data['mathFieldId'] as String?);
 
   String? get mathSubFieldId => (_$data['mathSubFieldId'] as String?);
@@ -1701,6 +1900,10 @@ class Input$UpdateMathProblemInput {
     }
     final l$id = id;
     result$data['id'] = l$id;
+    if (_$data.containsKey('imageMediaIds')) {
+      final l$imageMediaIds = imageMediaIds;
+      result$data['imageMediaIds'] = l$imageMediaIds?.map((e) => e).toList();
+    }
     if (_$data.containsKey('mathFieldId')) {
       final l$mathFieldId = mathFieldId;
       result$data['mathFieldId'] = l$mathFieldId;
@@ -1749,6 +1952,26 @@ class Input$UpdateMathProblemInput {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$imageMediaIds = imageMediaIds;
+    final lOther$imageMediaIds = other.imageMediaIds;
+    if (_$data.containsKey('imageMediaIds') !=
+        other._$data.containsKey('imageMediaIds')) {
+      return false;
+    }
+    if (l$imageMediaIds != null && lOther$imageMediaIds != null) {
+      if (l$imageMediaIds.length != lOther$imageMediaIds.length) {
+        return false;
+      }
+      for (int i = 0; i < l$imageMediaIds.length; i++) {
+        final l$imageMediaIds$entry = l$imageMediaIds[i];
+        final lOther$imageMediaIds$entry = lOther$imageMediaIds[i];
+        if (l$imageMediaIds$entry != lOther$imageMediaIds$entry) {
+          return false;
+        }
+      }
+    } else if (l$imageMediaIds != lOther$imageMediaIds) {
+      return false;
+    }
     final l$mathFieldId = mathFieldId;
     final lOther$mathFieldId = other.mathFieldId;
     if (_$data.containsKey('mathFieldId') !=
@@ -1790,6 +2013,7 @@ class Input$UpdateMathProblemInput {
   int get hashCode {
     final l$difficulty = difficulty;
     final l$id = id;
+    final l$imageMediaIds = imageMediaIds;
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
     final l$tex = tex;
@@ -1797,6 +2021,11 @@ class Input$UpdateMathProblemInput {
     return Object.hashAll([
       _$data.containsKey('difficulty') ? l$difficulty : const {},
       l$id,
+      _$data.containsKey('imageMediaIds')
+          ? l$imageMediaIds == null
+              ? null
+              : Object.hashAll(l$imageMediaIds.map((v) => v))
+          : const {},
       _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
       _$data.containsKey('mathSubFieldId') ? l$mathSubFieldId : const {},
       _$data.containsKey('tex') ? l$tex : const {},
@@ -1817,6 +2046,7 @@ abstract class CopyWith$Input$UpdateMathProblemInput<TRes> {
   TRes call({
     double? difficulty,
     String? id,
+    List<String>? imageMediaIds,
     String? mathFieldId,
     String? mathSubFieldId,
     String? tex,
@@ -1840,6 +2070,7 @@ class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
   TRes call({
     Object? difficulty = _undefined,
     Object? id = _undefined,
+    Object? imageMediaIds = _undefined,
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
     Object? tex = _undefined,
@@ -1849,6 +2080,8 @@ class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
         ..._instance._$data,
         if (difficulty != _undefined) 'difficulty': (difficulty as double?),
         if (id != _undefined && id != null) 'id': (id as String),
+        if (imageMediaIds != _undefined)
+          'imageMediaIds': (imageMediaIds as List<String>?),
         if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
         if (mathSubFieldId != _undefined)
           'mathSubFieldId': (mathSubFieldId as String?),
@@ -1866,6 +2099,7 @@ class _CopyWithStubImpl$Input$UpdateMathProblemInput<TRes>
   call({
     double? difficulty,
     String? id,
+    List<String>? imageMediaIds,
     String? mathFieldId,
     String? mathSubFieldId,
     String? tex,
