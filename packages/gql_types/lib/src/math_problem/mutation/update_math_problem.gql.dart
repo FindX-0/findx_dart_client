@@ -11,6 +11,7 @@ class Variables$Mutation$UpdateMathProblem {
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    List<String>? imageMediaIds,
   }) =>
       Variables$Mutation$UpdateMathProblem._({
         r'id': id,
@@ -19,6 +20,7 @@ class Variables$Mutation$UpdateMathProblem {
         if (tex != null) r'tex': tex,
         if (mathFieldId != null) r'mathFieldId': mathFieldId,
         if (mathSubFieldId != null) r'mathSubFieldId': mathSubFieldId,
+        if (imageMediaIds != null) r'imageMediaIds': imageMediaIds,
       });
 
   Variables$Mutation$UpdateMathProblem._(this._$data);
@@ -48,6 +50,12 @@ class Variables$Mutation$UpdateMathProblem {
       final l$mathSubFieldId = data['mathSubFieldId'];
       result$data['mathSubFieldId'] = (l$mathSubFieldId as String?);
     }
+    if (data.containsKey('imageMediaIds')) {
+      final l$imageMediaIds = data['imageMediaIds'];
+      result$data['imageMediaIds'] = (l$imageMediaIds as List<dynamic>?)
+          ?.map((e) => (e as String))
+          .toList();
+    }
     return Variables$Mutation$UpdateMathProblem._(result$data);
   }
 
@@ -64,6 +72,8 @@ class Variables$Mutation$UpdateMathProblem {
   String? get mathFieldId => (_$data['mathFieldId'] as String?);
 
   String? get mathSubFieldId => (_$data['mathSubFieldId'] as String?);
+
+  List<String>? get imageMediaIds => (_$data['imageMediaIds'] as List<String>?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -88,6 +98,10 @@ class Variables$Mutation$UpdateMathProblem {
     if (_$data.containsKey('mathSubFieldId')) {
       final l$mathSubFieldId = mathSubFieldId;
       result$data['mathSubFieldId'] = l$mathSubFieldId;
+    }
+    if (_$data.containsKey('imageMediaIds')) {
+      final l$imageMediaIds = imageMediaIds;
+      result$data['imageMediaIds'] = l$imageMediaIds?.map((e) => e).toList();
     }
     return result$data;
   }
@@ -156,6 +170,26 @@ class Variables$Mutation$UpdateMathProblem {
     if (l$mathSubFieldId != lOther$mathSubFieldId) {
       return false;
     }
+    final l$imageMediaIds = imageMediaIds;
+    final lOther$imageMediaIds = other.imageMediaIds;
+    if (_$data.containsKey('imageMediaIds') !=
+        other._$data.containsKey('imageMediaIds')) {
+      return false;
+    }
+    if (l$imageMediaIds != null && lOther$imageMediaIds != null) {
+      if (l$imageMediaIds.length != lOther$imageMediaIds.length) {
+        return false;
+      }
+      for (int i = 0; i < l$imageMediaIds.length; i++) {
+        final l$imageMediaIds$entry = l$imageMediaIds[i];
+        final lOther$imageMediaIds$entry = lOther$imageMediaIds[i];
+        if (l$imageMediaIds$entry != lOther$imageMediaIds$entry) {
+          return false;
+        }
+      }
+    } else if (l$imageMediaIds != lOther$imageMediaIds) {
+      return false;
+    }
     return true;
   }
 
@@ -167,6 +201,7 @@ class Variables$Mutation$UpdateMathProblem {
     final l$tex = tex;
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
+    final l$imageMediaIds = imageMediaIds;
     return Object.hashAll([
       l$id,
       _$data.containsKey('difficulty') ? l$difficulty : const {},
@@ -174,6 +209,11 @@ class Variables$Mutation$UpdateMathProblem {
       _$data.containsKey('tex') ? l$tex : const {},
       _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
       _$data.containsKey('mathSubFieldId') ? l$mathSubFieldId : const {},
+      _$data.containsKey('imageMediaIds')
+          ? l$imageMediaIds == null
+              ? null
+              : Object.hashAll(l$imageMediaIds.map((v) => v))
+          : const {},
     ]);
   }
 }
@@ -194,6 +234,7 @@ abstract class CopyWith$Variables$Mutation$UpdateMathProblem<TRes> {
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    List<String>? imageMediaIds,
   });
 }
 
@@ -217,6 +258,7 @@ class _CopyWithImpl$Variables$Mutation$UpdateMathProblem<TRes>
     Object? tex = _undefined,
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
+    Object? imageMediaIds = _undefined,
   }) =>
       _then(Variables$Mutation$UpdateMathProblem._({
         ..._instance._$data,
@@ -227,6 +269,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateMathProblem<TRes>
         if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
         if (mathSubFieldId != _undefined)
           'mathSubFieldId': (mathSubFieldId as String?),
+        if (imageMediaIds != _undefined)
+          'imageMediaIds': (imageMediaIds as List<String>?),
       }));
 }
 
@@ -243,6 +287,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateMathProblem<TRes>
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    List<String>? imageMediaIds,
   }) =>
       _res;
 }
@@ -443,6 +488,18 @@ const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
         defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'imageMediaIds')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'ID'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -476,6 +533,10 @@ const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
               ObjectFieldNode(
                 name: NameNode(value: 'mathSubFieldId'),
                 value: VariableNode(name: NameNode(value: 'mathSubFieldId')),
+              ),
+              ObjectFieldNode(
+                name: NameNode(value: 'imageMediaIds'),
+                value: VariableNode(name: NameNode(value: 'imageMediaIds')),
               ),
             ]),
           )

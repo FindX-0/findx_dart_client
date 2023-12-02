@@ -3,14 +3,16 @@ mutation CreateMathProblem(
   $text: String,
   $tex: String,
   $mathFieldId: ID!,
-  $mathSubFieldId: ID!
+  $mathSubFieldId: ID!,
+  $imageMediaIds: [ID!]
 ) {
   createMathProblem(input: {
     difficulty: $difficulty,
     text: $text,
     tex: $tex,
     mathFieldId: $mathFieldId,
-    mathSubFieldId: $mathSubFieldId
+    mathSubFieldId: $mathSubFieldId,
+    imageMediaIds: $imageMediaIds
   }) {
     ...MathProblem
   }
