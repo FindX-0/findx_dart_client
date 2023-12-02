@@ -22,5 +22,6 @@ abstract interface class MathSubFieldRemoteRepository {
   Future<Either<FetchFailure, DataPage<MathSubFieldPageItem>>> filter({
     required int limit,
     String? lastId,
+    String? mathFieldId,
   });
 }

@@ -70,6 +70,7 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
   Future<Either<FetchFailure, DataPage<MathSubFieldPageItem>>> filter({
     required int limit,
     String? lastId,
+    String? mathFieldId,
   }) {
     return callCatchWithFetchFailure(
       () => _client.query$FilterMathSubFields(
@@ -77,6 +78,7 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
           variables: Variables$Query$FilterMathSubFields(
             limit: limit,
             lastId: lastId,
+            mathFieldId: mathFieldId,
           ),
         ),
       ),
