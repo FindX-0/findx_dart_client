@@ -19,6 +19,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
     required String? tex,
     required String mathFieldId,
     required String mathSubFieldId,
+    required List<String>? imageMediaIds,
   }) {
     return callCatchWithSimpleActionFailure(
       () => _client.mutate$CreateMathProblem(
@@ -29,6 +30,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
             tex: tex,
             mathFieldId: mathFieldId,
             mathSubFieldId: mathSubFieldId,
+            imageMediaIds: imageMediaIds,
           ),
         ),
       ),
@@ -44,6 +46,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    List<String>? imageMediaIds,
   }) {
     return callCatchWithSimpleActionFailure(
       () => _client.mutate$UpdateMathProblem(

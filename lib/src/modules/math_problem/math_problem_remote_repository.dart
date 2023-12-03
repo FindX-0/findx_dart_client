@@ -8,6 +8,7 @@ abstract interface class MathProblemRemoteRepository {
     required String? tex,
     required String mathFieldId,
     required String mathSubFieldId,
+    required List<String>? imageMediaIds,
   });
 
   Future<Either<SimpleActionFailure, MathProblemUpdateResult>> update({
@@ -17,6 +18,7 @@ abstract interface class MathProblemRemoteRepository {
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    List<String>? imageMediaIds,
   });
 
   Future<Either<SimpleActionFailure, Unit>> delete({

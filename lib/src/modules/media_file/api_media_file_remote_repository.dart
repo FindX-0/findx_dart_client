@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:common_models/common_models.dart';
 import 'package:dio/dio.dart';
@@ -17,7 +18,7 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   );
 
   @override
-  Future<Either<SimpleActionFailure, MediaFile>> upload(File file) {
+  Future<Either<SimpleActionFailure, MediaFile>> uploadFile(File file) {
     return callCatchWithSimpleActionFailure(() async {
       final formData = FormData();
 
@@ -29,14 +30,29 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
         path: '/mediaFile/upload',
       );
 
-      final dto = MediaFileDto.fromJson(result.data as Map<String, dynamic>);
-
-      return MediaFile.fromDto(dto);
+      return _mapReponseDataToMediaFile(result.data);
     });
   }
 
   @override
-  Future<Either<SimpleActionFailure, List<MediaFile>>> uploadMany(List<File> files) {
+  Future<Either<SimpleActionFailure, MediaFile>> uploadMemoryFile(Uint8List file) {
+    return callCatchWithSimpleActionFailure(() async {
+      final formData = FormData();
+
+      addMemoryFileToForm(formData, file);
+
+      final result = await requestForm(
+        formData,
+        method: 'POST',
+        path: '/mediaFile/upload',
+      );
+
+      return _mapReponseDataToMediaFile(result.data);
+    });
+  }
+
+  @override
+  Future<Either<SimpleActionFailure, List<MediaFile>>> uploadFileMany(List<File> files) {
     return callCatchWithSimpleActionFailure(() async {
       final formData = FormData();
 
@@ -48,10 +64,36 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
         path: '/mediaFile/uploadMany',
       );
 
-      return (result.data! as List<dynamic>)
-          .map((i) => MediaFileDto.fromJson(i as Map<String, dynamic>))
-          .map(MediaFile.fromDto)
-          .toList();
+      return (result.data! as List<dynamic>).map((i) => _mapReponseDataToMediaFile(i)).toList();
     });
+  }
+
+  @override
+  Future<Either<SimpleActionFailure, List<MediaFile>>> uploadMemoryFileMany(
+    List<Uint8List> files,
+  ) async {
+    return callCatchWithSimpleActionFailure(() async {
+      final formData = FormData();
+
+      addMemoryFilesToForm(formData, files);
+
+      final result = await requestForm(
+        formData,
+        method: 'POST',
+        path: '/mediaFile/uploadMany',
+      );
+
+      return (result.data! as List<dynamic>).map((i) => _mapReponseDataToMediaFile(i)).toList();
+    });
+  }
+
+  MediaFile _mapReponseDataToMediaFile(Map<String, dynamic>? responseData) {
+    if (responseData == null) {
+      throw Exception('Empty response');
+    }
+
+    final dto = MediaFileDto.fromJson(responseData);
+
+    return MediaFile.fromDto(dto);
   }
 }
