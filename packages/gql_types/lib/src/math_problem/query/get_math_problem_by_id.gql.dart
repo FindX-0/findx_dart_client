@@ -1,3 +1,4 @@
+import '../../media_file/media_file.gql.dart';
 import '../math_problem.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -295,6 +296,7 @@ const documentNodeQueryGetMathProblemById = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionMathProblem,
+  fragmentDefinitionMediaFile,
 ]);
 Query$GetMathProblemById _parserFn$Query$GetMathProblemById(
         Map<String, dynamic> data) =>

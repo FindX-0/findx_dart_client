@@ -1,0 +1,7 @@
+fragment MediaFile on MediaFileObject {
+  id
+  createdAt
+  path
+  fileName
+  mimetype
+}

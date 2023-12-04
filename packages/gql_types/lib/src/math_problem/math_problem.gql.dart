@@ -1,3 +1,4 @@
+import '../media_file/media_file.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -33,8 +34,7 @@ class Fragment$MathProblem {
       mathFieldId: (l$mathFieldId as String),
       mathSubFieldId: (l$mathSubFieldId as String),
       images: (l$images as List<dynamic>?)
-          ?.map((e) =>
-              Fragment$MathProblem$images.fromJson((e as Map<String, dynamic>)))
+          ?.map((e) => Fragment$MediaFile.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -54,7 +54,7 @@ class Fragment$MathProblem {
 
   final String mathSubFieldId;
 
-  final List<Fragment$MathProblem$images>? images;
+  final List<Fragment$MediaFile>? images;
 
   final String $__typename;
 
@@ -198,14 +198,12 @@ abstract class CopyWith$Fragment$MathProblem<TRes> {
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
-    List<Fragment$MathProblem$images>? images,
+    List<Fragment$MediaFile>? images,
     String? $__typename,
   });
   TRes images(
-      Iterable<Fragment$MathProblem$images>? Function(
-              Iterable<
-                  CopyWith$Fragment$MathProblem$images<
-                      Fragment$MathProblem$images>>?)
+      Iterable<Fragment$MediaFile>? Function(
+              Iterable<CopyWith$Fragment$MediaFile<Fragment$MediaFile>>?)
           _fn);
 }
 
@@ -251,24 +249,21 @@ class _CopyWithImpl$Fragment$MathProblem<TRes>
             : (mathSubFieldId as String),
         images: images == _undefined
             ? _instance.images
-            : (images as List<Fragment$MathProblem$images>?),
+            : (images as List<Fragment$MediaFile>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
   TRes images(
-          Iterable<Fragment$MathProblem$images>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MathProblem$images<
-                          Fragment$MathProblem$images>>?)
+          Iterable<Fragment$MediaFile>? Function(
+                  Iterable<CopyWith$Fragment$MediaFile<Fragment$MediaFile>>?)
               _fn) =>
       call(
-          images: _fn(
-              _instance.images?.map((e) => CopyWith$Fragment$MathProblem$images(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+          images: _fn(_instance.images?.map((e) => CopyWith$Fragment$MediaFile(
+                e,
+                (i) => i,
+              )))?.toList());
 }
 
 class _CopyWithStubImpl$Fragment$MathProblem<TRes>
@@ -285,7 +280,7 @@ class _CopyWithStubImpl$Fragment$MathProblem<TRes>
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
-    List<Fragment$MathProblem$images>? images,
+    List<Fragment$MediaFile>? images,
     String? $__typename,
   }) =>
       _res;
@@ -356,7 +351,19 @@ const fragmentDefinitionMathProblem = FragmentDefinitionNode(
       alias: null,
       arguments: [],
       directives: [],
-      selectionSet: null,
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'MediaFile'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
     ),
     FieldNode(
       name: NameNode(value: '__typename'),
@@ -369,6 +376,7 @@ const fragmentDefinitionMathProblem = FragmentDefinitionNode(
 );
 const documentNodeFragmentMathProblem = DocumentNode(definitions: [
   fragmentDefinitionMathProblem,
+  fragmentDefinitionMediaFile,
 ]);
 
 extension ClientExtension$Fragment$MathProblem on graphql.GraphQLClient {
@@ -404,80 +412,4 @@ extension ClientExtension$Fragment$MathProblem on graphql.GraphQLClient {
     );
     return result == null ? null : Fragment$MathProblem.fromJson(result);
   }
-}
-
-class Fragment$MathProblem$images {
-  Fragment$MathProblem$images();
-
-  factory Fragment$MathProblem$images.fromJson(Map<String, dynamic> json) {
-    return Fragment$MathProblem$images();
-  }
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    return Object.hashAll([]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Fragment$MathProblem$images) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$MathProblem$images
-    on Fragment$MathProblem$images {
-  CopyWith$Fragment$MathProblem$images<Fragment$MathProblem$images>
-      get copyWith => CopyWith$Fragment$MathProblem$images(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Fragment$MathProblem$images<TRes> {
-  factory CopyWith$Fragment$MathProblem$images(
-    Fragment$MathProblem$images instance,
-    TRes Function(Fragment$MathProblem$images) then,
-  ) = _CopyWithImpl$Fragment$MathProblem$images;
-
-  factory CopyWith$Fragment$MathProblem$images.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$MathProblem$images;
-
-  TRes call();
-}
-
-class _CopyWithImpl$Fragment$MathProblem$images<TRes>
-    implements CopyWith$Fragment$MathProblem$images<TRes> {
-  _CopyWithImpl$Fragment$MathProblem$images(
-    this._instance,
-    this._then,
-  );
-
-  final Fragment$MathProblem$images _instance;
-
-  final TRes Function(Fragment$MathProblem$images) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call() => _then(Fragment$MathProblem$images());
-}
-
-class _CopyWithStubImpl$Fragment$MathProblem$images<TRes>
-    implements CopyWith$Fragment$MathProblem$images<TRes> {
-  _CopyWithStubImpl$Fragment$MathProblem$images(this._res);
-
-  TRes _res;
-
-  call() => _res;
 }
