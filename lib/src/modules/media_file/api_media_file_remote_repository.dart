@@ -27,7 +27,7 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
 
       addFileToForm(formData, file, fileExtension);
 
-      final result = await requestForm(
+      final result = await requestForm<Map<String, dynamic>, MediaFileDto>(
         formData,
         method: 'POST',
         path: '/mediaFile/upload',
@@ -47,7 +47,7 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
 
       addMemoryFileToForm(formData, file, fileExtension);
 
-      final result = await requestForm(
+      final result = await requestForm<Map<String, dynamic>, MediaFileDto>(
         formData,
         method: 'POST',
         path: '/mediaFile/upload',
@@ -67,13 +67,13 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
 
       addFilesToForm(formData, files, fileExtension);
 
-      final result = await requestForm(
+      final result = await requestForm<List<dynamic>, List<MediaFileDto>>(
         formData,
         method: 'POST',
         path: '/mediaFile/uploadMany',
       );
 
-      return (result.data! as List<dynamic>).map((i) => _mapReponseDataToMediaFile(i)).toList();
+      return result.data?.map((i) => _mapReponseDataToMediaFile(i)).toList() ?? [];
     });
   }
 
@@ -87,13 +87,13 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
 
       addMemoryFilesToForm(formData, files, fileExtension);
 
-      final result = await requestForm(
+      final result = await requestForm<List<dynamic>, List<MediaFileDto>>(
         formData,
         method: 'POST',
         path: '/mediaFile/uploadMany',
       );
 
-      return (result.data! as List<dynamic>).map((i) => _mapReponseDataToMediaFile(i)).toList();
+      return result.data?.map((i) => _mapReponseDataToMediaFile(i)).toList() ?? [];
     });
   }
 

@@ -73,12 +73,12 @@ abstract class MultipartRepositoryBase {
   }
 
   @protected
-  Future<Response<Map<String, dynamic>>> requestForm<T>(
+  Future<Response<R>> requestForm<R, T>(
     FormData formData, {
     required String method,
     required String path,
   }) {
-    return _dio.fetch<Map<String, dynamic>>(
+    return _dio.fetch<R>(
       _setStreamType<T>(
         Options(method: method)
             .compose(_dio.options, path, data: formData)
