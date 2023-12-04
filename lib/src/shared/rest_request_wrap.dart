@@ -17,7 +17,7 @@ mixin RestRequestWrap {
       final T result = await call();
       return right(result);
     } on DioException catch (e) {
-      log('BaseService.safeCall: ', error: e);
+      log('', error: e);
       try {
         switch (e.type) {
           case DioExceptionType.connectionTimeout:

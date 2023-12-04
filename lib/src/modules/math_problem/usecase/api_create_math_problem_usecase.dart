@@ -24,7 +24,10 @@ class ApiCreateMathProblemUsecase implements CreateMathProblemUsecase {
     required List<Uint8List>? images,
   }) async {
     final mediaFiles = images != null && images.isNotEmpty
-        ? await _mediaFileRemoteRepository.uploadMemoryFileMany(images)
+        ? await _mediaFileRemoteRepository.uploadMemoryFileMany(
+            images,
+            fileExtension: 'jpg',
+          )
         : null;
 
     if (mediaFiles != null && mediaFiles.isLeft) {

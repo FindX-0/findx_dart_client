@@ -9,17 +9,21 @@ abstract class MultipartRepositoryBase {
 
   final Dio _dio;
 
-  String _newfileName() {
-    return 'file_${DateTime.now().millisecondsSinceEpoch}';
+  String _newfileName(String extension) {
+    return 'file_${DateTime.now().millisecondsSinceEpoch}.$extension';
   }
 
   @protected
-  Future<void> addFilesToForm(FormData formData, Iterable<File> files) async {
+  Future<void> addFilesToForm(
+    FormData formData,
+    Iterable<File> files,
+    String extension,
+  ) async {
     final imagesFormFile = await Future.wait(
       files.map(
         (e) => MultipartFile.fromFile(
           e.path,
-          filename: _newfileName(),
+          filename: _newfileName(extension),
         ),
       ),
     );
@@ -28,9 +32,13 @@ abstract class MultipartRepositoryBase {
   }
 
   @protected
-  Future<void> addMemoryFilesToForm(FormData formData, Iterable<Uint8List> files) async {
+  Future<void> addMemoryFilesToForm(
+    FormData formData,
+    Iterable<Uint8List> files,
+    String extension,
+  ) async {
     final imagesFormFile = files.map(
-      (e) => MultipartFile.fromBytes(e, filename: _newfileName()),
+      (e) => MultipartFile.fromBytes(e, filename: _newfileName(extension)),
     );
 
     formData.files.addAll(imagesFormFile.map((e) => MapEntry('file', e)));
@@ -40,10 +48,11 @@ abstract class MultipartRepositoryBase {
   Future<void> addFileToForm(
     FormData formData,
     File file,
+    String extension,
   ) async {
     final imageFormFile = await MultipartFile.fromFile(
       file.path,
-      filename: _newfileName(),
+      filename: _newfileName(extension),
     );
 
     formData.files.add(MapEntry('file', imageFormFile));
@@ -53,10 +62,11 @@ abstract class MultipartRepositoryBase {
   Future<void> addMemoryFileToForm(
     FormData formData,
     Uint8List file,
+    String extension,
   ) async {
     final imageFormFile = MultipartFile.fromBytes(
       file,
-      filename: _newfileName(),
+      filename: _newfileName(extension),
     );
 
     formData.files.add(MapEntry('file', imageFormFile));

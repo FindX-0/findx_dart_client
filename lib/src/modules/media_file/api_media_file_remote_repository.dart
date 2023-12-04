@@ -18,11 +18,14 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   );
 
   @override
-  Future<Either<SimpleActionFailure, MediaFile>> uploadFile(File file) {
+  Future<Either<SimpleActionFailure, MediaFile>> uploadFile(
+    File file, {
+    required String fileExtension,
+  }) {
     return callCatchWithSimpleActionFailure(() async {
       final formData = FormData();
 
-      addFileToForm(formData, file);
+      addFileToForm(formData, file, fileExtension);
 
       final result = await requestForm(
         formData,
@@ -35,11 +38,14 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   }
 
   @override
-  Future<Either<SimpleActionFailure, MediaFile>> uploadMemoryFile(Uint8List file) {
+  Future<Either<SimpleActionFailure, MediaFile>> uploadMemoryFile(
+    Uint8List file, {
+    required String fileExtension,
+  }) {
     return callCatchWithSimpleActionFailure(() async {
       final formData = FormData();
 
-      addMemoryFileToForm(formData, file);
+      addMemoryFileToForm(formData, file, fileExtension);
 
       final result = await requestForm(
         formData,
@@ -52,11 +58,14 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   }
 
   @override
-  Future<Either<SimpleActionFailure, List<MediaFile>>> uploadFileMany(List<File> files) {
+  Future<Either<SimpleActionFailure, List<MediaFile>>> uploadFileMany(
+    List<File> files, {
+    required String fileExtension,
+  }) {
     return callCatchWithSimpleActionFailure(() async {
       final formData = FormData();
 
-      addFilesToForm(formData, files);
+      addFilesToForm(formData, files, fileExtension);
 
       final result = await requestForm(
         formData,
@@ -70,12 +79,13 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
 
   @override
   Future<Either<SimpleActionFailure, List<MediaFile>>> uploadMemoryFileMany(
-    List<Uint8List> files,
-  ) async {
+    List<Uint8List> files, {
+    required String fileExtension,
+  }) async {
     return callCatchWithSimpleActionFailure(() async {
       final formData = FormData();
 
-      addMemoryFilesToForm(formData, files);
+      addMemoryFilesToForm(formData, files, fileExtension);
 
       final result = await requestForm(
         formData,
