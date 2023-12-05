@@ -5,20 +5,20 @@ import 'package:synchronized/synchronized.dart';
 
 import '../../shared/typedefs.dart';
 import '../../store/auth_token_store.dart';
-import '../util/raw_refresh_token.dart';
+import '../usecase/refresh_token_usecase.dart';
 
 class AuthorizationInterceptor extends Interceptor {
   AuthorizationInterceptor(
     this._authTokenStore,
     this._dio,
-    this._baseUrl,
     this._afterExit,
+    this._refreshTokenUsecase,
   );
 
   final AuthTokenStore _authTokenStore;
   final Dio _dio;
-  final String _baseUrl;
   final VoidCallback _afterExit;
+  final RefreshTokenUsecase _refreshTokenUsecase;
 
   final _lock = Lock();
 
@@ -81,11 +81,7 @@ class AuthorizationInterceptor extends Interceptor {
 
   /// @returns true indicating success, false otherwise
   Future<bool> _refreshAccessToken(String refreshToken) async {
-    final payload = await rawRefreshToken(
-      _dio,
-      baseUrl: _baseUrl,
-      refreshToken: refreshToken,
-    );
+    final payload = await _refreshTokenUsecase(refreshToken);
 
     if (payload == null || payload.refreshToken == null || payload.accessToken == null) {
       await _clearExit();
