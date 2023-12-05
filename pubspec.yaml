@@ -12,10 +12,10 @@ dependencies:
   dio: ^5.3.3
   meta: ^1.10.0
 
-  gql_client:
+  app_client:
     git:
       url: git@github.com:FindX-0/findx_dart_client.git
-      path: packages/gql_client
+      path: packages/app_client
 
   gql_types:
     git:

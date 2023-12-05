@@ -1,6 +1,6 @@
 library;
 
-export 'package:gql_client/gql_client.dart'
+export 'package:app_client/app_client.dart'
     show AuthTokenStore, SecureStoreageTokenStoreImpl, NetworkClientFactory;
 export 'package:gql_types/gql_types.dart';
 
