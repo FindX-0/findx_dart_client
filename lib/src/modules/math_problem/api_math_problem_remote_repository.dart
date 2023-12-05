@@ -58,6 +58,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
             tex: tex,
             mathFieldId: mathFieldId,
             mathSubFieldId: mathSubFieldId,
+            imageMediaIds: imageMediaIds,
           ),
         ),
       ),
