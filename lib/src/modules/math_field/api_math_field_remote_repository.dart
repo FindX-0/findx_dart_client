@@ -38,6 +38,7 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
         Options$Mutation$UpdateMathField(
           variables: Variables$Mutation$UpdateMathField(
             id: id,
+            name: name,
           ),
         ),
       ),
