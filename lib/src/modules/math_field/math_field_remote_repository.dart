@@ -21,4 +21,8 @@ abstract interface class MathFieldRemoteRepository {
     required int limit,
     String? lastId,
   });
+
+  Future<Either<FetchFailure, List<GetAllMathFieldsItem>>> getAll({
+    required bool onlyPublic,
+  });
 }

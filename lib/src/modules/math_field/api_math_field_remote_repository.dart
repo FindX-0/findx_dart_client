@@ -96,4 +96,18 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
       mapper: (r) => r.getMathFieldById,
     );
   }
+
+  @override
+  Future<Either<FetchFailure, List<GetAllMathFieldsItem>>> getAll({
+    required bool onlyPublic,
+  }) {
+    return callCatchWithFetchFailure(
+      () => _client.query$GetAllMathFields(
+        Options$Query$GetAllMathFields(
+          variables: Variables$Query$GetAllMathFields(onlyPublic: onlyPublic),
+        ),
+      ),
+      mapper: (r) => r.getAllMathFields,
+    );
+  }
 }
