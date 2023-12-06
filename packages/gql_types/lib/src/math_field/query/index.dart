@@ -8,3 +8,4 @@ typedef MathFieldGetByIdRes = Fragment$MathField;
 
 typedef MathFieldPage = Query$FilterMathFields$filterMathFields;
 typedef MathFieldPageItem = Fragment$MathField;
+typedef GetAllMathFieldsItem = Fragment$MathField;

@@ -70,6 +70,10 @@ input FilterMathSubFieldsInput {
   mathFieldId: ID
 }
 
+input GetAllMathFieldsInput {
+  onlyPublic: Boolean!
+}
+
 input GoogleSignInInput {
   accessToken: String!
 }
@@ -156,9 +160,11 @@ type Mutation {
 }
 
 type Query {
+  authenticationStatus: SuccessObject!
   filterMathFields(input: LastIdPageParamsObject!): MathFieldPageObject!
   filterMathProblems(input: LastIdPageParamsObject!): MathProblemPageObject!
   filterMathSubFields(input: FilterMathSubFieldsInput!): MathSubFieldPageObject!
+  getAllMathFields(input: GetAllMathFieldsInput!): [MathFieldObject!]!
   getAuthUser: UserObject!
   getMathFieldById(input: IdentifierInput!): MathFieldObject!
   getMathProblemById(input: IdentifierInput!): MathProblemObject!
@@ -184,7 +190,7 @@ input UpdateMathFieldInput {
 }
 
 input UpdateMathProblemInput {
-  difficulty: Float
+  difficulty: Int
   id: ID!
   imageMediaIds: [ID!]
   mathFieldId: ID

@@ -1279,6 +1279,104 @@ class _CopyWithStubImpl$Input$FilterMathSubFieldsInput<TRes>
       _res;
 }
 
+class Input$GetAllMathFieldsInput {
+  factory Input$GetAllMathFieldsInput({required bool onlyPublic}) =>
+      Input$GetAllMathFieldsInput._({
+        r'onlyPublic': onlyPublic,
+      });
+
+  Input$GetAllMathFieldsInput._(this._$data);
+
+  factory Input$GetAllMathFieldsInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$onlyPublic = data['onlyPublic'];
+    result$data['onlyPublic'] = (l$onlyPublic as bool);
+    return Input$GetAllMathFieldsInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  bool get onlyPublic => (_$data['onlyPublic'] as bool);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$onlyPublic = onlyPublic;
+    result$data['onlyPublic'] = l$onlyPublic;
+    return result$data;
+  }
+
+  CopyWith$Input$GetAllMathFieldsInput<Input$GetAllMathFieldsInput>
+      get copyWith => CopyWith$Input$GetAllMathFieldsInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GetAllMathFieldsInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$onlyPublic = onlyPublic;
+    final lOther$onlyPublic = other.onlyPublic;
+    if (l$onlyPublic != lOther$onlyPublic) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$onlyPublic = onlyPublic;
+    return Object.hashAll([l$onlyPublic]);
+  }
+}
+
+abstract class CopyWith$Input$GetAllMathFieldsInput<TRes> {
+  factory CopyWith$Input$GetAllMathFieldsInput(
+    Input$GetAllMathFieldsInput instance,
+    TRes Function(Input$GetAllMathFieldsInput) then,
+  ) = _CopyWithImpl$Input$GetAllMathFieldsInput;
+
+  factory CopyWith$Input$GetAllMathFieldsInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$GetAllMathFieldsInput;
+
+  TRes call({bool? onlyPublic});
+}
+
+class _CopyWithImpl$Input$GetAllMathFieldsInput<TRes>
+    implements CopyWith$Input$GetAllMathFieldsInput<TRes> {
+  _CopyWithImpl$Input$GetAllMathFieldsInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GetAllMathFieldsInput _instance;
+
+  final TRes Function(Input$GetAllMathFieldsInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? onlyPublic = _undefined}) =>
+      _then(Input$GetAllMathFieldsInput._({
+        ..._instance._$data,
+        if (onlyPublic != _undefined && onlyPublic != null)
+          'onlyPublic': (onlyPublic as bool),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GetAllMathFieldsInput<TRes>
+    implements CopyWith$Input$GetAllMathFieldsInput<TRes> {
+  _CopyWithStubImpl$Input$GetAllMathFieldsInput(this._res);
+
+  TRes _res;
+
+  call({bool? onlyPublic}) => _res;
+}
+
 class Input$GoogleSignInInput {
   factory Input$GoogleSignInInput({required String accessToken}) =>
       Input$GoogleSignInInput._({
@@ -1840,7 +1938,7 @@ class _CopyWithStubImpl$Input$UpdateMathFieldInput<TRes>
 
 class Input$UpdateMathProblemInput {
   factory Input$UpdateMathProblemInput({
-    double? difficulty,
+    int? difficulty,
     required String id,
     List<String>? imageMediaIds,
     String? mathFieldId,
@@ -1864,7 +1962,7 @@ class Input$UpdateMathProblemInput {
     final result$data = <String, dynamic>{};
     if (data.containsKey('difficulty')) {
       final l$difficulty = data['difficulty'];
-      result$data['difficulty'] = (l$difficulty as num?)?.toDouble();
+      result$data['difficulty'] = (l$difficulty as int?);
     }
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
@@ -1895,7 +1993,7 @@ class Input$UpdateMathProblemInput {
 
   Map<String, dynamic> _$data;
 
-  double? get difficulty => (_$data['difficulty'] as double?);
+  int? get difficulty => (_$data['difficulty'] as int?);
 
   String get id => (_$data['id'] as String);
 
@@ -2061,7 +2159,7 @@ abstract class CopyWith$Input$UpdateMathProblemInput<TRes> {
       _CopyWithStubImpl$Input$UpdateMathProblemInput;
 
   TRes call({
-    double? difficulty,
+    int? difficulty,
     String? id,
     List<String>? imageMediaIds,
     String? mathFieldId,
@@ -2095,7 +2193,7 @@ class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
   }) =>
       _then(Input$UpdateMathProblemInput._({
         ..._instance._$data,
-        if (difficulty != _undefined) 'difficulty': (difficulty as double?),
+        if (difficulty != _undefined) 'difficulty': (difficulty as int?),
         if (id != _undefined && id != null) 'id': (id as String),
         if (imageMediaIds != _undefined)
           'imageMediaIds': (imageMediaIds as List<String>?),
@@ -2114,7 +2212,7 @@ class _CopyWithStubImpl$Input$UpdateMathProblemInput<TRes>
   TRes _res;
 
   call({
-    double? difficulty,
+    int? difficulty,
     String? id,
     List<String>? imageMediaIds,
     String? mathFieldId,
