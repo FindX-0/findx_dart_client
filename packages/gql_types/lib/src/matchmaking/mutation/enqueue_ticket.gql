@@ -1,0 +1,9 @@
+mutation EnqueueTicket(
+  $mathFieldId: ID!
+) {
+  enqueueTicket(input: {
+    mathFieldId: $mathFieldId
+  }) {
+    ...SuccessObject
+  }
+}
