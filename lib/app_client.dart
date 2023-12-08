@@ -4,6 +4,7 @@ export 'package:app_client/app_client.dart'
     show
         AuthTokenStore,
         SecureStoreageTokenStoreImpl,
+        SharedPrefsTokenStoreImpl,
         NetworkClientFactory,
         RefreshTokenUsecase,
         RefreshTokenUsecaseImpl,
