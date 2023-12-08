@@ -3,7 +3,6 @@ import 'package:graphql/client.dart';
 
 import '../../../app_client.dart';
 import '../../shared/gql_request_wrap.dart';
-import 'ticket_remote_repository.dart';
 
 class ApiTicketRemoteRepository with GqlRequestWrap implements TicketRemoteRepository {
   ApiTicketRemoteRepository(
