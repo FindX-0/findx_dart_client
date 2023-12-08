@@ -14,12 +14,12 @@ dependencies:
 
   app_client:
     git:
-      url: git@github.com:FindX-0/findx_dart_client.git
+      url: https://github.com/FindX-0/findx_dart_client.git
       path: packages/app_client
 
   gql_types:
     git:
-      url: git@github.com:FindX-0/findx_dart_client.git
+      url: https://github.com/FindX-0/findx_dart_client.git
       path: packages/gql_types
 
   common_models:
