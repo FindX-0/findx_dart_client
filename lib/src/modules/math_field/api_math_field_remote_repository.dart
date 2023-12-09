@@ -2,6 +2,7 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
+import '../../../app_client.dart';
 import '../../shared/gql_request_wrap.dart';
 import 'math_field_remote_repository.dart';
 
@@ -47,10 +48,10 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
   }
 
   @override
-  Future<Either<SimpleActionFailure, Unit>> delete({
+  Future<Either<DeleteMathFieldFailure, Unit>> delete({
     required String id,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatch(
       () => _client.mutate$DeleteMathField(
         Options$Mutation$DeleteMathField(
           variables: Variables$Mutation$DeleteMathField(
@@ -59,6 +60,12 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
         ),
       ),
       mapper: (_) => unit,
+      onError: (code) => switch (code) {
+        GqlApiErrorCode.mathFieldNotFound => DeleteMathFieldFailure.mathFieldNotFound,
+        GqlApiErrorCode.mathFieldHasRelations => DeleteMathFieldFailure.mathFieldHasRelations,
+        _ => DeleteMathFieldFailure.unknown,
+      },
+      unknownFailure: DeleteMathFieldFailure.unknown,
     );
   }
 

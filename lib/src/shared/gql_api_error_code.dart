@@ -21,7 +21,13 @@ enum GqlApiErrorCode {
   couldNotCreateMathField,
   couldNotCreateAdminUser,
   mathFieldNotFound,
-  adminUserNotFound;
+  mathSubFieldNotFound,
+  adminUserNotFound,
+  couldNotCreateMediaFile,
+  mediaFileNotFound,
+  ticketNotFound,
+  mathFieldHasRelations,
+  mathSubFieldHasRelations;
 
   static GqlApiErrorCode fromApiString(String code) {
     return switch (code) {
@@ -46,7 +52,13 @@ enum GqlApiErrorCode {
       'COULD_NOT_CREATE_MATH_FIELD' => GqlApiErrorCode.couldNotCreateMathField,
       'COULD_NOT_CREATE_ADMIN_USER' => GqlApiErrorCode.couldNotCreateAdminUser,
       'MATH_FIELD_NOT_FOUND' => GqlApiErrorCode.mathFieldNotFound,
+      'MATH_SUB_FIELD_NOT_FOUND' => GqlApiErrorCode.mathSubFieldNotFound,
       'ADMIN_USER_NOT_FOUND' => GqlApiErrorCode.adminUserNotFound,
+      'COULD_NOT_CREATE_MEDIA_FILE' => GqlApiErrorCode.couldNotCreateMediaFile,
+      'MEDIA_FILE_NOT_FOUND' => GqlApiErrorCode.mediaFileNotFound,
+      'TICKET_NOT_FOUND' => GqlApiErrorCode.ticketNotFound,
+      'MATH_FIELD_HAS_RELATIONS' => GqlApiErrorCode.mathFieldHasRelations,
+      'MATH_SUB_FIELD_HAS_RELATIONS' => GqlApiErrorCode.mathSubFieldHasRelations,
       _ => GqlApiErrorCode.unknown,
     };
   }

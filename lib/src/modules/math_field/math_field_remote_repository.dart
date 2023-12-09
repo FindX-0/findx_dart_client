@@ -1,6 +1,8 @@
 import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
+import 'math_field_failure.dart';
+
 abstract interface class MathFieldRemoteRepository {
   Future<Either<SimpleActionFailure, MathFieldCreateResult>> create({
     required String name,
@@ -11,7 +13,7 @@ abstract interface class MathFieldRemoteRepository {
     String? name,
   });
 
-  Future<Either<SimpleActionFailure, Unit>> delete({
+  Future<Either<DeleteMathFieldFailure, Unit>> delete({
     required String id,
   });
 
