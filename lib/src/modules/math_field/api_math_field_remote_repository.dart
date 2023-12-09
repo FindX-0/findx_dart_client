@@ -1,10 +1,8 @@
 import 'package:common_models/common_models.dart';
-import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
 import '../../../app_client.dart';
 import '../../shared/gql_request_wrap.dart';
-import 'math_field_remote_repository.dart';
 
 class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemoteRepository {
   ApiMathFieldRemoteRepository(
