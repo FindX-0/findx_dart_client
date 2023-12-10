@@ -1,11 +1,12 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:synchronized/synchronized.dart';
 
+import '../../../app_client.dart';
 import '../../shared/typedefs.dart';
-import '../../store/auth_token_store.dart';
-import '../usecase/refresh_token_usecase.dart';
+import '../model/gql_response_dto.dart';
 
 class AuthorizationInterceptor extends Interceptor {
   AuthorizationInterceptor(
@@ -23,7 +24,10 @@ class AuthorizationInterceptor extends Interceptor {
   final _lock = Lock();
 
   @override
-  Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  Future<void> onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
     String? accessToken = await _authTokenStore.readAccessToken();
     if (accessToken == null) {
       return super.onRequest(options, handler);
@@ -38,10 +42,23 @@ class AuthorizationInterceptor extends Interceptor {
   }
 
   @override
-  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (err.response?.statusCode == HttpStatus.unauthorized ||
-        err.response?.statusCode == HttpStatus.forbidden) {
+  Future<void> onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) async {
+    super.onResponse(response, handler);
+
+    if (response.data is! Map<String, dynamic>) {
+      return;
+    }
+
+    final gqlResponse = GqlResponseDto.fromJson(response.data as Map<String, dynamic>);
+
+    final firstError = gqlResponse.errors?.firstOrNull;
+
+    if (firstError != null && firstError.errorCode == GqlApiErrorCode.expiredToken) {
       final retryResponse = await _lock.synchronized<Response<dynamic>?>(
+        timeout: const Duration(seconds: 10),
         () async {
           final bool successfulTokenRefresh = await _tryRefreshAccessToken();
           if (!successfulTokenRefresh) {
@@ -49,16 +66,13 @@ class AuthorizationInterceptor extends Interceptor {
           }
 
           try {
-            final Response<dynamic> retryResponse = await _retryRequest(err);
-
-            return retryResponse;
+            return _retryRequest(response);
           } catch (e) {
-            /* ignored */
+            log('error retrying request', error: e);
           }
 
           return null;
         },
-        timeout: const Duration(seconds: 10),
       );
 
       if (retryResponse != null) {
@@ -66,7 +80,7 @@ class AuthorizationInterceptor extends Interceptor {
       }
     }
 
-    return super.onError(err, handler);
+    return super.onResponse(response, handler);
   }
 
   /// @returns true indicating success, false otherwise
@@ -109,36 +123,36 @@ class AuthorizationInterceptor extends Interceptor {
     _afterExit.call();
   }
 
-  Future<Response<dynamic>> _retryRequest(DioException error) async {
+  Future<Response<dynamic>> _retryRequest(Response<dynamic> response) async {
     final String? accessToken = await _authTokenStore.readAccessToken();
 
     final Options clonedOptions = Options(
-      method: error.requestOptions.method,
+      method: response.requestOptions.method,
       headers: <String, dynamic>{
-        ...error.requestOptions.headers,
+        ...response.requestOptions.headers,
         HttpHeaders.authorizationHeader: 'Bearer $accessToken',
       },
-      contentType: error.requestOptions.contentType,
-      extra: error.requestOptions.extra,
-      followRedirects: error.requestOptions.followRedirects,
-      listFormat: error.requestOptions.listFormat,
-      maxRedirects: error.requestOptions.maxRedirects,
-      receiveDataWhenStatusError: error.requestOptions.receiveDataWhenStatusError,
-      receiveTimeout: error.requestOptions.receiveTimeout,
-      requestEncoder: error.requestOptions.requestEncoder,
-      responseDecoder: error.requestOptions.responseDecoder,
-      responseType: error.requestOptions.responseType,
-      sendTimeout: error.requestOptions.sendTimeout,
-      validateStatus: error.requestOptions.validateStatus,
+      contentType: response.requestOptions.contentType,
+      extra: response.requestOptions.extra,
+      followRedirects: response.requestOptions.followRedirects,
+      listFormat: response.requestOptions.listFormat,
+      maxRedirects: response.requestOptions.maxRedirects,
+      receiveDataWhenStatusError: response.requestOptions.receiveDataWhenStatusError,
+      receiveTimeout: response.requestOptions.receiveTimeout,
+      requestEncoder: response.requestOptions.requestEncoder,
+      responseDecoder: response.requestOptions.responseDecoder,
+      responseType: response.requestOptions.responseType,
+      sendTimeout: response.requestOptions.sendTimeout,
+      validateStatus: response.requestOptions.validateStatus,
     );
 
     return _dio.request(
-      '${error.requestOptions.baseUrl}${error.requestOptions.path}',
-      data: error.requestOptions.data,
-      queryParameters: error.requestOptions.queryParameters,
-      cancelToken: error.requestOptions.cancelToken,
-      onReceiveProgress: error.requestOptions.onReceiveProgress,
-      onSendProgress: error.requestOptions.onSendProgress,
+      '${response.requestOptions.baseUrl}${response.requestOptions.path}',
+      data: response.requestOptions.data,
+      queryParameters: response.requestOptions.queryParameters,
+      cancelToken: response.requestOptions.cancelToken,
+      onReceiveProgress: response.requestOptions.onReceiveProgress,
+      onSendProgress: response.requestOptions.onSendProgress,
       options: clonedOptions,
     );
   }
