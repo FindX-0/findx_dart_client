@@ -21,6 +21,6 @@ class AdminRefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
 
   @override
   AuthPayloadObject? map(Map<String, dynamic> json) {
-    return AuthPayloadObject.fromJson(json['adminRefreshToken']);
+    return AuthPayloadObject.fromJson(json['data']['adminRefreshToken']);
   }
 }
