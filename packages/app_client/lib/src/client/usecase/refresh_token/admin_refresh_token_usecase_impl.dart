@@ -11,7 +11,7 @@ class AdminRefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
     mutation AdminRefreshToken(
       $refreshToken: String!
     ) {
-      refreshToken(input: { refreshToken: $refreshToken }) {
+      adminRefreshToken(input: { refreshToken: $refreshToken }) {
         accessToken
         hasEmailVerified
         refreshToken
