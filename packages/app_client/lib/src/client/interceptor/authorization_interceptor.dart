@@ -46,10 +46,8 @@ class AuthorizationInterceptor extends Interceptor {
     Response<dynamic> response,
     ResponseInterceptorHandler handler,
   ) async {
-    super.onResponse(response, handler);
-
     if (response.data is! Map<String, dynamic>) {
-      return;
+      return super.onResponse(response, handler);
     }
 
     final gqlResponse = GqlResponseDto.fromJson(response.data as Map<String, dynamic>);
