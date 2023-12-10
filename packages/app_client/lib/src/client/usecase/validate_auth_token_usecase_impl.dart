@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 
@@ -27,6 +28,11 @@ class ValidateAuthTokenUsecaseImpl implements ValidateAuthTokenUsecase {
       final res = await _dio.post(
         '$_baseUrl/graphql',
         data: {'query': refreshTokenMutation},
+        options: Options(
+          headers: {
+            HttpHeaders.authorizationHeader: 'Bearer $accessToken',
+          },
+        ),
       );
 
       if (res.data == null || res.data is! Map<String, dynamic>) {
