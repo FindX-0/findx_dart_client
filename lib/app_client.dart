@@ -11,7 +11,8 @@ export 'package:app_client/app_client.dart'
         ValidateAuthTokenUsecase,
         ValidateAuthTokenUsecaseImpl,
         SocketInstanceProvider,
-        SocketInstanceProviderImpl;
+        SocketInstanceProviderImpl,
+        GqlApiErrorCode;
 
 export 'package:gql_types/gql_types.dart';
 

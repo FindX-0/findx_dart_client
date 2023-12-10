@@ -1,3 +1,4 @@
+import 'package:app_client/app_client.dart';
 import 'package:common_models/common_models.dart';
 import 'package:graphql/client.dart';
 

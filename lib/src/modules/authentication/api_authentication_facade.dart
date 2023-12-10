@@ -1,11 +1,11 @@
 import 'dart:async';
 
+import 'package:app_client/app_client.dart';
 import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
 import '../../shared/gql_request_wrap.dart';
-import '../../shared/index.dart';
 import 'authentication_facade.dart';
 import 'model/admin_sign_in_failure.dart';
 

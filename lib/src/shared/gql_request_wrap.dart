@@ -1,9 +1,8 @@
 import 'dart:developer';
 
+import 'package:app_client/app_client.dart';
 import 'package:common_models/common_models.dart';
 import 'package:graphql/client.dart';
-
-import 'gql_api_error_code.dart';
 
 mixin GqlRequestWrap {
   Future<Either<SimpleActionFailure, T>> callCatchWithSimpleActionFailure<R, T>(
