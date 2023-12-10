@@ -63,6 +63,7 @@ final class NetworkClientFactory {
     required LogPrint? logPrint,
     required String apiUrl,
     required RefreshTokenUsecase refreshTokenUsecase,
+    required Interceptor interceptor,
   }) {
     final Dio dio = Dio(
       BaseOptions(
@@ -74,12 +75,13 @@ final class NetworkClientFactory {
       ),
     );
 
-    dio.interceptors.add(AuthorizationInterceptor(
-      authTokenStore,
-      noInterceptorDio,
-      afterExit,
-      refreshTokenUsecase,
-    ));
+    dio.interceptors.add(interceptor);
+    // dio.interceptors.add(AuthorizationInterceptor(
+    //   authTokenStore,
+    //   noInterceptorDio,
+    //   afterExit,
+    //   refreshTokenUsecase,
+    // ));
 
     if (kDebugMode && logPrint != null) {
       dio.interceptors.add(PrettyLogInterceptor(logPrint: logPrint));
