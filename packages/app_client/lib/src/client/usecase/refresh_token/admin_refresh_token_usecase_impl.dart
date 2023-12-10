@@ -13,7 +13,6 @@ class AdminRefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
     ) {
       adminRefreshToken(input: { refreshToken: $refreshToken }) {
         accessToken
-        hasEmailVerified
         refreshToken
     }
   }
