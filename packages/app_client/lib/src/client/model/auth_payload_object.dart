@@ -1,12 +1,15 @@
-final class AuthPayloadType {
-  factory AuthPayloadType.fromJson(Map<String, dynamic> json) {
-    return AuthPayloadType._(
+final class AuthPayloadObject {
+  factory AuthPayloadObject.fromJson(Map<String, dynamic> json) {
+    return AuthPayloadObject._(
       accessToken: json['accessToken'],
       refreshToken: json['refreshToken'],
     );
   }
 
-  AuthPayloadType._({required this.accessToken, required this.refreshToken,});
+  AuthPayloadObject._({
+    required this.accessToken,
+    required this.refreshToken,
+  });
 
   final String? accessToken;
   final String? refreshToken;
@@ -14,7 +17,7 @@ final class AuthPayloadType {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AuthPayloadType &&
+      other is AuthPayloadObject &&
           runtimeType == other.runtimeType &&
           accessToken == other.accessToken &&
           refreshToken == other.refreshToken;

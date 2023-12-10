@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
-import '../type/auth_payload_type.dart';
+import '../model/auth_payload_object.dart';
 import 'refresh_token_usecase.dart';
 
 class RefreshTokenUsecaseImpl implements RefreshTokenUsecase {
@@ -15,9 +15,11 @@ class RefreshTokenUsecaseImpl implements RefreshTokenUsecase {
   final String _baseUrl;
 
   @override
-  Future<AuthPayloadType?> call(String refreshToken) async {
+  Future<AuthPayloadObject?> call(String refreshToken) async {
     const refreshTokenMutation = r'''
-    mutation RefreshToken {
+    mutation RefreshToken(
+      $refreshToken: String!
+    ) {
       refreshToken(input: { refreshToken: $refreshToken }) {
         accessToken
         hasEmailVerified
@@ -41,7 +43,7 @@ class RefreshTokenUsecaseImpl implements RefreshTokenUsecase {
         return null;
       }
 
-      return AuthPayloadType.fromJson(res.data);
+      return AuthPayloadObject.fromJson(res.data);
     } catch (e) {
       log('Error refreshing token', error: e);
     }
