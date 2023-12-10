@@ -7,7 +7,7 @@ import 'package:graphql/client.dart';
 import '../shared/typedefs.dart';
 import '../store/auth_token_store.dart';
 import 'interceptor/authorization_interceptor.dart';
-import 'usecase/refresh_token_usecase.dart';
+import 'usecase/refresh_token/refresh_token_usecase.dart';
 
 const Duration _kTimeoutDuration = Duration(seconds: 30);
 

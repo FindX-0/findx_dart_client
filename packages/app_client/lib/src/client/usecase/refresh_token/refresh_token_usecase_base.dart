@@ -2,11 +2,11 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
-import '../model/auth_payload_object.dart';
+import '../../model/auth_payload_object.dart';
 import 'refresh_token_usecase.dart';
 
-class RefreshTokenUsecaseImpl implements RefreshTokenUsecase {
-  RefreshTokenUsecaseImpl(
+abstract class RefreshTokenUsecaseBase implements RefreshTokenUsecase {
+  RefreshTokenUsecaseBase(
     this._dio,
     this._baseUrl,
   );
@@ -14,25 +14,15 @@ class RefreshTokenUsecaseImpl implements RefreshTokenUsecase {
   final Dio _dio;
   final String _baseUrl;
 
+  String get mutationStr;
+
   @override
   Future<AuthPayloadObject?> call(String refreshToken) async {
-    const refreshTokenMutation = r'''
-    mutation RefreshToken(
-      $refreshToken: String!
-    ) {
-      refreshToken(input: { refreshToken: $refreshToken }) {
-        accessToken
-        hasEmailVerified
-        refreshToken
-    }
-  }
-  ''';
-
     try {
       final res = await _dio.post(
         '$_baseUrl/graphql',
         data: {
-          'query': refreshTokenMutation,
+          'query': mutationStr,
           'variables': {
             'refreshToken': refreshToken,
           }
