@@ -46,7 +46,7 @@ class ValidateAuthTokenUsecaseImpl implements ValidateAuthTokenUsecase {
         return false;
       }
 
-      return data['success'] as bool? ?? false;
+      return data['data']['authenticationStatus']['success'] as bool? ?? false;
     } catch (e) {
       log('Error refreshing token', error: e);
     }
