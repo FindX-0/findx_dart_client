@@ -8,6 +8,7 @@ export 'package:app_client/app_client.dart'
         NetworkClientFactory,
         RefreshTokenUsecase,
         RefreshTokenUsecaseImpl,
+        AdminRefreshTokenUsecaseImpl,
         ValidateAuthTokenUsecase,
         ValidateAuthTokenUsecaseImpl,
         SocketInstanceProvider,
