@@ -17,7 +17,7 @@ class ApiAuthenticationFacade with GqlRequestWrap implements AuthenticationFacad
   final GraphQLClient _client;
 
   @override
-  Future<Either<AdminSignInFailure, JwtTokenPayload>> adminSignIn({
+  Future<Either<AdminSignInFailure, AdminSignInRes>> adminSignIn({
     required String email,
     required String password,
   }) async {
@@ -37,6 +37,20 @@ class ApiAuthenticationFacade with GqlRequestWrap implements AuthenticationFacad
         GqlApiErrorCode.userEmailExists => AdminSignInFailure.userEmailExists,
         _ => AdminSignInFailure.unknown,
       },
+    );
+  }
+
+  @override
+  Future<Either<SimpleActionFailure, DeviceSignInRes>> deviceSignIn({
+    required String deviceId,
+  }) {
+    return callCatchWithSimpleActionFailure(
+      () => _client.mutate$DeviceSignIn(
+        Options$Mutation$DeviceSignIn(
+          variables: Variables$Mutation$DeviceSignIn(deviceId: deviceId),
+        ),
+      ),
+      mapper: (r) => r.deviceSignIn,
     );
   }
 }
