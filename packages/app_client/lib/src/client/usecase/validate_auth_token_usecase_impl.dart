@@ -40,13 +40,8 @@ class ValidateAuthTokenUsecaseImpl implements ValidateAuthTokenUsecase {
       }
 
       final dataJson = res.data as Map<String, dynamic>;
-      final data = dataJson['data'];
 
-      if (data == null) {
-        return false;
-      }
-
-      return data['data']['authenticationStatus']['success'] as bool? ?? false;
+      return dataJson['data']['authenticationStatus']['success'] as bool? ?? false;
     } catch (e) {
       log('Error refreshing token', error: e);
     }
