@@ -1,3 +1,4 @@
+import 'auth_payload_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -310,19 +311,9 @@ const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'accessToken'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'AuthPayload'),
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'refreshToken'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -342,6 +333,7 @@ const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionAuthPayload,
 ]);
 Mutation$AdminSignIn _parserFn$Mutation$AdminSignIn(
         Map<String, dynamic> data) =>
@@ -439,35 +431,19 @@ extension ClientExtension$Mutation$AdminSignIn on graphql.GraphQLClient {
 }
 
 class Mutation$AdminSignIn$adminSignIn {
-  Mutation$AdminSignIn$adminSignIn({
-    required this.accessToken,
-    required this.refreshToken,
-    this.$__typename = 'JwtTokenPayloadObject',
-  });
+  Mutation$AdminSignIn$adminSignIn(
+      {this.$__typename = 'JwtTokenPayloadObject'});
 
   factory Mutation$AdminSignIn$adminSignIn.fromJson(Map<String, dynamic> json) {
-    final l$accessToken = json['accessToken'];
-    final l$refreshToken = json['refreshToken'];
     final l$$__typename = json['__typename'];
     return Mutation$AdminSignIn$adminSignIn(
-      accessToken: (l$accessToken as String),
-      refreshToken: (l$refreshToken as String),
-      $__typename: (l$$__typename as String),
-    );
+        $__typename: (l$$__typename as String));
   }
-
-  final String accessToken;
-
-  final String refreshToken;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$accessToken = accessToken;
-    _resultData['accessToken'] = l$accessToken;
-    final l$refreshToken = refreshToken;
-    _resultData['refreshToken'] = l$refreshToken;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -475,14 +451,8 @@ class Mutation$AdminSignIn$adminSignIn {
 
   @override
   int get hashCode {
-    final l$accessToken = accessToken;
-    final l$refreshToken = refreshToken;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$accessToken,
-      l$refreshToken,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$$__typename]);
   }
 
   @override
@@ -492,16 +462,6 @@ class Mutation$AdminSignIn$adminSignIn {
     }
     if (!(other is Mutation$AdminSignIn$adminSignIn) ||
         runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$accessToken = accessToken;
-    final lOther$accessToken = other.accessToken;
-    if (l$accessToken != lOther$accessToken) {
-      return false;
-    }
-    final l$refreshToken = refreshToken;
-    final lOther$refreshToken = other.refreshToken;
-    if (l$refreshToken != lOther$refreshToken) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -531,11 +491,7 @@ abstract class CopyWith$Mutation$AdminSignIn$adminSignIn<TRes> {
   factory CopyWith$Mutation$AdminSignIn$adminSignIn.stub(TRes res) =
       _CopyWithStubImpl$Mutation$AdminSignIn$adminSignIn;
 
-  TRes call({
-    String? accessToken,
-    String? refreshToken,
-    String? $__typename,
-  });
+  TRes call({String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$AdminSignIn$adminSignIn<TRes>
@@ -551,22 +507,11 @@ class _CopyWithImpl$Mutation$AdminSignIn$adminSignIn<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? accessToken = _undefined,
-    Object? refreshToken = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
+  TRes call({Object? $__typename = _undefined}) =>
       _then(Mutation$AdminSignIn$adminSignIn(
-        accessToken: accessToken == _undefined || accessToken == null
-            ? _instance.accessToken
-            : (accessToken as String),
-        refreshToken: refreshToken == _undefined || refreshToken == null
-            ? _instance.refreshToken
-            : (refreshToken as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 class _CopyWithStubImpl$Mutation$AdminSignIn$adminSignIn<TRes>
@@ -575,10 +520,5 @@ class _CopyWithStubImpl$Mutation$AdminSignIn$adminSignIn<TRes>
 
   TRes _res;
 
-  call({
-    String? accessToken,
-    String? refreshToken,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? $__typename}) => _res;
 }

@@ -744,6 +744,104 @@ class _CopyWithStubImpl$Input$CreateMathSubFieldInput<TRes>
       _res;
 }
 
+class Input$DeviceSignInInput {
+  factory Input$DeviceSignInInput({required String deviceId}) =>
+      Input$DeviceSignInInput._({
+        r'deviceId': deviceId,
+      });
+
+  Input$DeviceSignInInput._(this._$data);
+
+  factory Input$DeviceSignInInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$deviceId = data['deviceId'];
+    result$data['deviceId'] = (l$deviceId as String);
+    return Input$DeviceSignInInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get deviceId => (_$data['deviceId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$deviceId = deviceId;
+    result$data['deviceId'] = l$deviceId;
+    return result$data;
+  }
+
+  CopyWith$Input$DeviceSignInInput<Input$DeviceSignInInput> get copyWith =>
+      CopyWith$Input$DeviceSignInInput(
+        this,
+        (i) => i,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$DeviceSignInInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$deviceId = deviceId;
+    final lOther$deviceId = other.deviceId;
+    if (l$deviceId != lOther$deviceId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$deviceId = deviceId;
+    return Object.hashAll([l$deviceId]);
+  }
+}
+
+abstract class CopyWith$Input$DeviceSignInInput<TRes> {
+  factory CopyWith$Input$DeviceSignInInput(
+    Input$DeviceSignInInput instance,
+    TRes Function(Input$DeviceSignInInput) then,
+  ) = _CopyWithImpl$Input$DeviceSignInInput;
+
+  factory CopyWith$Input$DeviceSignInInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$DeviceSignInInput;
+
+  TRes call({String? deviceId});
+}
+
+class _CopyWithImpl$Input$DeviceSignInInput<TRes>
+    implements CopyWith$Input$DeviceSignInInput<TRes> {
+  _CopyWithImpl$Input$DeviceSignInInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$DeviceSignInInput _instance;
+
+  final TRes Function(Input$DeviceSignInInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? deviceId = _undefined}) =>
+      _then(Input$DeviceSignInInput._({
+        ..._instance._$data,
+        if (deviceId != _undefined && deviceId != null)
+          'deviceId': (deviceId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$DeviceSignInInput<TRes>
+    implements CopyWith$Input$DeviceSignInInput<TRes> {
+  _CopyWithStubImpl$Input$DeviceSignInInput(this._res);
+
+  TRes _res;
+
+  call({String? deviceId}) => _res;
+}
+
 class Input$EmailSignInInput {
   factory Input$EmailSignInInput({
     required String email,
@@ -2384,7 +2482,7 @@ class _CopyWithStubImpl$Input$UpdateMathSubFieldInput<TRes>
       _res;
 }
 
-enum Enum$AuthProvider { APPLE, EMAIL, FACEBOOK, GOOGLE, $unknown }
+enum Enum$AuthProvider { APPLE, EMAIL, FACEBOOK, GOOGLE, NONE, $unknown }
 
 String toJson$Enum$AuthProvider(Enum$AuthProvider e) {
   switch (e) {
@@ -2396,6 +2494,8 @@ String toJson$Enum$AuthProvider(Enum$AuthProvider e) {
       return r'FACEBOOK';
     case Enum$AuthProvider.GOOGLE:
       return r'GOOGLE';
+    case Enum$AuthProvider.NONE:
+      return r'NONE';
     case Enum$AuthProvider.$unknown:
       return r'$unknown';
   }
@@ -2411,6 +2511,8 @@ Enum$AuthProvider fromJson$Enum$AuthProvider(String value) {
       return Enum$AuthProvider.FACEBOOK;
     case r'GOOGLE':
       return Enum$AuthProvider.GOOGLE;
+    case r'NONE':
+      return Enum$AuthProvider.NONE;
     default:
       return Enum$AuthProvider.$unknown;
   }

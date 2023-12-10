@@ -332,7 +332,7 @@ class Query$GetAuthUser$getAuthUser {
   Query$GetAuthUser$getAuthUser({
     required this.authProvider,
     required this.createdAt,
-    required this.email,
+    this.email,
     required this.id,
     required this.isCompleted,
     this.userName,
@@ -350,7 +350,7 @@ class Query$GetAuthUser$getAuthUser {
     return Query$GetAuthUser$getAuthUser(
       authProvider: fromJson$Enum$AuthProvider((l$authProvider as String)),
       createdAt: DateTime.parse((l$createdAt as String)),
-      email: (l$email as String),
+      email: (l$email as String?),
       id: (l$id as String),
       isCompleted: (l$isCompleted as bool),
       userName: (l$userName as String?),
@@ -362,7 +362,7 @@ class Query$GetAuthUser$getAuthUser {
 
   final DateTime createdAt;
 
-  final String email;
+  final String? email;
 
   final String id;
 
@@ -517,9 +517,7 @@ class _CopyWithImpl$Query$GetAuthUser$getAuthUser<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as DateTime),
-        email: email == _undefined || email == null
-            ? _instance.email
-            : (email as String),
+        email: email == _undefined ? _instance.email : (email as String?),
         id: id == _undefined || id == null ? _instance.id : (id as String),
         isCompleted: isCompleted == _undefined || isCompleted == null
             ? _instance.isCompleted

@@ -1,0 +1,9 @@
+mutation DeviceSignIn(
+  $deviceId: String!
+) {
+  deviceSignIn(input: {
+    deviceId: $deviceId
+  }) {
+    ...AuthPayload
+  }
+}
