@@ -1,3 +1,4 @@
+import '../../model/auth_payload_object.dart';
 import 'refresh_token_usecase_base.dart';
 
 class AdminRefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
@@ -17,4 +18,9 @@ class AdminRefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
     }
   }
   ''';
+
+  @override
+  AuthPayloadObject? map(Map<String, dynamic> json) {
+    return AuthPayloadObject.fromJson(json['adminRefreshToken']);
+  }
 }

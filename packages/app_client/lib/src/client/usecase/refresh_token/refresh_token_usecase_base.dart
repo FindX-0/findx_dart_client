@@ -16,6 +16,8 @@ abstract class RefreshTokenUsecaseBase implements RefreshTokenUsecase {
 
   String get mutationStr;
 
+  AuthPayloadObject? map(Map<String, dynamic> json);
+
   @override
   Future<AuthPayloadObject?> call(String refreshToken) async {
     try {
@@ -33,7 +35,7 @@ abstract class RefreshTokenUsecaseBase implements RefreshTokenUsecase {
         return null;
       }
 
-      return AuthPayloadObject.fromJson(res.data);
+      return map(res.data);
     } catch (e) {
       log('Error refreshing token', error: e);
     }
