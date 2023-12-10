@@ -6,6 +6,7 @@ import 'package:graphql/client.dart';
 
 import '../shared/typedefs.dart';
 import '../store/auth_token_store.dart';
+import 'interceptor/authorization_interceptor.dart';
 import 'usecase/refresh_token_usecase.dart';
 
 const Duration _kTimeoutDuration = Duration(seconds: 30);
@@ -62,7 +63,6 @@ final class NetworkClientFactory {
     required LogPrint? logPrint,
     required String apiUrl,
     required RefreshTokenUsecase refreshTokenUsecase,
-    required Interceptor interceptor,
   }) {
     final Dio dio = Dio(
       BaseOptions(
@@ -74,13 +74,12 @@ final class NetworkClientFactory {
       ),
     );
 
-    dio.interceptors.add(interceptor);
-    // dio.interceptors.add(AuthorizationInterceptor(
-    //   authTokenStore,
-    //   noInterceptorDio,
-    //   afterExit,
-    //   refreshTokenUsecase,
-    // ));
+    dio.interceptors.add(AuthorizationInterceptor(
+      authTokenStore,
+      noInterceptorDio,
+      afterExit,
+      refreshTokenUsecase,
+    ));
 
     if (kDebugMode && logPrint != null) {
       dio.interceptors.add(PrettyLogInterceptor(logPrint: logPrint));
