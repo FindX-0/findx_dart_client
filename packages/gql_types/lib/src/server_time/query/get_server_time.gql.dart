@@ -305,19 +305,19 @@ class Query$GetServerTime$getServerTime {
     final l$serverTime = json['serverTime'];
     final l$$__typename = json['__typename'];
     return Query$GetServerTime$getServerTime(
-      serverTime: (l$serverTime as num).toDouble(),
+      serverTime: DateTime.parse((l$serverTime as String)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final double serverTime;
+  final DateTime serverTime;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$serverTime = serverTime;
-    _resultData['serverTime'] = l$serverTime;
+    _resultData['serverTime'] = l$serverTime.toIso8601String();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -375,7 +375,7 @@ abstract class CopyWith$Query$GetServerTime$getServerTime<TRes> {
       _CopyWithStubImpl$Query$GetServerTime$getServerTime;
 
   TRes call({
-    double? serverTime,
+    DateTime? serverTime,
     String? $__typename,
   });
 }
@@ -400,7 +400,7 @@ class _CopyWithImpl$Query$GetServerTime$getServerTime<TRes>
       _then(Query$GetServerTime$getServerTime(
         serverTime: serverTime == _undefined || serverTime == null
             ? _instance.serverTime
-            : (serverTime as double),
+            : (serverTime as DateTime),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -414,7 +414,7 @@ class _CopyWithStubImpl$Query$GetServerTime$getServerTime<TRes>
   TRes _res;
 
   call({
-    double? serverTime,
+    DateTime? serverTime,
     String? $__typename,
   }) =>
       _res;
