@@ -4,15 +4,6 @@ query GetMathProblemById(
   getMathProblemById(input: {
     id: $id
   }) {
-    ...MathProblem
-    images {
-      ...MediaFile
-    }
-    mathField {
-      ...MathField
-    }
-    mathSubField {
-      ...MathSubField
-    }
+    ...MathProblemWithRelations
   }
 }

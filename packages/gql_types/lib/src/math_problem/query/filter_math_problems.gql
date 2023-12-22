@@ -8,16 +8,7 @@ query FilterMathProblems(
   }) {
     count
     data {
-      ...MathProblem
-      images {
-        ...MediaFile
-      }
-      mathField {
-        ...MathField
-      }
-      mathSubField {
-        ...MathSubField
-      }
+      ...MathProblemWithRelations
     }
   }
 }

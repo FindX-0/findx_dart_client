@@ -1,0 +1,12 @@
+fragment MathProblemWithRelations on MathProblemObject {
+  ...MathProblem
+  images {
+    ...MediaFile
+  }
+  mathField {
+    ...MathField
+  }
+  mathSubField {
+    ...MathSubField
+  }
+}
