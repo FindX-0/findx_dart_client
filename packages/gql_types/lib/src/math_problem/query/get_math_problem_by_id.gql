@@ -5,5 +5,14 @@ query GetMathProblemById(
     id: $id
   }) {
     ...MathProblem
+    images {
+      ...MediaFile
+    }
+    mathField {
+      ...MathField
+    }
+    mathSubField {
+      ...MathSubField
+    }
   }
 }
