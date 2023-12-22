@@ -1,4 +1,3 @@
-import '../../media_file/media_file.gql.dart';
 import '../math_problem.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -513,7 +512,6 @@ const documentNodeMutationCreateMathProblem = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionMathProblem,
-  fragmentDefinitionMediaFile,
 ]);
 Mutation$CreateMathProblem _parserFn$Mutation$CreateMathProblem(
         Map<String, dynamic> data) =>

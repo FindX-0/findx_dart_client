@@ -11,6 +11,9 @@ query FilterMathSubFields(
     count
     data {
       ...MathSubField
+      mathField {
+        ...MathField
+      }
     }
   }
 }

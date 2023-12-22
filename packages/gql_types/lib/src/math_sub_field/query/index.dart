@@ -7,4 +7,4 @@ export 'get_math_sub_field_by_id.gql.dart';
 typedef MathSubFieldGetByIdRes = Fragment$MathSubField;
 
 typedef MathSubFieldPage = Query$FilterMathSubFields$filterMathSubFields;
-typedef MathSubFieldPageItem = Fragment$MathSubField;
+typedef MathSubFieldPageItem = Query$FilterMathSubFields$filterMathSubFields$data;

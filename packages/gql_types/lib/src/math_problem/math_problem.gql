@@ -6,7 +6,4 @@ fragment MathProblem on MathProblemObject {
   tex
   mathFieldId
   mathSubFieldId
-  images {
-    ...MediaFile
-  }
 }

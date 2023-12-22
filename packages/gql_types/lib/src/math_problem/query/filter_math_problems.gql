@@ -9,6 +9,12 @@ query FilterMathProblems(
     count
     data {
       ...MathProblem
+      mathField {
+        ...MathField
+      }
+      mathSubField {
+        ...MathSubField
+      }
     }
   }
 }

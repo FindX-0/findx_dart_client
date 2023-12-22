@@ -7,4 +7,4 @@ export 'get_math_problem_by_id.gql.dart';
 typedef MathProblemGetByIdRes = Fragment$MathProblem;
 
 typedef MathProblemPage = Query$FilterMathProblems$filterMathProblems;
-typedef MathProblemPageItem = Fragment$MathProblem;
+typedef MathProblemPageItem = Query$FilterMathProblems$filterMathProblems$data;
