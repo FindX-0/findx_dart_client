@@ -7,6 +7,7 @@ class Fragment$MathSubField {
     required this.name,
     required this.mathFieldId,
     required this.createdAt,
+    required this.mathField,
     this.$__typename = 'MathSubFieldObject',
   });
 
@@ -15,12 +16,15 @@ class Fragment$MathSubField {
     final l$name = json['name'];
     final l$mathFieldId = json['mathFieldId'];
     final l$createdAt = json['createdAt'];
+    final l$mathField = json['mathField'];
     final l$$__typename = json['__typename'];
     return Fragment$MathSubField(
       id: (l$id as String),
       name: (l$name as String),
       mathFieldId: (l$mathFieldId as String),
       createdAt: DateTime.parse((l$createdAt as String)),
+      mathField: Fragment$MathSubField$mathField.fromJson(
+          (l$mathField as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -32,6 +36,8 @@ class Fragment$MathSubField {
   final String mathFieldId;
 
   final DateTime createdAt;
+
+  final Fragment$MathSubField$mathField mathField;
 
   final String $__typename;
 
@@ -45,6 +51,8 @@ class Fragment$MathSubField {
     _resultData['mathFieldId'] = l$mathFieldId;
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt.toIso8601String();
+    final l$mathField = mathField;
+    _resultData['mathField'] = l$mathField.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -56,12 +64,14 @@ class Fragment$MathSubField {
     final l$name = name;
     final l$mathFieldId = mathFieldId;
     final l$createdAt = createdAt;
+    final l$mathField = mathField;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
       l$mathFieldId,
       l$createdAt,
+      l$mathField,
       l$$__typename,
     ]);
   }
@@ -92,6 +102,11 @@ class Fragment$MathSubField {
     final l$createdAt = createdAt;
     final lOther$createdAt = other.createdAt;
     if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$mathField = mathField;
+    final lOther$mathField = other.mathField;
+    if (l$mathField != lOther$mathField) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -125,8 +140,10 @@ abstract class CopyWith$Fragment$MathSubField<TRes> {
     String? name,
     String? mathFieldId,
     DateTime? createdAt,
+    Fragment$MathSubField$mathField? mathField,
     String? $__typename,
   });
+  CopyWith$Fragment$MathSubField$mathField<TRes> get mathField;
 }
 
 class _CopyWithImpl$Fragment$MathSubField<TRes>
@@ -147,6 +164,7 @@ class _CopyWithImpl$Fragment$MathSubField<TRes>
     Object? name = _undefined,
     Object? mathFieldId = _undefined,
     Object? createdAt = _undefined,
+    Object? mathField = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$MathSubField(
@@ -160,10 +178,19 @@ class _CopyWithImpl$Fragment$MathSubField<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as DateTime),
+        mathField: mathField == _undefined || mathField == null
+            ? _instance.mathField
+            : (mathField as Fragment$MathSubField$mathField),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
+  CopyWith$Fragment$MathSubField$mathField<TRes> get mathField {
+    final local$mathField = _instance.mathField;
+    return CopyWith$Fragment$MathSubField$mathField(
+        local$mathField, (e) => call(mathField: e));
+  }
 }
 
 class _CopyWithStubImpl$Fragment$MathSubField<TRes>
@@ -177,9 +204,13 @@ class _CopyWithStubImpl$Fragment$MathSubField<TRes>
     String? name,
     String? mathFieldId,
     DateTime? createdAt,
+    Fragment$MathSubField$mathField? mathField,
     String? $__typename,
   }) =>
       _res;
+
+  CopyWith$Fragment$MathSubField$mathField<TRes> get mathField =>
+      CopyWith$Fragment$MathSubField$mathField.stub(_res);
 }
 
 const fragmentDefinitionMathSubField = FragmentDefinitionNode(
@@ -218,6 +249,42 @@ const fragmentDefinitionMathSubField = FragmentDefinitionNode(
       arguments: [],
       directives: [],
       selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'mathField'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'id'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'createdAt'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'name'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
     ),
     FieldNode(
       name: NameNode(value: '__typename'),
@@ -265,4 +332,167 @@ extension ClientExtension$Fragment$MathSubField on graphql.GraphQLClient {
     );
     return result == null ? null : Fragment$MathSubField.fromJson(result);
   }
+}
+
+class Fragment$MathSubField$mathField {
+  Fragment$MathSubField$mathField({
+    required this.id,
+    required this.createdAt,
+    required this.name,
+    this.$__typename = 'MathFieldObject',
+  });
+
+  factory Fragment$MathSubField$mathField.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$createdAt = json['createdAt'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$MathSubField$mathField(
+      id: (l$id as String),
+      createdAt: DateTime.parse((l$createdAt as String)),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final DateTime createdAt;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt.toIso8601String();
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$createdAt = createdAt;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$createdAt,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MathSubField$mathField) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$MathSubField$mathField
+    on Fragment$MathSubField$mathField {
+  CopyWith$Fragment$MathSubField$mathField<Fragment$MathSubField$mathField>
+      get copyWith => CopyWith$Fragment$MathSubField$mathField(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$MathSubField$mathField<TRes> {
+  factory CopyWith$Fragment$MathSubField$mathField(
+    Fragment$MathSubField$mathField instance,
+    TRes Function(Fragment$MathSubField$mathField) then,
+  ) = _CopyWithImpl$Fragment$MathSubField$mathField;
+
+  factory CopyWith$Fragment$MathSubField$mathField.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$MathSubField$mathField;
+
+  TRes call({
+    String? id,
+    DateTime? createdAt,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$MathSubField$mathField<TRes>
+    implements CopyWith$Fragment$MathSubField$mathField<TRes> {
+  _CopyWithImpl$Fragment$MathSubField$mathField(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$MathSubField$mathField _instance;
+
+  final TRes Function(Fragment$MathSubField$mathField) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? createdAt = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$MathSubField$mathField(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as DateTime),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$MathSubField$mathField<TRes>
+    implements CopyWith$Fragment$MathSubField$mathField<TRes> {
+  _CopyWithStubImpl$Fragment$MathSubField$mathField(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    DateTime? createdAt,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
 }

@@ -3,4 +3,9 @@ fragment MathSubField on MathSubFieldObject {
   name
   mathFieldId
   createdAt
+  mathField {
+    id
+    createdAt
+    name
+  }
 }

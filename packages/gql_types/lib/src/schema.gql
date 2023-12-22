@@ -127,6 +127,7 @@ type MathProblemPageObject {
 type MathSubFieldObject {
   createdAt: DateTime!
   id: ID!
+  mathField: MathFieldObject!
   mathFieldId: String!
   name: String!
 }
