@@ -4,6 +4,6 @@ query GetMathSubFieldById(
   getMathSubFieldById(input: {
     id: $id
   }) {
-    ...MathSubField
+    ...MathSubFieldWithRelations
   }
 }

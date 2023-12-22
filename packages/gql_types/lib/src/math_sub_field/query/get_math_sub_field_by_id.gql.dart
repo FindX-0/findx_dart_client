@@ -1,4 +1,6 @@
+import '../../math_field/math_field.gql.dart';
 import '../math_sub_field.gql.dart';
+import '../math_sub_field_with_relations.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -112,13 +114,13 @@ class Query$GetMathSubFieldById {
     final l$getMathSubFieldById = json['getMathSubFieldById'];
     final l$$__typename = json['__typename'];
     return Query$GetMathSubFieldById(
-      getMathSubFieldById: Fragment$MathSubField.fromJson(
+      getMathSubFieldById: Fragment$MathSubFieldWithRelations.fromJson(
           (l$getMathSubFieldById as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Fragment$MathSubField getMathSubFieldById;
+  final Fragment$MathSubFieldWithRelations getMathSubFieldById;
 
   final String $__typename;
 
@@ -183,10 +185,10 @@ abstract class CopyWith$Query$GetMathSubFieldById<TRes> {
       _CopyWithStubImpl$Query$GetMathSubFieldById;
 
   TRes call({
-    Fragment$MathSubField? getMathSubFieldById,
+    Fragment$MathSubFieldWithRelations? getMathSubFieldById,
     String? $__typename,
   });
-  CopyWith$Fragment$MathSubField<TRes> get getMathSubFieldById;
+  CopyWith$Fragment$MathSubFieldWithRelations<TRes> get getMathSubFieldById;
 }
 
 class _CopyWithImpl$Query$GetMathSubFieldById<TRes>
@@ -210,15 +212,15 @@ class _CopyWithImpl$Query$GetMathSubFieldById<TRes>
         getMathSubFieldById:
             getMathSubFieldById == _undefined || getMathSubFieldById == null
                 ? _instance.getMathSubFieldById
-                : (getMathSubFieldById as Fragment$MathSubField),
+                : (getMathSubFieldById as Fragment$MathSubFieldWithRelations),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Fragment$MathSubField<TRes> get getMathSubFieldById {
+  CopyWith$Fragment$MathSubFieldWithRelations<TRes> get getMathSubFieldById {
     final local$getMathSubFieldById = _instance.getMathSubFieldById;
-    return CopyWith$Fragment$MathSubField(
+    return CopyWith$Fragment$MathSubFieldWithRelations(
         local$getMathSubFieldById, (e) => call(getMathSubFieldById: e));
   }
 }
@@ -230,13 +232,13 @@ class _CopyWithStubImpl$Query$GetMathSubFieldById<TRes>
   TRes _res;
 
   call({
-    Fragment$MathSubField? getMathSubFieldById,
+    Fragment$MathSubFieldWithRelations? getMathSubFieldById,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Fragment$MathSubField<TRes> get getMathSubFieldById =>
-      CopyWith$Fragment$MathSubField.stub(_res);
+  CopyWith$Fragment$MathSubFieldWithRelations<TRes> get getMathSubFieldById =>
+      CopyWith$Fragment$MathSubFieldWithRelations.stub(_res);
 }
 
 const documentNodeQueryGetMathSubFieldById = DocumentNode(definitions: [
@@ -273,7 +275,7 @@ const documentNodeQueryGetMathSubFieldById = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'MathSubField'),
+            name: NameNode(value: 'MathSubFieldWithRelations'),
             directives: [],
           ),
           FieldNode(
@@ -294,7 +296,9 @@ const documentNodeQueryGetMathSubFieldById = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionMathSubFieldWithRelations,
   fragmentDefinitionMathSubField,
+  fragmentDefinitionMathField,
 ]);
 Query$GetMathSubFieldById _parserFn$Query$GetMathSubFieldById(
         Map<String, dynamic> data) =>

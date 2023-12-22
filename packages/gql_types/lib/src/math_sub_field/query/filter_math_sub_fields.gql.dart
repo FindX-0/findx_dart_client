@@ -1,5 +1,6 @@
 import '../../math_field/math_field.gql.dart';
 import '../math_sub_field.gql.dart';
+import '../math_sub_field_with_relations.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -382,27 +383,8 @@ const documentNodeQueryFilterMathSubFields = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FragmentSpreadNode(
-                name: NameNode(value: 'MathSubField'),
+                name: NameNode(value: 'MathSubFieldWithRelations'),
                 directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: 'mathField'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'MathField'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -431,6 +413,7 @@ const documentNodeQueryFilterMathSubFields = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionMathSubFieldWithRelations,
   fragmentDefinitionMathSubField,
   fragmentDefinitionMathField,
 ]);
@@ -588,9 +571,8 @@ class Query$FilterMathSubFields$filterMathSubFields {
     return Query$FilterMathSubFields$filterMathSubFields(
       count: (l$count as int),
       data: (l$data as List<dynamic>)
-          .map((e) =>
-              Query$FilterMathSubFields$filterMathSubFields$data.fromJson(
-                  (e as Map<String, dynamic>)))
+          .map((e) => Fragment$MathSubFieldWithRelations.fromJson(
+              (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -598,7 +580,7 @@ class Query$FilterMathSubFields$filterMathSubFields {
 
   final int count;
 
-  final List<Query$FilterMathSubFields$filterMathSubFields$data> data;
+  final List<Fragment$MathSubFieldWithRelations> data;
 
   final String $__typename;
 
@@ -682,14 +664,14 @@ abstract class CopyWith$Query$FilterMathSubFields$filterMathSubFields<TRes> {
 
   TRes call({
     int? count,
-    List<Query$FilterMathSubFields$filterMathSubFields$data>? data,
+    List<Fragment$MathSubFieldWithRelations>? data,
     String? $__typename,
   });
   TRes data(
-      Iterable<Query$FilterMathSubFields$filterMathSubFields$data> Function(
+      Iterable<Fragment$MathSubFieldWithRelations> Function(
               Iterable<
-                  CopyWith$Query$FilterMathSubFields$filterMathSubFields$data<
-                      Query$FilterMathSubFields$filterMathSubFields$data>>)
+                  CopyWith$Fragment$MathSubFieldWithRelations<
+                      Fragment$MathSubFieldWithRelations>>)
           _fn);
 }
 
@@ -717,25 +699,24 @@ class _CopyWithImpl$Query$FilterMathSubFields$filterMathSubFields<TRes>
             : (count as int),
         data: data == _undefined || data == null
             ? _instance.data
-            : (data
-                as List<Query$FilterMathSubFields$filterMathSubFields$data>),
+            : (data as List<Fragment$MathSubFieldWithRelations>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
   TRes data(
-          Iterable<Query$FilterMathSubFields$filterMathSubFields$data> Function(
+          Iterable<Fragment$MathSubFieldWithRelations> Function(
                   Iterable<
-                      CopyWith$Query$FilterMathSubFields$filterMathSubFields$data<
-                          Query$FilterMathSubFields$filterMathSubFields$data>>)
+                      CopyWith$Fragment$MathSubFieldWithRelations<
+                          Fragment$MathSubFieldWithRelations>>)
               _fn) =>
       call(
-          data: _fn(_instance.data.map((e) =>
-              CopyWith$Query$FilterMathSubFields$filterMathSubFields$data(
-                e,
-                (i) => i,
-              ))).toList());
+          data: _fn(_instance.data
+              .map((e) => CopyWith$Fragment$MathSubFieldWithRelations(
+                    e,
+                    (i) => i,
+                  ))).toList());
 }
 
 class _CopyWithStubImpl$Query$FilterMathSubFields$filterMathSubFields<TRes>
@@ -746,236 +727,10 @@ class _CopyWithStubImpl$Query$FilterMathSubFields$filterMathSubFields<TRes>
 
   call({
     int? count,
-    List<Query$FilterMathSubFields$filterMathSubFields$data>? data,
+    List<Fragment$MathSubFieldWithRelations>? data,
     String? $__typename,
   }) =>
       _res;
 
   data(_fn) => _res;
-}
-
-class Query$FilterMathSubFields$filterMathSubFields$data
-    implements Fragment$MathSubField {
-  Query$FilterMathSubFields$filterMathSubFields$data({
-    required this.id,
-    required this.name,
-    required this.mathFieldId,
-    required this.createdAt,
-    this.$__typename = 'MathSubFieldObject',
-    this.mathField,
-  });
-
-  factory Query$FilterMathSubFields$filterMathSubFields$data.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$mathFieldId = json['mathFieldId'];
-    final l$createdAt = json['createdAt'];
-    final l$$__typename = json['__typename'];
-    final l$mathField = json['mathField'];
-    return Query$FilterMathSubFields$filterMathSubFields$data(
-      id: (l$id as String),
-      name: (l$name as String),
-      mathFieldId: (l$mathFieldId as String),
-      createdAt: DateTime.parse((l$createdAt as String)),
-      $__typename: (l$$__typename as String),
-      mathField: l$mathField == null
-          ? null
-          : Fragment$MathField.fromJson((l$mathField as Map<String, dynamic>)),
-    );
-  }
-
-  final String id;
-
-  final String name;
-
-  final String mathFieldId;
-
-  final DateTime createdAt;
-
-  final String $__typename;
-
-  final Fragment$MathField? mathField;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$mathFieldId = mathFieldId;
-    _resultData['mathFieldId'] = l$mathFieldId;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt.toIso8601String();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    final l$mathField = mathField;
-    _resultData['mathField'] = l$mathField?.toJson();
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$mathFieldId = mathFieldId;
-    final l$createdAt = createdAt;
-    final l$$__typename = $__typename;
-    final l$mathField = mathField;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$mathFieldId,
-      l$createdAt,
-      l$$__typename,
-      l$mathField,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$FilterMathSubFields$filterMathSubFields$data) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$mathFieldId = mathFieldId;
-    final lOther$mathFieldId = other.mathFieldId;
-    if (l$mathFieldId != lOther$mathFieldId) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    final l$mathField = mathField;
-    final lOther$mathField = other.mathField;
-    if (l$mathField != lOther$mathField) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$FilterMathSubFields$filterMathSubFields$data
-    on Query$FilterMathSubFields$filterMathSubFields$data {
-  CopyWith$Query$FilterMathSubFields$filterMathSubFields$data<
-          Query$FilterMathSubFields$filterMathSubFields$data>
-      get copyWith =>
-          CopyWith$Query$FilterMathSubFields$filterMathSubFields$data(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$FilterMathSubFields$filterMathSubFields$data<
-    TRes> {
-  factory CopyWith$Query$FilterMathSubFields$filterMathSubFields$data(
-    Query$FilterMathSubFields$filterMathSubFields$data instance,
-    TRes Function(Query$FilterMathSubFields$filterMathSubFields$data) then,
-  ) = _CopyWithImpl$Query$FilterMathSubFields$filterMathSubFields$data;
-
-  factory CopyWith$Query$FilterMathSubFields$filterMathSubFields$data.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$FilterMathSubFields$filterMathSubFields$data;
-
-  TRes call({
-    String? id,
-    String? name,
-    String? mathFieldId,
-    DateTime? createdAt,
-    String? $__typename,
-    Fragment$MathField? mathField,
-  });
-  CopyWith$Fragment$MathField<TRes> get mathField;
-}
-
-class _CopyWithImpl$Query$FilterMathSubFields$filterMathSubFields$data<TRes>
-    implements
-        CopyWith$Query$FilterMathSubFields$filterMathSubFields$data<TRes> {
-  _CopyWithImpl$Query$FilterMathSubFields$filterMathSubFields$data(
-    this._instance,
-    this._then,
-  );
-
-  final Query$FilterMathSubFields$filterMathSubFields$data _instance;
-
-  final TRes Function(Query$FilterMathSubFields$filterMathSubFields$data) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? mathFieldId = _undefined,
-    Object? createdAt = _undefined,
-    Object? $__typename = _undefined,
-    Object? mathField = _undefined,
-  }) =>
-      _then(Query$FilterMathSubFields$filterMathSubFields$data(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        mathFieldId: mathFieldId == _undefined || mathFieldId == null
-            ? _instance.mathFieldId
-            : (mathFieldId as String),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as DateTime),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        mathField: mathField == _undefined
-            ? _instance.mathField
-            : (mathField as Fragment$MathField?),
-      ));
-
-  CopyWith$Fragment$MathField<TRes> get mathField {
-    final local$mathField = _instance.mathField;
-    return local$mathField == null
-        ? CopyWith$Fragment$MathField.stub(_then(_instance))
-        : CopyWith$Fragment$MathField(
-            local$mathField, (e) => call(mathField: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$FilterMathSubFields$filterMathSubFields$data<TRes>
-    implements
-        CopyWith$Query$FilterMathSubFields$filterMathSubFields$data<TRes> {
-  _CopyWithStubImpl$Query$FilterMathSubFields$filterMathSubFields$data(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? id,
-    String? name,
-    String? mathFieldId,
-    DateTime? createdAt,
-    String? $__typename,
-    Fragment$MathField? mathField,
-  }) =>
-      _res;
-
-  CopyWith$Fragment$MathField<TRes> get mathField =>
-      CopyWith$Fragment$MathField.stub(_res);
 }

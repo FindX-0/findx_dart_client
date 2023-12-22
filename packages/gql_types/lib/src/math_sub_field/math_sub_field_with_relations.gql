@@ -1,0 +1,6 @@
+fragment MathSubFieldWithRelations on MathSubFieldObject {
+  ...MathSubField
+  mathField {
+    ...MathField
+  }
+}
