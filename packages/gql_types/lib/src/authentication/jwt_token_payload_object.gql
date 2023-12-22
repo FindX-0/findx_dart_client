@@ -1,0 +1,4 @@
+fragment JwtTokenPayload on JwtTokenPayloadObject {
+  accessToken
+  refreshToken
+}

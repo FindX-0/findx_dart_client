@@ -1,4 +1,5 @@
 fragment AuthPayload on AuthPayloadObject {
   accessToken
   refreshToken
+  hasEmailVerified
 }

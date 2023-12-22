@@ -1,5 +1,5 @@
-import 'auth_payload_object.gql.dart';
 import 'dart:async';
+import 'jwt_token_payload_object.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -141,13 +141,13 @@ class Mutation$AdminSignIn {
     final l$adminSignIn = json['adminSignIn'];
     final l$$__typename = json['__typename'];
     return Mutation$AdminSignIn(
-      adminSignIn: Mutation$AdminSignIn$adminSignIn.fromJson(
+      adminSignIn: Fragment$JwtTokenPayload.fromJson(
           (l$adminSignIn as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$AdminSignIn$adminSignIn adminSignIn;
+  final Fragment$JwtTokenPayload adminSignIn;
 
   final String $__typename;
 
@@ -210,10 +210,10 @@ abstract class CopyWith$Mutation$AdminSignIn<TRes> {
       _CopyWithStubImpl$Mutation$AdminSignIn;
 
   TRes call({
-    Mutation$AdminSignIn$adminSignIn? adminSignIn,
+    Fragment$JwtTokenPayload? adminSignIn,
     String? $__typename,
   });
-  CopyWith$Mutation$AdminSignIn$adminSignIn<TRes> get adminSignIn;
+  CopyWith$Fragment$JwtTokenPayload<TRes> get adminSignIn;
 }
 
 class _CopyWithImpl$Mutation$AdminSignIn<TRes>
@@ -236,15 +236,15 @@ class _CopyWithImpl$Mutation$AdminSignIn<TRes>
       _then(Mutation$AdminSignIn(
         adminSignIn: adminSignIn == _undefined || adminSignIn == null
             ? _instance.adminSignIn
-            : (adminSignIn as Mutation$AdminSignIn$adminSignIn),
+            : (adminSignIn as Fragment$JwtTokenPayload),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Mutation$AdminSignIn$adminSignIn<TRes> get adminSignIn {
+  CopyWith$Fragment$JwtTokenPayload<TRes> get adminSignIn {
     final local$adminSignIn = _instance.adminSignIn;
-    return CopyWith$Mutation$AdminSignIn$adminSignIn(
+    return CopyWith$Fragment$JwtTokenPayload(
         local$adminSignIn, (e) => call(adminSignIn: e));
   }
 }
@@ -256,13 +256,13 @@ class _CopyWithStubImpl$Mutation$AdminSignIn<TRes>
   TRes _res;
 
   call({
-    Mutation$AdminSignIn$adminSignIn? adminSignIn,
+    Fragment$JwtTokenPayload? adminSignIn,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Mutation$AdminSignIn$adminSignIn<TRes> get adminSignIn =>
-      CopyWith$Mutation$AdminSignIn$adminSignIn.stub(_res);
+  CopyWith$Fragment$JwtTokenPayload<TRes> get adminSignIn =>
+      CopyWith$Fragment$JwtTokenPayload.stub(_res);
 }
 
 const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
@@ -312,7 +312,7 @@ const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'AuthPayload'),
+            name: NameNode(value: 'JwtTokenPayload'),
             directives: [],
           ),
           FieldNode(
@@ -333,7 +333,7 @@ const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionAuthPayload,
+  fragmentDefinitionJwtTokenPayload,
 ]);
 Mutation$AdminSignIn _parserFn$Mutation$AdminSignIn(
         Map<String, dynamic> data) =>
@@ -428,97 +428,4 @@ extension ClientExtension$Mutation$AdminSignIn on graphql.GraphQLClient {
   graphql.ObservableQuery<Mutation$AdminSignIn> watchMutation$AdminSignIn(
           WatchOptions$Mutation$AdminSignIn options) =>
       this.watchMutation(options);
-}
-
-class Mutation$AdminSignIn$adminSignIn {
-  Mutation$AdminSignIn$adminSignIn(
-      {this.$__typename = 'JwtTokenPayloadObject'});
-
-  factory Mutation$AdminSignIn$adminSignIn.fromJson(Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return Mutation$AdminSignIn$adminSignIn(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Mutation$AdminSignIn$adminSignIn) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$AdminSignIn$adminSignIn
-    on Mutation$AdminSignIn$adminSignIn {
-  CopyWith$Mutation$AdminSignIn$adminSignIn<Mutation$AdminSignIn$adminSignIn>
-      get copyWith => CopyWith$Mutation$AdminSignIn$adminSignIn(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$AdminSignIn$adminSignIn<TRes> {
-  factory CopyWith$Mutation$AdminSignIn$adminSignIn(
-    Mutation$AdminSignIn$adminSignIn instance,
-    TRes Function(Mutation$AdminSignIn$adminSignIn) then,
-  ) = _CopyWithImpl$Mutation$AdminSignIn$adminSignIn;
-
-  factory CopyWith$Mutation$AdminSignIn$adminSignIn.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$AdminSignIn$adminSignIn;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImpl$Mutation$AdminSignIn$adminSignIn<TRes>
-    implements CopyWith$Mutation$AdminSignIn$adminSignIn<TRes> {
-  _CopyWithImpl$Mutation$AdminSignIn$adminSignIn(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$AdminSignIn$adminSignIn _instance;
-
-  final TRes Function(Mutation$AdminSignIn$adminSignIn) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Mutation$AdminSignIn$adminSignIn(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImpl$Mutation$AdminSignIn$adminSignIn<TRes>
-    implements CopyWith$Mutation$AdminSignIn$adminSignIn<TRes> {
-  _CopyWithStubImpl$Mutation$AdminSignIn$adminSignIn(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
 }

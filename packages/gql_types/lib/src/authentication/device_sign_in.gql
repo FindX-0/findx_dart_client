@@ -4,6 +4,6 @@ mutation DeviceSignIn(
   deviceSignIn(input: {
     deviceId: $deviceId
   }) {
-    ...AuthPayload
+    ...JwtTokenPayload
   }
 }

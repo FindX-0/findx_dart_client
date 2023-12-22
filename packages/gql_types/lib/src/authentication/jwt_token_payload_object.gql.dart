@@ -1,23 +1,20 @@
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
-class Fragment$AuthPayload {
-  Fragment$AuthPayload({
+class Fragment$JwtTokenPayload {
+  Fragment$JwtTokenPayload({
     required this.accessToken,
     required this.refreshToken,
-    this.hasEmailVerified,
-    this.$__typename = 'AuthPayloadObject',
+    this.$__typename = 'JwtTokenPayloadObject',
   });
 
-  factory Fragment$AuthPayload.fromJson(Map<String, dynamic> json) {
+  factory Fragment$JwtTokenPayload.fromJson(Map<String, dynamic> json) {
     final l$accessToken = json['accessToken'];
     final l$refreshToken = json['refreshToken'];
-    final l$hasEmailVerified = json['hasEmailVerified'];
     final l$$__typename = json['__typename'];
-    return Fragment$AuthPayload(
+    return Fragment$JwtTokenPayload(
       accessToken: (l$accessToken as String),
       refreshToken: (l$refreshToken as String),
-      hasEmailVerified: (l$hasEmailVerified as bool?),
       $__typename: (l$$__typename as String),
     );
   }
@@ -25,8 +22,6 @@ class Fragment$AuthPayload {
   final String accessToken;
 
   final String refreshToken;
-
-  final bool? hasEmailVerified;
 
   final String $__typename;
 
@@ -36,8 +31,6 @@ class Fragment$AuthPayload {
     _resultData['accessToken'] = l$accessToken;
     final l$refreshToken = refreshToken;
     _resultData['refreshToken'] = l$refreshToken;
-    final l$hasEmailVerified = hasEmailVerified;
-    _resultData['hasEmailVerified'] = l$hasEmailVerified;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -47,12 +40,10 @@ class Fragment$AuthPayload {
   int get hashCode {
     final l$accessToken = accessToken;
     final l$refreshToken = refreshToken;
-    final l$hasEmailVerified = hasEmailVerified;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$accessToken,
       l$refreshToken,
-      l$hasEmailVerified,
       l$$__typename,
     ]);
   }
@@ -62,7 +53,8 @@ class Fragment$AuthPayload {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$AuthPayload) || runtimeType != other.runtimeType) {
+    if (!(other is Fragment$JwtTokenPayload) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$accessToken = accessToken;
@@ -75,11 +67,6 @@ class Fragment$AuthPayload {
     if (l$refreshToken != lOther$refreshToken) {
       return false;
     }
-    final l$hasEmailVerified = hasEmailVerified;
-    final lOther$hasEmailVerified = other.hasEmailVerified;
-    if (l$hasEmailVerified != lOther$hasEmailVerified) {
-      return false;
-    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -89,86 +76,81 @@ class Fragment$AuthPayload {
   }
 }
 
-extension UtilityExtension$Fragment$AuthPayload on Fragment$AuthPayload {
-  CopyWith$Fragment$AuthPayload<Fragment$AuthPayload> get copyWith =>
-      CopyWith$Fragment$AuthPayload(
+extension UtilityExtension$Fragment$JwtTokenPayload
+    on Fragment$JwtTokenPayload {
+  CopyWith$Fragment$JwtTokenPayload<Fragment$JwtTokenPayload> get copyWith =>
+      CopyWith$Fragment$JwtTokenPayload(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith$Fragment$AuthPayload<TRes> {
-  factory CopyWith$Fragment$AuthPayload(
-    Fragment$AuthPayload instance,
-    TRes Function(Fragment$AuthPayload) then,
-  ) = _CopyWithImpl$Fragment$AuthPayload;
+abstract class CopyWith$Fragment$JwtTokenPayload<TRes> {
+  factory CopyWith$Fragment$JwtTokenPayload(
+    Fragment$JwtTokenPayload instance,
+    TRes Function(Fragment$JwtTokenPayload) then,
+  ) = _CopyWithImpl$Fragment$JwtTokenPayload;
 
-  factory CopyWith$Fragment$AuthPayload.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$AuthPayload;
+  factory CopyWith$Fragment$JwtTokenPayload.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$JwtTokenPayload;
 
   TRes call({
     String? accessToken,
     String? refreshToken,
-    bool? hasEmailVerified,
     String? $__typename,
   });
 }
 
-class _CopyWithImpl$Fragment$AuthPayload<TRes>
-    implements CopyWith$Fragment$AuthPayload<TRes> {
-  _CopyWithImpl$Fragment$AuthPayload(
+class _CopyWithImpl$Fragment$JwtTokenPayload<TRes>
+    implements CopyWith$Fragment$JwtTokenPayload<TRes> {
+  _CopyWithImpl$Fragment$JwtTokenPayload(
     this._instance,
     this._then,
   );
 
-  final Fragment$AuthPayload _instance;
+  final Fragment$JwtTokenPayload _instance;
 
-  final TRes Function(Fragment$AuthPayload) _then;
+  final TRes Function(Fragment$JwtTokenPayload) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? accessToken = _undefined,
     Object? refreshToken = _undefined,
-    Object? hasEmailVerified = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Fragment$AuthPayload(
+      _then(Fragment$JwtTokenPayload(
         accessToken: accessToken == _undefined || accessToken == null
             ? _instance.accessToken
             : (accessToken as String),
         refreshToken: refreshToken == _undefined || refreshToken == null
             ? _instance.refreshToken
             : (refreshToken as String),
-        hasEmailVerified: hasEmailVerified == _undefined
-            ? _instance.hasEmailVerified
-            : (hasEmailVerified as bool?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Fragment$AuthPayload<TRes>
-    implements CopyWith$Fragment$AuthPayload<TRes> {
-  _CopyWithStubImpl$Fragment$AuthPayload(this._res);
+class _CopyWithStubImpl$Fragment$JwtTokenPayload<TRes>
+    implements CopyWith$Fragment$JwtTokenPayload<TRes> {
+  _CopyWithStubImpl$Fragment$JwtTokenPayload(this._res);
 
   TRes _res;
 
   call({
     String? accessToken,
     String? refreshToken,
-    bool? hasEmailVerified,
     String? $__typename,
   }) =>
       _res;
 }
 
-const fragmentDefinitionAuthPayload = FragmentDefinitionNode(
-  name: NameNode(value: 'AuthPayload'),
+const fragmentDefinitionJwtTokenPayload = FragmentDefinitionNode(
+  name: NameNode(value: 'JwtTokenPayload'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
-    name: NameNode(value: 'AuthPayloadObject'),
+    name: NameNode(value: 'JwtTokenPayloadObject'),
     isNonNull: false,
   )),
   directives: [],
@@ -188,13 +170,6 @@ const fragmentDefinitionAuthPayload = FragmentDefinitionNode(
       selectionSet: null,
     ),
     FieldNode(
-      name: NameNode(value: 'hasEmailVerified'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
       name: NameNode(value: '__typename'),
       alias: null,
       arguments: [],
@@ -203,13 +178,13 @@ const fragmentDefinitionAuthPayload = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentAuthPayload = DocumentNode(definitions: [
-  fragmentDefinitionAuthPayload,
+const documentNodeFragmentJwtTokenPayload = DocumentNode(definitions: [
+  fragmentDefinitionJwtTokenPayload,
 ]);
 
-extension ClientExtension$Fragment$AuthPayload on graphql.GraphQLClient {
-  void writeFragment$AuthPayload({
-    required Fragment$AuthPayload data,
+extension ClientExtension$Fragment$JwtTokenPayload on graphql.GraphQLClient {
+  void writeFragment$JwtTokenPayload({
+    required Fragment$JwtTokenPayload data,
     required Map<String, dynamic> idFields,
     bool broadcast = true,
   }) =>
@@ -217,14 +192,14 @@ extension ClientExtension$Fragment$AuthPayload on graphql.GraphQLClient {
         graphql.FragmentRequest(
           idFields: idFields,
           fragment: const graphql.Fragment(
-            fragmentName: 'AuthPayload',
-            document: documentNodeFragmentAuthPayload,
+            fragmentName: 'JwtTokenPayload',
+            document: documentNodeFragmentJwtTokenPayload,
           ),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Fragment$AuthPayload? readFragment$AuthPayload({
+  Fragment$JwtTokenPayload? readFragment$JwtTokenPayload({
     required Map<String, dynamic> idFields,
     bool optimistic = true,
   }) {
@@ -232,12 +207,12 @@ extension ClientExtension$Fragment$AuthPayload on graphql.GraphQLClient {
       graphql.FragmentRequest(
         idFields: idFields,
         fragment: const graphql.Fragment(
-          fragmentName: 'AuthPayload',
-          document: documentNodeFragmentAuthPayload,
+          fragmentName: 'JwtTokenPayload',
+          document: documentNodeFragmentJwtTokenPayload,
         ),
       ),
       optimistic: optimistic,
     );
-    return result == null ? null : Fragment$AuthPayload.fromJson(result);
+    return result == null ? null : Fragment$JwtTokenPayload.fromJson(result);
   }
 }

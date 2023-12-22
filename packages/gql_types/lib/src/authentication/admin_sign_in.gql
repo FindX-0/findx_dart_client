@@ -6,6 +6,6 @@ mutation AdminSignIn(
     email: $email,
     password: $password
   }) {
-    ...AuthPayload
+    ...JwtTokenPayload
   }
 }

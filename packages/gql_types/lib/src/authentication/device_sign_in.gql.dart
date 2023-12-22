@@ -1,5 +1,5 @@
-import 'auth_payload_object.gql.dart';
 import 'dart:async';
+import 'jwt_token_payload_object.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -111,13 +111,13 @@ class Mutation$DeviceSignIn {
     final l$deviceSignIn = json['deviceSignIn'];
     final l$$__typename = json['__typename'];
     return Mutation$DeviceSignIn(
-      deviceSignIn: Fragment$AuthPayload.fromJson(
+      deviceSignIn: Fragment$JwtTokenPayload.fromJson(
           (l$deviceSignIn as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Fragment$AuthPayload deviceSignIn;
+  final Fragment$JwtTokenPayload deviceSignIn;
 
   final String $__typename;
 
@@ -180,10 +180,10 @@ abstract class CopyWith$Mutation$DeviceSignIn<TRes> {
       _CopyWithStubImpl$Mutation$DeviceSignIn;
 
   TRes call({
-    Fragment$AuthPayload? deviceSignIn,
+    Fragment$JwtTokenPayload? deviceSignIn,
     String? $__typename,
   });
-  CopyWith$Fragment$AuthPayload<TRes> get deviceSignIn;
+  CopyWith$Fragment$JwtTokenPayload<TRes> get deviceSignIn;
 }
 
 class _CopyWithImpl$Mutation$DeviceSignIn<TRes>
@@ -206,15 +206,15 @@ class _CopyWithImpl$Mutation$DeviceSignIn<TRes>
       _then(Mutation$DeviceSignIn(
         deviceSignIn: deviceSignIn == _undefined || deviceSignIn == null
             ? _instance.deviceSignIn
-            : (deviceSignIn as Fragment$AuthPayload),
+            : (deviceSignIn as Fragment$JwtTokenPayload),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Fragment$AuthPayload<TRes> get deviceSignIn {
+  CopyWith$Fragment$JwtTokenPayload<TRes> get deviceSignIn {
     final local$deviceSignIn = _instance.deviceSignIn;
-    return CopyWith$Fragment$AuthPayload(
+    return CopyWith$Fragment$JwtTokenPayload(
         local$deviceSignIn, (e) => call(deviceSignIn: e));
   }
 }
@@ -226,13 +226,13 @@ class _CopyWithStubImpl$Mutation$DeviceSignIn<TRes>
   TRes _res;
 
   call({
-    Fragment$AuthPayload? deviceSignIn,
+    Fragment$JwtTokenPayload? deviceSignIn,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Fragment$AuthPayload<TRes> get deviceSignIn =>
-      CopyWith$Fragment$AuthPayload.stub(_res);
+  CopyWith$Fragment$JwtTokenPayload<TRes> get deviceSignIn =>
+      CopyWith$Fragment$JwtTokenPayload.stub(_res);
 }
 
 const documentNodeMutationDeviceSignIn = DocumentNode(definitions: [
@@ -269,7 +269,7 @@ const documentNodeMutationDeviceSignIn = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'AuthPayload'),
+            name: NameNode(value: 'JwtTokenPayload'),
             directives: [],
           ),
           FieldNode(
@@ -290,7 +290,7 @@ const documentNodeMutationDeviceSignIn = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionAuthPayload,
+  fragmentDefinitionJwtTokenPayload,
 ]);
 Mutation$DeviceSignIn _parserFn$Mutation$DeviceSignIn(
         Map<String, dynamic> data) =>
