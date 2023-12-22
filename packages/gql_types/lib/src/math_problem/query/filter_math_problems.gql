@@ -9,6 +9,9 @@ query FilterMathProblems(
     count
     data {
       ...MathProblem
+      images {
+        ...MediaFile
+      }
       mathField {
         ...MathField
       }

@@ -1,5 +1,6 @@
 import '../../math_field/math_field.gql.dart';
 import '../../math_sub_field/math_sub_field.gql.dart';
+import '../../media_file/media_file.gql.dart';
 import '../math_problem.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -346,6 +347,25 @@ const documentNodeQueryFilterMathProblems = DocumentNode(definitions: [
                 directives: [],
               ),
               FieldNode(
+                name: NameNode(value: 'images'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'MediaFile'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
                 name: NameNode(value: 'mathField'),
                 alias: null,
                 arguments: [],
@@ -411,6 +431,7 @@ const documentNodeQueryFilterMathProblems = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionMathProblem,
+  fragmentDefinitionMediaFile,
   fragmentDefinitionMathField,
   fragmentDefinitionMathSubField,
 ]);
@@ -742,6 +763,7 @@ class Query$FilterMathProblems$filterMathProblems$data
     required this.mathFieldId,
     required this.mathSubFieldId,
     this.$__typename = 'MathProblemObject',
+    this.images,
     this.mathField,
     this.mathSubField,
   });
@@ -756,6 +778,7 @@ class Query$FilterMathProblems$filterMathProblems$data
     final l$mathFieldId = json['mathFieldId'];
     final l$mathSubFieldId = json['mathSubFieldId'];
     final l$$__typename = json['__typename'];
+    final l$images = json['images'];
     final l$mathField = json['mathField'];
     final l$mathSubField = json['mathSubField'];
     return Query$FilterMathProblems$filterMathProblems$data(
@@ -767,6 +790,9 @@ class Query$FilterMathProblems$filterMathProblems$data
       mathFieldId: (l$mathFieldId as String),
       mathSubFieldId: (l$mathSubFieldId as String),
       $__typename: (l$$__typename as String),
+      images: (l$images as List<dynamic>?)
+          ?.map((e) => Fragment$MediaFile.fromJson((e as Map<String, dynamic>)))
+          .toList(),
       mathField: l$mathField == null
           ? null
           : Fragment$MathField.fromJson((l$mathField as Map<String, dynamic>)),
@@ -793,6 +819,8 @@ class Query$FilterMathProblems$filterMathProblems$data
 
   final String $__typename;
 
+  final List<Fragment$MediaFile>? images;
+
   final Fragment$MathField? mathField;
 
   final Fragment$MathSubField? mathSubField;
@@ -815,6 +843,8 @@ class Query$FilterMathProblems$filterMathProblems$data
     _resultData['mathSubFieldId'] = l$mathSubFieldId;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$images = images;
+    _resultData['images'] = l$images?.map((e) => e.toJson()).toList();
     final l$mathField = mathField;
     _resultData['mathField'] = l$mathField?.toJson();
     final l$mathSubField = mathSubField;
@@ -832,6 +862,7 @@ class Query$FilterMathProblems$filterMathProblems$data
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
     final l$$__typename = $__typename;
+    final l$images = images;
     final l$mathField = mathField;
     final l$mathSubField = mathSubField;
     return Object.hashAll([
@@ -843,6 +874,7 @@ class Query$FilterMathProblems$filterMathProblems$data
       l$mathFieldId,
       l$mathSubFieldId,
       l$$__typename,
+      l$images == null ? null : Object.hashAll(l$images.map((v) => v)),
       l$mathField,
       l$mathSubField,
     ]);
@@ -897,6 +929,22 @@ class Query$FilterMathProblems$filterMathProblems$data
     if (l$$__typename != lOther$$__typename) {
       return false;
     }
+    final l$images = images;
+    final lOther$images = other.images;
+    if (l$images != null && lOther$images != null) {
+      if (l$images.length != lOther$images.length) {
+        return false;
+      }
+      for (int i = 0; i < l$images.length; i++) {
+        final l$images$entry = l$images[i];
+        final lOther$images$entry = lOther$images[i];
+        if (l$images$entry != lOther$images$entry) {
+          return false;
+        }
+      }
+    } else if (l$images != lOther$images) {
+      return false;
+    }
     final l$mathField = mathField;
     final lOther$mathField = other.mathField;
     if (l$mathField != lOther$mathField) {
@@ -940,9 +988,14 @@ abstract class CopyWith$Query$FilterMathProblems$filterMathProblems$data<TRes> {
     String? mathFieldId,
     String? mathSubFieldId,
     String? $__typename,
+    List<Fragment$MediaFile>? images,
     Fragment$MathField? mathField,
     Fragment$MathSubField? mathSubField,
   });
+  TRes images(
+      Iterable<Fragment$MediaFile>? Function(
+              Iterable<CopyWith$Fragment$MediaFile<Fragment$MediaFile>>?)
+          _fn);
   CopyWith$Fragment$MathField<TRes> get mathField;
   CopyWith$Fragment$MathSubField<TRes> get mathSubField;
 }
@@ -969,6 +1022,7 @@ class _CopyWithImpl$Query$FilterMathProblems$filterMathProblems$data<TRes>
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
     Object? $__typename = _undefined,
+    Object? images = _undefined,
     Object? mathField = _undefined,
     Object? mathSubField = _undefined,
   }) =>
@@ -991,6 +1045,9 @@ class _CopyWithImpl$Query$FilterMathProblems$filterMathProblems$data<TRes>
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
+        images: images == _undefined
+            ? _instance.images
+            : (images as List<Fragment$MediaFile>?),
         mathField: mathField == _undefined
             ? _instance.mathField
             : (mathField as Fragment$MathField?),
@@ -998,6 +1055,16 @@ class _CopyWithImpl$Query$FilterMathProblems$filterMathProblems$data<TRes>
             ? _instance.mathSubField
             : (mathSubField as Fragment$MathSubField?),
       ));
+
+  TRes images(
+          Iterable<Fragment$MediaFile>? Function(
+                  Iterable<CopyWith$Fragment$MediaFile<Fragment$MediaFile>>?)
+              _fn) =>
+      call(
+          images: _fn(_instance.images?.map((e) => CopyWith$Fragment$MediaFile(
+                e,
+                (i) => i,
+              )))?.toList());
 
   CopyWith$Fragment$MathField<TRes> get mathField {
     final local$mathField = _instance.mathField;
@@ -1031,10 +1098,13 @@ class _CopyWithStubImpl$Query$FilterMathProblems$filterMathProblems$data<TRes>
     String? mathFieldId,
     String? mathSubFieldId,
     String? $__typename,
+    List<Fragment$MediaFile>? images,
     Fragment$MathField? mathField,
     Fragment$MathSubField? mathSubField,
   }) =>
       _res;
+
+  images(_fn) => _res;
 
   CopyWith$Fragment$MathField<TRes> get mathField =>
       CopyWith$Fragment$MathField.stub(_res);
