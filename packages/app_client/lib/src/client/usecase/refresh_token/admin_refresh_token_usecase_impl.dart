@@ -1,4 +1,4 @@
-import '../../model/auth_payload_object.dart';
+import '../../model/jwt_token_payload_object.dart';
 import 'refresh_token_usecase_base.dart';
 
 class AdminRefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
@@ -20,7 +20,7 @@ class AdminRefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
   ''';
 
   @override
-  AuthPayloadObject? map(Map<String, dynamic> json) {
-    return AuthPayloadObject.fromJson(json['data']['adminRefreshToken']);
+  JwtTokenPayloadObject? map(Map<String, dynamic> json) {
+    return JwtTokenPayloadObject.fromJson(json['data']['adminRefreshToken']);
   }
 }

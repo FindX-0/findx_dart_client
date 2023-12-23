@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
-import '../../model/auth_payload_object.dart';
+import '../../model/jwt_token_payload_object.dart';
 import 'refresh_token_usecase.dart';
 
 abstract class RefreshTokenUsecaseBase implements RefreshTokenUsecase {
@@ -16,10 +16,10 @@ abstract class RefreshTokenUsecaseBase implements RefreshTokenUsecase {
 
   String get mutationStr;
 
-  AuthPayloadObject? map(Map<String, dynamic> json);
+  JwtTokenPayloadObject? map(Map<String, dynamic> json);
 
   @override
-  Future<AuthPayloadObject?> call(String refreshToken) async {
+  Future<JwtTokenPayloadObject?> call(String refreshToken) async {
     try {
       final res = await _dio.post(
         '$_baseUrl/graphql',

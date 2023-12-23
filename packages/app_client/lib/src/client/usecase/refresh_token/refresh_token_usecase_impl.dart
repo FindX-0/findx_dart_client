@@ -1,4 +1,4 @@
-import '../../model/auth_payload_object.dart';
+import '../../model/jwt_token_payload_object.dart';
 import 'refresh_token_usecase_base.dart';
 
 class RefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
@@ -14,14 +14,13 @@ class RefreshTokenUsecaseImpl extends RefreshTokenUsecaseBase {
     ) {
       refreshToken(input: { refreshToken: $refreshToken }) {
         accessToken
-        hasEmailVerified
         refreshToken
     }
   }
   ''';
 
   @override
-  AuthPayloadObject? map(Map<String, dynamic> json) {
-    return AuthPayloadObject.fromJson(json['data']['refreshToken']);
+  JwtTokenPayloadObject? map(Map<String, dynamic> json) {
+    return JwtTokenPayloadObject.fromJson(json['data']['refreshToken']);
   }
 }

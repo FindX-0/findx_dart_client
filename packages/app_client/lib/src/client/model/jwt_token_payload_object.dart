@@ -1,12 +1,12 @@
-final class AuthPayloadObject {
-  factory AuthPayloadObject.fromJson(Map<String, dynamic> json) {
-    return AuthPayloadObject._(
+final class JwtTokenPayloadObject {
+  factory JwtTokenPayloadObject.fromJson(Map<String, dynamic> json) {
+    return JwtTokenPayloadObject._(
       accessToken: json['accessToken'],
       refreshToken: json['refreshToken'],
     );
   }
 
-  AuthPayloadObject._({
+  JwtTokenPayloadObject._({
     required this.accessToken,
     required this.refreshToken,
   });
@@ -17,7 +17,7 @@ final class AuthPayloadObject {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AuthPayloadObject &&
+      other is JwtTokenPayloadObject &&
           runtimeType == other.runtimeType &&
           accessToken == other.accessToken &&
           refreshToken == other.refreshToken;
@@ -26,5 +26,5 @@ final class AuthPayloadObject {
   int get hashCode => Object.hash(runtimeType, accessToken, refreshToken);
 
   @override
-  String toString() => 'AuthPayload{accessToken: $accessToken, refreshToken: $refreshToken}';
+  String toString() => 'JwtTokenPayload{accessToken: $accessToken, refreshToken: $refreshToken}';
 }
