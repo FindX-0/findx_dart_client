@@ -1,3 +1,4 @@
+import '../../schema.gql.dart';
 import '../math_problem.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -12,6 +13,7 @@ class Variables$Mutation$UpdateMathProblem {
     String? mathFieldId,
     String? mathSubFieldId,
     List<String>? imageMediaIds,
+    List<Input$CreateMathProblemAnswerInput>? answers,
   }) =>
       Variables$Mutation$UpdateMathProblem._({
         r'id': id,
@@ -21,6 +23,7 @@ class Variables$Mutation$UpdateMathProblem {
         if (mathFieldId != null) r'mathFieldId': mathFieldId,
         if (mathSubFieldId != null) r'mathSubFieldId': mathSubFieldId,
         if (imageMediaIds != null) r'imageMediaIds': imageMediaIds,
+        if (answers != null) r'answers': answers,
       });
 
   Variables$Mutation$UpdateMathProblem._(this._$data);
@@ -56,6 +59,13 @@ class Variables$Mutation$UpdateMathProblem {
           ?.map((e) => (e as String))
           .toList();
     }
+    if (data.containsKey('answers')) {
+      final l$answers = data['answers'];
+      result$data['answers'] = (l$answers as List<dynamic>?)
+          ?.map((e) => Input$CreateMathProblemAnswerInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Mutation$UpdateMathProblem._(result$data);
   }
 
@@ -74,6 +84,9 @@ class Variables$Mutation$UpdateMathProblem {
   String? get mathSubFieldId => (_$data['mathSubFieldId'] as String?);
 
   List<String>? get imageMediaIds => (_$data['imageMediaIds'] as List<String>?);
+
+  List<Input$CreateMathProblemAnswerInput>? get answers =>
+      (_$data['answers'] as List<Input$CreateMathProblemAnswerInput>?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -102,6 +115,10 @@ class Variables$Mutation$UpdateMathProblem {
     if (_$data.containsKey('imageMediaIds')) {
       final l$imageMediaIds = imageMediaIds;
       result$data['imageMediaIds'] = l$imageMediaIds?.map((e) => e).toList();
+    }
+    if (_$data.containsKey('answers')) {
+      final l$answers = answers;
+      result$data['answers'] = l$answers?.map((e) => e.toJson()).toList();
     }
     return result$data;
   }
@@ -190,6 +207,25 @@ class Variables$Mutation$UpdateMathProblem {
     } else if (l$imageMediaIds != lOther$imageMediaIds) {
       return false;
     }
+    final l$answers = answers;
+    final lOther$answers = other.answers;
+    if (_$data.containsKey('answers') != other._$data.containsKey('answers')) {
+      return false;
+    }
+    if (l$answers != null && lOther$answers != null) {
+      if (l$answers.length != lOther$answers.length) {
+        return false;
+      }
+      for (int i = 0; i < l$answers.length; i++) {
+        final l$answers$entry = l$answers[i];
+        final lOther$answers$entry = lOther$answers[i];
+        if (l$answers$entry != lOther$answers$entry) {
+          return false;
+        }
+      }
+    } else if (l$answers != lOther$answers) {
+      return false;
+    }
     return true;
   }
 
@@ -202,6 +238,7 @@ class Variables$Mutation$UpdateMathProblem {
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
     final l$imageMediaIds = imageMediaIds;
+    final l$answers = answers;
     return Object.hashAll([
       l$id,
       _$data.containsKey('difficulty') ? l$difficulty : const {},
@@ -213,6 +250,11 @@ class Variables$Mutation$UpdateMathProblem {
           ? l$imageMediaIds == null
               ? null
               : Object.hashAll(l$imageMediaIds.map((v) => v))
+          : const {},
+      _$data.containsKey('answers')
+          ? l$answers == null
+              ? null
+              : Object.hashAll(l$answers.map((v) => v))
           : const {},
     ]);
   }
@@ -235,6 +277,7 @@ abstract class CopyWith$Variables$Mutation$UpdateMathProblem<TRes> {
     String? mathFieldId,
     String? mathSubFieldId,
     List<String>? imageMediaIds,
+    List<Input$CreateMathProblemAnswerInput>? answers,
   });
 }
 
@@ -259,6 +302,7 @@ class _CopyWithImpl$Variables$Mutation$UpdateMathProblem<TRes>
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
     Object? imageMediaIds = _undefined,
+    Object? answers = _undefined,
   }) =>
       _then(Variables$Mutation$UpdateMathProblem._({
         ..._instance._$data,
@@ -271,6 +315,8 @@ class _CopyWithImpl$Variables$Mutation$UpdateMathProblem<TRes>
           'mathSubFieldId': (mathSubFieldId as String?),
         if (imageMediaIds != _undefined)
           'imageMediaIds': (imageMediaIds as List<String>?),
+        if (answers != _undefined)
+          'answers': (answers as List<Input$CreateMathProblemAnswerInput>?),
       }));
 }
 
@@ -288,6 +334,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateMathProblem<TRes>
     String? mathFieldId,
     String? mathSubFieldId,
     List<String>? imageMediaIds,
+    List<Input$CreateMathProblemAnswerInput>? answers,
   }) =>
       _res;
 }
@@ -500,6 +547,18 @@ const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
         defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'answers')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'CreateMathProblemAnswerInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -537,6 +596,10 @@ const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
               ObjectFieldNode(
                 name: NameNode(value: 'imageMediaIds'),
                 value: VariableNode(name: NameNode(value: 'imageMediaIds')),
+              ),
+              ObjectFieldNode(
+                name: NameNode(value: 'answers'),
+                value: VariableNode(name: NameNode(value: 'answers')),
               ),
             ]),
           )

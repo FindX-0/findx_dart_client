@@ -12,7 +12,7 @@ class Variables$Mutation$CreateMathProblem {
     required String mathFieldId,
     required String mathSubFieldId,
     List<String>? imageMediaIds,
-    required List<Input$CreateMathProblemAnswerInput?> answers,
+    required List<Input$CreateMathProblemAnswerInput> answers,
   }) =>
       Variables$Mutation$CreateMathProblem._({
         r'difficulty': difficulty,
@@ -51,10 +51,8 @@ class Variables$Mutation$CreateMathProblem {
     }
     final l$answers = data['answers'];
     result$data['answers'] = (l$answers as List<dynamic>)
-        .map((e) => e == null
-            ? null
-            : Input$CreateMathProblemAnswerInput.fromJson(
-                (e as Map<String, dynamic>)))
+        .map((e) => Input$CreateMathProblemAnswerInput.fromJson(
+            (e as Map<String, dynamic>)))
         .toList();
     return Variables$Mutation$CreateMathProblem._(result$data);
   }
@@ -73,8 +71,8 @@ class Variables$Mutation$CreateMathProblem {
 
   List<String>? get imageMediaIds => (_$data['imageMediaIds'] as List<String>?);
 
-  List<Input$CreateMathProblemAnswerInput?> get answers =>
-      (_$data['answers'] as List<Input$CreateMathProblemAnswerInput?>);
+  List<Input$CreateMathProblemAnswerInput> get answers =>
+      (_$data['answers'] as List<Input$CreateMathProblemAnswerInput>);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -97,7 +95,7 @@ class Variables$Mutation$CreateMathProblem {
       result$data['imageMediaIds'] = l$imageMediaIds?.map((e) => e).toList();
     }
     final l$answers = answers;
-    result$data['answers'] = l$answers.map((e) => e?.toJson()).toList();
+    result$data['answers'] = l$answers.map((e) => e.toJson()).toList();
     return result$data;
   }
 
@@ -224,7 +222,7 @@ abstract class CopyWith$Variables$Mutation$CreateMathProblem<TRes> {
     String? mathFieldId,
     String? mathSubFieldId,
     List<String>? imageMediaIds,
-    List<Input$CreateMathProblemAnswerInput?>? answers,
+    List<Input$CreateMathProblemAnswerInput>? answers,
   });
 }
 
@@ -263,7 +261,7 @@ class _CopyWithImpl$Variables$Mutation$CreateMathProblem<TRes>
         if (imageMediaIds != _undefined)
           'imageMediaIds': (imageMediaIds as List<String>?),
         if (answers != _undefined && answers != null)
-          'answers': (answers as List<Input$CreateMathProblemAnswerInput?>),
+          'answers': (answers as List<Input$CreateMathProblemAnswerInput>),
       }));
 }
 
@@ -280,7 +278,7 @@ class _CopyWithStubImpl$Variables$Mutation$CreateMathProblem<TRes>
     String? mathFieldId,
     String? mathSubFieldId,
     List<String>? imageMediaIds,
-    List<Input$CreateMathProblemAnswerInput?>? answers,
+    List<Input$CreateMathProblemAnswerInput>? answers,
   }) =>
       _res;
 }
@@ -489,7 +487,7 @@ const documentNodeMutationCreateMathProblem = DocumentNode(definitions: [
         type: ListTypeNode(
           type: NamedTypeNode(
             name: NameNode(value: 'CreateMathProblemAnswerInput'),
-            isNonNull: false,
+            isNonNull: true,
           ),
           isNonNull: true,
         ),
