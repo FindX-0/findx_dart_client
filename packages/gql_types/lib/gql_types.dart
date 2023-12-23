@@ -5,6 +5,7 @@ export 'src/matchmaking/index.dart';
 export 'src/math_field/index.dart';
 export 'src/math_problem/index.dart';
 export 'src/math_sub_field/index.dart';
+export 'src/media_file/index.dart';
 export 'src/schema.gql.dart';
 export 'src/server_time/index.dart';
 export 'src/user/index.dart';
