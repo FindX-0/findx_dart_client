@@ -4,7 +4,8 @@ mutation CreateMathProblem(
   $tex: String,
   $mathFieldId: ID!,
   $mathSubFieldId: ID!,
-  $imageMediaIds: [ID!]
+  $imageMediaIds: [ID!],
+  $answers: [CreateMathProblemAnswerInput]!,
 ) {
   createMathProblem(input: {
     difficulty: $difficulty,
@@ -12,7 +13,8 @@ mutation CreateMathProblem(
     tex: $tex,
     mathFieldId: $mathFieldId,
     mathSubFieldId: $mathSubFieldId,
-    imageMediaIds: $imageMediaIds
+    imageMediaIds: $imageMediaIds,
+    answers: $answers
   }) {
     ...MathProblem
   }

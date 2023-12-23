@@ -6,4 +6,8 @@ fragment MathProblem on MathProblemObject {
   tex
   mathFieldId
   mathSubFieldId
+  answers {
+    tex
+    isCorrect
+  }
 }

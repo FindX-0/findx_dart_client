@@ -14,6 +14,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     this.tex,
     required this.mathFieldId,
     required this.mathSubFieldId,
+    required this.answers,
     this.$__typename = 'MathProblemObject',
     this.images,
     this.mathField,
@@ -29,6 +30,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     final l$tex = json['tex'];
     final l$mathFieldId = json['mathFieldId'];
     final l$mathSubFieldId = json['mathSubFieldId'];
+    final l$answers = json['answers'];
     final l$$__typename = json['__typename'];
     final l$images = json['images'];
     final l$mathField = json['mathField'];
@@ -41,6 +43,10 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
       tex: (l$tex as String?),
       mathFieldId: (l$mathFieldId as String),
       mathSubFieldId: (l$mathSubFieldId as String),
+      answers: (l$answers as List<dynamic>)
+          .map((e) => Fragment$MathProblemWithRelations$answers.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
       $__typename: (l$$__typename as String),
       images: (l$images as List<dynamic>?)
           ?.map((e) => Fragment$MediaFile.fromJson((e as Map<String, dynamic>)))
@@ -69,6 +75,8 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
 
   final String mathSubFieldId;
 
+  final List<Fragment$MathProblemWithRelations$answers> answers;
+
   final String $__typename;
 
   final List<Fragment$MediaFile>? images;
@@ -93,6 +101,8 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     _resultData['mathFieldId'] = l$mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
     _resultData['mathSubFieldId'] = l$mathSubFieldId;
+    final l$answers = answers;
+    _resultData['answers'] = l$answers.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     final l$images = images;
@@ -113,6 +123,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     final l$tex = tex;
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
+    final l$answers = answers;
     final l$$__typename = $__typename;
     final l$images = images;
     final l$mathField = mathField;
@@ -125,6 +136,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
       l$tex,
       l$mathFieldId,
       l$mathSubFieldId,
+      Object.hashAll(l$answers.map((v) => v)),
       l$$__typename,
       l$images == null ? null : Object.hashAll(l$images.map((v) => v)),
       l$mathField,
@@ -175,6 +187,18 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     final lOther$mathSubFieldId = other.mathSubFieldId;
     if (l$mathSubFieldId != lOther$mathSubFieldId) {
       return false;
+    }
+    final l$answers = answers;
+    final lOther$answers = other.answers;
+    if (l$answers.length != lOther$answers.length) {
+      return false;
+    }
+    for (int i = 0; i < l$answers.length; i++) {
+      final l$answers$entry = l$answers[i];
+      final lOther$answers$entry = lOther$answers[i];
+      if (l$answers$entry != lOther$answers$entry) {
+        return false;
+      }
     }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -237,11 +261,18 @@ abstract class CopyWith$Fragment$MathProblemWithRelations<TRes> {
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    List<Fragment$MathProblemWithRelations$answers>? answers,
     String? $__typename,
     List<Fragment$MediaFile>? images,
     Fragment$MathField? mathField,
     Fragment$MathSubField? mathSubField,
   });
+  TRes answers(
+      Iterable<Fragment$MathProblemWithRelations$answers> Function(
+              Iterable<
+                  CopyWith$Fragment$MathProblemWithRelations$answers<
+                      Fragment$MathProblemWithRelations$answers>>)
+          _fn);
   TRes images(
       Iterable<Fragment$MediaFile>? Function(
               Iterable<CopyWith$Fragment$MediaFile<Fragment$MediaFile>>?)
@@ -271,6 +302,7 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
     Object? tex = _undefined,
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
+    Object? answers = _undefined,
     Object? $__typename = _undefined,
     Object? images = _undefined,
     Object? mathField = _undefined,
@@ -292,6 +324,9 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
         mathSubFieldId: mathSubFieldId == _undefined || mathSubFieldId == null
             ? _instance.mathSubFieldId
             : (mathSubFieldId as String),
+        answers: answers == _undefined || answers == null
+            ? _instance.answers
+            : (answers as List<Fragment$MathProblemWithRelations$answers>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -305,6 +340,19 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
             ? _instance.mathSubField
             : (mathSubField as Fragment$MathSubField?),
       ));
+
+  TRes answers(
+          Iterable<Fragment$MathProblemWithRelations$answers> Function(
+                  Iterable<
+                      CopyWith$Fragment$MathProblemWithRelations$answers<
+                          Fragment$MathProblemWithRelations$answers>>)
+              _fn) =>
+      call(
+          answers: _fn(_instance.answers
+              .map((e) => CopyWith$Fragment$MathProblemWithRelations$answers(
+                    e,
+                    (i) => i,
+                  ))).toList());
 
   TRes images(
           Iterable<Fragment$MediaFile>? Function(
@@ -347,12 +395,15 @@ class _CopyWithStubImpl$Fragment$MathProblemWithRelations<TRes>
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    List<Fragment$MathProblemWithRelations$answers>? answers,
     String? $__typename,
     List<Fragment$MediaFile>? images,
     Fragment$MathField? mathField,
     Fragment$MathSubField? mathSubField,
   }) =>
       _res;
+
+  answers(_fn) => _res;
 
   images(_fn) => _res;
 
@@ -486,4 +537,150 @@ extension ClientExtension$Fragment$MathProblemWithRelations
         ? null
         : Fragment$MathProblemWithRelations.fromJson(result);
   }
+}
+
+class Fragment$MathProblemWithRelations$answers
+    implements Fragment$MathProblem$answers {
+  Fragment$MathProblemWithRelations$answers({
+    required this.tex,
+    required this.isCorrect,
+    this.$__typename = 'MathProblemAnswerObject',
+  });
+
+  factory Fragment$MathProblemWithRelations$answers.fromJson(
+      Map<String, dynamic> json) {
+    final l$tex = json['tex'];
+    final l$isCorrect = json['isCorrect'];
+    final l$$__typename = json['__typename'];
+    return Fragment$MathProblemWithRelations$answers(
+      tex: (l$tex as String),
+      isCorrect: (l$isCorrect as bool),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String tex;
+
+  final bool isCorrect;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$tex = tex;
+    _resultData['tex'] = l$tex;
+    final l$isCorrect = isCorrect;
+    _resultData['isCorrect'] = l$isCorrect;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$tex = tex;
+    final l$isCorrect = isCorrect;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$tex,
+      l$isCorrect,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MathProblemWithRelations$answers) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$tex = tex;
+    final lOther$tex = other.tex;
+    if (l$tex != lOther$tex) {
+      return false;
+    }
+    final l$isCorrect = isCorrect;
+    final lOther$isCorrect = other.isCorrect;
+    if (l$isCorrect != lOther$isCorrect) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$MathProblemWithRelations$answers
+    on Fragment$MathProblemWithRelations$answers {
+  CopyWith$Fragment$MathProblemWithRelations$answers<
+          Fragment$MathProblemWithRelations$answers>
+      get copyWith => CopyWith$Fragment$MathProblemWithRelations$answers(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$MathProblemWithRelations$answers<TRes> {
+  factory CopyWith$Fragment$MathProblemWithRelations$answers(
+    Fragment$MathProblemWithRelations$answers instance,
+    TRes Function(Fragment$MathProblemWithRelations$answers) then,
+  ) = _CopyWithImpl$Fragment$MathProblemWithRelations$answers;
+
+  factory CopyWith$Fragment$MathProblemWithRelations$answers.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$MathProblemWithRelations$answers;
+
+  TRes call({
+    String? tex,
+    bool? isCorrect,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$MathProblemWithRelations$answers<TRes>
+    implements CopyWith$Fragment$MathProblemWithRelations$answers<TRes> {
+  _CopyWithImpl$Fragment$MathProblemWithRelations$answers(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$MathProblemWithRelations$answers _instance;
+
+  final TRes Function(Fragment$MathProblemWithRelations$answers) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? tex = _undefined,
+    Object? isCorrect = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$MathProblemWithRelations$answers(
+        tex: tex == _undefined || tex == null ? _instance.tex : (tex as String),
+        isCorrect: isCorrect == _undefined || isCorrect == null
+            ? _instance.isCorrect
+            : (isCorrect as bool),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$MathProblemWithRelations$answers<TRes>
+    implements CopyWith$Fragment$MathProblemWithRelations$answers<TRes> {
+  _CopyWithStubImpl$Fragment$MathProblemWithRelations$answers(this._res);
+
+  TRes _res;
+
+  call({
+    String? tex,
+    bool? isCorrect,
+    String? $__typename,
+  }) =>
+      _res;
 }

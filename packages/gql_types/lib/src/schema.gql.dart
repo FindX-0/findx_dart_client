@@ -370,8 +370,139 @@ class _CopyWithStubImpl$Input$CreateMathFieldInput<TRes>
   call({String? name}) => _res;
 }
 
+class Input$CreateMathProblemAnswerInput {
+  factory Input$CreateMathProblemAnswerInput({
+    required bool isCorrect,
+    required String tex,
+  }) =>
+      Input$CreateMathProblemAnswerInput._({
+        r'isCorrect': isCorrect,
+        r'tex': tex,
+      });
+
+  Input$CreateMathProblemAnswerInput._(this._$data);
+
+  factory Input$CreateMathProblemAnswerInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$isCorrect = data['isCorrect'];
+    result$data['isCorrect'] = (l$isCorrect as bool);
+    final l$tex = data['tex'];
+    result$data['tex'] = (l$tex as String);
+    return Input$CreateMathProblemAnswerInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  bool get isCorrect => (_$data['isCorrect'] as bool);
+
+  String get tex => (_$data['tex'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$isCorrect = isCorrect;
+    result$data['isCorrect'] = l$isCorrect;
+    final l$tex = tex;
+    result$data['tex'] = l$tex;
+    return result$data;
+  }
+
+  CopyWith$Input$CreateMathProblemAnswerInput<
+          Input$CreateMathProblemAnswerInput>
+      get copyWith => CopyWith$Input$CreateMathProblemAnswerInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$CreateMathProblemAnswerInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$isCorrect = isCorrect;
+    final lOther$isCorrect = other.isCorrect;
+    if (l$isCorrect != lOther$isCorrect) {
+      return false;
+    }
+    final l$tex = tex;
+    final lOther$tex = other.tex;
+    if (l$tex != lOther$tex) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$isCorrect = isCorrect;
+    final l$tex = tex;
+    return Object.hashAll([
+      l$isCorrect,
+      l$tex,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$CreateMathProblemAnswerInput<TRes> {
+  factory CopyWith$Input$CreateMathProblemAnswerInput(
+    Input$CreateMathProblemAnswerInput instance,
+    TRes Function(Input$CreateMathProblemAnswerInput) then,
+  ) = _CopyWithImpl$Input$CreateMathProblemAnswerInput;
+
+  factory CopyWith$Input$CreateMathProblemAnswerInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CreateMathProblemAnswerInput;
+
+  TRes call({
+    bool? isCorrect,
+    String? tex,
+  });
+}
+
+class _CopyWithImpl$Input$CreateMathProblemAnswerInput<TRes>
+    implements CopyWith$Input$CreateMathProblemAnswerInput<TRes> {
+  _CopyWithImpl$Input$CreateMathProblemAnswerInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$CreateMathProblemAnswerInput _instance;
+
+  final TRes Function(Input$CreateMathProblemAnswerInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? isCorrect = _undefined,
+    Object? tex = _undefined,
+  }) =>
+      _then(Input$CreateMathProblemAnswerInput._({
+        ..._instance._$data,
+        if (isCorrect != _undefined && isCorrect != null)
+          'isCorrect': (isCorrect as bool),
+        if (tex != _undefined && tex != null) 'tex': (tex as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$CreateMathProblemAnswerInput<TRes>
+    implements CopyWith$Input$CreateMathProblemAnswerInput<TRes> {
+  _CopyWithStubImpl$Input$CreateMathProblemAnswerInput(this._res);
+
+  TRes _res;
+
+  call({
+    bool? isCorrect,
+    String? tex,
+  }) =>
+      _res;
+}
+
 class Input$CreateMathProblemInput {
   factory Input$CreateMathProblemInput({
+    required List<Input$CreateMathProblemAnswerInput> answers,
     required int difficulty,
     List<String>? imageMediaIds,
     required String mathFieldId,
@@ -380,6 +511,7 @@ class Input$CreateMathProblemInput {
     String? text,
   }) =>
       Input$CreateMathProblemInput._({
+        r'answers': answers,
         r'difficulty': difficulty,
         if (imageMediaIds != null) r'imageMediaIds': imageMediaIds,
         r'mathFieldId': mathFieldId,
@@ -392,6 +524,11 @@ class Input$CreateMathProblemInput {
 
   factory Input$CreateMathProblemInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    final l$answers = data['answers'];
+    result$data['answers'] = (l$answers as List<dynamic>)
+        .map((e) => Input$CreateMathProblemAnswerInput.fromJson(
+            (e as Map<String, dynamic>)))
+        .toList();
     final l$difficulty = data['difficulty'];
     result$data['difficulty'] = (l$difficulty as int);
     if (data.containsKey('imageMediaIds')) {
@@ -417,6 +554,9 @@ class Input$CreateMathProblemInput {
 
   Map<String, dynamic> _$data;
 
+  List<Input$CreateMathProblemAnswerInput> get answers =>
+      (_$data['answers'] as List<Input$CreateMathProblemAnswerInput>);
+
   int get difficulty => (_$data['difficulty'] as int);
 
   List<String>? get imageMediaIds => (_$data['imageMediaIds'] as List<String>?);
@@ -431,6 +571,8 @@ class Input$CreateMathProblemInput {
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    final l$answers = answers;
+    result$data['answers'] = l$answers.map((e) => e.toJson()).toList();
     final l$difficulty = difficulty;
     result$data['difficulty'] = l$difficulty;
     if (_$data.containsKey('imageMediaIds')) {
@@ -466,6 +608,18 @@ class Input$CreateMathProblemInput {
     if (!(other is Input$CreateMathProblemInput) ||
         runtimeType != other.runtimeType) {
       return false;
+    }
+    final l$answers = answers;
+    final lOther$answers = other.answers;
+    if (l$answers.length != lOther$answers.length) {
+      return false;
+    }
+    for (int i = 0; i < l$answers.length; i++) {
+      final l$answers$entry = l$answers[i];
+      final lOther$answers$entry = lOther$answers[i];
+      if (l$answers$entry != lOther$answers$entry) {
+        return false;
+      }
     }
     final l$difficulty = difficulty;
     final lOther$difficulty = other.difficulty;
@@ -523,6 +677,7 @@ class Input$CreateMathProblemInput {
 
   @override
   int get hashCode {
+    final l$answers = answers;
     final l$difficulty = difficulty;
     final l$imageMediaIds = imageMediaIds;
     final l$mathFieldId = mathFieldId;
@@ -530,6 +685,7 @@ class Input$CreateMathProblemInput {
     final l$tex = tex;
     final l$text = text;
     return Object.hashAll([
+      Object.hashAll(l$answers.map((v) => v)),
       l$difficulty,
       _$data.containsKey('imageMediaIds')
           ? l$imageMediaIds == null
@@ -554,6 +710,7 @@ abstract class CopyWith$Input$CreateMathProblemInput<TRes> {
       _CopyWithStubImpl$Input$CreateMathProblemInput;
 
   TRes call({
+    List<Input$CreateMathProblemAnswerInput>? answers,
     int? difficulty,
     List<String>? imageMediaIds,
     String? mathFieldId,
@@ -561,6 +718,12 @@ abstract class CopyWith$Input$CreateMathProblemInput<TRes> {
     String? tex,
     String? text,
   });
+  TRes answers(
+      Iterable<Input$CreateMathProblemAnswerInput> Function(
+              Iterable<
+                  CopyWith$Input$CreateMathProblemAnswerInput<
+                      Input$CreateMathProblemAnswerInput>>)
+          _fn);
 }
 
 class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
@@ -577,6 +740,7 @@ class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? answers = _undefined,
     Object? difficulty = _undefined,
     Object? imageMediaIds = _undefined,
     Object? mathFieldId = _undefined,
@@ -586,6 +750,8 @@ class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
   }) =>
       _then(Input$CreateMathProblemInput._({
         ..._instance._$data,
+        if (answers != _undefined && answers != null)
+          'answers': (answers as List<Input$CreateMathProblemAnswerInput>),
         if (difficulty != _undefined && difficulty != null)
           'difficulty': (difficulty as int),
         if (imageMediaIds != _undefined)
@@ -597,6 +763,19 @@ class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
         if (tex != _undefined) 'tex': (tex as String?),
         if (text != _undefined) 'text': (text as String?),
       }));
+
+  TRes answers(
+          Iterable<Input$CreateMathProblemAnswerInput> Function(
+                  Iterable<
+                      CopyWith$Input$CreateMathProblemAnswerInput<
+                          Input$CreateMathProblemAnswerInput>>)
+              _fn) =>
+      call(
+          answers: _fn(_instance.answers
+              .map((e) => CopyWith$Input$CreateMathProblemAnswerInput(
+                    e,
+                    (i) => i,
+                  ))).toList());
 }
 
 class _CopyWithStubImpl$Input$CreateMathProblemInput<TRes>
@@ -606,6 +785,7 @@ class _CopyWithStubImpl$Input$CreateMathProblemInput<TRes>
   TRes _res;
 
   call({
+    List<Input$CreateMathProblemAnswerInput>? answers,
     int? difficulty,
     List<String>? imageMediaIds,
     String? mathFieldId,
@@ -614,6 +794,8 @@ class _CopyWithStubImpl$Input$CreateMathProblemInput<TRes>
     String? text,
   }) =>
       _res;
+
+  answers(_fn) => _res;
 }
 
 class Input$CreateMathSubFieldInput {
@@ -2036,6 +2218,7 @@ class _CopyWithStubImpl$Input$UpdateMathFieldInput<TRes>
 
 class Input$UpdateMathProblemInput {
   factory Input$UpdateMathProblemInput({
+    List<Input$CreateMathProblemAnswerInput>? answers,
     int? difficulty,
     required String id,
     List<String>? imageMediaIds,
@@ -2045,6 +2228,7 @@ class Input$UpdateMathProblemInput {
     String? text,
   }) =>
       Input$UpdateMathProblemInput._({
+        if (answers != null) r'answers': answers,
         if (difficulty != null) r'difficulty': difficulty,
         r'id': id,
         if (imageMediaIds != null) r'imageMediaIds': imageMediaIds,
@@ -2058,6 +2242,13 @@ class Input$UpdateMathProblemInput {
 
   factory Input$UpdateMathProblemInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('answers')) {
+      final l$answers = data['answers'];
+      result$data['answers'] = (l$answers as List<dynamic>?)
+          ?.map((e) => Input$CreateMathProblemAnswerInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     if (data.containsKey('difficulty')) {
       final l$difficulty = data['difficulty'];
       result$data['difficulty'] = (l$difficulty as int?);
@@ -2091,6 +2282,9 @@ class Input$UpdateMathProblemInput {
 
   Map<String, dynamic> _$data;
 
+  List<Input$CreateMathProblemAnswerInput>? get answers =>
+      (_$data['answers'] as List<Input$CreateMathProblemAnswerInput>?);
+
   int? get difficulty => (_$data['difficulty'] as int?);
 
   String get id => (_$data['id'] as String);
@@ -2107,6 +2301,10 @@ class Input$UpdateMathProblemInput {
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('answers')) {
+      final l$answers = answers;
+      result$data['answers'] = l$answers?.map((e) => e.toJson()).toList();
+    }
     if (_$data.containsKey('difficulty')) {
       final l$difficulty = difficulty;
       result$data['difficulty'] = l$difficulty;
@@ -2149,6 +2347,25 @@ class Input$UpdateMathProblemInput {
     }
     if (!(other is Input$UpdateMathProblemInput) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$answers = answers;
+    final lOther$answers = other.answers;
+    if (_$data.containsKey('answers') != other._$data.containsKey('answers')) {
+      return false;
+    }
+    if (l$answers != null && lOther$answers != null) {
+      if (l$answers.length != lOther$answers.length) {
+        return false;
+      }
+      for (int i = 0; i < l$answers.length; i++) {
+        final l$answers$entry = l$answers[i];
+        final lOther$answers$entry = lOther$answers[i];
+        if (l$answers$entry != lOther$answers$entry) {
+          return false;
+        }
+      }
+    } else if (l$answers != lOther$answers) {
       return false;
     }
     final l$difficulty = difficulty;
@@ -2224,6 +2441,7 @@ class Input$UpdateMathProblemInput {
 
   @override
   int get hashCode {
+    final l$answers = answers;
     final l$difficulty = difficulty;
     final l$id = id;
     final l$imageMediaIds = imageMediaIds;
@@ -2232,6 +2450,11 @@ class Input$UpdateMathProblemInput {
     final l$tex = tex;
     final l$text = text;
     return Object.hashAll([
+      _$data.containsKey('answers')
+          ? l$answers == null
+              ? null
+              : Object.hashAll(l$answers.map((v) => v))
+          : const {},
       _$data.containsKey('difficulty') ? l$difficulty : const {},
       l$id,
       _$data.containsKey('imageMediaIds')
@@ -2257,6 +2480,7 @@ abstract class CopyWith$Input$UpdateMathProblemInput<TRes> {
       _CopyWithStubImpl$Input$UpdateMathProblemInput;
 
   TRes call({
+    List<Input$CreateMathProblemAnswerInput>? answers,
     int? difficulty,
     String? id,
     List<String>? imageMediaIds,
@@ -2265,6 +2489,12 @@ abstract class CopyWith$Input$UpdateMathProblemInput<TRes> {
     String? tex,
     String? text,
   });
+  TRes answers(
+      Iterable<Input$CreateMathProblemAnswerInput>? Function(
+              Iterable<
+                  CopyWith$Input$CreateMathProblemAnswerInput<
+                      Input$CreateMathProblemAnswerInput>>?)
+          _fn);
 }
 
 class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
@@ -2281,6 +2511,7 @@ class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? answers = _undefined,
     Object? difficulty = _undefined,
     Object? id = _undefined,
     Object? imageMediaIds = _undefined,
@@ -2291,6 +2522,8 @@ class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
   }) =>
       _then(Input$UpdateMathProblemInput._({
         ..._instance._$data,
+        if (answers != _undefined)
+          'answers': (answers as List<Input$CreateMathProblemAnswerInput>?),
         if (difficulty != _undefined) 'difficulty': (difficulty as int?),
         if (id != _undefined && id != null) 'id': (id as String),
         if (imageMediaIds != _undefined)
@@ -2301,6 +2534,19 @@ class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
         if (tex != _undefined) 'tex': (tex as String?),
         if (text != _undefined) 'text': (text as String?),
       }));
+
+  TRes answers(
+          Iterable<Input$CreateMathProblemAnswerInput>? Function(
+                  Iterable<
+                      CopyWith$Input$CreateMathProblemAnswerInput<
+                          Input$CreateMathProblemAnswerInput>>?)
+              _fn) =>
+      call(
+          answers: _fn(_instance.answers
+              ?.map((e) => CopyWith$Input$CreateMathProblemAnswerInput(
+                    e,
+                    (i) => i,
+                  )))?.toList());
 }
 
 class _CopyWithStubImpl$Input$UpdateMathProblemInput<TRes>
@@ -2310,6 +2556,7 @@ class _CopyWithStubImpl$Input$UpdateMathProblemInput<TRes>
   TRes _res;
 
   call({
+    List<Input$CreateMathProblemAnswerInput>? answers,
     int? difficulty,
     String? id,
     List<String>? imageMediaIds,
@@ -2319,6 +2566,8 @@ class _CopyWithStubImpl$Input$UpdateMathProblemInput<TRes>
     String? text,
   }) =>
       _res;
+
+  answers(_fn) => _res;
 }
 
 class Input$UpdateMathSubFieldInput {
