@@ -12,5 +12,6 @@ abstract interface class CreateMathProblemUsecase {
     required String mathFieldId,
     required String mathSubFieldId,
     required List<Uint8List>? images,
+    required List<CreateMathProblemAnswerInput> answers,
   });
 }

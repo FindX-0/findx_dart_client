@@ -9,6 +9,7 @@ abstract interface class MathProblemRemoteRepository {
     required String mathFieldId,
     required String mathSubFieldId,
     required List<String>? imageMediaIds,
+    required List<CreateMathProblemAnswerInput> answers,
   });
 
   Future<Either<SimpleActionFailure, MathProblemUpdateResult>> update({
@@ -19,6 +20,7 @@ abstract interface class MathProblemRemoteRepository {
     String? mathFieldId,
     String? mathSubFieldId,
     List<String>? imageMediaIds,
+    List<CreateMathProblemAnswerInput>? answers,
   });
 
   Future<Either<SimpleActionFailure, Unit>> delete({

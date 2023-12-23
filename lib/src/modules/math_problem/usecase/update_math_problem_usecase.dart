@@ -13,5 +13,6 @@ abstract interface class UpdateMathProblemUsecase {
     String? mathFieldId,
     String? mathSubFieldId,
     List<Uint8List>? images,
+    List<CreateMathProblemAnswerInput>? answers,
   });
 }

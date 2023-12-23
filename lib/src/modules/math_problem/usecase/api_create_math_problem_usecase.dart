@@ -21,6 +21,7 @@ class ApiCreateMathProblemUsecase implements CreateMathProblemUsecase {
     required String mathFieldId,
     required String mathSubFieldId,
     required List<Uint8List>? images,
+    required List<CreateMathProblemAnswerInput> answers,
   }) async {
     final mediaFiles = images != null && images.isNotEmpty
         ? await _mediaFileRemoteRepository.uploadMemoryFileMany(
@@ -42,6 +43,7 @@ class ApiCreateMathProblemUsecase implements CreateMathProblemUsecase {
       mathFieldId: mathFieldId,
       mathSubFieldId: mathSubFieldId,
       imageMediaIds: imageMediaIds,
+      answers: answers,
     );
   }
 }
