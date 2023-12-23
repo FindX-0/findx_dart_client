@@ -5,7 +5,8 @@ mutation UpdateMathProblem(
   $tex: String,
   $mathFieldId: ID,
   $mathSubFieldId: ID,
-  $imageMediaIds: [ID!]
+  $imageMediaIds: [ID!],
+  $answers: [CreateMathProblemAnswerInput!],
 ) {
   updateMathProblem(input: {
     id: $id,
@@ -14,7 +15,8 @@ mutation UpdateMathProblem(
     tex: $tex,
     mathFieldId: $mathFieldId,
     mathSubFieldId: $mathSubFieldId,
-    imageMediaIds: $imageMediaIds
+    imageMediaIds: $imageMediaIds,
+    answers: $answers
   }) {
     ...MathProblem
   }

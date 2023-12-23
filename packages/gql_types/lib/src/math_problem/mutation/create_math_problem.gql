@@ -5,7 +5,7 @@ mutation CreateMathProblem(
   $mathFieldId: ID!,
   $mathSubFieldId: ID!,
   $imageMediaIds: [ID!],
-  $answers: [CreateMathProblemAnswerInput]!,
+  $answers: [CreateMathProblemAnswerInput!]!,
 ) {
   createMathProblem(input: {
     difficulty: $difficulty,
