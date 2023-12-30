@@ -8,3 +8,4 @@ export 'get_math_battle_math_problems.gql.dart';
 typedef GetMathBattleMathProblemsRes = Query$GetMathBattleMathProblems$getMathBattleMathProblems;
 typedef GetMatchByIdRes = Fragment$MatchObject;
 typedef GetMathBattleDataRes = Query$GetMathBattleData;
+typedef GetMathBattleDataMathProblemItem = Query$GetMathBattleData$getMathBattleMathProblems;
