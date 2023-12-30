@@ -1657,6 +1657,106 @@ class _CopyWithStubImpl$Input$GetAllMathFieldsInput<TRes>
   call({bool? onlyPublic}) => _res;
 }
 
+class Input$GetMathBattleMathProblemsInput {
+  factory Input$GetMathBattleMathProblemsInput({required String matchId}) =>
+      Input$GetMathBattleMathProblemsInput._({
+        r'matchId': matchId,
+      });
+
+  Input$GetMathBattleMathProblemsInput._(this._$data);
+
+  factory Input$GetMathBattleMathProblemsInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$matchId = data['matchId'];
+    result$data['matchId'] = (l$matchId as String);
+    return Input$GetMathBattleMathProblemsInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get matchId => (_$data['matchId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$matchId = matchId;
+    result$data['matchId'] = l$matchId;
+    return result$data;
+  }
+
+  CopyWith$Input$GetMathBattleMathProblemsInput<
+          Input$GetMathBattleMathProblemsInput>
+      get copyWith => CopyWith$Input$GetMathBattleMathProblemsInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GetMathBattleMathProblemsInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$matchId = matchId;
+    final lOther$matchId = other.matchId;
+    if (l$matchId != lOther$matchId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$matchId = matchId;
+    return Object.hashAll([l$matchId]);
+  }
+}
+
+abstract class CopyWith$Input$GetMathBattleMathProblemsInput<TRes> {
+  factory CopyWith$Input$GetMathBattleMathProblemsInput(
+    Input$GetMathBattleMathProblemsInput instance,
+    TRes Function(Input$GetMathBattleMathProblemsInput) then,
+  ) = _CopyWithImpl$Input$GetMathBattleMathProblemsInput;
+
+  factory CopyWith$Input$GetMathBattleMathProblemsInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$GetMathBattleMathProblemsInput;
+
+  TRes call({String? matchId});
+}
+
+class _CopyWithImpl$Input$GetMathBattleMathProblemsInput<TRes>
+    implements CopyWith$Input$GetMathBattleMathProblemsInput<TRes> {
+  _CopyWithImpl$Input$GetMathBattleMathProblemsInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GetMathBattleMathProblemsInput _instance;
+
+  final TRes Function(Input$GetMathBattleMathProblemsInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? matchId = _undefined}) =>
+      _then(Input$GetMathBattleMathProblemsInput._({
+        ..._instance._$data,
+        if (matchId != _undefined && matchId != null)
+          'matchId': (matchId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GetMathBattleMathProblemsInput<TRes>
+    implements CopyWith$Input$GetMathBattleMathProblemsInput<TRes> {
+  _CopyWithStubImpl$Input$GetMathBattleMathProblemsInput(this._res);
+
+  TRes _res;
+
+  call({String? matchId}) => _res;
+}
+
 class Input$GoogleSignInInput {
   factory Input$GoogleSignInInput({required String accessToken}) =>
       Input$GoogleSignInInput._({
@@ -2080,6 +2180,157 @@ class _CopyWithStubImpl$Input$RefreshTokenInput<TRes>
   TRes _res;
 
   call({String? refreshToken}) => _res;
+}
+
+class Input$SubmitMathProblemAnswerInput {
+  factory Input$SubmitMathProblemAnswerInput({
+    required String answer,
+    required String matchId,
+    required String mathProblemId,
+  }) =>
+      Input$SubmitMathProblemAnswerInput._({
+        r'answer': answer,
+        r'matchId': matchId,
+        r'mathProblemId': mathProblemId,
+      });
+
+  Input$SubmitMathProblemAnswerInput._(this._$data);
+
+  factory Input$SubmitMathProblemAnswerInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$answer = data['answer'];
+    result$data['answer'] = (l$answer as String);
+    final l$matchId = data['matchId'];
+    result$data['matchId'] = (l$matchId as String);
+    final l$mathProblemId = data['mathProblemId'];
+    result$data['mathProblemId'] = (l$mathProblemId as String);
+    return Input$SubmitMathProblemAnswerInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get answer => (_$data['answer'] as String);
+
+  String get matchId => (_$data['matchId'] as String);
+
+  String get mathProblemId => (_$data['mathProblemId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$answer = answer;
+    result$data['answer'] = l$answer;
+    final l$matchId = matchId;
+    result$data['matchId'] = l$matchId;
+    final l$mathProblemId = mathProblemId;
+    result$data['mathProblemId'] = l$mathProblemId;
+    return result$data;
+  }
+
+  CopyWith$Input$SubmitMathProblemAnswerInput<
+          Input$SubmitMathProblemAnswerInput>
+      get copyWith => CopyWith$Input$SubmitMathProblemAnswerInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$SubmitMathProblemAnswerInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$answer = answer;
+    final lOther$answer = other.answer;
+    if (l$answer != lOther$answer) {
+      return false;
+    }
+    final l$matchId = matchId;
+    final lOther$matchId = other.matchId;
+    if (l$matchId != lOther$matchId) {
+      return false;
+    }
+    final l$mathProblemId = mathProblemId;
+    final lOther$mathProblemId = other.mathProblemId;
+    if (l$mathProblemId != lOther$mathProblemId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$answer = answer;
+    final l$matchId = matchId;
+    final l$mathProblemId = mathProblemId;
+    return Object.hashAll([
+      l$answer,
+      l$matchId,
+      l$mathProblemId,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$SubmitMathProblemAnswerInput<TRes> {
+  factory CopyWith$Input$SubmitMathProblemAnswerInput(
+    Input$SubmitMathProblemAnswerInput instance,
+    TRes Function(Input$SubmitMathProblemAnswerInput) then,
+  ) = _CopyWithImpl$Input$SubmitMathProblemAnswerInput;
+
+  factory CopyWith$Input$SubmitMathProblemAnswerInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$SubmitMathProblemAnswerInput;
+
+  TRes call({
+    String? answer,
+    String? matchId,
+    String? mathProblemId,
+  });
+}
+
+class _CopyWithImpl$Input$SubmitMathProblemAnswerInput<TRes>
+    implements CopyWith$Input$SubmitMathProblemAnswerInput<TRes> {
+  _CopyWithImpl$Input$SubmitMathProblemAnswerInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$SubmitMathProblemAnswerInput _instance;
+
+  final TRes Function(Input$SubmitMathProblemAnswerInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? answer = _undefined,
+    Object? matchId = _undefined,
+    Object? mathProblemId = _undefined,
+  }) =>
+      _then(Input$SubmitMathProblemAnswerInput._({
+        ..._instance._$data,
+        if (answer != _undefined && answer != null)
+          'answer': (answer as String),
+        if (matchId != _undefined && matchId != null)
+          'matchId': (matchId as String),
+        if (mathProblemId != _undefined && mathProblemId != null)
+          'mathProblemId': (mathProblemId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$SubmitMathProblemAnswerInput<TRes>
+    implements CopyWith$Input$SubmitMathProblemAnswerInput<TRes> {
+  _CopyWithStubImpl$Input$SubmitMathProblemAnswerInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? answer,
+    String? matchId,
+    String? mathProblemId,
+  }) =>
+      _res;
 }
 
 class Input$UpdateMathFieldInput {

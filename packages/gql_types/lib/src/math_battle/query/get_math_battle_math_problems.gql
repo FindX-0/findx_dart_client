@@ -1,0 +1,21 @@
+query GetMathBattleMathProblems(
+  $matchId: ID!
+) {
+  getMathBattleMathProblems(input: {
+    matchId: $matchId
+  }) {
+    id
+    createdAt
+    difficulty
+    text
+    tex
+    mathFieldId
+    mathSubFieldId
+    answers {
+      tex
+    }
+    images {
+      ...MediaFile
+    }
+  }
+}

@@ -2,6 +2,7 @@ library;
 
 export 'src/authentication/index.dart';
 export 'src/matchmaking/index.dart';
+export 'src/math_battle/index.dart';
 export 'src/math_field/index.dart';
 export 'src/math_problem/index.dart';
 export 'src/math_sub_field/index.dart';

@@ -1,0 +1,13 @@
+mutation SubmitMathProblemAnswer(
+  $matchId: ID!,
+  $mathProblemId: ID!,
+  $answer: String!
+) {
+  submitMathProblemAnswer(input: {
+    matchId: $matchId,
+    mathProblemId: $mathProblemId,
+    answer: $answer 
+  }) {
+    ...SuccessObject
+  }
+}
