@@ -1,0 +1,11 @@
+fragment MatchObject on MatchObject {
+  id
+  createdAt
+  startAt
+  endAt
+  closeAt
+  state
+  mathFieldId
+  userIds
+  mathProblemIds
+}

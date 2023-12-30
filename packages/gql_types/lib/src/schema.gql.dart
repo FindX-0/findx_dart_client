@@ -3018,6 +3018,34 @@ Enum$AuthProvider fromJson$Enum$AuthProvider(String value) {
   }
 }
 
+enum Enum$MatchState { FINISHED, IN_PROGRESS, PENDING, $unknown }
+
+String toJson$Enum$MatchState(Enum$MatchState e) {
+  switch (e) {
+    case Enum$MatchState.FINISHED:
+      return r'FINISHED';
+    case Enum$MatchState.IN_PROGRESS:
+      return r'IN_PROGRESS';
+    case Enum$MatchState.PENDING:
+      return r'PENDING';
+    case Enum$MatchState.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$MatchState fromJson$Enum$MatchState(String value) {
+  switch (value) {
+    case r'FINISHED':
+      return Enum$MatchState.FINISHED;
+    case r'IN_PROGRESS':
+      return Enum$MatchState.IN_PROGRESS;
+    case r'PENDING':
+      return Enum$MatchState.PENDING;
+    default:
+      return Enum$MatchState.$unknown;
+  }
+}
+
 enum Enum$__TypeKind {
   SCALAR,
   OBJECT,

@@ -1,0 +1,9 @@
+query GetMatchById(
+  $id: ID!
+) {
+  getMatchById(input: {
+    id: $id
+  }) {
+    ...MatchObject
+  }
+}
