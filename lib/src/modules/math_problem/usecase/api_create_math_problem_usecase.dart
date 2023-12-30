@@ -1,8 +1,11 @@
 import 'dart:typed_data';
 
 import 'package:common_models/common_models.dart';
+import 'package:gql_types/gql_types.dart';
 
-import '../../../../app_client.dart';
+import '../../media_file/media_file_remote_repository.dart';
+import '../math_problem_remote_repository.dart';
+import 'create_math_problem_usecase.dart';
 
 class ApiCreateMathProblemUsecase implements CreateMathProblemUsecase {
   ApiCreateMathProblemUsecase(

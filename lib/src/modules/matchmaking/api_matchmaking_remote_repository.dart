@@ -1,11 +1,12 @@
 import 'package:common_models/common_models.dart';
+import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../../app_client.dart';
 import '../../shared/gql_request_wrap.dart';
+import 'matchmaking_remote_repository.dart';
 
-class ApiTicketRemoteRepository with GqlRequestWrap implements TicketRemoteRepository {
-  ApiTicketRemoteRepository(
+class ApiMatchmakingRemoteRepository with GqlRequestWrap implements MatchmakingRemoteRepository {
+  ApiMatchmakingRemoteRepository(
     this._client,
   );
 
@@ -22,6 +23,18 @@ class ApiTicketRemoteRepository with GqlRequestWrap implements TicketRemoteRepos
         ),
       ),
       mapper: (_) => unit,
+    );
+  }
+
+  @override
+  Future<Either<FetchFailure, GetMatchByIdRes>> getMatchById(String id) {
+    return callCatchWithFetchFailure(
+      () => _client.query$GetMatchById(
+        Options$Query$GetMatchById(
+          variables: Variables$Query$GetMatchById(id: id),
+        ),
+      ),
+      mapper: (r) => r.getMatchById,
     );
   }
 }

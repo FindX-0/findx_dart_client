@@ -1,2 +1,2 @@
-export 'api_ticket_remote_repository.dart';
-export 'ticket_remote_repository.dart';
+export 'api_matchmaking_remote_repository.dart';
+export 'matchmaking_remote_repository.dart';

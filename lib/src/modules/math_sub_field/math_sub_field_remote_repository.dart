@@ -1,6 +1,7 @@
 import 'package:common_models/common_models.dart';
+import 'package:gql_types/gql_types.dart';
 
-import '../../../app_client.dart';
+import 'math_sub_field_failure.dart';
 
 abstract interface class MathSubFieldRemoteRepository {
   Future<Either<SimpleActionFailure, MathSubFieldCreateResult>> create({

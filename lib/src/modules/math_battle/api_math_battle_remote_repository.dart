@@ -1,8 +1,10 @@
 import 'package:common_models/common_models.dart';
+import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../../app_client.dart';
 import '../../shared/gql_request_wrap.dart';
+import 'math_battle_remote_repository.dart';
+import 'model/math_battle_data.dart';
 
 class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRemoteRepository {
   ApiMathBattleRemoteRepository(
@@ -44,6 +46,28 @@ class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRem
         ),
       ),
       mapper: (_) => unit,
+    );
+  }
+
+  @override
+  Future<Either<FetchFailure, MathBattleData>> getMathBattleData({
+    required String matchId,
+    required String opponentUserId,
+  }) async {
+    return callCatchWithFetchFailure(
+      () => _client.query$GetMathBattleData(
+        Options$Query$GetMathBattleData(
+          variables: Variables$Query$GetMathBattleData(
+            matchId: matchId,
+            opponentUserId: opponentUserId,
+          ),
+        ),
+      ),
+      mapper: (r) => MathBattleData(
+        authUser: r.getAuthUser,
+        opponentUser: r.getUserById,
+        mathProblems: r.getMathBattleMathProblems,
+      ),
     );
   }
 }

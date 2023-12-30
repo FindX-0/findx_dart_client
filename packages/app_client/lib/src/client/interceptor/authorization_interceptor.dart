@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:synchronized/synchronized.dart';
 
-import '../../../app_client.dart';
 import '../../shared/typedefs.dart';
+import '../../store/auth_token_store.dart';
+import '../model/gql_api_error_code.dart';
 import '../model/gql_response_dto.dart';
+import '../usecase/refresh_token/index.dart';
 
 class AuthorizationInterceptor extends Interceptor {
   AuthorizationInterceptor(

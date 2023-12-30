@@ -1,8 +1,9 @@
 import 'package:common_models/common_models.dart';
+import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../../app_client.dart';
 import '../../shared/gql_request_wrap.dart';
+import 'server_time_remote_repository.dart';
 
 class ApiServerTimeRemoteRepository with GqlRequestWrap implements ServerTimeRemoteRepository {
   ApiServerTimeRemoteRepository(
