@@ -1,0 +1,8 @@
+fragment UserObject on UserObject {
+  authProvider
+  createdAt
+  email
+  id
+  isCompleted
+  userName
+}

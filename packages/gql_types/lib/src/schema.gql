@@ -213,6 +213,7 @@ type Query {
   getMathProblemById(input: IdentifierInput!): MathProblemObject!
   getMathSubFieldById(input: IdentifierInput!): MathSubFieldObject!
   getServerTime: ServerTimeObject!
+  getUserById(input: IdentifierInput!): UserObject!
 }
 
 input RefreshTokenInput {

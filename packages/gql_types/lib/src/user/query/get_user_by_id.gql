@@ -1,0 +1,9 @@
+query GetUserById(
+  $id: ID!
+) {
+  getUserById(input: {
+    id: $id
+  }) {
+    ...UserObject
+  }
+}

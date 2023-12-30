@@ -1,0 +1,5 @@
+query GetAuthUser {
+  getAuthUser {
+    ...UserObject
+  }
+}
