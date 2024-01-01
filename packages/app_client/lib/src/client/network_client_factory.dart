@@ -60,9 +60,9 @@ final class NetworkClientFactory {
     required Dio noInterceptorDio,
     required AuthTokenStore authTokenStore,
     required VoidCallback afterExit,
-    required LogPrint? logPrint,
     required String apiUrl,
     required RefreshTokenUsecase refreshTokenUsecase,
+    LogPrint? logPrint,
   }) {
     final Dio dio = Dio(
       BaseOptions(
