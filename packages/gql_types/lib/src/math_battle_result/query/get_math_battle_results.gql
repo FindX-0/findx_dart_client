@@ -1,0 +1,15 @@
+query GetMathBattleResults(
+  $matchId: ID!
+) {
+  getMathBattleResults(input: {
+    matchId: $matchId
+  }) {
+    createdAt
+    id
+    isDraw
+    isWinner
+    matchId
+    score
+    userId
+  }
+}

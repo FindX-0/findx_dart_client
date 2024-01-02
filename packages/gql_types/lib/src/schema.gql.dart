@@ -1757,6 +1757,104 @@ class _CopyWithStubImpl$Input$GetMathBattleMathProblemsInput<TRes>
   call({String? matchId}) => _res;
 }
 
+class Input$GetMathBattleResultsInput {
+  factory Input$GetMathBattleResultsInput({required String matchId}) =>
+      Input$GetMathBattleResultsInput._({
+        r'matchId': matchId,
+      });
+
+  Input$GetMathBattleResultsInput._(this._$data);
+
+  factory Input$GetMathBattleResultsInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$matchId = data['matchId'];
+    result$data['matchId'] = (l$matchId as String);
+    return Input$GetMathBattleResultsInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get matchId => (_$data['matchId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$matchId = matchId;
+    result$data['matchId'] = l$matchId;
+    return result$data;
+  }
+
+  CopyWith$Input$GetMathBattleResultsInput<Input$GetMathBattleResultsInput>
+      get copyWith => CopyWith$Input$GetMathBattleResultsInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GetMathBattleResultsInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$matchId = matchId;
+    final lOther$matchId = other.matchId;
+    if (l$matchId != lOther$matchId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$matchId = matchId;
+    return Object.hashAll([l$matchId]);
+  }
+}
+
+abstract class CopyWith$Input$GetMathBattleResultsInput<TRes> {
+  factory CopyWith$Input$GetMathBattleResultsInput(
+    Input$GetMathBattleResultsInput instance,
+    TRes Function(Input$GetMathBattleResultsInput) then,
+  ) = _CopyWithImpl$Input$GetMathBattleResultsInput;
+
+  factory CopyWith$Input$GetMathBattleResultsInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$GetMathBattleResultsInput;
+
+  TRes call({String? matchId});
+}
+
+class _CopyWithImpl$Input$GetMathBattleResultsInput<TRes>
+    implements CopyWith$Input$GetMathBattleResultsInput<TRes> {
+  _CopyWithImpl$Input$GetMathBattleResultsInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GetMathBattleResultsInput _instance;
+
+  final TRes Function(Input$GetMathBattleResultsInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? matchId = _undefined}) =>
+      _then(Input$GetMathBattleResultsInput._({
+        ..._instance._$data,
+        if (matchId != _undefined && matchId != null)
+          'matchId': (matchId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GetMathBattleResultsInput<TRes>
+    implements CopyWith$Input$GetMathBattleResultsInput<TRes> {
+  _CopyWithStubImpl$Input$GetMathBattleResultsInput(this._res);
+
+  TRes _res;
+
+  call({String? matchId}) => _res;
+}
+
 class Input$GoogleSignInInput {
   factory Input$GoogleSignInInput({required String accessToken}) =>
       Input$GoogleSignInInput._({
@@ -3018,7 +3116,7 @@ Enum$AuthProvider fromJson$Enum$AuthProvider(String value) {
   }
 }
 
-enum Enum$MatchState { FINISHED, IN_PROGRESS, PENDING, $unknown }
+enum Enum$MatchState { FINISHED, IN_PROGRESS, $unknown }
 
 String toJson$Enum$MatchState(Enum$MatchState e) {
   switch (e) {
@@ -3026,8 +3124,6 @@ String toJson$Enum$MatchState(Enum$MatchState e) {
       return r'FINISHED';
     case Enum$MatchState.IN_PROGRESS:
       return r'IN_PROGRESS';
-    case Enum$MatchState.PENDING:
-      return r'PENDING';
     case Enum$MatchState.$unknown:
       return r'$unknown';
   }
@@ -3039,8 +3135,6 @@ Enum$MatchState fromJson$Enum$MatchState(String value) {
       return Enum$MatchState.FINISHED;
     case r'IN_PROGRESS':
       return Enum$MatchState.IN_PROGRESS;
-    case r'PENDING':
-      return Enum$MatchState.PENDING;
     default:
       return Enum$MatchState.$unknown;
   }
