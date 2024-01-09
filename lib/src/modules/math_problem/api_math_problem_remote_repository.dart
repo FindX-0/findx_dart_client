@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
@@ -140,6 +142,26 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
         ),
       ),
       mapper: (r) => r.generateMathProblemValues,
+    );
+  }
+
+  @override
+  Future<Either<FetchFailure, CountGenerateMathProblemValuesRes>> countGenerateValues({
+    required List<GenerateMathProblemNumberParam> numberParams,
+    required List<GenerateMathProblemCustomStrParam> customStrParams,
+  }) async {
+    return callCatchWithFetchFailure(
+      () => _client.query$CountGenerateMathProblemValues(
+        Options$Query$CountGenerateMathProblemValues(
+          variables: Variables$Query$CountGenerateMathProblemValues(
+            input: Input$CountGenerateMathProblemValuesInput(
+              customStrParams: customStrParams,
+              numberParams: numberParams,
+            ),
+          ),
+        ),
+      ),
+      mapper: (r) => r.countGenerateMathProblemValues,
     );
   }
 }

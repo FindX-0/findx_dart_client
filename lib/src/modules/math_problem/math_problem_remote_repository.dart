@@ -39,4 +39,9 @@ abstract interface class MathProblemRemoteRepository {
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
   });
+
+  Future<Either<FetchFailure, CountGenerateMathProblemValuesRes>> countGenerateValues({
+    required List<GenerateMathProblemNumberParam> numberParams,
+    required List<GenerateMathProblemCustomStrParam> customStrParams,
+  });
 }
