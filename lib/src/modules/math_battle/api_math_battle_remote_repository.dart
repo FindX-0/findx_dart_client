@@ -30,12 +30,12 @@ class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRem
   }
 
   @override
-  Future<Either<SimpleActionFailure, Unit>> submitMathProblemAnswer({
+  Future<Either<ActionFailure, Unit>> submitMathProblemAnswer({
     required String matchId,
     required String mathProblemId,
     required String answer,
   }) async {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$SubmitMathProblemAnswer(
         Options$Mutation$SubmitMathProblemAnswer(
           variables: Variables$Mutation$SubmitMathProblemAnswer(

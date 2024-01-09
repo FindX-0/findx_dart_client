@@ -18,11 +18,11 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   );
 
   @override
-  Future<Either<SimpleActionFailure, MediaFile>> uploadFile(
+  Future<Either<ActionFailure, MediaFile>> uploadFile(
     File file, {
     required String fileExtension,
   }) {
-    return callCatchWithSimpleActionFailure(() async {
+    return callCatchWithActionFailure(() async {
       final formData = FormData();
 
       addFileToForm(formData, file, fileExtension);
@@ -38,11 +38,11 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   }
 
   @override
-  Future<Either<SimpleActionFailure, MediaFile>> uploadMemoryFile(
+  Future<Either<ActionFailure, MediaFile>> uploadMemoryFile(
     Uint8List file, {
     required String fileExtension,
   }) {
-    return callCatchWithSimpleActionFailure(() async {
+    return callCatchWithActionFailure(() async {
       final formData = FormData();
 
       addMemoryFileToForm(formData, file, fileExtension);
@@ -58,11 +58,11 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   }
 
   @override
-  Future<Either<SimpleActionFailure, List<MediaFile>>> uploadFileMany(
+  Future<Either<ActionFailure, List<MediaFile>>> uploadFileMany(
     List<File> files, {
     required String fileExtension,
   }) {
-    return callCatchWithSimpleActionFailure(() async {
+    return callCatchWithActionFailure(() async {
       final formData = FormData();
 
       addFilesToForm(formData, files, fileExtension);
@@ -78,11 +78,11 @@ class ApiMediaFileRemoteRepository extends MultipartRepositoryBase
   }
 
   @override
-  Future<Either<SimpleActionFailure, List<MediaFile>>> uploadMemoryFileMany(
+  Future<Either<ActionFailure, List<MediaFile>>> uploadMemoryFileMany(
     List<Uint8List> files, {
     required String fileExtension,
   }) async {
-    return callCatchWithSimpleActionFailure(() async {
+    return callCatchWithActionFailure(() async {
       final formData = FormData();
 
       addMemoryFilesToForm(formData, files, fileExtension);

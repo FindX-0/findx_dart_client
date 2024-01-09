@@ -15,10 +15,10 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
   final GraphQLClient _client;
 
   @override
-  Future<Either<SimpleActionFailure, MathFieldCreateResult>> create({
+  Future<Either<ActionFailure, MathFieldCreateResult>> create({
     required String name,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$CreateMathField(
         Options$Mutation$CreateMathField(
           variables: Variables$Mutation$CreateMathField(
@@ -31,11 +31,11 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
   }
 
   @override
-  Future<Either<SimpleActionFailure, MathFieldUpdateResult>> update({
+  Future<Either<ActionFailure, MathFieldUpdateResult>> update({
     required String id,
     String? name,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$UpdateMathField(
         Options$Mutation$UpdateMathField(
           variables: Variables$Mutation$UpdateMathField(

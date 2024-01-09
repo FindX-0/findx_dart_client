@@ -41,10 +41,10 @@ class ApiAuthenticationFacade with GqlRequestWrap implements AuthenticationFacad
   }
 
   @override
-  Future<Either<SimpleActionFailure, DeviceSignInRes>> deviceSignIn({
+  Future<Either<ActionFailure, DeviceSignInRes>> deviceSignIn({
     required String deviceId,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$DeviceSignIn(
         Options$Mutation$DeviceSignIn(
           variables: Variables$Mutation$DeviceSignIn(deviceId: deviceId),

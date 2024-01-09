@@ -15,11 +15,11 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
   final GraphQLClient _client;
 
   @override
-  Future<Either<SimpleActionFailure, MathSubFieldCreateResult>> create({
+  Future<Either<ActionFailure, MathSubFieldCreateResult>> create({
     required String name,
     required String mathFieldId,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$CreateMathSubField(
         Options$Mutation$CreateMathSubField(
           variables: Variables$Mutation$CreateMathSubField(
@@ -33,12 +33,12 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
   }
 
   @override
-  Future<Either<SimpleActionFailure, MathSubFieldUpdateResult>> update({
+  Future<Either<ActionFailure, MathSubFieldUpdateResult>> update({
     required String id,
     String? name,
     String? mathFieldId,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$UpdateMathSubField(
         Options$Mutation$UpdateMathSubField(
           variables: Variables$Mutation$UpdateMathSubField(

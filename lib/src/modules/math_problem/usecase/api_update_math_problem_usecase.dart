@@ -17,7 +17,7 @@ class ApiUpdateMathProblemUsecase implements UpdateMathProblemUsecase {
   final MediaFileRemoteRepository _mediaFileRemoteRepository;
 
   @override
-  Future<Either<SimpleActionFailure, MathProblemUpdateResult>> call({
+  Future<Either<ActionFailure, MathProblemUpdateResult>> call({
     required String id,
     int? difficulty,
     String? text,

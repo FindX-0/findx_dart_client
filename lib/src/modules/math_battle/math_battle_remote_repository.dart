@@ -8,7 +8,7 @@ abstract class MathBattleRemoteRepository {
     required String matchId,
   });
 
-  Future<Either<SimpleActionFailure, Unit>> submitMathProblemAnswer({
+  Future<Either<ActionFailure, Unit>> submitMathProblemAnswer({
     required String matchId,
     required String mathProblemId,
     required String answer,

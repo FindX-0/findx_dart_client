@@ -65,13 +65,13 @@ mixin RestRequestWrap {
   }
 
   @protected
-  Future<Either<SimpleActionFailure, T>> callCatchWithSimpleActionFailure<T>(
+  Future<Either<ActionFailure, T>> callCatchWithActionFailure<T>(
     Future<T> Function() call,
   ) async {
     return callCatch(
       call: call,
-      networkError: SimpleActionFailure.network,
-      unknownError: SimpleActionFailure.unknown,
+      networkError: ActionFailure.network,
+      unknownError: ActionFailure.unknown,
     );
   }
 }

@@ -15,7 +15,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
   final GraphQLClient _client;
 
   @override
-  Future<Either<SimpleActionFailure, MathProblemCreateResult>> create({
+  Future<Either<ActionFailure, MathProblemCreateResult>> create({
     required int difficulty,
     required String? text,
     required String? tex,
@@ -24,7 +24,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
     required List<String>? imageMediaIds,
     required List<CreateMathProblemAnswerInput> answers,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$CreateMathProblem(
         Options$Mutation$CreateMathProblem(
           variables: Variables$Mutation$CreateMathProblem(
@@ -43,7 +43,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
   }
 
   @override
-  Future<Either<SimpleActionFailure, MathProblemUpdateResult>> update({
+  Future<Either<ActionFailure, MathProblemUpdateResult>> update({
     required String id,
     int? difficulty,
     String? text,
@@ -53,7 +53,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
     List<String>? imageMediaIds,
     List<CreateMathProblemAnswerInput>? answers,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$UpdateMathProblem(
         Options$Mutation$UpdateMathProblem(
           variables: Variables$Mutation$UpdateMathProblem(
@@ -73,10 +73,10 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
   }
 
   @override
-  Future<Either<SimpleActionFailure, Unit>> delete({
+  Future<Either<ActionFailure, Unit>> delete({
     required String id,
   }) {
-    return callCatchWithSimpleActionFailure(
+    return callCatchWithActionFailure(
       () => _client.mutate$DeleteMathProblem(
         Options$Mutation$DeleteMathProblem(
           variables: Variables$Mutation$DeleteMathProblem(

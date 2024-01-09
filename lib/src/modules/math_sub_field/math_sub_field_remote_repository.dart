@@ -4,12 +4,12 @@ import 'package:gql_types/gql_types.dart';
 import 'math_sub_field_failure.dart';
 
 abstract interface class MathSubFieldRemoteRepository {
-  Future<Either<SimpleActionFailure, MathSubFieldCreateResult>> create({
+  Future<Either<ActionFailure, MathSubFieldCreateResult>> create({
     required String name,
     required String mathFieldId,
   });
 
-  Future<Either<SimpleActionFailure, MathSubFieldUpdateResult>> update({
+  Future<Either<ActionFailure, MathSubFieldUpdateResult>> update({
     required String id,
     String? name,
     String? mathFieldId,

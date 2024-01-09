@@ -5,15 +5,15 @@ import 'package:common_models/common_models.dart';
 import 'package:graphql/client.dart';
 
 mixin GqlRequestWrap {
-  Future<Either<SimpleActionFailure, T>> callCatchWithSimpleActionFailure<R, T>(
+  Future<Either<ActionFailure, T>> callCatchWithActionFailure<R, T>(
     Future<QueryResult<R>> Function() request, {
     required T Function(R r) mapper,
   }) async {
     return callCatch(
       request,
       mapper: mapper,
-      unknownFailure: SimpleActionFailure.unknown,
-      onError: (code) => SimpleActionFailure.unknown,
+      unknownFailure: ActionFailure.unknown,
+      onError: (code) => ActionFailure.unknown,
     );
   }
 

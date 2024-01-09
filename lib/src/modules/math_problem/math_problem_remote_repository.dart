@@ -2,7 +2,7 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
 abstract interface class MathProblemRemoteRepository {
-  Future<Either<SimpleActionFailure, MathProblemCreateResult>> create({
+  Future<Either<ActionFailure, MathProblemCreateResult>> create({
     required int difficulty,
     required String? text,
     required String? tex,
@@ -12,7 +12,7 @@ abstract interface class MathProblemRemoteRepository {
     required List<CreateMathProblemAnswerInput> answers,
   });
 
-  Future<Either<SimpleActionFailure, MathProblemUpdateResult>> update({
+  Future<Either<ActionFailure, MathProblemUpdateResult>> update({
     required String id,
     int? difficulty,
     String? text,
@@ -23,7 +23,7 @@ abstract interface class MathProblemRemoteRepository {
     List<CreateMathProblemAnswerInput>? answers,
   });
 
-  Future<Either<SimpleActionFailure, Unit>> delete({
+  Future<Either<ActionFailure, Unit>> delete({
     required String id,
   });
 
