@@ -1,0 +1,7 @@
+query CountGenerateMathProblemValues(
+  $input: CountGenerateMathProblemValuesInput!
+) {
+  countGenerateMathProblemValues(input: $input) {
+    count
+  }
+}
