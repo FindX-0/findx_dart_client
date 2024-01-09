@@ -120,4 +120,26 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
       mapper: (r) => r.getMathProblemById,
     );
   }
+
+  @override
+  Future<Either<FetchFailure, List<GenerateMathProblemValuesRes>>> generateValues({
+    required String template,
+    required List<GenerateMathProblemNumberParam> numberParams,
+    required List<GenerateMathProblemCustomStrParam> customStrParams,
+  }) {
+    return callCatchWithFetchFailure(
+      () => _client.query$GenerateMathProblemValues(
+        Options$Query$GenerateMathProblemValues(
+          variables: Variables$Query$GenerateMathProblemValues(
+            input: Input$GenerateMathProblemValuesInput(
+              customStrParams: customStrParams,
+              numberParams: numberParams,
+              template: template,
+            ),
+          ),
+        ),
+      ),
+      mapper: (r) => r.generateMathProblemValues,
+    );
+  }
 }

@@ -33,4 +33,10 @@ abstract interface class MathProblemRemoteRepository {
     required int limit,
     String? lastId,
   });
+
+  Future<Either<FetchFailure, List<GenerateMathProblemValuesRes>>> generateValues({
+    required String template,
+    required List<GenerateMathProblemNumberParam> numberParams,
+    required List<GenerateMathProblemCustomStrParam> customStrParams,
+  });
 }
