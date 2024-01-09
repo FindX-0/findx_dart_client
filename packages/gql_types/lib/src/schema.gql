@@ -27,6 +27,15 @@ enum AuthProvider {
   NONE
 }
 
+input CountGenerateMathProblemValuesInput {
+  customStrParams: [GenerateMathProblemCustomStrParameterInput!]!
+  numberParams: [GenerateMathProblemNumberParameterInput!]!
+}
+
+type CountObject {
+  count: Int!
+}
+
 input CreateMathFieldInput {
   name: String!
 }
@@ -79,6 +88,29 @@ input FilterMathSubFieldsInput {
   lastId: ID
   limit: Int!
   mathFieldId: ID
+}
+
+input GenerateMathProblemCustomStrParameterInput {
+  index: Int!
+  values: String!
+}
+
+input GenerateMathProblemNumberParameterInput {
+  index: Int!
+  max: Int!
+  min: Int!
+  step: Float!
+}
+
+input GenerateMathProblemValuesInput {
+  customStrParams: [GenerateMathProblemCustomStrParameterInput!]!
+  numberParams: [GenerateMathProblemNumberParameterInput!]!
+  template: String!
+}
+
+type GenerateMathProblemValuesObject {
+  answers: [MathProblemAnswerObject!]
+  tex: String!
 }
 
 input GetAllMathFieldsInput {
@@ -234,9 +266,11 @@ type Mutation {
 
 type Query {
   authenticationStatus: SuccessObject!
+  countGenerateMathProblemValues(input: CountGenerateMathProblemValuesInput!): CountObject!
   filterMathFields(input: LastIdPageParamsObject!): MathFieldPageObject!
   filterMathProblems(input: LastIdPageParamsObject!): MathProblemPageObject!
   filterMathSubFields(input: FilterMathSubFieldsInput!): MathSubFieldPageObject!
+  generateMathProblemValues(input: GenerateMathProblemValuesInput!): [GenerateMathProblemValuesObject!]!
   getAllMathFields(input: GetAllMathFieldsInput!): [MathFieldObject!]!
   getAuthUser: UserObject!
   getMatchById(input: IdentifierInput!): MatchObject!

@@ -1,0 +1,11 @@
+query GenerateMathProblemValues(
+  $input: GenerateMathProblemValuesInput!
+) {
+    generateMathProblemValues(input: $input) {
+      tex
+      answers {
+        isCorrect
+        tex
+      }
+    }
+}

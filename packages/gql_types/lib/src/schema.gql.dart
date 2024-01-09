@@ -274,6 +274,208 @@ class _CopyWithStubImpl$Input$AdminSignUpInput<TRes>
       _res;
 }
 
+class Input$CountGenerateMathProblemValuesInput {
+  factory Input$CountGenerateMathProblemValuesInput({
+    required List<Input$GenerateMathProblemCustomStrParameterInput>
+        customStrParams,
+    required List<Input$GenerateMathProblemNumberParameterInput> numberParams,
+  }) =>
+      Input$CountGenerateMathProblemValuesInput._({
+        r'customStrParams': customStrParams,
+        r'numberParams': numberParams,
+      });
+
+  Input$CountGenerateMathProblemValuesInput._(this._$data);
+
+  factory Input$CountGenerateMathProblemValuesInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$customStrParams = data['customStrParams'];
+    result$data['customStrParams'] = (l$customStrParams as List<dynamic>)
+        .map((e) => Input$GenerateMathProblemCustomStrParameterInput.fromJson(
+            (e as Map<String, dynamic>)))
+        .toList();
+    final l$numberParams = data['numberParams'];
+    result$data['numberParams'] = (l$numberParams as List<dynamic>)
+        .map((e) => Input$GenerateMathProblemNumberParameterInput.fromJson(
+            (e as Map<String, dynamic>)))
+        .toList();
+    return Input$CountGenerateMathProblemValuesInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$GenerateMathProblemCustomStrParameterInput> get customStrParams =>
+      (_$data['customStrParams']
+          as List<Input$GenerateMathProblemCustomStrParameterInput>);
+
+  List<Input$GenerateMathProblemNumberParameterInput> get numberParams =>
+      (_$data['numberParams']
+          as List<Input$GenerateMathProblemNumberParameterInput>);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$customStrParams = customStrParams;
+    result$data['customStrParams'] =
+        l$customStrParams.map((e) => e.toJson()).toList();
+    final l$numberParams = numberParams;
+    result$data['numberParams'] =
+        l$numberParams.map((e) => e.toJson()).toList();
+    return result$data;
+  }
+
+  CopyWith$Input$CountGenerateMathProblemValuesInput<
+          Input$CountGenerateMathProblemValuesInput>
+      get copyWith => CopyWith$Input$CountGenerateMathProblemValuesInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$CountGenerateMathProblemValuesInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$customStrParams = customStrParams;
+    final lOther$customStrParams = other.customStrParams;
+    if (l$customStrParams.length != lOther$customStrParams.length) {
+      return false;
+    }
+    for (int i = 0; i < l$customStrParams.length; i++) {
+      final l$customStrParams$entry = l$customStrParams[i];
+      final lOther$customStrParams$entry = lOther$customStrParams[i];
+      if (l$customStrParams$entry != lOther$customStrParams$entry) {
+        return false;
+      }
+    }
+    final l$numberParams = numberParams;
+    final lOther$numberParams = other.numberParams;
+    if (l$numberParams.length != lOther$numberParams.length) {
+      return false;
+    }
+    for (int i = 0; i < l$numberParams.length; i++) {
+      final l$numberParams$entry = l$numberParams[i];
+      final lOther$numberParams$entry = lOther$numberParams[i];
+      if (l$numberParams$entry != lOther$numberParams$entry) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$customStrParams = customStrParams;
+    final l$numberParams = numberParams;
+    return Object.hashAll([
+      Object.hashAll(l$customStrParams.map((v) => v)),
+      Object.hashAll(l$numberParams.map((v) => v)),
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$CountGenerateMathProblemValuesInput<TRes> {
+  factory CopyWith$Input$CountGenerateMathProblemValuesInput(
+    Input$CountGenerateMathProblemValuesInput instance,
+    TRes Function(Input$CountGenerateMathProblemValuesInput) then,
+  ) = _CopyWithImpl$Input$CountGenerateMathProblemValuesInput;
+
+  factory CopyWith$Input$CountGenerateMathProblemValuesInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CountGenerateMathProblemValuesInput;
+
+  TRes call({
+    List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
+    List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
+  });
+  TRes customStrParams(
+      Iterable<Input$GenerateMathProblemCustomStrParameterInput> Function(
+              Iterable<
+                  CopyWith$Input$GenerateMathProblemCustomStrParameterInput<
+                      Input$GenerateMathProblemCustomStrParameterInput>>)
+          _fn);
+  TRes numberParams(
+      Iterable<Input$GenerateMathProblemNumberParameterInput> Function(
+              Iterable<
+                  CopyWith$Input$GenerateMathProblemNumberParameterInput<
+                      Input$GenerateMathProblemNumberParameterInput>>)
+          _fn);
+}
+
+class _CopyWithImpl$Input$CountGenerateMathProblemValuesInput<TRes>
+    implements CopyWith$Input$CountGenerateMathProblemValuesInput<TRes> {
+  _CopyWithImpl$Input$CountGenerateMathProblemValuesInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$CountGenerateMathProblemValuesInput _instance;
+
+  final TRes Function(Input$CountGenerateMathProblemValuesInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? customStrParams = _undefined,
+    Object? numberParams = _undefined,
+  }) =>
+      _then(Input$CountGenerateMathProblemValuesInput._({
+        ..._instance._$data,
+        if (customStrParams != _undefined && customStrParams != null)
+          'customStrParams': (customStrParams
+              as List<Input$GenerateMathProblemCustomStrParameterInput>),
+        if (numberParams != _undefined && numberParams != null)
+          'numberParams': (numberParams
+              as List<Input$GenerateMathProblemNumberParameterInput>),
+      }));
+
+  TRes customStrParams(
+          Iterable<Input$GenerateMathProblemCustomStrParameterInput> Function(
+                  Iterable<
+                      CopyWith$Input$GenerateMathProblemCustomStrParameterInput<
+                          Input$GenerateMathProblemCustomStrParameterInput>>)
+              _fn) =>
+      call(
+          customStrParams: _fn(_instance.customStrParams.map(
+              (e) => CopyWith$Input$GenerateMathProblemCustomStrParameterInput(
+                    e,
+                    (i) => i,
+                  ))).toList());
+
+  TRes numberParams(
+          Iterable<Input$GenerateMathProblemNumberParameterInput> Function(
+                  Iterable<
+                      CopyWith$Input$GenerateMathProblemNumberParameterInput<
+                          Input$GenerateMathProblemNumberParameterInput>>)
+              _fn) =>
+      call(
+          numberParams: _fn(_instance.numberParams.map(
+              (e) => CopyWith$Input$GenerateMathProblemNumberParameterInput(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Input$CountGenerateMathProblemValuesInput<TRes>
+    implements CopyWith$Input$CountGenerateMathProblemValuesInput<TRes> {
+  _CopyWithStubImpl$Input$CountGenerateMathProblemValuesInput(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
+    List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
+  }) =>
+      _res;
+
+  customStrParams(_fn) => _res;
+
+  numberParams(_fn) => _res;
+}
+
 class Input$CreateMathFieldInput {
   factory Input$CreateMathFieldInput({required String name}) =>
       Input$CreateMathFieldInput._({
@@ -1557,6 +1759,527 @@ class _CopyWithStubImpl$Input$FilterMathSubFieldsInput<TRes>
     String? mathFieldId,
   }) =>
       _res;
+}
+
+class Input$GenerateMathProblemCustomStrParameterInput {
+  factory Input$GenerateMathProblemCustomStrParameterInput({
+    required int index,
+    required String values,
+  }) =>
+      Input$GenerateMathProblemCustomStrParameterInput._({
+        r'index': index,
+        r'values': values,
+      });
+
+  Input$GenerateMathProblemCustomStrParameterInput._(this._$data);
+
+  factory Input$GenerateMathProblemCustomStrParameterInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$index = data['index'];
+    result$data['index'] = (l$index as int);
+    final l$values = data['values'];
+    result$data['values'] = (l$values as String);
+    return Input$GenerateMathProblemCustomStrParameterInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int get index => (_$data['index'] as int);
+
+  String get values => (_$data['values'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$index = index;
+    result$data['index'] = l$index;
+    final l$values = values;
+    result$data['values'] = l$values;
+    return result$data;
+  }
+
+  CopyWith$Input$GenerateMathProblemCustomStrParameterInput<
+          Input$GenerateMathProblemCustomStrParameterInput>
+      get copyWith => CopyWith$Input$GenerateMathProblemCustomStrParameterInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GenerateMathProblemCustomStrParameterInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$index = index;
+    final lOther$index = other.index;
+    if (l$index != lOther$index) {
+      return false;
+    }
+    final l$values = values;
+    final lOther$values = other.values;
+    if (l$values != lOther$values) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$index = index;
+    final l$values = values;
+    return Object.hashAll([
+      l$index,
+      l$values,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$GenerateMathProblemCustomStrParameterInput<TRes> {
+  factory CopyWith$Input$GenerateMathProblemCustomStrParameterInput(
+    Input$GenerateMathProblemCustomStrParameterInput instance,
+    TRes Function(Input$GenerateMathProblemCustomStrParameterInput) then,
+  ) = _CopyWithImpl$Input$GenerateMathProblemCustomStrParameterInput;
+
+  factory CopyWith$Input$GenerateMathProblemCustomStrParameterInput.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$GenerateMathProblemCustomStrParameterInput;
+
+  TRes call({
+    int? index,
+    String? values,
+  });
+}
+
+class _CopyWithImpl$Input$GenerateMathProblemCustomStrParameterInput<TRes>
+    implements CopyWith$Input$GenerateMathProblemCustomStrParameterInput<TRes> {
+  _CopyWithImpl$Input$GenerateMathProblemCustomStrParameterInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GenerateMathProblemCustomStrParameterInput _instance;
+
+  final TRes Function(Input$GenerateMathProblemCustomStrParameterInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? index = _undefined,
+    Object? values = _undefined,
+  }) =>
+      _then(Input$GenerateMathProblemCustomStrParameterInput._({
+        ..._instance._$data,
+        if (index != _undefined && index != null) 'index': (index as int),
+        if (values != _undefined && values != null)
+          'values': (values as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GenerateMathProblemCustomStrParameterInput<TRes>
+    implements CopyWith$Input$GenerateMathProblemCustomStrParameterInput<TRes> {
+  _CopyWithStubImpl$Input$GenerateMathProblemCustomStrParameterInput(this._res);
+
+  TRes _res;
+
+  call({
+    int? index,
+    String? values,
+  }) =>
+      _res;
+}
+
+class Input$GenerateMathProblemNumberParameterInput {
+  factory Input$GenerateMathProblemNumberParameterInput({
+    required int index,
+    required int max,
+    required int min,
+    required double step,
+  }) =>
+      Input$GenerateMathProblemNumberParameterInput._({
+        r'index': index,
+        r'max': max,
+        r'min': min,
+        r'step': step,
+      });
+
+  Input$GenerateMathProblemNumberParameterInput._(this._$data);
+
+  factory Input$GenerateMathProblemNumberParameterInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$index = data['index'];
+    result$data['index'] = (l$index as int);
+    final l$max = data['max'];
+    result$data['max'] = (l$max as int);
+    final l$min = data['min'];
+    result$data['min'] = (l$min as int);
+    final l$step = data['step'];
+    result$data['step'] = (l$step as num).toDouble();
+    return Input$GenerateMathProblemNumberParameterInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int get index => (_$data['index'] as int);
+
+  int get max => (_$data['max'] as int);
+
+  int get min => (_$data['min'] as int);
+
+  double get step => (_$data['step'] as double);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$index = index;
+    result$data['index'] = l$index;
+    final l$max = max;
+    result$data['max'] = l$max;
+    final l$min = min;
+    result$data['min'] = l$min;
+    final l$step = step;
+    result$data['step'] = l$step;
+    return result$data;
+  }
+
+  CopyWith$Input$GenerateMathProblemNumberParameterInput<
+          Input$GenerateMathProblemNumberParameterInput>
+      get copyWith => CopyWith$Input$GenerateMathProblemNumberParameterInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GenerateMathProblemNumberParameterInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$index = index;
+    final lOther$index = other.index;
+    if (l$index != lOther$index) {
+      return false;
+    }
+    final l$max = max;
+    final lOther$max = other.max;
+    if (l$max != lOther$max) {
+      return false;
+    }
+    final l$min = min;
+    final lOther$min = other.min;
+    if (l$min != lOther$min) {
+      return false;
+    }
+    final l$step = step;
+    final lOther$step = other.step;
+    if (l$step != lOther$step) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$index = index;
+    final l$max = max;
+    final l$min = min;
+    final l$step = step;
+    return Object.hashAll([
+      l$index,
+      l$max,
+      l$min,
+      l$step,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$GenerateMathProblemNumberParameterInput<TRes> {
+  factory CopyWith$Input$GenerateMathProblemNumberParameterInput(
+    Input$GenerateMathProblemNumberParameterInput instance,
+    TRes Function(Input$GenerateMathProblemNumberParameterInput) then,
+  ) = _CopyWithImpl$Input$GenerateMathProblemNumberParameterInput;
+
+  factory CopyWith$Input$GenerateMathProblemNumberParameterInput.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$GenerateMathProblemNumberParameterInput;
+
+  TRes call({
+    int? index,
+    int? max,
+    int? min,
+    double? step,
+  });
+}
+
+class _CopyWithImpl$Input$GenerateMathProblemNumberParameterInput<TRes>
+    implements CopyWith$Input$GenerateMathProblemNumberParameterInput<TRes> {
+  _CopyWithImpl$Input$GenerateMathProblemNumberParameterInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GenerateMathProblemNumberParameterInput _instance;
+
+  final TRes Function(Input$GenerateMathProblemNumberParameterInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? index = _undefined,
+    Object? max = _undefined,
+    Object? min = _undefined,
+    Object? step = _undefined,
+  }) =>
+      _then(Input$GenerateMathProblemNumberParameterInput._({
+        ..._instance._$data,
+        if (index != _undefined && index != null) 'index': (index as int),
+        if (max != _undefined && max != null) 'max': (max as int),
+        if (min != _undefined && min != null) 'min': (min as int),
+        if (step != _undefined && step != null) 'step': (step as double),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GenerateMathProblemNumberParameterInput<TRes>
+    implements CopyWith$Input$GenerateMathProblemNumberParameterInput<TRes> {
+  _CopyWithStubImpl$Input$GenerateMathProblemNumberParameterInput(this._res);
+
+  TRes _res;
+
+  call({
+    int? index,
+    int? max,
+    int? min,
+    double? step,
+  }) =>
+      _res;
+}
+
+class Input$GenerateMathProblemValuesInput {
+  factory Input$GenerateMathProblemValuesInput({
+    required List<Input$GenerateMathProblemCustomStrParameterInput>
+        customStrParams,
+    required List<Input$GenerateMathProblemNumberParameterInput> numberParams,
+    required String template,
+  }) =>
+      Input$GenerateMathProblemValuesInput._({
+        r'customStrParams': customStrParams,
+        r'numberParams': numberParams,
+        r'template': template,
+      });
+
+  Input$GenerateMathProblemValuesInput._(this._$data);
+
+  factory Input$GenerateMathProblemValuesInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$customStrParams = data['customStrParams'];
+    result$data['customStrParams'] = (l$customStrParams as List<dynamic>)
+        .map((e) => Input$GenerateMathProblemCustomStrParameterInput.fromJson(
+            (e as Map<String, dynamic>)))
+        .toList();
+    final l$numberParams = data['numberParams'];
+    result$data['numberParams'] = (l$numberParams as List<dynamic>)
+        .map((e) => Input$GenerateMathProblemNumberParameterInput.fromJson(
+            (e as Map<String, dynamic>)))
+        .toList();
+    final l$template = data['template'];
+    result$data['template'] = (l$template as String);
+    return Input$GenerateMathProblemValuesInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$GenerateMathProblemCustomStrParameterInput> get customStrParams =>
+      (_$data['customStrParams']
+          as List<Input$GenerateMathProblemCustomStrParameterInput>);
+
+  List<Input$GenerateMathProblemNumberParameterInput> get numberParams =>
+      (_$data['numberParams']
+          as List<Input$GenerateMathProblemNumberParameterInput>);
+
+  String get template => (_$data['template'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$customStrParams = customStrParams;
+    result$data['customStrParams'] =
+        l$customStrParams.map((e) => e.toJson()).toList();
+    final l$numberParams = numberParams;
+    result$data['numberParams'] =
+        l$numberParams.map((e) => e.toJson()).toList();
+    final l$template = template;
+    result$data['template'] = l$template;
+    return result$data;
+  }
+
+  CopyWith$Input$GenerateMathProblemValuesInput<
+          Input$GenerateMathProblemValuesInput>
+      get copyWith => CopyWith$Input$GenerateMathProblemValuesInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GenerateMathProblemValuesInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$customStrParams = customStrParams;
+    final lOther$customStrParams = other.customStrParams;
+    if (l$customStrParams.length != lOther$customStrParams.length) {
+      return false;
+    }
+    for (int i = 0; i < l$customStrParams.length; i++) {
+      final l$customStrParams$entry = l$customStrParams[i];
+      final lOther$customStrParams$entry = lOther$customStrParams[i];
+      if (l$customStrParams$entry != lOther$customStrParams$entry) {
+        return false;
+      }
+    }
+    final l$numberParams = numberParams;
+    final lOther$numberParams = other.numberParams;
+    if (l$numberParams.length != lOther$numberParams.length) {
+      return false;
+    }
+    for (int i = 0; i < l$numberParams.length; i++) {
+      final l$numberParams$entry = l$numberParams[i];
+      final lOther$numberParams$entry = lOther$numberParams[i];
+      if (l$numberParams$entry != lOther$numberParams$entry) {
+        return false;
+      }
+    }
+    final l$template = template;
+    final lOther$template = other.template;
+    if (l$template != lOther$template) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$customStrParams = customStrParams;
+    final l$numberParams = numberParams;
+    final l$template = template;
+    return Object.hashAll([
+      Object.hashAll(l$customStrParams.map((v) => v)),
+      Object.hashAll(l$numberParams.map((v) => v)),
+      l$template,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$GenerateMathProblemValuesInput<TRes> {
+  factory CopyWith$Input$GenerateMathProblemValuesInput(
+    Input$GenerateMathProblemValuesInput instance,
+    TRes Function(Input$GenerateMathProblemValuesInput) then,
+  ) = _CopyWithImpl$Input$GenerateMathProblemValuesInput;
+
+  factory CopyWith$Input$GenerateMathProblemValuesInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$GenerateMathProblemValuesInput;
+
+  TRes call({
+    List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
+    List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
+    String? template,
+  });
+  TRes customStrParams(
+      Iterable<Input$GenerateMathProblemCustomStrParameterInput> Function(
+              Iterable<
+                  CopyWith$Input$GenerateMathProblemCustomStrParameterInput<
+                      Input$GenerateMathProblemCustomStrParameterInput>>)
+          _fn);
+  TRes numberParams(
+      Iterable<Input$GenerateMathProblemNumberParameterInput> Function(
+              Iterable<
+                  CopyWith$Input$GenerateMathProblemNumberParameterInput<
+                      Input$GenerateMathProblemNumberParameterInput>>)
+          _fn);
+}
+
+class _CopyWithImpl$Input$GenerateMathProblemValuesInput<TRes>
+    implements CopyWith$Input$GenerateMathProblemValuesInput<TRes> {
+  _CopyWithImpl$Input$GenerateMathProblemValuesInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GenerateMathProblemValuesInput _instance;
+
+  final TRes Function(Input$GenerateMathProblemValuesInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? customStrParams = _undefined,
+    Object? numberParams = _undefined,
+    Object? template = _undefined,
+  }) =>
+      _then(Input$GenerateMathProblemValuesInput._({
+        ..._instance._$data,
+        if (customStrParams != _undefined && customStrParams != null)
+          'customStrParams': (customStrParams
+              as List<Input$GenerateMathProblemCustomStrParameterInput>),
+        if (numberParams != _undefined && numberParams != null)
+          'numberParams': (numberParams
+              as List<Input$GenerateMathProblemNumberParameterInput>),
+        if (template != _undefined && template != null)
+          'template': (template as String),
+      }));
+
+  TRes customStrParams(
+          Iterable<Input$GenerateMathProblemCustomStrParameterInput> Function(
+                  Iterable<
+                      CopyWith$Input$GenerateMathProblemCustomStrParameterInput<
+                          Input$GenerateMathProblemCustomStrParameterInput>>)
+              _fn) =>
+      call(
+          customStrParams: _fn(_instance.customStrParams.map(
+              (e) => CopyWith$Input$GenerateMathProblemCustomStrParameterInput(
+                    e,
+                    (i) => i,
+                  ))).toList());
+
+  TRes numberParams(
+          Iterable<Input$GenerateMathProblemNumberParameterInput> Function(
+                  Iterable<
+                      CopyWith$Input$GenerateMathProblemNumberParameterInput<
+                          Input$GenerateMathProblemNumberParameterInput>>)
+              _fn) =>
+      call(
+          numberParams: _fn(_instance.numberParams.map(
+              (e) => CopyWith$Input$GenerateMathProblemNumberParameterInput(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Input$GenerateMathProblemValuesInput<TRes>
+    implements CopyWith$Input$GenerateMathProblemValuesInput<TRes> {
+  _CopyWithStubImpl$Input$GenerateMathProblemValuesInput(this._res);
+
+  TRes _res;
+
+  call({
+    List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
+    List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
+    String? template,
+  }) =>
+      _res;
+
+  customStrParams(_fn) => _res;
+
+  numberParams(_fn) => _res;
 }
 
 class Input$GetAllMathFieldsInput {
