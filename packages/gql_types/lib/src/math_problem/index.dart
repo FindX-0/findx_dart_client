@@ -1,4 +1,4 @@
-import '../../gql_types.dart';
+import '../schema.gql.dart';
 
 export 'math_problem.gql.dart';
 export 'math_problem_with_relations.gql.dart';

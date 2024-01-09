@@ -1,4 +1,4 @@
-import '../../gql_types.dart';
+import 'media_file.gql.dart';
 
 export 'media_file.gql.dart';
 
