@@ -17,7 +17,7 @@ class ApiCreateMathProblemUsecase implements CreateMathProblemUsecase {
   final MediaFileRemoteRepository _mediaFileRemoteRepository;
 
   @override
-  Future<Either<ActionFailure, MathProblemCreateResult>> call({
+  Future<Either<ActionFailure, CreateMathProblemRes>> call({
     required int difficulty,
     required String? text,
     required String? tex,

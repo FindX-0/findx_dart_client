@@ -6,6 +6,7 @@ import 'package:graphql/client.dart';
 
 import '../../shared/gql_request_wrap.dart';
 import 'math_problem_remote_repository.dart';
+import 'model/create_math_problem_params.dart';
 
 class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemRemoteRepository {
   ApiMathProblemRemoteRepository(
@@ -15,7 +16,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, MathProblemCreateResult>> create({
+  Future<Either<ActionFailure, CreateMathProblemRes>> create({
     required int difficulty,
     required String? text,
     required String? tex,
@@ -28,13 +29,15 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
       () => _client.mutate$CreateMathProblem(
         Options$Mutation$CreateMathProblem(
           variables: Variables$Mutation$CreateMathProblem(
-            difficulty: difficulty,
-            text: text,
-            tex: tex,
-            mathFieldId: mathFieldId,
-            mathSubFieldId: mathSubFieldId,
-            imageMediaIds: imageMediaIds,
-            answers: answers,
+            input: Input$CreateMathProblemInput(
+              difficulty: difficulty,
+              text: text,
+              tex: tex,
+              mathFieldId: mathFieldId,
+              mathSubFieldId: mathSubFieldId,
+              imageMediaIds: imageMediaIds,
+              answers: answers,
+            ),
           ),
         ),
       ),
@@ -162,6 +165,34 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
         ),
       ),
       mapper: (r) => r.countGenerateMathProblemValues,
+    );
+  }
+
+  @override
+  Future<Either<ActionFailure, BulkCreateMathProblemRes>> bulkCreate(
+      List<RawCreateMathProblemParams> params) {
+    return callCatchWithActionFailure(
+      () {
+        final values = params
+            .map(
+              (e) => Input$CreateMathProblemInput(
+                answers: e.answers,
+                difficulty: e.difficulty,
+                mathFieldId: e.mathFieldId,
+                mathSubFieldId: e.mathSubFieldId,
+              ),
+            )
+            .toList();
+
+        return _client.mutate$BulkCreateMathProblem(
+          Options$Mutation$BulkCreateMathProblem(
+            variables: Variables$Mutation$BulkCreateMathProblem(
+              input: Input$BulkCreateMathProblemInput(values: values),
+            ),
+          ),
+        );
+      },
+      mapper: (r) => r.bulkCreateMathProblem,
     );
   }
 }

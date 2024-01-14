@@ -1,8 +1,10 @@
 import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
+import 'model/create_math_problem_params.dart';
+
 abstract interface class MathProblemRemoteRepository {
-  Future<Either<ActionFailure, MathProblemCreateResult>> create({
+  Future<Either<ActionFailure, CreateMathProblemRes>> create({
     required int difficulty,
     required String? text,
     required String? tex,
@@ -44,4 +46,6 @@ abstract interface class MathProblemRemoteRepository {
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
   });
+
+  Future<Either<ActionFailure, BulkCreateMathProblemRes>> bulkCreate(List<RawCreateMathProblemParams> params);
 }
