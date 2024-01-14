@@ -1,0 +1,7 @@
+mutation BulkCreateMathProblem(
+  $input: BulkCreateMathProblemInput
+) {
+  bulkCreateMathProblem(input: $input) {
+    ...CreateMathProblemRes
+  }
+}

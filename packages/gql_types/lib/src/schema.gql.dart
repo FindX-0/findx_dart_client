@@ -274,6 +274,137 @@ class _CopyWithStubImpl$Input$AdminSignUpInput<TRes>
       _res;
 }
 
+class Input$BulkCreateMathProblemInput {
+  factory Input$BulkCreateMathProblemInput(
+          {required List<Input$CreateMathProblemInput> values}) =>
+      Input$BulkCreateMathProblemInput._({
+        r'values': values,
+      });
+
+  Input$BulkCreateMathProblemInput._(this._$data);
+
+  factory Input$BulkCreateMathProblemInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$values = data['values'];
+    result$data['values'] = (l$values as List<dynamic>)
+        .map((e) =>
+            Input$CreateMathProblemInput.fromJson((e as Map<String, dynamic>)))
+        .toList();
+    return Input$BulkCreateMathProblemInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<Input$CreateMathProblemInput> get values =>
+      (_$data['values'] as List<Input$CreateMathProblemInput>);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$values = values;
+    result$data['values'] = l$values.map((e) => e.toJson()).toList();
+    return result$data;
+  }
+
+  CopyWith$Input$BulkCreateMathProblemInput<Input$BulkCreateMathProblemInput>
+      get copyWith => CopyWith$Input$BulkCreateMathProblemInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$BulkCreateMathProblemInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$values = values;
+    final lOther$values = other.values;
+    if (l$values.length != lOther$values.length) {
+      return false;
+    }
+    for (int i = 0; i < l$values.length; i++) {
+      final l$values$entry = l$values[i];
+      final lOther$values$entry = lOther$values[i];
+      if (l$values$entry != lOther$values$entry) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$values = values;
+    return Object.hashAll([Object.hashAll(l$values.map((v) => v))]);
+  }
+}
+
+abstract class CopyWith$Input$BulkCreateMathProblemInput<TRes> {
+  factory CopyWith$Input$BulkCreateMathProblemInput(
+    Input$BulkCreateMathProblemInput instance,
+    TRes Function(Input$BulkCreateMathProblemInput) then,
+  ) = _CopyWithImpl$Input$BulkCreateMathProblemInput;
+
+  factory CopyWith$Input$BulkCreateMathProblemInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$BulkCreateMathProblemInput;
+
+  TRes call({List<Input$CreateMathProblemInput>? values});
+  TRes values(
+      Iterable<Input$CreateMathProblemInput> Function(
+              Iterable<
+                  CopyWith$Input$CreateMathProblemInput<
+                      Input$CreateMathProblemInput>>)
+          _fn);
+}
+
+class _CopyWithImpl$Input$BulkCreateMathProblemInput<TRes>
+    implements CopyWith$Input$BulkCreateMathProblemInput<TRes> {
+  _CopyWithImpl$Input$BulkCreateMathProblemInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$BulkCreateMathProblemInput _instance;
+
+  final TRes Function(Input$BulkCreateMathProblemInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? values = _undefined}) =>
+      _then(Input$BulkCreateMathProblemInput._({
+        ..._instance._$data,
+        if (values != _undefined && values != null)
+          'values': (values as List<Input$CreateMathProblemInput>),
+      }));
+
+  TRes values(
+          Iterable<Input$CreateMathProblemInput> Function(
+                  Iterable<
+                      CopyWith$Input$CreateMathProblemInput<
+                          Input$CreateMathProblemInput>>)
+              _fn) =>
+      call(
+          values: _fn(
+              _instance.values.map((e) => CopyWith$Input$CreateMathProblemInput(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Input$BulkCreateMathProblemInput<TRes>
+    implements CopyWith$Input$BulkCreateMathProblemInput<TRes> {
+  _CopyWithStubImpl$Input$BulkCreateMathProblemInput(this._res);
+
+  TRes _res;
+
+  call({List<Input$CreateMathProblemInput>? values}) => _res;
+
+  values(_fn) => _res;
+}
+
 class Input$CountGenerateMathProblemValuesInput {
   factory Input$CountGenerateMathProblemValuesInput({
     required List<Input$GenerateMathProblemCustomStrParameterInput>

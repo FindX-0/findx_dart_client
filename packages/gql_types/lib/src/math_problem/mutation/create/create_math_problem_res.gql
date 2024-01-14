@@ -1,0 +1,9 @@
+fragment CreateMathProblemRes on CreateMathProblemResObject {
+  id
+  createdAt
+  difficulty
+  text
+  tex
+  mathFieldId
+  mathSubFieldId
+}

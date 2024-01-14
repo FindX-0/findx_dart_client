@@ -1,0 +1,7 @@
+mutation CreateMathProblem(
+ $input: CreateMathProblemInput
+) {
+  createMathProblem(input: $input) {
+    ...CreateMathProblemRes
+  }
+} 
