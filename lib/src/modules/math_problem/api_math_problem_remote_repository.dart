@@ -180,6 +180,9 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
                 difficulty: e.difficulty,
                 mathFieldId: e.mathFieldId,
                 mathSubFieldId: e.mathSubFieldId,
+                imageMediaIds: e.imageMediaIds,
+                tex: e.tex,
+                text: e.text,
               ),
             )
             .toList();
