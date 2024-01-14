@@ -1,5 +1,5 @@
 mutation BulkCreateMathProblem(
-  $input: BulkCreateMathProblemInput
+  $input: BulkCreateMathProblemInput!
 ) {
   bulkCreateMathProblem(input: $input) {
     ...CreateMathProblemRes

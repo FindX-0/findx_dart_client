@@ -6,9 +6,9 @@ import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$BulkCreateMathProblem {
   factory Variables$Mutation$BulkCreateMathProblem(
-          {Input$BulkCreateMathProblemInput? input}) =>
+          {required Input$BulkCreateMathProblemInput input}) =>
       Variables$Mutation$BulkCreateMathProblem._({
-        if (input != null) r'input': input,
+        r'input': input,
       });
 
   Variables$Mutation$BulkCreateMathProblem._(this._$data);
@@ -16,27 +16,21 @@ class Variables$Mutation$BulkCreateMathProblem {
   factory Variables$Mutation$BulkCreateMathProblem.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('input')) {
-      final l$input = data['input'];
-      result$data['input'] = l$input == null
-          ? null
-          : Input$BulkCreateMathProblemInput.fromJson(
-              (l$input as Map<String, dynamic>));
-    }
+    final l$input = data['input'];
+    result$data['input'] = Input$BulkCreateMathProblemInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Mutation$BulkCreateMathProblem._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$BulkCreateMathProblemInput? get input =>
-      (_$data['input'] as Input$BulkCreateMathProblemInput?);
+  Input$BulkCreateMathProblemInput get input =>
+      (_$data['input'] as Input$BulkCreateMathProblemInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('input')) {
-      final l$input = input;
-      result$data['input'] = l$input?.toJson();
-    }
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -58,9 +52,6 @@ class Variables$Mutation$BulkCreateMathProblem {
     }
     final l$input = input;
     final lOther$input = other.input;
-    if (_$data.containsKey('input') != other._$data.containsKey('input')) {
-      return false;
-    }
     if (l$input != lOther$input) {
       return false;
     }
@@ -70,7 +61,7 @@ class Variables$Mutation$BulkCreateMathProblem {
   @override
   int get hashCode {
     final l$input = input;
-    return Object.hashAll([_$data.containsKey('input') ? l$input : const {}]);
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -102,8 +93,8 @@ class _CopyWithImpl$Variables$Mutation$BulkCreateMathProblem<TRes>
   TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$BulkCreateMathProblem._({
         ..._instance._$data,
-        if (input != _undefined)
-          'input': (input as Input$BulkCreateMathProblemInput?),
+        if (input != _undefined && input != null)
+          'input': (input as Input$BulkCreateMathProblemInput),
       }));
 }
 
@@ -284,7 +275,7 @@ const documentNodeMutationBulkCreateMathProblem = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
           name: NameNode(value: 'BulkCreateMathProblemInput'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -340,7 +331,7 @@ class Options$Mutation$BulkCreateMathProblem
     extends graphql.MutationOptions<Mutation$BulkCreateMathProblem> {
   Options$Mutation$BulkCreateMathProblem({
     String? operationName,
-    Variables$Mutation$BulkCreateMathProblem? variables,
+    required Variables$Mutation$BulkCreateMathProblem variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -352,7 +343,7 @@ class Options$Mutation$BulkCreateMathProblem
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -389,7 +380,7 @@ class WatchOptions$Mutation$BulkCreateMathProblem
     extends graphql.WatchQueryOptions<Mutation$BulkCreateMathProblem> {
   WatchOptions$Mutation$BulkCreateMathProblem({
     String? operationName,
-    Variables$Mutation$BulkCreateMathProblem? variables,
+    required Variables$Mutation$BulkCreateMathProblem variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -401,7 +392,7 @@ class WatchOptions$Mutation$BulkCreateMathProblem
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -421,12 +412,10 @@ extension ClientExtension$Mutation$BulkCreateMathProblem
     on graphql.GraphQLClient {
   Future<graphql.QueryResult<Mutation$BulkCreateMathProblem>>
       mutate$BulkCreateMathProblem(
-              [Options$Mutation$BulkCreateMathProblem? options]) async =>
-          await this
-              .mutate(options ?? Options$Mutation$BulkCreateMathProblem());
+              Options$Mutation$BulkCreateMathProblem options) async =>
+          await this.mutate(options);
   graphql.ObservableQuery<Mutation$BulkCreateMathProblem>
       watchMutation$BulkCreateMathProblem(
-              [WatchOptions$Mutation$BulkCreateMathProblem? options]) =>
-          this.watchMutation(
-              options ?? WatchOptions$Mutation$BulkCreateMathProblem());
+              WatchOptions$Mutation$BulkCreateMathProblem options) =>
+          this.watchMutation(options);
 }

@@ -1,5 +1,5 @@
 mutation CreateMathProblem(
- $input: CreateMathProblemInput
+ $input: CreateMathProblemInput!
 ) {
   createMathProblem(input: $input) {
     ...CreateMathProblemRes
