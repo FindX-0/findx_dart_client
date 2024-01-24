@@ -1,0 +1,7 @@
+fragment AnswerFunction on AnswerFunctionObject {
+  id
+  createdAt
+  func
+  condition
+  weight
+}

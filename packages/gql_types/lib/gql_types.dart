@@ -1,5 +1,6 @@
 library;
 
+export 'src/answer_function/index.dart';
 export 'src/authentication/index.dart';
 export 'src/matchmaking/index.dart';
 export 'src/math_battle/index.dart';

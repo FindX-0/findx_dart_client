@@ -1,0 +1,7 @@
+mutation DeleteAnswerFunction(
+  $input: IdentifierInput!
+) {
+  deleteAnswerFunction(input: $input) {
+    ...SuccessObject
+  }
+}

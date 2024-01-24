@@ -607,6 +607,161 @@ class _CopyWithStubImpl$Input$CountGenerateMathProblemValuesInput<TRes>
   numberParams(_fn) => _res;
 }
 
+class Input$CreateAnswerFunctionInput {
+  factory Input$CreateAnswerFunctionInput({
+    String? condition,
+    required String func,
+    required double weight,
+  }) =>
+      Input$CreateAnswerFunctionInput._({
+        if (condition != null) r'condition': condition,
+        r'func': func,
+        r'weight': weight,
+      });
+
+  Input$CreateAnswerFunctionInput._(this._$data);
+
+  factory Input$CreateAnswerFunctionInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('condition')) {
+      final l$condition = data['condition'];
+      result$data['condition'] = (l$condition as String?);
+    }
+    final l$func = data['func'];
+    result$data['func'] = (l$func as String);
+    final l$weight = data['weight'];
+    result$data['weight'] = (l$weight as num).toDouble();
+    return Input$CreateAnswerFunctionInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get condition => (_$data['condition'] as String?);
+
+  String get func => (_$data['func'] as String);
+
+  double get weight => (_$data['weight'] as double);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('condition')) {
+      final l$condition = condition;
+      result$data['condition'] = l$condition;
+    }
+    final l$func = func;
+    result$data['func'] = l$func;
+    final l$weight = weight;
+    result$data['weight'] = l$weight;
+    return result$data;
+  }
+
+  CopyWith$Input$CreateAnswerFunctionInput<Input$CreateAnswerFunctionInput>
+      get copyWith => CopyWith$Input$CreateAnswerFunctionInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$CreateAnswerFunctionInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$condition = condition;
+    final lOther$condition = other.condition;
+    if (_$data.containsKey('condition') !=
+        other._$data.containsKey('condition')) {
+      return false;
+    }
+    if (l$condition != lOther$condition) {
+      return false;
+    }
+    final l$func = func;
+    final lOther$func = other.func;
+    if (l$func != lOther$func) {
+      return false;
+    }
+    final l$weight = weight;
+    final lOther$weight = other.weight;
+    if (l$weight != lOther$weight) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$condition = condition;
+    final l$func = func;
+    final l$weight = weight;
+    return Object.hashAll([
+      _$data.containsKey('condition') ? l$condition : const {},
+      l$func,
+      l$weight,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$CreateAnswerFunctionInput<TRes> {
+  factory CopyWith$Input$CreateAnswerFunctionInput(
+    Input$CreateAnswerFunctionInput instance,
+    TRes Function(Input$CreateAnswerFunctionInput) then,
+  ) = _CopyWithImpl$Input$CreateAnswerFunctionInput;
+
+  factory CopyWith$Input$CreateAnswerFunctionInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CreateAnswerFunctionInput;
+
+  TRes call({
+    String? condition,
+    String? func,
+    double? weight,
+  });
+}
+
+class _CopyWithImpl$Input$CreateAnswerFunctionInput<TRes>
+    implements CopyWith$Input$CreateAnswerFunctionInput<TRes> {
+  _CopyWithImpl$Input$CreateAnswerFunctionInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$CreateAnswerFunctionInput _instance;
+
+  final TRes Function(Input$CreateAnswerFunctionInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? condition = _undefined,
+    Object? func = _undefined,
+    Object? weight = _undefined,
+  }) =>
+      _then(Input$CreateAnswerFunctionInput._({
+        ..._instance._$data,
+        if (condition != _undefined) 'condition': (condition as String?),
+        if (func != _undefined && func != null) 'func': (func as String),
+        if (weight != _undefined && weight != null)
+          'weight': (weight as double),
+      }));
+}
+
+class _CopyWithStubImpl$Input$CreateAnswerFunctionInput<TRes>
+    implements CopyWith$Input$CreateAnswerFunctionInput<TRes> {
+  _CopyWithStubImpl$Input$CreateAnswerFunctionInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? condition,
+    String? func,
+    double? weight,
+  }) =>
+      _res;
+}
+
 class Input$CreateMathFieldInput {
   factory Input$CreateMathFieldInput({required String name}) =>
       Input$CreateMathFieldInput._({
@@ -3281,6 +3436,193 @@ class _CopyWithStubImpl$Input$SubmitMathProblemAnswerInput<TRes>
     String? answer,
     String? matchId,
     String? mathProblemId,
+  }) =>
+      _res;
+}
+
+class Input$UpdateAnswerFunctionInput {
+  factory Input$UpdateAnswerFunctionInput({
+    String? condition,
+    String? func,
+    required String id,
+    double? weight,
+  }) =>
+      Input$UpdateAnswerFunctionInput._({
+        if (condition != null) r'condition': condition,
+        if (func != null) r'func': func,
+        r'id': id,
+        if (weight != null) r'weight': weight,
+      });
+
+  Input$UpdateAnswerFunctionInput._(this._$data);
+
+  factory Input$UpdateAnswerFunctionInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('condition')) {
+      final l$condition = data['condition'];
+      result$data['condition'] = (l$condition as String?);
+    }
+    if (data.containsKey('func')) {
+      final l$func = data['func'];
+      result$data['func'] = (l$func as String?);
+    }
+    final l$id = data['id'];
+    result$data['id'] = (l$id as String);
+    if (data.containsKey('weight')) {
+      final l$weight = data['weight'];
+      result$data['weight'] = (l$weight as num?)?.toDouble();
+    }
+    return Input$UpdateAnswerFunctionInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get condition => (_$data['condition'] as String?);
+
+  String? get func => (_$data['func'] as String?);
+
+  String get id => (_$data['id'] as String);
+
+  double? get weight => (_$data['weight'] as double?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('condition')) {
+      final l$condition = condition;
+      result$data['condition'] = l$condition;
+    }
+    if (_$data.containsKey('func')) {
+      final l$func = func;
+      result$data['func'] = l$func;
+    }
+    final l$id = id;
+    result$data['id'] = l$id;
+    if (_$data.containsKey('weight')) {
+      final l$weight = weight;
+      result$data['weight'] = l$weight;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$UpdateAnswerFunctionInput<Input$UpdateAnswerFunctionInput>
+      get copyWith => CopyWith$Input$UpdateAnswerFunctionInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$UpdateAnswerFunctionInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$condition = condition;
+    final lOther$condition = other.condition;
+    if (_$data.containsKey('condition') !=
+        other._$data.containsKey('condition')) {
+      return false;
+    }
+    if (l$condition != lOther$condition) {
+      return false;
+    }
+    final l$func = func;
+    final lOther$func = other.func;
+    if (_$data.containsKey('func') != other._$data.containsKey('func')) {
+      return false;
+    }
+    if (l$func != lOther$func) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$weight = weight;
+    final lOther$weight = other.weight;
+    if (_$data.containsKey('weight') != other._$data.containsKey('weight')) {
+      return false;
+    }
+    if (l$weight != lOther$weight) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$condition = condition;
+    final l$func = func;
+    final l$id = id;
+    final l$weight = weight;
+    return Object.hashAll([
+      _$data.containsKey('condition') ? l$condition : const {},
+      _$data.containsKey('func') ? l$func : const {},
+      l$id,
+      _$data.containsKey('weight') ? l$weight : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$UpdateAnswerFunctionInput<TRes> {
+  factory CopyWith$Input$UpdateAnswerFunctionInput(
+    Input$UpdateAnswerFunctionInput instance,
+    TRes Function(Input$UpdateAnswerFunctionInput) then,
+  ) = _CopyWithImpl$Input$UpdateAnswerFunctionInput;
+
+  factory CopyWith$Input$UpdateAnswerFunctionInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$UpdateAnswerFunctionInput;
+
+  TRes call({
+    String? condition,
+    String? func,
+    String? id,
+    double? weight,
+  });
+}
+
+class _CopyWithImpl$Input$UpdateAnswerFunctionInput<TRes>
+    implements CopyWith$Input$UpdateAnswerFunctionInput<TRes> {
+  _CopyWithImpl$Input$UpdateAnswerFunctionInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$UpdateAnswerFunctionInput _instance;
+
+  final TRes Function(Input$UpdateAnswerFunctionInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? condition = _undefined,
+    Object? func = _undefined,
+    Object? id = _undefined,
+    Object? weight = _undefined,
+  }) =>
+      _then(Input$UpdateAnswerFunctionInput._({
+        ..._instance._$data,
+        if (condition != _undefined) 'condition': (condition as String?),
+        if (func != _undefined) 'func': (func as String?),
+        if (id != _undefined && id != null) 'id': (id as String),
+        if (weight != _undefined) 'weight': (weight as double?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$UpdateAnswerFunctionInput<TRes>
+    implements CopyWith$Input$UpdateAnswerFunctionInput<TRes> {
+  _CopyWithStubImpl$Input$UpdateAnswerFunctionInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? condition,
+    String? func,
+    String? id,
+    double? weight,
   }) =>
       _res;
 }

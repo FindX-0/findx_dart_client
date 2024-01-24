@@ -1,0 +1,7 @@
+mutation CreateAnswerFunction(
+  $input: CreateAnswerFunctionInput!
+) {
+  createAnswerFunction(input: $input) {
+    ...AnswerFunction
+  }
+} 

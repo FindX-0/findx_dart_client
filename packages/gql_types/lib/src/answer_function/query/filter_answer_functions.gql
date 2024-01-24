@@ -1,0 +1,10 @@
+query FilterAnswerFunctions(
+  $input: LastIdPageParamsObject!
+) {
+  filterAnswerFunctions(input: $input) {
+    count
+    data {
+      ...AnswerFunction
+    }
+  }
+}

@@ -1,0 +1,5 @@
+query getAllAnswerFunctions {
+  getAllAnswerFunctions() {
+    ...AnswerFunction
+  }
+}

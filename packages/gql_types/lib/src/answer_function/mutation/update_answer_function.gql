@@ -1,0 +1,7 @@
+mutation UpdateAnswerFunction(
+  $input: UpdateAnswerFunctionInput!
+) {
+  updateAnswerFunction(input: $input) {
+    ...AnswerFunction
+  }
+}
