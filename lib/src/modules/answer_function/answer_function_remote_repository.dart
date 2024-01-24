@@ -4,7 +4,7 @@ import 'package:gql_types/gql_types.dart';
 abstract interface class AnswerFunctionRemoteRepository {
   Future<Either<ActionFailure, AnswerFunctionCreateResult>> create({
     required String func,
-    required String condition,
+    required String? condition,
     required double weight,
   });
 

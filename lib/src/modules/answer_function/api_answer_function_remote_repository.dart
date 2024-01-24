@@ -15,7 +15,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
   @override
   Future<Either<ActionFailure, AnswerFunctionCreateResult>> create({
     required String func,
-    required String condition,
+    required String? condition,
     required double weight,
   }) async {
     return callCatchWithActionFailure(
