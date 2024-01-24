@@ -1,3 +1,4 @@
+export 'answer_function/index.dart';
 export 'authentication/index.dart';
 export 'matchmaking/index.dart';
 export 'math_battle/index.dart';
