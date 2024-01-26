@@ -1,3 +1,4 @@
+import '../schema.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -8,6 +9,7 @@ class Fragment$AnswerFunction {
     required this.func,
     this.condition,
     required this.weight,
+    required this.numberType,
     this.$__typename = 'AnswerFunctionObject',
   });
 
@@ -17,6 +19,7 @@ class Fragment$AnswerFunction {
     final l$func = json['func'];
     final l$condition = json['condition'];
     final l$weight = json['weight'];
+    final l$numberType = json['numberType'];
     final l$$__typename = json['__typename'];
     return Fragment$AnswerFunction(
       id: (l$id as String),
@@ -24,6 +27,7 @@ class Fragment$AnswerFunction {
       func: (l$func as String),
       condition: (l$condition as String?),
       weight: (l$weight as String),
+      numberType: fromJson$Enum$NumberType((l$numberType as String)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -37,6 +41,8 @@ class Fragment$AnswerFunction {
   final String? condition;
 
   final String weight;
+
+  final Enum$NumberType numberType;
 
   final String $__typename;
 
@@ -52,6 +58,8 @@ class Fragment$AnswerFunction {
     _resultData['condition'] = l$condition;
     final l$weight = weight;
     _resultData['weight'] = l$weight;
+    final l$numberType = numberType;
+    _resultData['numberType'] = toJson$Enum$NumberType(l$numberType);
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -64,6 +72,7 @@ class Fragment$AnswerFunction {
     final l$func = func;
     final l$condition = condition;
     final l$weight = weight;
+    final l$numberType = numberType;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
@@ -71,6 +80,7 @@ class Fragment$AnswerFunction {
       l$func,
       l$condition,
       l$weight,
+      l$numberType,
       l$$__typename,
     ]);
   }
@@ -109,6 +119,11 @@ class Fragment$AnswerFunction {
     if (l$weight != lOther$weight) {
       return false;
     }
+    final l$numberType = numberType;
+    final lOther$numberType = other.numberType;
+    if (l$numberType != lOther$numberType) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -141,6 +156,7 @@ abstract class CopyWith$Fragment$AnswerFunction<TRes> {
     String? func,
     String? condition,
     String? weight,
+    Enum$NumberType? numberType,
     String? $__typename,
   });
 }
@@ -164,6 +180,7 @@ class _CopyWithImpl$Fragment$AnswerFunction<TRes>
     Object? func = _undefined,
     Object? condition = _undefined,
     Object? weight = _undefined,
+    Object? numberType = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$AnswerFunction(
@@ -180,6 +197,9 @@ class _CopyWithImpl$Fragment$AnswerFunction<TRes>
         weight: weight == _undefined || weight == null
             ? _instance.weight
             : (weight as String),
+        numberType: numberType == _undefined || numberType == null
+            ? _instance.numberType
+            : (numberType as Enum$NumberType),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -198,6 +218,7 @@ class _CopyWithStubImpl$Fragment$AnswerFunction<TRes>
     String? func,
     String? condition,
     String? weight,
+    Enum$NumberType? numberType,
     String? $__typename,
   }) =>
       _res;
@@ -242,6 +263,13 @@ const fragmentDefinitionAnswerFunction = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'weight'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'numberType'),
       alias: null,
       arguments: [],
       directives: [],
