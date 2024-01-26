@@ -26,6 +26,7 @@ abstract interface class AnswerFunctionRemoteRepository {
   Future<Either<FetchFailure, DataPage<AnswerFunctionPageItem>>> filter({
     required int limit,
     String? lastId,
+    NumberType? numberType,
   });
 
   Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll({

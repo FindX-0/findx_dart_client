@@ -56,14 +56,16 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
   Future<Either<FetchFailure, DataPage<AnswerFunctionPageItem>>> filter({
     required int limit,
     String? lastId,
+    NumberType? numberType,
   }) async {
     return callCatchWithFetchFailure(
       () => _client.query$FilterAnswerFunctions(
         Options$Query$FilterAnswerFunctions(
           variables: Variables$Query$FilterAnswerFunctions(
-            input: Input$LastIdPageParamsObject(
+            input: Input$FilterAnswerFunctionsInput(
               limit: limit,
               lastId: lastId,
+              numberType: numberType,
             ),
           ),
         ),
