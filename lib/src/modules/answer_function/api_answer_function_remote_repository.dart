@@ -17,6 +17,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
     required String func,
     required String? condition,
     required double weight,
+    required NumberType numberType,
   }) async {
     return callCatchWithActionFailure(
       () => _client.mutate$CreateAnswerFunction(
@@ -26,6 +27,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
               func: func,
               weight: weight,
               condition: condition,
+              numberType: numberType,
             ),
           ),
         ),
@@ -76,9 +78,19 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
   }
 
   @override
-  Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll() {
+  Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll({
+    NumberType? numberType,
+  }) {
     return callCatchWithFetchFailure(
-      () => _client.query$getAllAnswerFunctions(),
+      () => _client.query$getAllAnswerFunctions(
+        Options$Query$getAllAnswerFunctions(
+          variables: Variables$Query$getAllAnswerFunctions(
+            input: Input$GetAllAnswerFunctionsInput(
+              numberType: numberType,
+            ),
+          ),
+        ),
+      ),
       mapper: (r) => r.getAllAnswerFunctions,
     );
   }
@@ -103,6 +115,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
     String? func,
     String? condition,
     double? weight,
+    NumberType? numberType,
   }) async {
     return callCatchWithActionFailure(
       () => _client.mutate$UpdateAnswerFunction(
@@ -113,6 +126,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
               func: func,
               weight: weight,
               condition: condition,
+              numberType: numberType,
             ),
           ),
         ),
