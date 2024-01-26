@@ -1,5 +1,9 @@
-query getAllAnswerFunctions {
-  getAllAnswerFunctions() {
+query getAllAnswerFunctions(
+  $input: GetAllAnswerFunctionsInput!
+) {
+  getAllAnswerFunctions(
+    input: $input
+  ) {
     ...AnswerFunction
   }
 }

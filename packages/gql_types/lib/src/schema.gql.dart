@@ -2589,6 +2589,116 @@ class _CopyWithStubImpl$Input$GenerateMathProblemValuesInput<TRes>
   numberParams(_fn) => _res;
 }
 
+class Input$GetAllAnswerFunctionsInput {
+  factory Input$GetAllAnswerFunctionsInput({Enum$NumberType? numberType}) =>
+      Input$GetAllAnswerFunctionsInput._({
+        if (numberType != null) r'numberType': numberType,
+      });
+
+  Input$GetAllAnswerFunctionsInput._(this._$data);
+
+  factory Input$GetAllAnswerFunctionsInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('numberType')) {
+      final l$numberType = data['numberType'];
+      result$data['numberType'] = l$numberType == null
+          ? null
+          : fromJson$Enum$NumberType((l$numberType as String));
+    }
+    return Input$GetAllAnswerFunctionsInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$NumberType? get numberType => (_$data['numberType'] as Enum$NumberType?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('numberType')) {
+      final l$numberType = numberType;
+      result$data['numberType'] =
+          l$numberType == null ? null : toJson$Enum$NumberType(l$numberType);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$GetAllAnswerFunctionsInput<Input$GetAllAnswerFunctionsInput>
+      get copyWith => CopyWith$Input$GetAllAnswerFunctionsInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GetAllAnswerFunctionsInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$numberType = numberType;
+    final lOther$numberType = other.numberType;
+    if (_$data.containsKey('numberType') !=
+        other._$data.containsKey('numberType')) {
+      return false;
+    }
+    if (l$numberType != lOther$numberType) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$numberType = numberType;
+    return Object.hashAll(
+        [_$data.containsKey('numberType') ? l$numberType : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$GetAllAnswerFunctionsInput<TRes> {
+  factory CopyWith$Input$GetAllAnswerFunctionsInput(
+    Input$GetAllAnswerFunctionsInput instance,
+    TRes Function(Input$GetAllAnswerFunctionsInput) then,
+  ) = _CopyWithImpl$Input$GetAllAnswerFunctionsInput;
+
+  factory CopyWith$Input$GetAllAnswerFunctionsInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$GetAllAnswerFunctionsInput;
+
+  TRes call({Enum$NumberType? numberType});
+}
+
+class _CopyWithImpl$Input$GetAllAnswerFunctionsInput<TRes>
+    implements CopyWith$Input$GetAllAnswerFunctionsInput<TRes> {
+  _CopyWithImpl$Input$GetAllAnswerFunctionsInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GetAllAnswerFunctionsInput _instance;
+
+  final TRes Function(Input$GetAllAnswerFunctionsInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? numberType = _undefined}) =>
+      _then(Input$GetAllAnswerFunctionsInput._({
+        ..._instance._$data,
+        if (numberType != _undefined)
+          'numberType': (numberType as Enum$NumberType?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GetAllAnswerFunctionsInput<TRes>
+    implements CopyWith$Input$GetAllAnswerFunctionsInput<TRes> {
+  _CopyWithStubImpl$Input$GetAllAnswerFunctionsInput(this._res);
+
+  TRes _res;
+
+  call({Enum$NumberType? numberType}) => _res;
+}
+
 class Input$GetAllMathFieldsInput {
   factory Input$GetAllMathFieldsInput({required bool onlyPublic}) =>
       Input$GetAllMathFieldsInput._({

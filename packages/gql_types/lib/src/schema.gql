@@ -147,6 +147,10 @@ type GenerateMathProblemValuesObject {
   tex: String!
 }
 
+input GetAllAnswerFunctionsInput {
+  numberType: NumberType
+}
+
 input GetAllMathFieldsInput {
   onlyPublic: Boolean!
 }
@@ -315,7 +319,7 @@ type Query {
   filterMathProblems(input: LastIdPageParamsObject!): MathProblemPageObject!
   filterMathSubFields(input: FilterMathSubFieldsInput!): MathSubFieldPageObject!
   generateMathProblemValues(input: GenerateMathProblemValuesInput!): [GenerateMathProblemValuesObject!]!
-  getAllAnswerFunctions: [AnswerFunctionObject!]!
+  getAllAnswerFunctions(input: GetAllAnswerFunctionsInput!): [AnswerFunctionObject!]!
   getAllMathFields(input: GetAllMathFieldsInput!): [MathFieldObject!]!
   getAnswerFunctionById(input: IdentifierInput!): AnswerFunctionObject!
   getAuthUser: UserObject!
