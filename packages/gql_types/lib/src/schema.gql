@@ -118,6 +118,12 @@ input EnqueueTicketInput {
   mathFieldId: ID!
 }
 
+input FilterAnswerFunctionsInput {
+  lastId: ID
+  limit: Int!
+  numberType: NumberType
+}
+
 input FilterMathSubFieldsInput {
   lastId: ID
   limit: Int!
@@ -314,7 +320,7 @@ enum NumberType {
 type Query {
   authenticationStatus: SuccessObject!
   countGenerateMathProblemValues(input: CountGenerateMathProblemValuesInput!): CountObject!
-  filterAnswerFunctions(input: LastIdPageParamsObject!): AnswerFunctionPageObject!
+  filterAnswerFunctions(input: FilterAnswerFunctionsInput!): AnswerFunctionPageObject!
   filterMathFields(input: LastIdPageParamsObject!): MathFieldPageObject!
   filterMathProblems(input: LastIdPageParamsObject!): MathProblemPageObject!
   filterMathSubFields(input: FilterMathSubFieldsInput!): MathSubFieldPageObject!

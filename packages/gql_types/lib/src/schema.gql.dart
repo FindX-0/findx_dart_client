@@ -1907,6 +1907,171 @@ class _CopyWithStubImpl$Input$EnqueueTicketInput<TRes>
   call({String? mathFieldId}) => _res;
 }
 
+class Input$FilterAnswerFunctionsInput {
+  factory Input$FilterAnswerFunctionsInput({
+    String? lastId,
+    required int limit,
+    Enum$NumberType? numberType,
+  }) =>
+      Input$FilterAnswerFunctionsInput._({
+        if (lastId != null) r'lastId': lastId,
+        r'limit': limit,
+        if (numberType != null) r'numberType': numberType,
+      });
+
+  Input$FilterAnswerFunctionsInput._(this._$data);
+
+  factory Input$FilterAnswerFunctionsInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('lastId')) {
+      final l$lastId = data['lastId'];
+      result$data['lastId'] = (l$lastId as String?);
+    }
+    final l$limit = data['limit'];
+    result$data['limit'] = (l$limit as int);
+    if (data.containsKey('numberType')) {
+      final l$numberType = data['numberType'];
+      result$data['numberType'] = l$numberType == null
+          ? null
+          : fromJson$Enum$NumberType((l$numberType as String));
+    }
+    return Input$FilterAnswerFunctionsInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get lastId => (_$data['lastId'] as String?);
+
+  int get limit => (_$data['limit'] as int);
+
+  Enum$NumberType? get numberType => (_$data['numberType'] as Enum$NumberType?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('lastId')) {
+      final l$lastId = lastId;
+      result$data['lastId'] = l$lastId;
+    }
+    final l$limit = limit;
+    result$data['limit'] = l$limit;
+    if (_$data.containsKey('numberType')) {
+      final l$numberType = numberType;
+      result$data['numberType'] =
+          l$numberType == null ? null : toJson$Enum$NumberType(l$numberType);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$FilterAnswerFunctionsInput<Input$FilterAnswerFunctionsInput>
+      get copyWith => CopyWith$Input$FilterAnswerFunctionsInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$FilterAnswerFunctionsInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$lastId = lastId;
+    final lOther$lastId = other.lastId;
+    if (_$data.containsKey('lastId') != other._$data.containsKey('lastId')) {
+      return false;
+    }
+    if (l$lastId != lOther$lastId) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$numberType = numberType;
+    final lOther$numberType = other.numberType;
+    if (_$data.containsKey('numberType') !=
+        other._$data.containsKey('numberType')) {
+      return false;
+    }
+    if (l$numberType != lOther$numberType) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$lastId = lastId;
+    final l$limit = limit;
+    final l$numberType = numberType;
+    return Object.hashAll([
+      _$data.containsKey('lastId') ? l$lastId : const {},
+      l$limit,
+      _$data.containsKey('numberType') ? l$numberType : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$FilterAnswerFunctionsInput<TRes> {
+  factory CopyWith$Input$FilterAnswerFunctionsInput(
+    Input$FilterAnswerFunctionsInput instance,
+    TRes Function(Input$FilterAnswerFunctionsInput) then,
+  ) = _CopyWithImpl$Input$FilterAnswerFunctionsInput;
+
+  factory CopyWith$Input$FilterAnswerFunctionsInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$FilterAnswerFunctionsInput;
+
+  TRes call({
+    String? lastId,
+    int? limit,
+    Enum$NumberType? numberType,
+  });
+}
+
+class _CopyWithImpl$Input$FilterAnswerFunctionsInput<TRes>
+    implements CopyWith$Input$FilterAnswerFunctionsInput<TRes> {
+  _CopyWithImpl$Input$FilterAnswerFunctionsInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$FilterAnswerFunctionsInput _instance;
+
+  final TRes Function(Input$FilterAnswerFunctionsInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? lastId = _undefined,
+    Object? limit = _undefined,
+    Object? numberType = _undefined,
+  }) =>
+      _then(Input$FilterAnswerFunctionsInput._({
+        ..._instance._$data,
+        if (lastId != _undefined) 'lastId': (lastId as String?),
+        if (limit != _undefined && limit != null) 'limit': (limit as int),
+        if (numberType != _undefined)
+          'numberType': (numberType as Enum$NumberType?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$FilterAnswerFunctionsInput<TRes>
+    implements CopyWith$Input$FilterAnswerFunctionsInput<TRes> {
+  _CopyWithStubImpl$Input$FilterAnswerFunctionsInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? lastId,
+    int? limit,
+    Enum$NumberType? numberType,
+  }) =>
+      _res;
+}
+
 class Input$FilterMathSubFieldsInput {
   factory Input$FilterMathSubFieldsInput({
     String? lastId,

@@ -6,7 +6,7 @@ import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$FilterAnswerFunctions {
   factory Variables$Query$FilterAnswerFunctions(
-          {required Input$LastIdPageParamsObject input}) =>
+          {required Input$FilterAnswerFunctionsInput input}) =>
       Variables$Query$FilterAnswerFunctions._({
         r'input': input,
       });
@@ -17,15 +17,15 @@ class Variables$Query$FilterAnswerFunctions {
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$input = data['input'];
-    result$data['input'] = Input$LastIdPageParamsObject.fromJson(
+    result$data['input'] = Input$FilterAnswerFunctionsInput.fromJson(
         (l$input as Map<String, dynamic>));
     return Variables$Query$FilterAnswerFunctions._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$LastIdPageParamsObject get input =>
-      (_$data['input'] as Input$LastIdPageParamsObject);
+  Input$FilterAnswerFunctionsInput get input =>
+      (_$data['input'] as Input$FilterAnswerFunctionsInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -74,7 +74,7 @@ abstract class CopyWith$Variables$Query$FilterAnswerFunctions<TRes> {
   factory CopyWith$Variables$Query$FilterAnswerFunctions.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FilterAnswerFunctions;
 
-  TRes call({Input$LastIdPageParamsObject? input});
+  TRes call({Input$FilterAnswerFunctionsInput? input});
 }
 
 class _CopyWithImpl$Variables$Query$FilterAnswerFunctions<TRes>
@@ -94,7 +94,7 @@ class _CopyWithImpl$Variables$Query$FilterAnswerFunctions<TRes>
       _then(Variables$Query$FilterAnswerFunctions._({
         ..._instance._$data,
         if (input != _undefined && input != null)
-          'input': (input as Input$LastIdPageParamsObject),
+          'input': (input as Input$FilterAnswerFunctionsInput),
       }));
 }
 
@@ -104,7 +104,7 @@ class _CopyWithStubImpl$Variables$Query$FilterAnswerFunctions<TRes>
 
   TRes _res;
 
-  call({Input$LastIdPageParamsObject? input}) => _res;
+  call({Input$FilterAnswerFunctionsInput? input}) => _res;
 }
 
 class Query$FilterAnswerFunctions {
@@ -257,7 +257,7 @@ const documentNodeQueryFilterAnswerFunctions = DocumentNode(definitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'LastIdPageParamsObject'),
+          name: NameNode(value: 'FilterAnswerFunctionsInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
