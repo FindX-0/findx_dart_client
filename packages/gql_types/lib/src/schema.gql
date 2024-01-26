@@ -56,6 +56,7 @@ type CountObject {
 input CreateAnswerFunctionInput {
   condition: String
   func: String!
+  numberType: NumberType!
   weight: Float!
 }
 
@@ -301,6 +302,11 @@ type Mutation {
   updateMathSubField(input: UpdateMathSubFieldInput!): MathSubFieldObject!
 }
 
+enum NumberType {
+  DECIMAL
+  INTEGER
+}
+
 type Query {
   authenticationStatus: SuccessObject!
   countGenerateMathProblemValues(input: CountGenerateMathProblemValuesInput!): CountObject!
@@ -345,6 +351,7 @@ input UpdateAnswerFunctionInput {
   condition: String
   func: String
   id: ID!
+  numberType: NumberType
   weight: Float
 }
 

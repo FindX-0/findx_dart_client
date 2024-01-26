@@ -611,11 +611,13 @@ class Input$CreateAnswerFunctionInput {
   factory Input$CreateAnswerFunctionInput({
     String? condition,
     required String func,
+    required Enum$NumberType numberType,
     required double weight,
   }) =>
       Input$CreateAnswerFunctionInput._({
         if (condition != null) r'condition': condition,
         r'func': func,
+        r'numberType': numberType,
         r'weight': weight,
       });
 
@@ -629,6 +631,9 @@ class Input$CreateAnswerFunctionInput {
     }
     final l$func = data['func'];
     result$data['func'] = (l$func as String);
+    final l$numberType = data['numberType'];
+    result$data['numberType'] =
+        fromJson$Enum$NumberType((l$numberType as String));
     final l$weight = data['weight'];
     result$data['weight'] = (l$weight as num).toDouble();
     return Input$CreateAnswerFunctionInput._(result$data);
@@ -640,6 +645,8 @@ class Input$CreateAnswerFunctionInput {
 
   String get func => (_$data['func'] as String);
 
+  Enum$NumberType get numberType => (_$data['numberType'] as Enum$NumberType);
+
   double get weight => (_$data['weight'] as double);
 
   Map<String, dynamic> toJson() {
@@ -650,6 +657,8 @@ class Input$CreateAnswerFunctionInput {
     }
     final l$func = func;
     result$data['func'] = l$func;
+    final l$numberType = numberType;
+    result$data['numberType'] = toJson$Enum$NumberType(l$numberType);
     final l$weight = weight;
     result$data['weight'] = l$weight;
     return result$data;
@@ -684,6 +693,11 @@ class Input$CreateAnswerFunctionInput {
     if (l$func != lOther$func) {
       return false;
     }
+    final l$numberType = numberType;
+    final lOther$numberType = other.numberType;
+    if (l$numberType != lOther$numberType) {
+      return false;
+    }
     final l$weight = weight;
     final lOther$weight = other.weight;
     if (l$weight != lOther$weight) {
@@ -696,10 +710,12 @@ class Input$CreateAnswerFunctionInput {
   int get hashCode {
     final l$condition = condition;
     final l$func = func;
+    final l$numberType = numberType;
     final l$weight = weight;
     return Object.hashAll([
       _$data.containsKey('condition') ? l$condition : const {},
       l$func,
+      l$numberType,
       l$weight,
     ]);
   }
@@ -717,6 +733,7 @@ abstract class CopyWith$Input$CreateAnswerFunctionInput<TRes> {
   TRes call({
     String? condition,
     String? func,
+    Enum$NumberType? numberType,
     double? weight,
   });
 }
@@ -737,12 +754,15 @@ class _CopyWithImpl$Input$CreateAnswerFunctionInput<TRes>
   TRes call({
     Object? condition = _undefined,
     Object? func = _undefined,
+    Object? numberType = _undefined,
     Object? weight = _undefined,
   }) =>
       _then(Input$CreateAnswerFunctionInput._({
         ..._instance._$data,
         if (condition != _undefined) 'condition': (condition as String?),
         if (func != _undefined && func != null) 'func': (func as String),
+        if (numberType != _undefined && numberType != null)
+          'numberType': (numberType as Enum$NumberType),
         if (weight != _undefined && weight != null)
           'weight': (weight as double),
       }));
@@ -757,6 +777,7 @@ class _CopyWithStubImpl$Input$CreateAnswerFunctionInput<TRes>
   call({
     String? condition,
     String? func,
+    Enum$NumberType? numberType,
     double? weight,
   }) =>
       _res;
@@ -3445,12 +3466,14 @@ class Input$UpdateAnswerFunctionInput {
     String? condition,
     String? func,
     required String id,
+    Enum$NumberType? numberType,
     double? weight,
   }) =>
       Input$UpdateAnswerFunctionInput._({
         if (condition != null) r'condition': condition,
         if (func != null) r'func': func,
         r'id': id,
+        if (numberType != null) r'numberType': numberType,
         if (weight != null) r'weight': weight,
       });
 
@@ -3468,6 +3491,12 @@ class Input$UpdateAnswerFunctionInput {
     }
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
+    if (data.containsKey('numberType')) {
+      final l$numberType = data['numberType'];
+      result$data['numberType'] = l$numberType == null
+          ? null
+          : fromJson$Enum$NumberType((l$numberType as String));
+    }
     if (data.containsKey('weight')) {
       final l$weight = data['weight'];
       result$data['weight'] = (l$weight as num?)?.toDouble();
@@ -3483,6 +3512,8 @@ class Input$UpdateAnswerFunctionInput {
 
   String get id => (_$data['id'] as String);
 
+  Enum$NumberType? get numberType => (_$data['numberType'] as Enum$NumberType?);
+
   double? get weight => (_$data['weight'] as double?);
 
   Map<String, dynamic> toJson() {
@@ -3497,6 +3528,11 @@ class Input$UpdateAnswerFunctionInput {
     }
     final l$id = id;
     result$data['id'] = l$id;
+    if (_$data.containsKey('numberType')) {
+      final l$numberType = numberType;
+      result$data['numberType'] =
+          l$numberType == null ? null : toJson$Enum$NumberType(l$numberType);
+    }
     if (_$data.containsKey('weight')) {
       final l$weight = weight;
       result$data['weight'] = l$weight;
@@ -3541,6 +3577,15 @@ class Input$UpdateAnswerFunctionInput {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$numberType = numberType;
+    final lOther$numberType = other.numberType;
+    if (_$data.containsKey('numberType') !=
+        other._$data.containsKey('numberType')) {
+      return false;
+    }
+    if (l$numberType != lOther$numberType) {
+      return false;
+    }
     final l$weight = weight;
     final lOther$weight = other.weight;
     if (_$data.containsKey('weight') != other._$data.containsKey('weight')) {
@@ -3557,11 +3602,13 @@ class Input$UpdateAnswerFunctionInput {
     final l$condition = condition;
     final l$func = func;
     final l$id = id;
+    final l$numberType = numberType;
     final l$weight = weight;
     return Object.hashAll([
       _$data.containsKey('condition') ? l$condition : const {},
       _$data.containsKey('func') ? l$func : const {},
       l$id,
+      _$data.containsKey('numberType') ? l$numberType : const {},
       _$data.containsKey('weight') ? l$weight : const {},
     ]);
   }
@@ -3580,6 +3627,7 @@ abstract class CopyWith$Input$UpdateAnswerFunctionInput<TRes> {
     String? condition,
     String? func,
     String? id,
+    Enum$NumberType? numberType,
     double? weight,
   });
 }
@@ -3601,6 +3649,7 @@ class _CopyWithImpl$Input$UpdateAnswerFunctionInput<TRes>
     Object? condition = _undefined,
     Object? func = _undefined,
     Object? id = _undefined,
+    Object? numberType = _undefined,
     Object? weight = _undefined,
   }) =>
       _then(Input$UpdateAnswerFunctionInput._({
@@ -3608,6 +3657,8 @@ class _CopyWithImpl$Input$UpdateAnswerFunctionInput<TRes>
         if (condition != _undefined) 'condition': (condition as String?),
         if (func != _undefined) 'func': (func as String?),
         if (id != _undefined && id != null) 'id': (id as String),
+        if (numberType != _undefined)
+          'numberType': (numberType as Enum$NumberType?),
         if (weight != _undefined) 'weight': (weight as double?),
       }));
 }
@@ -3622,6 +3673,7 @@ class _CopyWithStubImpl$Input$UpdateAnswerFunctionInput<TRes>
     String? condition,
     String? func,
     String? id,
+    Enum$NumberType? numberType,
     double? weight,
   }) =>
       _res;
@@ -4333,6 +4385,30 @@ Enum$MatchState fromJson$Enum$MatchState(String value) {
       return Enum$MatchState.IN_PROGRESS;
     default:
       return Enum$MatchState.$unknown;
+  }
+}
+
+enum Enum$NumberType { DECIMAL, INTEGER, $unknown }
+
+String toJson$Enum$NumberType(Enum$NumberType e) {
+  switch (e) {
+    case Enum$NumberType.DECIMAL:
+      return r'DECIMAL';
+    case Enum$NumberType.INTEGER:
+      return r'INTEGER';
+    case Enum$NumberType.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$NumberType fromJson$Enum$NumberType(String value) {
+  switch (value) {
+    case r'DECIMAL':
+      return Enum$NumberType.DECIMAL;
+    case r'INTEGER':
+      return Enum$NumberType.INTEGER;
+    default:
+      return Enum$NumberType.$unknown;
   }
 }
 
