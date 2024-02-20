@@ -1,5 +1,11 @@
 fragment AnswerFunctionWithRelations on AnswerFunctionWithRelationsObject {
-  ...AnswerFunction
+  id
+  createdAt
+  func
+  condition
+  weight
+  numberType
+  mathSubFieldId
   mathSubField {
     ...MathSubField
   }
