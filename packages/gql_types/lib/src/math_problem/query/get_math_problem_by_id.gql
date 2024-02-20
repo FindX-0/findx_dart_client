@@ -1,9 +1,7 @@
 query GetMathProblemById(
-  $id: ID!
+  $input: IdentifierInput!
 ) {
-  getMathProblemById(input: {
-    id: $id
-  }) {
+  getMathProblemById(input: $input) {
     ...MathProblemWithRelations
   }
 }

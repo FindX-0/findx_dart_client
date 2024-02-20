@@ -14,6 +14,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     this.tex,
     required this.mathFieldId,
     required this.mathSubFieldId,
+    this.generatedBatchName,
     required this.answers,
     this.$__typename = 'MathProblemObject',
     this.images,
@@ -30,6 +31,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     final l$tex = json['tex'];
     final l$mathFieldId = json['mathFieldId'];
     final l$mathSubFieldId = json['mathSubFieldId'];
+    final l$generatedBatchName = json['generatedBatchName'];
     final l$answers = json['answers'];
     final l$$__typename = json['__typename'];
     final l$images = json['images'];
@@ -43,6 +45,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
       tex: (l$tex as String?),
       mathFieldId: (l$mathFieldId as String),
       mathSubFieldId: (l$mathSubFieldId as String),
+      generatedBatchName: (l$generatedBatchName as String?),
       answers: (l$answers as List<dynamic>)
           .map((e) => Fragment$MathProblemWithRelations$answers.fromJson(
               (e as Map<String, dynamic>)))
@@ -75,6 +78,8 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
 
   final String mathSubFieldId;
 
+  final String? generatedBatchName;
+
   final List<Fragment$MathProblemWithRelations$answers> answers;
 
   final String $__typename;
@@ -101,6 +106,8 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     _resultData['mathFieldId'] = l$mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
     _resultData['mathSubFieldId'] = l$mathSubFieldId;
+    final l$generatedBatchName = generatedBatchName;
+    _resultData['generatedBatchName'] = l$generatedBatchName;
     final l$answers = answers;
     _resultData['answers'] = l$answers.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
@@ -123,6 +130,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     final l$tex = tex;
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
+    final l$generatedBatchName = generatedBatchName;
     final l$answers = answers;
     final l$$__typename = $__typename;
     final l$images = images;
@@ -136,6 +144,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
       l$tex,
       l$mathFieldId,
       l$mathSubFieldId,
+      l$generatedBatchName,
       Object.hashAll(l$answers.map((v) => v)),
       l$$__typename,
       l$images == null ? null : Object.hashAll(l$images.map((v) => v)),
@@ -186,6 +195,11 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     final l$mathSubFieldId = mathSubFieldId;
     final lOther$mathSubFieldId = other.mathSubFieldId;
     if (l$mathSubFieldId != lOther$mathSubFieldId) {
+      return false;
+    }
+    final l$generatedBatchName = generatedBatchName;
+    final lOther$generatedBatchName = other.generatedBatchName;
+    if (l$generatedBatchName != lOther$generatedBatchName) {
       return false;
     }
     final l$answers = answers;
@@ -261,6 +275,7 @@ abstract class CopyWith$Fragment$MathProblemWithRelations<TRes> {
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    String? generatedBatchName,
     List<Fragment$MathProblemWithRelations$answers>? answers,
     String? $__typename,
     List<Fragment$MediaFile>? images,
@@ -302,6 +317,7 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
     Object? tex = _undefined,
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
+    Object? generatedBatchName = _undefined,
     Object? answers = _undefined,
     Object? $__typename = _undefined,
     Object? images = _undefined,
@@ -324,6 +340,9 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
         mathSubFieldId: mathSubFieldId == _undefined || mathSubFieldId == null
             ? _instance.mathSubFieldId
             : (mathSubFieldId as String),
+        generatedBatchName: generatedBatchName == _undefined
+            ? _instance.generatedBatchName
+            : (generatedBatchName as String?),
         answers: answers == _undefined || answers == null
             ? _instance.answers
             : (answers as List<Fragment$MathProblemWithRelations$answers>),
@@ -395,6 +414,7 @@ class _CopyWithStubImpl$Fragment$MathProblemWithRelations<TRes>
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    String? generatedBatchName,
     List<Fragment$MathProblemWithRelations$answers>? answers,
     String? $__typename,
     List<Fragment$MediaFile>? images,

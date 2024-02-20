@@ -5,25 +5,10 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$UpdateMathProblem {
-  factory Variables$Mutation$UpdateMathProblem({
-    required String id,
-    int? difficulty,
-    String? text,
-    String? tex,
-    String? mathFieldId,
-    String? mathSubFieldId,
-    List<String>? imageMediaIds,
-    List<Input$CreateMathProblemAnswerInput>? answers,
-  }) =>
+  factory Variables$Mutation$UpdateMathProblem(
+          {required Input$UpdateMathProblemInput input}) =>
       Variables$Mutation$UpdateMathProblem._({
-        r'id': id,
-        if (difficulty != null) r'difficulty': difficulty,
-        if (text != null) r'text': text,
-        if (tex != null) r'tex': tex,
-        if (mathFieldId != null) r'mathFieldId': mathFieldId,
-        if (mathSubFieldId != null) r'mathSubFieldId': mathSubFieldId,
-        if (imageMediaIds != null) r'imageMediaIds': imageMediaIds,
-        if (answers != null) r'answers': answers,
+        r'input': input,
       });
 
   Variables$Mutation$UpdateMathProblem._(this._$data);
@@ -31,95 +16,21 @@ class Variables$Mutation$UpdateMathProblem {
   factory Variables$Mutation$UpdateMathProblem.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$id = data['id'];
-    result$data['id'] = (l$id as String);
-    if (data.containsKey('difficulty')) {
-      final l$difficulty = data['difficulty'];
-      result$data['difficulty'] = (l$difficulty as int?);
-    }
-    if (data.containsKey('text')) {
-      final l$text = data['text'];
-      result$data['text'] = (l$text as String?);
-    }
-    if (data.containsKey('tex')) {
-      final l$tex = data['tex'];
-      result$data['tex'] = (l$tex as String?);
-    }
-    if (data.containsKey('mathFieldId')) {
-      final l$mathFieldId = data['mathFieldId'];
-      result$data['mathFieldId'] = (l$mathFieldId as String?);
-    }
-    if (data.containsKey('mathSubFieldId')) {
-      final l$mathSubFieldId = data['mathSubFieldId'];
-      result$data['mathSubFieldId'] = (l$mathSubFieldId as String?);
-    }
-    if (data.containsKey('imageMediaIds')) {
-      final l$imageMediaIds = data['imageMediaIds'];
-      result$data['imageMediaIds'] = (l$imageMediaIds as List<dynamic>?)
-          ?.map((e) => (e as String))
-          .toList();
-    }
-    if (data.containsKey('answers')) {
-      final l$answers = data['answers'];
-      result$data['answers'] = (l$answers as List<dynamic>?)
-          ?.map((e) => Input$CreateMathProblemAnswerInput.fromJson(
-              (e as Map<String, dynamic>)))
-          .toList();
-    }
+    final l$input = data['input'];
+    result$data['input'] = Input$UpdateMathProblemInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Mutation$UpdateMathProblem._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get id => (_$data['id'] as String);
-
-  int? get difficulty => (_$data['difficulty'] as int?);
-
-  String? get text => (_$data['text'] as String?);
-
-  String? get tex => (_$data['tex'] as String?);
-
-  String? get mathFieldId => (_$data['mathFieldId'] as String?);
-
-  String? get mathSubFieldId => (_$data['mathSubFieldId'] as String?);
-
-  List<String>? get imageMediaIds => (_$data['imageMediaIds'] as List<String>?);
-
-  List<Input$CreateMathProblemAnswerInput>? get answers =>
-      (_$data['answers'] as List<Input$CreateMathProblemAnswerInput>?);
+  Input$UpdateMathProblemInput get input =>
+      (_$data['input'] as Input$UpdateMathProblemInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$id = id;
-    result$data['id'] = l$id;
-    if (_$data.containsKey('difficulty')) {
-      final l$difficulty = difficulty;
-      result$data['difficulty'] = l$difficulty;
-    }
-    if (_$data.containsKey('text')) {
-      final l$text = text;
-      result$data['text'] = l$text;
-    }
-    if (_$data.containsKey('tex')) {
-      final l$tex = tex;
-      result$data['tex'] = l$tex;
-    }
-    if (_$data.containsKey('mathFieldId')) {
-      final l$mathFieldId = mathFieldId;
-      result$data['mathFieldId'] = l$mathFieldId;
-    }
-    if (_$data.containsKey('mathSubFieldId')) {
-      final l$mathSubFieldId = mathSubFieldId;
-      result$data['mathSubFieldId'] = l$mathSubFieldId;
-    }
-    if (_$data.containsKey('imageMediaIds')) {
-      final l$imageMediaIds = imageMediaIds;
-      result$data['imageMediaIds'] = l$imageMediaIds?.map((e) => e).toList();
-    }
-    if (_$data.containsKey('answers')) {
-      final l$answers = answers;
-      result$data['answers'] = l$answers?.map((e) => e.toJson()).toList();
-    }
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -139,91 +50,9 @@ class Variables$Mutation$UpdateMathProblem {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$difficulty = difficulty;
-    final lOther$difficulty = other.difficulty;
-    if (_$data.containsKey('difficulty') !=
-        other._$data.containsKey('difficulty')) {
-      return false;
-    }
-    if (l$difficulty != lOther$difficulty) {
-      return false;
-    }
-    final l$text = text;
-    final lOther$text = other.text;
-    if (_$data.containsKey('text') != other._$data.containsKey('text')) {
-      return false;
-    }
-    if (l$text != lOther$text) {
-      return false;
-    }
-    final l$tex = tex;
-    final lOther$tex = other.tex;
-    if (_$data.containsKey('tex') != other._$data.containsKey('tex')) {
-      return false;
-    }
-    if (l$tex != lOther$tex) {
-      return false;
-    }
-    final l$mathFieldId = mathFieldId;
-    final lOther$mathFieldId = other.mathFieldId;
-    if (_$data.containsKey('mathFieldId') !=
-        other._$data.containsKey('mathFieldId')) {
-      return false;
-    }
-    if (l$mathFieldId != lOther$mathFieldId) {
-      return false;
-    }
-    final l$mathSubFieldId = mathSubFieldId;
-    final lOther$mathSubFieldId = other.mathSubFieldId;
-    if (_$data.containsKey('mathSubFieldId') !=
-        other._$data.containsKey('mathSubFieldId')) {
-      return false;
-    }
-    if (l$mathSubFieldId != lOther$mathSubFieldId) {
-      return false;
-    }
-    final l$imageMediaIds = imageMediaIds;
-    final lOther$imageMediaIds = other.imageMediaIds;
-    if (_$data.containsKey('imageMediaIds') !=
-        other._$data.containsKey('imageMediaIds')) {
-      return false;
-    }
-    if (l$imageMediaIds != null && lOther$imageMediaIds != null) {
-      if (l$imageMediaIds.length != lOther$imageMediaIds.length) {
-        return false;
-      }
-      for (int i = 0; i < l$imageMediaIds.length; i++) {
-        final l$imageMediaIds$entry = l$imageMediaIds[i];
-        final lOther$imageMediaIds$entry = lOther$imageMediaIds[i];
-        if (l$imageMediaIds$entry != lOther$imageMediaIds$entry) {
-          return false;
-        }
-      }
-    } else if (l$imageMediaIds != lOther$imageMediaIds) {
-      return false;
-    }
-    final l$answers = answers;
-    final lOther$answers = other.answers;
-    if (_$data.containsKey('answers') != other._$data.containsKey('answers')) {
-      return false;
-    }
-    if (l$answers != null && lOther$answers != null) {
-      if (l$answers.length != lOther$answers.length) {
-        return false;
-      }
-      for (int i = 0; i < l$answers.length; i++) {
-        final l$answers$entry = l$answers[i];
-        final lOther$answers$entry = lOther$answers[i];
-        if (l$answers$entry != lOther$answers$entry) {
-          return false;
-        }
-      }
-    } else if (l$answers != lOther$answers) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -231,32 +60,8 @@ class Variables$Mutation$UpdateMathProblem {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$difficulty = difficulty;
-    final l$text = text;
-    final l$tex = tex;
-    final l$mathFieldId = mathFieldId;
-    final l$mathSubFieldId = mathSubFieldId;
-    final l$imageMediaIds = imageMediaIds;
-    final l$answers = answers;
-    return Object.hashAll([
-      l$id,
-      _$data.containsKey('difficulty') ? l$difficulty : const {},
-      _$data.containsKey('text') ? l$text : const {},
-      _$data.containsKey('tex') ? l$tex : const {},
-      _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
-      _$data.containsKey('mathSubFieldId') ? l$mathSubFieldId : const {},
-      _$data.containsKey('imageMediaIds')
-          ? l$imageMediaIds == null
-              ? null
-              : Object.hashAll(l$imageMediaIds.map((v) => v))
-          : const {},
-      _$data.containsKey('answers')
-          ? l$answers == null
-              ? null
-              : Object.hashAll(l$answers.map((v) => v))
-          : const {},
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -269,16 +74,7 @@ abstract class CopyWith$Variables$Mutation$UpdateMathProblem<TRes> {
   factory CopyWith$Variables$Mutation$UpdateMathProblem.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateMathProblem;
 
-  TRes call({
-    String? id,
-    int? difficulty,
-    String? text,
-    String? tex,
-    String? mathFieldId,
-    String? mathSubFieldId,
-    List<String>? imageMediaIds,
-    List<Input$CreateMathProblemAnswerInput>? answers,
-  });
+  TRes call({Input$UpdateMathProblemInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$UpdateMathProblem<TRes>
@@ -294,29 +90,11 @@ class _CopyWithImpl$Variables$Mutation$UpdateMathProblem<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? difficulty = _undefined,
-    Object? text = _undefined,
-    Object? tex = _undefined,
-    Object? mathFieldId = _undefined,
-    Object? mathSubFieldId = _undefined,
-    Object? imageMediaIds = _undefined,
-    Object? answers = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$UpdateMathProblem._({
         ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (difficulty != _undefined) 'difficulty': (difficulty as int?),
-        if (text != _undefined) 'text': (text as String?),
-        if (tex != _undefined) 'tex': (tex as String?),
-        if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
-        if (mathSubFieldId != _undefined)
-          'mathSubFieldId': (mathSubFieldId as String?),
-        if (imageMediaIds != _undefined)
-          'imageMediaIds': (imageMediaIds as List<String>?),
-        if (answers != _undefined)
-          'answers': (answers as List<Input$CreateMathProblemAnswerInput>?),
+        if (input != _undefined && input != null)
+          'input': (input as Input$UpdateMathProblemInput),
       }));
 }
 
@@ -326,17 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateMathProblem<TRes>
 
   TRes _res;
 
-  call({
-    String? id,
-    int? difficulty,
-    String? text,
-    String? tex,
-    String? mathFieldId,
-    String? mathSubFieldId,
-    List<String>? imageMediaIds,
-    List<Input$CreateMathProblemAnswerInput>? answers,
-  }) =>
-      _res;
+  call({Input$UpdateMathProblemInput? input}) => _res;
 }
 
 class Mutation$UpdateMathProblem {
@@ -482,83 +250,14 @@ const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
     name: NameNode(value: 'UpdateMathProblem'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'UpdateMathProblemInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'difficulty')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'text')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'tex')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mathFieldId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mathSubFieldId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'imageMediaIds')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'ID'),
-            isNonNull: true,
-          ),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'answers')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'CreateMathProblemAnswerInput'),
-            isNonNull: true,
-          ),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -568,40 +267,7 @@ const documentNodeMutationUpdateMathProblem = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'id'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'difficulty'),
-                value: VariableNode(name: NameNode(value: 'difficulty')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'text'),
-                value: VariableNode(name: NameNode(value: 'text')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'tex'),
-                value: VariableNode(name: NameNode(value: 'tex')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'mathFieldId'),
-                value: VariableNode(name: NameNode(value: 'mathFieldId')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'mathSubFieldId'),
-                value: VariableNode(name: NameNode(value: 'mathSubFieldId')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'imageMediaIds'),
-                value: VariableNode(name: NameNode(value: 'imageMediaIds')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'answers'),
-                value: VariableNode(name: NameNode(value: 'answers')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

@@ -6,6 +6,7 @@ fragment MathProblem on MathProblemObject {
   tex
   mathFieldId
   mathSubFieldId
+  generatedBatchName
   answers {
     tex
     isCorrect

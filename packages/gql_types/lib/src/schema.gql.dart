@@ -275,9 +275,12 @@ class _CopyWithStubImpl$Input$AdminSignUpInput<TRes>
 }
 
 class Input$BulkCreateMathProblemInput {
-  factory Input$BulkCreateMathProblemInput(
-          {required List<Input$CreateMathProblemInput> values}) =>
+  factory Input$BulkCreateMathProblemInput({
+    required String generatedBatchName,
+    required List<Input$CreateMathProblemInput> values,
+  }) =>
       Input$BulkCreateMathProblemInput._({
+        r'generatedBatchName': generatedBatchName,
         r'values': values,
       });
 
@@ -285,6 +288,8 @@ class Input$BulkCreateMathProblemInput {
 
   factory Input$BulkCreateMathProblemInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    final l$generatedBatchName = data['generatedBatchName'];
+    result$data['generatedBatchName'] = (l$generatedBatchName as String);
     final l$values = data['values'];
     result$data['values'] = (l$values as List<dynamic>)
         .map((e) =>
@@ -295,11 +300,15 @@ class Input$BulkCreateMathProblemInput {
 
   Map<String, dynamic> _$data;
 
+  String get generatedBatchName => (_$data['generatedBatchName'] as String);
+
   List<Input$CreateMathProblemInput> get values =>
       (_$data['values'] as List<Input$CreateMathProblemInput>);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    final l$generatedBatchName = generatedBatchName;
+    result$data['generatedBatchName'] = l$generatedBatchName;
     final l$values = values;
     result$data['values'] = l$values.map((e) => e.toJson()).toList();
     return result$data;
@@ -320,6 +329,11 @@ class Input$BulkCreateMathProblemInput {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$generatedBatchName = generatedBatchName;
+    final lOther$generatedBatchName = other.generatedBatchName;
+    if (l$generatedBatchName != lOther$generatedBatchName) {
+      return false;
+    }
     final l$values = values;
     final lOther$values = other.values;
     if (l$values.length != lOther$values.length) {
@@ -337,8 +351,12 @@ class Input$BulkCreateMathProblemInput {
 
   @override
   int get hashCode {
+    final l$generatedBatchName = generatedBatchName;
     final l$values = values;
-    return Object.hashAll([Object.hashAll(l$values.map((v) => v))]);
+    return Object.hashAll([
+      l$generatedBatchName,
+      Object.hashAll(l$values.map((v) => v)),
+    ]);
   }
 }
 
@@ -351,7 +369,10 @@ abstract class CopyWith$Input$BulkCreateMathProblemInput<TRes> {
   factory CopyWith$Input$BulkCreateMathProblemInput.stub(TRes res) =
       _CopyWithStubImpl$Input$BulkCreateMathProblemInput;
 
-  TRes call({List<Input$CreateMathProblemInput>? values});
+  TRes call({
+    String? generatedBatchName,
+    List<Input$CreateMathProblemInput>? values,
+  });
   TRes values(
       Iterable<Input$CreateMathProblemInput> Function(
               Iterable<
@@ -373,9 +394,14 @@ class _CopyWithImpl$Input$BulkCreateMathProblemInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? values = _undefined}) =>
+  TRes call({
+    Object? generatedBatchName = _undefined,
+    Object? values = _undefined,
+  }) =>
       _then(Input$BulkCreateMathProblemInput._({
         ..._instance._$data,
+        if (generatedBatchName != _undefined && generatedBatchName != null)
+          'generatedBatchName': (generatedBatchName as String),
         if (values != _undefined && values != null)
           'values': (values as List<Input$CreateMathProblemInput>),
       }));
@@ -400,7 +426,11 @@ class _CopyWithStubImpl$Input$BulkCreateMathProblemInput<TRes>
 
   TRes _res;
 
-  call({List<Input$CreateMathProblemInput>? values}) => _res;
+  call({
+    String? generatedBatchName,
+    List<Input$CreateMathProblemInput>? values,
+  }) =>
+      _res;
 
   values(_fn) => _res;
 }
@@ -611,12 +641,14 @@ class Input$CreateAnswerFunctionInput {
   factory Input$CreateAnswerFunctionInput({
     String? condition,
     required String func,
+    required String mathSubFieldId,
     required Enum$NumberType numberType,
     required double weight,
   }) =>
       Input$CreateAnswerFunctionInput._({
         if (condition != null) r'condition': condition,
         r'func': func,
+        r'mathSubFieldId': mathSubFieldId,
         r'numberType': numberType,
         r'weight': weight,
       });
@@ -631,6 +663,8 @@ class Input$CreateAnswerFunctionInput {
     }
     final l$func = data['func'];
     result$data['func'] = (l$func as String);
+    final l$mathSubFieldId = data['mathSubFieldId'];
+    result$data['mathSubFieldId'] = (l$mathSubFieldId as String);
     final l$numberType = data['numberType'];
     result$data['numberType'] =
         fromJson$Enum$NumberType((l$numberType as String));
@@ -645,6 +679,8 @@ class Input$CreateAnswerFunctionInput {
 
   String get func => (_$data['func'] as String);
 
+  String get mathSubFieldId => (_$data['mathSubFieldId'] as String);
+
   Enum$NumberType get numberType => (_$data['numberType'] as Enum$NumberType);
 
   double get weight => (_$data['weight'] as double);
@@ -657,6 +693,8 @@ class Input$CreateAnswerFunctionInput {
     }
     final l$func = func;
     result$data['func'] = l$func;
+    final l$mathSubFieldId = mathSubFieldId;
+    result$data['mathSubFieldId'] = l$mathSubFieldId;
     final l$numberType = numberType;
     result$data['numberType'] = toJson$Enum$NumberType(l$numberType);
     final l$weight = weight;
@@ -693,6 +731,11 @@ class Input$CreateAnswerFunctionInput {
     if (l$func != lOther$func) {
       return false;
     }
+    final l$mathSubFieldId = mathSubFieldId;
+    final lOther$mathSubFieldId = other.mathSubFieldId;
+    if (l$mathSubFieldId != lOther$mathSubFieldId) {
+      return false;
+    }
     final l$numberType = numberType;
     final lOther$numberType = other.numberType;
     if (l$numberType != lOther$numberType) {
@@ -710,11 +753,13 @@ class Input$CreateAnswerFunctionInput {
   int get hashCode {
     final l$condition = condition;
     final l$func = func;
+    final l$mathSubFieldId = mathSubFieldId;
     final l$numberType = numberType;
     final l$weight = weight;
     return Object.hashAll([
       _$data.containsKey('condition') ? l$condition : const {},
       l$func,
+      l$mathSubFieldId,
       l$numberType,
       l$weight,
     ]);
@@ -733,6 +778,7 @@ abstract class CopyWith$Input$CreateAnswerFunctionInput<TRes> {
   TRes call({
     String? condition,
     String? func,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
     double? weight,
   });
@@ -754,6 +800,7 @@ class _CopyWithImpl$Input$CreateAnswerFunctionInput<TRes>
   TRes call({
     Object? condition = _undefined,
     Object? func = _undefined,
+    Object? mathSubFieldId = _undefined,
     Object? numberType = _undefined,
     Object? weight = _undefined,
   }) =>
@@ -761,6 +808,8 @@ class _CopyWithImpl$Input$CreateAnswerFunctionInput<TRes>
         ..._instance._$data,
         if (condition != _undefined) 'condition': (condition as String?),
         if (func != _undefined && func != null) 'func': (func as String),
+        if (mathSubFieldId != _undefined && mathSubFieldId != null)
+          'mathSubFieldId': (mathSubFieldId as String),
         if (numberType != _undefined && numberType != null)
           'numberType': (numberType as Enum$NumberType),
         if (weight != _undefined && weight != null)
@@ -777,6 +826,7 @@ class _CopyWithStubImpl$Input$CreateAnswerFunctionInput<TRes>
   call({
     String? condition,
     String? func,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
     double? weight,
   }) =>
@@ -1911,11 +1961,13 @@ class Input$FilterAnswerFunctionsInput {
   factory Input$FilterAnswerFunctionsInput({
     String? lastId,
     required int limit,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
   }) =>
       Input$FilterAnswerFunctionsInput._({
         if (lastId != null) r'lastId': lastId,
         r'limit': limit,
+        if (mathSubFieldId != null) r'mathSubFieldId': mathSubFieldId,
         if (numberType != null) r'numberType': numberType,
       });
 
@@ -1929,6 +1981,10 @@ class Input$FilterAnswerFunctionsInput {
     }
     final l$limit = data['limit'];
     result$data['limit'] = (l$limit as int);
+    if (data.containsKey('mathSubFieldId')) {
+      final l$mathSubFieldId = data['mathSubFieldId'];
+      result$data['mathSubFieldId'] = (l$mathSubFieldId as String?);
+    }
     if (data.containsKey('numberType')) {
       final l$numberType = data['numberType'];
       result$data['numberType'] = l$numberType == null
@@ -1944,6 +2000,8 @@ class Input$FilterAnswerFunctionsInput {
 
   int get limit => (_$data['limit'] as int);
 
+  String? get mathSubFieldId => (_$data['mathSubFieldId'] as String?);
+
   Enum$NumberType? get numberType => (_$data['numberType'] as Enum$NumberType?);
 
   Map<String, dynamic> toJson() {
@@ -1954,6 +2012,10 @@ class Input$FilterAnswerFunctionsInput {
     }
     final l$limit = limit;
     result$data['limit'] = l$limit;
+    if (_$data.containsKey('mathSubFieldId')) {
+      final l$mathSubFieldId = mathSubFieldId;
+      result$data['mathSubFieldId'] = l$mathSubFieldId;
+    }
     if (_$data.containsKey('numberType')) {
       final l$numberType = numberType;
       result$data['numberType'] =
@@ -1990,6 +2052,15 @@ class Input$FilterAnswerFunctionsInput {
     if (l$limit != lOther$limit) {
       return false;
     }
+    final l$mathSubFieldId = mathSubFieldId;
+    final lOther$mathSubFieldId = other.mathSubFieldId;
+    if (_$data.containsKey('mathSubFieldId') !=
+        other._$data.containsKey('mathSubFieldId')) {
+      return false;
+    }
+    if (l$mathSubFieldId != lOther$mathSubFieldId) {
+      return false;
+    }
     final l$numberType = numberType;
     final lOther$numberType = other.numberType;
     if (_$data.containsKey('numberType') !=
@@ -2006,10 +2077,12 @@ class Input$FilterAnswerFunctionsInput {
   int get hashCode {
     final l$lastId = lastId;
     final l$limit = limit;
+    final l$mathSubFieldId = mathSubFieldId;
     final l$numberType = numberType;
     return Object.hashAll([
       _$data.containsKey('lastId') ? l$lastId : const {},
       l$limit,
+      _$data.containsKey('mathSubFieldId') ? l$mathSubFieldId : const {},
       _$data.containsKey('numberType') ? l$numberType : const {},
     ]);
   }
@@ -2027,6 +2100,7 @@ abstract class CopyWith$Input$FilterAnswerFunctionsInput<TRes> {
   TRes call({
     String? lastId,
     int? limit,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
   });
 }
@@ -2047,12 +2121,15 @@ class _CopyWithImpl$Input$FilterAnswerFunctionsInput<TRes>
   TRes call({
     Object? lastId = _undefined,
     Object? limit = _undefined,
+    Object? mathSubFieldId = _undefined,
     Object? numberType = _undefined,
   }) =>
       _then(Input$FilterAnswerFunctionsInput._({
         ..._instance._$data,
         if (lastId != _undefined) 'lastId': (lastId as String?),
         if (limit != _undefined && limit != null) 'limit': (limit as int),
+        if (mathSubFieldId != _undefined)
+          'mathSubFieldId': (mathSubFieldId as String?),
         if (numberType != _undefined)
           'numberType': (numberType as Enum$NumberType?),
       }));
@@ -2067,6 +2144,7 @@ class _CopyWithStubImpl$Input$FilterAnswerFunctionsInput<TRes>
   call({
     String? lastId,
     int? limit,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
   }) =>
       _res;
@@ -2536,11 +2614,13 @@ class Input$GenerateMathProblemValuesInput {
   factory Input$GenerateMathProblemValuesInput({
     required List<Input$GenerateMathProblemCustomStrParameterInput>
         customStrParams,
+    required String mathSubFieldId,
     required List<Input$GenerateMathProblemNumberParameterInput> numberParams,
     required String template,
   }) =>
       Input$GenerateMathProblemValuesInput._({
         r'customStrParams': customStrParams,
+        r'mathSubFieldId': mathSubFieldId,
         r'numberParams': numberParams,
         r'template': template,
       });
@@ -2555,6 +2635,8 @@ class Input$GenerateMathProblemValuesInput {
         .map((e) => Input$GenerateMathProblemCustomStrParameterInput.fromJson(
             (e as Map<String, dynamic>)))
         .toList();
+    final l$mathSubFieldId = data['mathSubFieldId'];
+    result$data['mathSubFieldId'] = (l$mathSubFieldId as String);
     final l$numberParams = data['numberParams'];
     result$data['numberParams'] = (l$numberParams as List<dynamic>)
         .map((e) => Input$GenerateMathProblemNumberParameterInput.fromJson(
@@ -2571,6 +2653,8 @@ class Input$GenerateMathProblemValuesInput {
       (_$data['customStrParams']
           as List<Input$GenerateMathProblemCustomStrParameterInput>);
 
+  String get mathSubFieldId => (_$data['mathSubFieldId'] as String);
+
   List<Input$GenerateMathProblemNumberParameterInput> get numberParams =>
       (_$data['numberParams']
           as List<Input$GenerateMathProblemNumberParameterInput>);
@@ -2582,6 +2666,8 @@ class Input$GenerateMathProblemValuesInput {
     final l$customStrParams = customStrParams;
     result$data['customStrParams'] =
         l$customStrParams.map((e) => e.toJson()).toList();
+    final l$mathSubFieldId = mathSubFieldId;
+    result$data['mathSubFieldId'] = l$mathSubFieldId;
     final l$numberParams = numberParams;
     result$data['numberParams'] =
         l$numberParams.map((e) => e.toJson()).toList();
@@ -2618,6 +2704,11 @@ class Input$GenerateMathProblemValuesInput {
         return false;
       }
     }
+    final l$mathSubFieldId = mathSubFieldId;
+    final lOther$mathSubFieldId = other.mathSubFieldId;
+    if (l$mathSubFieldId != lOther$mathSubFieldId) {
+      return false;
+    }
     final l$numberParams = numberParams;
     final lOther$numberParams = other.numberParams;
     if (l$numberParams.length != lOther$numberParams.length) {
@@ -2641,10 +2732,12 @@ class Input$GenerateMathProblemValuesInput {
   @override
   int get hashCode {
     final l$customStrParams = customStrParams;
+    final l$mathSubFieldId = mathSubFieldId;
     final l$numberParams = numberParams;
     final l$template = template;
     return Object.hashAll([
       Object.hashAll(l$customStrParams.map((v) => v)),
+      l$mathSubFieldId,
       Object.hashAll(l$numberParams.map((v) => v)),
       l$template,
     ]);
@@ -2662,6 +2755,7 @@ abstract class CopyWith$Input$GenerateMathProblemValuesInput<TRes> {
 
   TRes call({
     List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
+    String? mathSubFieldId,
     List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
     String? template,
   });
@@ -2694,6 +2788,7 @@ class _CopyWithImpl$Input$GenerateMathProblemValuesInput<TRes>
 
   TRes call({
     Object? customStrParams = _undefined,
+    Object? mathSubFieldId = _undefined,
     Object? numberParams = _undefined,
     Object? template = _undefined,
   }) =>
@@ -2702,6 +2797,8 @@ class _CopyWithImpl$Input$GenerateMathProblemValuesInput<TRes>
         if (customStrParams != _undefined && customStrParams != null)
           'customStrParams': (customStrParams
               as List<Input$GenerateMathProblemCustomStrParameterInput>),
+        if (mathSubFieldId != _undefined && mathSubFieldId != null)
+          'mathSubFieldId': (mathSubFieldId as String),
         if (numberParams != _undefined && numberParams != null)
           'numberParams': (numberParams
               as List<Input$GenerateMathProblemNumberParameterInput>),
@@ -2744,6 +2841,7 @@ class _CopyWithStubImpl$Input$GenerateMathProblemValuesInput<TRes>
 
   call({
     List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
+    String? mathSubFieldId,
     List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
     String? template,
   }) =>
@@ -3741,6 +3839,7 @@ class Input$UpdateAnswerFunctionInput {
     String? condition,
     String? func,
     required String id,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
     double? weight,
   }) =>
@@ -3748,6 +3847,7 @@ class Input$UpdateAnswerFunctionInput {
         if (condition != null) r'condition': condition,
         if (func != null) r'func': func,
         r'id': id,
+        if (mathSubFieldId != null) r'mathSubFieldId': mathSubFieldId,
         if (numberType != null) r'numberType': numberType,
         if (weight != null) r'weight': weight,
       });
@@ -3766,6 +3866,10 @@ class Input$UpdateAnswerFunctionInput {
     }
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
+    if (data.containsKey('mathSubFieldId')) {
+      final l$mathSubFieldId = data['mathSubFieldId'];
+      result$data['mathSubFieldId'] = (l$mathSubFieldId as String?);
+    }
     if (data.containsKey('numberType')) {
       final l$numberType = data['numberType'];
       result$data['numberType'] = l$numberType == null
@@ -3787,6 +3891,8 @@ class Input$UpdateAnswerFunctionInput {
 
   String get id => (_$data['id'] as String);
 
+  String? get mathSubFieldId => (_$data['mathSubFieldId'] as String?);
+
   Enum$NumberType? get numberType => (_$data['numberType'] as Enum$NumberType?);
 
   double? get weight => (_$data['weight'] as double?);
@@ -3803,6 +3909,10 @@ class Input$UpdateAnswerFunctionInput {
     }
     final l$id = id;
     result$data['id'] = l$id;
+    if (_$data.containsKey('mathSubFieldId')) {
+      final l$mathSubFieldId = mathSubFieldId;
+      result$data['mathSubFieldId'] = l$mathSubFieldId;
+    }
     if (_$data.containsKey('numberType')) {
       final l$numberType = numberType;
       result$data['numberType'] =
@@ -3852,6 +3962,15 @@ class Input$UpdateAnswerFunctionInput {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$mathSubFieldId = mathSubFieldId;
+    final lOther$mathSubFieldId = other.mathSubFieldId;
+    if (_$data.containsKey('mathSubFieldId') !=
+        other._$data.containsKey('mathSubFieldId')) {
+      return false;
+    }
+    if (l$mathSubFieldId != lOther$mathSubFieldId) {
+      return false;
+    }
     final l$numberType = numberType;
     final lOther$numberType = other.numberType;
     if (_$data.containsKey('numberType') !=
@@ -3877,12 +3996,14 @@ class Input$UpdateAnswerFunctionInput {
     final l$condition = condition;
     final l$func = func;
     final l$id = id;
+    final l$mathSubFieldId = mathSubFieldId;
     final l$numberType = numberType;
     final l$weight = weight;
     return Object.hashAll([
       _$data.containsKey('condition') ? l$condition : const {},
       _$data.containsKey('func') ? l$func : const {},
       l$id,
+      _$data.containsKey('mathSubFieldId') ? l$mathSubFieldId : const {},
       _$data.containsKey('numberType') ? l$numberType : const {},
       _$data.containsKey('weight') ? l$weight : const {},
     ]);
@@ -3902,6 +4023,7 @@ abstract class CopyWith$Input$UpdateAnswerFunctionInput<TRes> {
     String? condition,
     String? func,
     String? id,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
     double? weight,
   });
@@ -3924,6 +4046,7 @@ class _CopyWithImpl$Input$UpdateAnswerFunctionInput<TRes>
     Object? condition = _undefined,
     Object? func = _undefined,
     Object? id = _undefined,
+    Object? mathSubFieldId = _undefined,
     Object? numberType = _undefined,
     Object? weight = _undefined,
   }) =>
@@ -3932,6 +4055,8 @@ class _CopyWithImpl$Input$UpdateAnswerFunctionInput<TRes>
         if (condition != _undefined) 'condition': (condition as String?),
         if (func != _undefined) 'func': (func as String?),
         if (id != _undefined && id != null) 'id': (id as String),
+        if (mathSubFieldId != _undefined)
+          'mathSubFieldId': (mathSubFieldId as String?),
         if (numberType != _undefined)
           'numberType': (numberType as Enum$NumberType?),
         if (weight != _undefined) 'weight': (weight as double?),
@@ -3948,6 +4073,7 @@ class _CopyWithStubImpl$Input$UpdateAnswerFunctionInput<TRes>
     String? condition,
     String? func,
     String? id,
+    String? mathSubFieldId,
     Enum$NumberType? numberType,
     double? weight,
   }) =>

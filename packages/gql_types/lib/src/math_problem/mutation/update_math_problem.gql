@@ -1,23 +1,7 @@
 mutation UpdateMathProblem(
-  $id: ID!,
-  $difficulty: Int,
-  $text: String,
-  $tex: String,
-  $mathFieldId: ID,
-  $mathSubFieldId: ID,
-  $imageMediaIds: [ID!],
-  $answers: [CreateMathProblemAnswerInput!],
+  $input: UpdateMathProblemInput!
 ) {
-  updateMathProblem(input: {
-    id: $id,
-    difficulty: $difficulty,
-    text: $text,
-    tex: $tex,
-    mathFieldId: $mathFieldId,
-    mathSubFieldId: $mathSubFieldId,
-    imageMediaIds: $imageMediaIds,
-    answers: $answers
-  }) {
+  updateMathProblem(input: $input) {
     ...MathProblem
   }
 }

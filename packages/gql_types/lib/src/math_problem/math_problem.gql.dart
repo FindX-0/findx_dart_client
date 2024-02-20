@@ -10,6 +10,7 @@ class Fragment$MathProblem {
     this.tex,
     required this.mathFieldId,
     required this.mathSubFieldId,
+    this.generatedBatchName,
     required this.answers,
     this.$__typename = 'MathProblemObject',
   });
@@ -22,6 +23,7 @@ class Fragment$MathProblem {
     final l$tex = json['tex'];
     final l$mathFieldId = json['mathFieldId'];
     final l$mathSubFieldId = json['mathSubFieldId'];
+    final l$generatedBatchName = json['generatedBatchName'];
     final l$answers = json['answers'];
     final l$$__typename = json['__typename'];
     return Fragment$MathProblem(
@@ -32,6 +34,7 @@ class Fragment$MathProblem {
       tex: (l$tex as String?),
       mathFieldId: (l$mathFieldId as String),
       mathSubFieldId: (l$mathSubFieldId as String),
+      generatedBatchName: (l$generatedBatchName as String?),
       answers: (l$answers as List<dynamic>)
           .map((e) => Fragment$MathProblem$answers.fromJson(
               (e as Map<String, dynamic>)))
@@ -54,6 +57,8 @@ class Fragment$MathProblem {
 
   final String mathSubFieldId;
 
+  final String? generatedBatchName;
+
   final List<Fragment$MathProblem$answers> answers;
 
   final String $__typename;
@@ -74,6 +79,8 @@ class Fragment$MathProblem {
     _resultData['mathFieldId'] = l$mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
     _resultData['mathSubFieldId'] = l$mathSubFieldId;
+    final l$generatedBatchName = generatedBatchName;
+    _resultData['generatedBatchName'] = l$generatedBatchName;
     final l$answers = answers;
     _resultData['answers'] = l$answers.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
@@ -90,6 +97,7 @@ class Fragment$MathProblem {
     final l$tex = tex;
     final l$mathFieldId = mathFieldId;
     final l$mathSubFieldId = mathSubFieldId;
+    final l$generatedBatchName = generatedBatchName;
     final l$answers = answers;
     final l$$__typename = $__typename;
     return Object.hashAll([
@@ -100,6 +108,7 @@ class Fragment$MathProblem {
       l$tex,
       l$mathFieldId,
       l$mathSubFieldId,
+      l$generatedBatchName,
       Object.hashAll(l$answers.map((v) => v)),
       l$$__typename,
     ]);
@@ -148,6 +157,11 @@ class Fragment$MathProblem {
     if (l$mathSubFieldId != lOther$mathSubFieldId) {
       return false;
     }
+    final l$generatedBatchName = generatedBatchName;
+    final lOther$generatedBatchName = other.generatedBatchName;
+    if (l$generatedBatchName != lOther$generatedBatchName) {
+      return false;
+    }
     final l$answers = answers;
     final lOther$answers = other.answers;
     if (l$answers.length != lOther$answers.length) {
@@ -194,6 +208,7 @@ abstract class CopyWith$Fragment$MathProblem<TRes> {
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    String? generatedBatchName,
     List<Fragment$MathProblem$answers>? answers,
     String? $__typename,
   });
@@ -226,6 +241,7 @@ class _CopyWithImpl$Fragment$MathProblem<TRes>
     Object? tex = _undefined,
     Object? mathFieldId = _undefined,
     Object? mathSubFieldId = _undefined,
+    Object? generatedBatchName = _undefined,
     Object? answers = _undefined,
     Object? $__typename = _undefined,
   }) =>
@@ -245,6 +261,9 @@ class _CopyWithImpl$Fragment$MathProblem<TRes>
         mathSubFieldId: mathSubFieldId == _undefined || mathSubFieldId == null
             ? _instance.mathSubFieldId
             : (mathSubFieldId as String),
+        generatedBatchName: generatedBatchName == _undefined
+            ? _instance.generatedBatchName
+            : (generatedBatchName as String?),
         answers: answers == _undefined || answers == null
             ? _instance.answers
             : (answers as List<Fragment$MathProblem$answers>),
@@ -281,6 +300,7 @@ class _CopyWithStubImpl$Fragment$MathProblem<TRes>
     String? tex,
     String? mathFieldId,
     String? mathSubFieldId,
+    String? generatedBatchName,
     List<Fragment$MathProblem$answers>? answers,
     String? $__typename,
   }) =>
@@ -342,6 +362,13 @@ const fragmentDefinitionMathProblem = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'mathSubFieldId'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'generatedBatchName'),
       alias: null,
       arguments: [],
       directives: [],

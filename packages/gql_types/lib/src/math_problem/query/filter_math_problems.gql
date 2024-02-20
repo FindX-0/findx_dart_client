@@ -1,11 +1,5 @@
-query FilterMathProblems(
-  $lastId: ID,
-  $limit: Int!
-) {
-  filterMathProblems(input: {
-    lastId: $lastId,
-    limit: $limit
-  }) {
+query FilterMathProblems($input: LastIdPageParamsObject!) {
+  filterMathProblems(input: $input) {
     count
     data {
       ...MathProblemWithRelations

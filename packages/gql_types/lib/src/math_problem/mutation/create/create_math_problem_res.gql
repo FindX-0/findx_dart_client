@@ -6,4 +6,5 @@ fragment CreateMathProblemRes on CreateMathProblemResObject {
   tex
   mathFieldId
   mathSubFieldId
+  generatedBatchName
 }

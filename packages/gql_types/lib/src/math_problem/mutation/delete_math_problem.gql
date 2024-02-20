@@ -1,9 +1,7 @@
 mutation DeleteMathProblem(
-  $id: ID!
+  $input: IdentifierInput!
 ) {
-  deleteMathProblem(input: {
-    id: $id
-  }) {
+  deleteMathProblem(input: $input) {
     ...SuccessObject
   }
 }
