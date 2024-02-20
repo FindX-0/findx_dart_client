@@ -1,0 +1,6 @@
+fragment AnswerFunctionWithRelations on AnswerFunctionWithRelationsObject {
+  ...AnswerFunction
+  mathSubField {
+    ...MathSubField
+  }
+}

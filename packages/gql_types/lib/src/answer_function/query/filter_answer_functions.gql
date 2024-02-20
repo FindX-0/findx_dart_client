@@ -4,7 +4,7 @@ query FilterAnswerFunctions(
   filterAnswerFunctions(input: $input) {
     count
     data {
-      ...AnswerFunction
+      ...AnswerFunctionWithRelations
     }
   }
 }

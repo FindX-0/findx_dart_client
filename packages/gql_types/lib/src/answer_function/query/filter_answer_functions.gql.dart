@@ -1,5 +1,7 @@
+import '../../math_sub_field/math_sub_field.gql.dart';
 import '../../schema.gql.dart';
 import '../answer_function.gql.dart';
+import '../answer_function_with_relations.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -291,7 +293,7 @@ const documentNodeQueryFilterAnswerFunctions = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FragmentSpreadNode(
-                name: NameNode(value: 'AnswerFunction'),
+                name: NameNode(value: 'AnswerFunctionWithRelations'),
                 directives: [],
               ),
               FieldNode(
@@ -321,7 +323,9 @@ const documentNodeQueryFilterAnswerFunctions = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionAnswerFunctionWithRelations,
   fragmentDefinitionAnswerFunction,
+  fragmentDefinitionMathSubField,
 ]);
 Query$FilterAnswerFunctions _parserFn$Query$FilterAnswerFunctions(
         Map<String, dynamic> data) =>
@@ -477,8 +481,8 @@ class Query$FilterAnswerFunctions$filterAnswerFunctions {
     return Query$FilterAnswerFunctions$filterAnswerFunctions(
       count: (l$count as int),
       data: (l$data as List<dynamic>)
-          .map((e) =>
-              Fragment$AnswerFunction.fromJson((e as Map<String, dynamic>)))
+          .map((e) => Fragment$AnswerFunctionWithRelations.fromJson(
+              (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -486,7 +490,7 @@ class Query$FilterAnswerFunctions$filterAnswerFunctions {
 
   final int count;
 
-  final List<Fragment$AnswerFunction> data;
+  final List<Fragment$AnswerFunctionWithRelations> data;
 
   final String $__typename;
 
@@ -572,13 +576,14 @@ abstract class CopyWith$Query$FilterAnswerFunctions$filterAnswerFunctions<
 
   TRes call({
     int? count,
-    List<Fragment$AnswerFunction>? data,
+    List<Fragment$AnswerFunctionWithRelations>? data,
     String? $__typename,
   });
   TRes data(
-      Iterable<Fragment$AnswerFunction> Function(
+      Iterable<Fragment$AnswerFunctionWithRelations> Function(
               Iterable<
-                  CopyWith$Fragment$AnswerFunction<Fragment$AnswerFunction>>)
+                  CopyWith$Fragment$AnswerFunctionWithRelations<
+                      Fragment$AnswerFunctionWithRelations>>)
           _fn);
 }
 
@@ -607,23 +612,24 @@ class _CopyWithImpl$Query$FilterAnswerFunctions$filterAnswerFunctions<TRes>
             : (count as int),
         data: data == _undefined || data == null
             ? _instance.data
-            : (data as List<Fragment$AnswerFunction>),
+            : (data as List<Fragment$AnswerFunctionWithRelations>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
   TRes data(
-          Iterable<Fragment$AnswerFunction> Function(
+          Iterable<Fragment$AnswerFunctionWithRelations> Function(
                   Iterable<
-                      CopyWith$Fragment$AnswerFunction<
-                          Fragment$AnswerFunction>>)
+                      CopyWith$Fragment$AnswerFunctionWithRelations<
+                          Fragment$AnswerFunctionWithRelations>>)
               _fn) =>
       call(
-          data: _fn(_instance.data.map((e) => CopyWith$Fragment$AnswerFunction(
-                e,
-                (i) => i,
-              ))).toList());
+          data: _fn(_instance.data
+              .map((e) => CopyWith$Fragment$AnswerFunctionWithRelations(
+                    e,
+                    (i) => i,
+                  ))).toList());
 }
 
 class _CopyWithStubImpl$Query$FilterAnswerFunctions$filterAnswerFunctions<TRes>
@@ -636,7 +642,7 @@ class _CopyWithStubImpl$Query$FilterAnswerFunctions$filterAnswerFunctions<TRes>
 
   call({
     int? count,
-    List<Fragment$AnswerFunction>? data,
+    List<Fragment$AnswerFunctionWithRelations>? data,
     String? $__typename,
   }) =>
       _res;
