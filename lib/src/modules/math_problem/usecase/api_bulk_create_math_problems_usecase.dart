@@ -17,32 +17,39 @@ class ApiBulkCreateMathProblemsUsecase implements BulkCreateMathProblemsUsecase 
   final MathProblemRemoteRepository _mathProblemRemoteRepository;
 
   @override
-  Future<Either<ActionFailure, BulkCreateMathProblemRes>> call(List<CreateMathProblemParams> params) async {
+  Future<Either<ActionFailure, BulkCreateMathProblemRes>> call(
+    List<CreateMathProblemParams> params, {
+    required String generatedBatchName,
+  }) async {
     final List<Either<ActionFailure, RawCreateMathProblemParams>> mediaFilesWithCreateParams =
-        await Future.wait(params.map((e) async {
-      final mediaFiles = e.images != null && e.images!.isNotEmpty
-          ? await _mediaFileRemoteRepository.uploadMemoryFileMany(
-              e.images!,
-              fileExtension: 'jpg',
-            )
-          : null;
+        await Future.wait(
+      params.map(
+        (e) async {
+          final mediaFiles = e.images != null && e.images!.isNotEmpty
+              ? await _mediaFileRemoteRepository.uploadMemoryFileMany(
+                  e.images!,
+                  fileExtension: 'jpg',
+                )
+              : null;
 
-      if (mediaFiles != null && mediaFiles.isLeft) {
-        return left(mediaFiles.leftOrThrow);
-      }
+          if (mediaFiles != null && mediaFiles.isLeft) {
+            return left(mediaFiles.leftOrThrow);
+          }
 
-      final imageMediaIds = mediaFiles?.ifRight((r) => r.map((e) => e.id).toList());
+          final imageMediaIds = mediaFiles?.ifRight((r) => r.map((e) => e.id).toList());
 
-      return right(RawCreateMathProblemParams(
-        difficulty: e.difficulty,
-        answers: e.answers,
-        imageMediaIds: imageMediaIds,
-        mathFieldId: e.mathFieldId,
-        mathSubFieldId: e.mathSubFieldId,
-        tex: e.tex,
-        text: e.text,
-      ));
-    }));
+          return right(RawCreateMathProblemParams(
+            difficulty: e.difficulty,
+            answers: e.answers,
+            imageMediaIds: imageMediaIds,
+            mathFieldId: e.mathFieldId,
+            mathSubFieldId: e.mathSubFieldId,
+            tex: e.tex,
+            text: e.text,
+          ));
+        },
+      ),
+    );
 
     final leftCase = mediaFilesWithCreateParams.firstWhereOrNull((e) => e.isLeft);
     if (leftCase != null) {
@@ -52,6 +59,9 @@ class ApiBulkCreateMathProblemsUsecase implements BulkCreateMathProblemsUsecase 
     // all of them are right
     final values = mediaFilesWithCreateParams.map((e) => e.rightOrThrow).toList();
 
-    return _mathProblemRemoteRepository.bulkCreate(values);
+    return _mathProblemRemoteRepository.bulkCreate(
+      values,
+      generatedBatchName: generatedBatchName,
+    );
   }
 }

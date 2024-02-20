@@ -40,6 +40,7 @@ abstract interface class MathProblemRemoteRepository {
     required String template,
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
+    required String mathSubFieldId,
   });
 
   Future<Either<FetchFailure, CountGenerateMathProblemValuesRes>> countGenerateValues({
@@ -47,5 +48,8 @@ abstract interface class MathProblemRemoteRepository {
     required List<GenerateMathProblemCustomStrParam> customStrParams,
   });
 
-  Future<Either<ActionFailure, BulkCreateMathProblemRes>> bulkCreate(List<RawCreateMathProblemParams> params);
+  Future<Either<ActionFailure, BulkCreateMathProblemRes>> bulkCreate(
+    List<RawCreateMathProblemParams> params, {
+    required String generatedBatchName,
+  });
 }

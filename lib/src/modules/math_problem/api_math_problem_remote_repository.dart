@@ -60,14 +60,16 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
       () => _client.mutate$UpdateMathProblem(
         Options$Mutation$UpdateMathProblem(
           variables: Variables$Mutation$UpdateMathProblem(
-            id: id,
-            difficulty: difficulty,
-            text: text,
-            tex: tex,
-            mathFieldId: mathFieldId,
-            mathSubFieldId: mathSubFieldId,
-            imageMediaIds: imageMediaIds,
-            answers: answers,
+            input: Input$UpdateMathProblemInput(
+              id: id,
+              difficulty: difficulty,
+              text: text,
+              tex: tex,
+              mathFieldId: mathFieldId,
+              mathSubFieldId: mathSubFieldId,
+              imageMediaIds: imageMediaIds,
+              answers: answers,
+            ),
           ),
         ),
       ),
@@ -83,7 +85,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
       () => _client.mutate$DeleteMathProblem(
         Options$Mutation$DeleteMathProblem(
           variables: Variables$Mutation$DeleteMathProblem(
-            id: id,
+            input: Input$IdentifierInput(id: id),
           ),
         ),
       ),
@@ -100,8 +102,10 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
       () => _client.query$FilterMathProblems(
         Options$Query$FilterMathProblems(
           variables: Variables$Query$FilterMathProblems(
-            limit: limit,
-            lastId: lastId,
+            input: Input$LastIdPageParamsObject(
+              limit: limit,
+              lastId: lastId,
+            ),
           ),
         ),
       ),
@@ -119,7 +123,9 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
     return callCatchWithFetchFailure(
       () => _client.query$GetMathProblemById(
         Options$Query$GetMathProblemById(
-          variables: Variables$Query$GetMathProblemById(id: id),
+          variables: Variables$Query$GetMathProblemById(
+            input: Input$IdentifierInput(id: id),
+          ),
         ),
       ),
       mapper: (r) => r.getMathProblemById,
@@ -131,6 +137,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
     required String template,
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
+    required String mathSubFieldId,
   }) {
     return callCatchWithFetchFailure(
       () => _client.query$GenerateMathProblemValues(
@@ -140,6 +147,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
               customStrParams: customStrParams,
               numberParams: numberParams,
               template: template,
+              mathSubFieldId: mathSubFieldId,
             ),
           ),
         ),
@@ -170,7 +178,9 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
 
   @override
   Future<Either<ActionFailure, BulkCreateMathProblemRes>> bulkCreate(
-      List<RawCreateMathProblemParams> params) {
+    List<RawCreateMathProblemParams> params, {
+    required String generatedBatchName,
+  }) {
     return callCatchWithActionFailure(
       () {
         final values = params
@@ -190,7 +200,10 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
         return _client.mutate$BulkCreateMathProblem(
           Options$Mutation$BulkCreateMathProblem(
             variables: Variables$Mutation$BulkCreateMathProblem(
-              input: Input$BulkCreateMathProblemInput(values: values),
+              input: Input$BulkCreateMathProblemInput(
+                values: values,
+                generatedBatchName: generatedBatchName,
+              ),
             ),
           ),
         );

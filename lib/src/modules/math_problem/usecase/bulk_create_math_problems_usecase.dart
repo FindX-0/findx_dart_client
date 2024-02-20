@@ -5,6 +5,7 @@ import '../model/create_math_problem_params.dart';
 
 abstract interface class BulkCreateMathProblemsUsecase {
   Future<Either<ActionFailure, BulkCreateMathProblemRes>> call(
-    List<CreateMathProblemParams> params,
-  );
+    List<CreateMathProblemParams> params, {
+    required String generatedBatchName,
+  });
 }

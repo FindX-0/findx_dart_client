@@ -7,6 +7,7 @@ abstract interface class AnswerFunctionRemoteRepository {
     required String? condition,
     required double weight,
     required NumberType numberType,
+    required String mathSubFieldId,
   });
 
   Future<Either<ActionFailure, AnswerFunctionUpdateResult>> update({
@@ -15,6 +16,7 @@ abstract interface class AnswerFunctionRemoteRepository {
     String? condition,
     double? weight,
     NumberType? numberType,
+    String? mathSubFieldId,
   });
 
   Future<Either<ActionFailure, Unit>> delete({
@@ -27,6 +29,7 @@ abstract interface class AnswerFunctionRemoteRepository {
     required int limit,
     String? lastId,
     NumberType? numberType,
+    String? mathSubFieldId,
   });
 
   Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll({

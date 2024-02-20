@@ -18,6 +18,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
     required String? condition,
     required double weight,
     required NumberType numberType,
+    required String mathSubFieldId,
   }) async {
     return callCatchWithActionFailure(
       () => _client.mutate$CreateAnswerFunction(
@@ -28,6 +29,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
               weight: weight,
               condition: condition,
               numberType: numberType,
+              mathSubFieldId: mathSubFieldId,
             ),
           ),
         ),
@@ -57,6 +59,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
     required int limit,
     String? lastId,
     NumberType? numberType,
+    String? mathSubFieldId,
   }) async {
     return callCatchWithFetchFailure(
       () => _client.query$FilterAnswerFunctions(
@@ -66,6 +69,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
               limit: limit,
               lastId: lastId,
               numberType: numberType,
+              mathSubFieldId: mathSubFieldId,
             ),
           ),
         ),
@@ -118,6 +122,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
     String? condition,
     double? weight,
     NumberType? numberType,
+    String? mathSubFieldId,
   }) async {
     return callCatchWithActionFailure(
       () => _client.mutate$UpdateAnswerFunction(
@@ -129,6 +134,7 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
               weight: weight,
               condition: condition,
               numberType: numberType,
+              mathSubFieldId: mathSubFieldId,
             ),
           ),
         ),
