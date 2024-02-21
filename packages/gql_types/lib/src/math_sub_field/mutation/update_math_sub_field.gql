@@ -2,6 +2,9 @@ mutation UpdateMathSubField(
   $input: UpdateMathSubFieldInput!
 ) {
   updateMathSubField(input: $input) {
-    ...MathSubField
+    id
+    name
+    mathFieldId
+    createdAt
   }
 }
