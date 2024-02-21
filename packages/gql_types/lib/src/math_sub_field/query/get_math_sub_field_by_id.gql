@@ -1,5 +1,5 @@
 query GetMathSubFieldById(
-  $input: IdentifierInput
+  $input: IdentifierInput!
 ) {
   getMathSubFieldById(input: $input) {
     ...MathSubFieldWithRelations
