@@ -25,7 +25,9 @@ class ApiUserRemoteRepository with GqlRequestWrap implements UserRemoteRepositor
     return callCatchWithFetchFailure(
       () => _client.query$GetUserById(
         Options$Query$GetUserById(
-          variables: Variables$Query$GetUserById(id: id),
+          variables: Variables$Query$GetUserById(
+            input: Input$IdentifierInput(id: id),
+          ),
         ),
       ),
       mapper: (r) => r.getUserById,

@@ -19,7 +19,11 @@ class ApiMatchmakingRemoteRepository with GqlRequestWrap implements MatchmakingR
     return callCatchWithActionFailure(
       () => _client.mutate$EnqueueTicket(
         Options$Mutation$EnqueueTicket(
-          variables: Variables$Mutation$EnqueueTicket(mathFieldId: mathFieldId),
+          variables: Variables$Mutation$EnqueueTicket(
+            input: Input$EnqueueTicketInput(
+              mathFieldId: mathFieldId,
+            ),
+          ),
         ),
       ),
       mapper: (_) => unit,
@@ -31,7 +35,11 @@ class ApiMatchmakingRemoteRepository with GqlRequestWrap implements MatchmakingR
     return callCatchWithFetchFailure(
       () => _client.query$GetMatchById(
         Options$Query$GetMatchById(
-          variables: Variables$Query$GetMatchById(id: id),
+          variables: Variables$Query$GetMatchById(
+            input: Input$IdentifierInput(
+              id: id,
+            ),
+          ),
         ),
       ),
       mapper: (r) => r.getMatchById,

@@ -20,7 +20,9 @@ class ApiMathBattleResultRemoteRepository with GqlRequestWrap implements MathBat
       () => _client.query$GetMathBattleResults(
         Options$Query$GetMathBattleResults(
           variables: Variables$Query$GetMathBattleResults(
-            matchId: matchId,
+            input: Input$GetMathBattleResultsInput(
+              matchId: matchId,
+            ),
           ),
         ),
       ),

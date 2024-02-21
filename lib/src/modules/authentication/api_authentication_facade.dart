@@ -25,8 +25,10 @@ class ApiAuthenticationFacade with GqlRequestWrap implements AuthenticationFacad
       () => _client.mutate$AdminSignIn(
         Options$Mutation$AdminSignIn(
           variables: Variables$Mutation$AdminSignIn(
-            email: email,
-            password: password,
+            input: Input$AdminSignInInput(
+              email: email,
+              password: password,
+            ),
           ),
         ),
       ),

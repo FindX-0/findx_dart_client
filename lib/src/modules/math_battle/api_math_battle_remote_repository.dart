@@ -21,7 +21,9 @@ class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRem
       () => _client.query$GetMathBattleMathProblems(
         Options$Query$GetMathBattleMathProblems(
           variables: Variables$Query$GetMathBattleMathProblems(
-            matchId: matchId,
+            input: Input$GetMathBattleMathProblemsInput(
+              matchId: matchId,
+            ),
           ),
         ),
       ),
@@ -39,9 +41,11 @@ class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRem
       () => _client.mutate$SubmitMathProblemAnswer(
         Options$Mutation$SubmitMathProblemAnswer(
           variables: Variables$Mutation$SubmitMathProblemAnswer(
-            matchId: matchId,
-            mathProblemId: mathProblemId,
-            answer: answer,
+            input: Input$SubmitMathProblemAnswerInput(
+              matchId: matchId,
+              mathProblemId: mathProblemId,
+              answer: answer,
+            ),
           ),
         ),
       ),

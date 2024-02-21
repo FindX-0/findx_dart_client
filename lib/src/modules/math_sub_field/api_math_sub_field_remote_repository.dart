@@ -23,8 +23,10 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
       () => _client.mutate$CreateMathSubField(
         Options$Mutation$CreateMathSubField(
           variables: Variables$Mutation$CreateMathSubField(
-            name: name,
-            mathFieldId: mathFieldId,
+            input: Input$CreateMathSubFieldInput(
+              name: name,
+              mathFieldId: mathFieldId,
+            ),
           ),
         ),
       ),
@@ -42,9 +44,11 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
       () => _client.mutate$UpdateMathSubField(
         Options$Mutation$UpdateMathSubField(
           variables: Variables$Mutation$UpdateMathSubField(
-            id: id,
-            name: name,
-            mathFieldId: mathFieldId,
+            input: Input$UpdateMathSubFieldInput(
+              id: id,
+              name: name,
+              mathFieldId: mathFieldId,
+            ),
           ),
         ),
       ),
@@ -60,7 +64,9 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
       () => _client.mutate$DeleteMathSubField(
         Options$Mutation$DeleteMathSubField(
           variables: Variables$Mutation$DeleteMathSubField(
-            id: id,
+            input: Input$IdentifierInput(
+              id: id,
+            ),
           ),
         ),
       ),
@@ -84,9 +90,11 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
       () => _client.query$FilterMathSubFields(
         Options$Query$FilterMathSubFields(
           variables: Variables$Query$FilterMathSubFields(
-            limit: limit,
-            lastId: lastId,
-            mathFieldId: mathFieldId,
+            input: Input$FilterMathSubFieldsInput(
+              limit: limit,
+              lastId: lastId,
+              mathFieldId: mathFieldId,
+            ),
           ),
         ),
       ),

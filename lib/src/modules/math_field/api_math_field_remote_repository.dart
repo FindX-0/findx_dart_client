@@ -22,7 +22,9 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
       () => _client.mutate$CreateMathField(
         Options$Mutation$CreateMathField(
           variables: Variables$Mutation$CreateMathField(
-            name: name,
+            input: Input$CreateMathFieldInput(
+              name: name,
+            ),
           ),
         ),
       ),
@@ -39,8 +41,10 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
       () => _client.mutate$UpdateMathField(
         Options$Mutation$UpdateMathField(
           variables: Variables$Mutation$UpdateMathField(
-            id: id,
-            name: name,
+            input: Input$UpdateMathFieldInput(
+              id: id,
+              name: name,
+            ),
           ),
         ),
       ),
@@ -56,7 +60,9 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
       () => _client.mutate$DeleteMathField(
         Options$Mutation$DeleteMathField(
           variables: Variables$Mutation$DeleteMathField(
-            id: id,
+            input: Input$IdentifierInput(
+              id: id,
+            ),
           ),
         ),
       ),
@@ -79,8 +85,10 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
       () => _client.query$FilterMathFields(
         Options$Query$FilterMathFields(
           variables: Variables$Query$FilterMathFields(
-            limit: limit,
-            lastId: lastId,
+            input: Input$LastIdPageParamsObject(
+              limit: limit,
+              lastId: lastId,
+            ),
           ),
         ),
       ),
@@ -98,7 +106,11 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
     return callCatchWithFetchFailure(
       () => _client.query$GetMathFieldById(
         Options$Query$GetMathFieldById(
-          variables: Variables$Query$GetMathFieldById(id: id),
+          variables: Variables$Query$GetMathFieldById(
+            input: Input$IdentifierInput(
+              id: id,
+            ),
+          ),
         ),
       ),
       mapper: (r) => r.getMathFieldById,
@@ -112,7 +124,11 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
     return callCatchWithFetchFailure(
       () => _client.query$GetAllMathFields(
         Options$Query$GetAllMathFields(
-          variables: Variables$Query$GetAllMathFields(onlyPublic: onlyPublic),
+          variables: Variables$Query$GetAllMathFields(
+            input: Input$GetAllMathFieldsInput(
+              onlyPublic: onlyPublic,
+            ),
+          ),
         ),
       ),
       mapper: (r) => r.getAllMathFields,
