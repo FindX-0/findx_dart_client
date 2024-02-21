@@ -1,12 +1,14 @@
+import '../../schema.gql.dart';
 import '../math_field.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$CreateMathField {
-  factory Variables$Mutation$CreateMathField({required String name}) =>
+  factory Variables$Mutation$CreateMathField(
+          {required Input$CreateMathFieldInput input}) =>
       Variables$Mutation$CreateMathField._({
-        r'name': name,
+        r'input': input,
       });
 
   Variables$Mutation$CreateMathField._(this._$data);
@@ -14,19 +16,21 @@ class Variables$Mutation$CreateMathField {
   factory Variables$Mutation$CreateMathField.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$name = data['name'];
-    result$data['name'] = (l$name as String);
+    final l$input = data['input'];
+    result$data['input'] =
+        Input$CreateMathFieldInput.fromJson((l$input as Map<String, dynamic>));
     return Variables$Mutation$CreateMathField._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get name => (_$data['name'] as String);
+  Input$CreateMathFieldInput get input =>
+      (_$data['input'] as Input$CreateMathFieldInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$name = name;
-    result$data['name'] = l$name;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -46,9 +50,9 @@ class Variables$Mutation$CreateMathField {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -56,8 +60,8 @@ class Variables$Mutation$CreateMathField {
 
   @override
   int get hashCode {
-    final l$name = name;
-    return Object.hashAll([l$name]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -70,7 +74,7 @@ abstract class CopyWith$Variables$Mutation$CreateMathField<TRes> {
   factory CopyWith$Variables$Mutation$CreateMathField.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$CreateMathField;
 
-  TRes call({String? name});
+  TRes call({Input$CreateMathFieldInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$CreateMathField<TRes>
@@ -86,10 +90,11 @@ class _CopyWithImpl$Variables$Mutation$CreateMathField<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$CreateMathField._({
         ..._instance._$data,
-        if (name != _undefined && name != null) 'name': (name as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$CreateMathFieldInput),
       }));
 }
 
@@ -99,7 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$CreateMathField<TRes>
 
   TRes _res;
 
-  call({String? name}) => _res;
+  call({Input$CreateMathFieldInput? input}) => _res;
 }
 
 class Mutation$CreateMathField {
@@ -245,9 +250,9 @@ const documentNodeMutationCreateMathField = DocumentNode(definitions: [
     name: NameNode(value: 'CreateMathField'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'String'),
+          name: NameNode(value: 'CreateMathFieldInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -262,12 +267,7 @@ const documentNodeMutationCreateMathField = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')),
-              )
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

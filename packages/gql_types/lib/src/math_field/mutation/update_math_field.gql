@@ -1,11 +1,7 @@
 mutation UpdateMathField(
-  $id: ID!,
-  $name: String 
+  $input: UpdateMathFieldInput!
 ) {
-  updateMathField(input: {
-    id: $id,
-    name: $name
-  }) {
+  updateMathField(input: $input) {
     ...MathField
   }
 }

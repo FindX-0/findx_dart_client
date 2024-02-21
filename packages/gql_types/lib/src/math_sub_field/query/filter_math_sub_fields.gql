@@ -1,13 +1,5 @@
-query FilterMathSubFields(
-  $lastId: ID,
-  $limit: Int!,
-  $mathFieldId: ID
-) {
-  filterMathSubFields(input: {
-    lastId: $lastId,
-    limit: $limit,
-    mathFieldId: $mathFieldId
-  }) {
+query FilterMathSubFields($input: FilterMathSubFieldsInput!) {
+  filterMathSubFields(input: $input) {
     count
     data {
       ...MathSubFieldWithRelations

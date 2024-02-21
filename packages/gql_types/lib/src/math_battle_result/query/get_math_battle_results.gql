@@ -1,9 +1,7 @@
 query GetMathBattleResults(
-  $matchId: ID!
+  $input: GetMathBattleResultsInput!
 ) {
-  getMathBattleResults(input: {
-    matchId: $matchId
-  }) {
+  getMathBattleResults(input: $input) {
     createdAt
     id
     isDraw

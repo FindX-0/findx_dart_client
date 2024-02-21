@@ -1,4 +1,5 @@
 import '../../math_field/math_field.gql.dart';
+import '../../schema.gql.dart';
 import '../math_sub_field.gql.dart';
 import '../math_sub_field_with_relations.gql.dart';
 import 'dart:async';
@@ -6,9 +7,9 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$GetMathSubFieldById {
-  factory Variables$Query$GetMathSubFieldById({required String id}) =>
+  factory Variables$Query$GetMathSubFieldById({Input$IdentifierInput? input}) =>
       Variables$Query$GetMathSubFieldById._({
-        r'id': id,
+        if (input != null) r'input': input,
       });
 
   Variables$Query$GetMathSubFieldById._(this._$data);
@@ -16,19 +17,26 @@ class Variables$Query$GetMathSubFieldById {
   factory Variables$Query$GetMathSubFieldById.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$id = data['id'];
-    result$data['id'] = (l$id as String);
+    if (data.containsKey('input')) {
+      final l$input = data['input'];
+      result$data['input'] = l$input == null
+          ? null
+          : Input$IdentifierInput.fromJson((l$input as Map<String, dynamic>));
+    }
     return Variables$Query$GetMathSubFieldById._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get id => (_$data['id'] as String);
+  Input$IdentifierInput? get input =>
+      (_$data['input'] as Input$IdentifierInput?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$id = id;
-    result$data['id'] = l$id;
+    if (_$data.containsKey('input')) {
+      final l$input = input;
+      result$data['input'] = l$input?.toJson();
+    }
     return result$data;
   }
 
@@ -48,9 +56,12 @@ class Variables$Query$GetMathSubFieldById {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (_$data.containsKey('input') != other._$data.containsKey('input')) {
+      return false;
+    }
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -58,8 +69,8 @@ class Variables$Query$GetMathSubFieldById {
 
   @override
   int get hashCode {
-    final l$id = id;
-    return Object.hashAll([l$id]);
+    final l$input = input;
+    return Object.hashAll([_$data.containsKey('input') ? l$input : const {}]);
   }
 }
 
@@ -72,7 +83,7 @@ abstract class CopyWith$Variables$Query$GetMathSubFieldById<TRes> {
   factory CopyWith$Variables$Query$GetMathSubFieldById.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GetMathSubFieldById;
 
-  TRes call({String? id});
+  TRes call({Input$IdentifierInput? input});
 }
 
 class _CopyWithImpl$Variables$Query$GetMathSubFieldById<TRes>
@@ -88,10 +99,10 @@ class _CopyWithImpl$Variables$Query$GetMathSubFieldById<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? id = _undefined}) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$GetMathSubFieldById._({
         ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
+        if (input != _undefined) 'input': (input as Input$IdentifierInput?),
       }));
 }
 
@@ -101,7 +112,7 @@ class _CopyWithStubImpl$Variables$Query$GetMathSubFieldById<TRes>
 
   TRes _res;
 
-  call({String? id}) => _res;
+  call({Input$IdentifierInput? input}) => _res;
 }
 
 class Query$GetMathSubFieldById {
@@ -247,10 +258,10 @@ const documentNodeQueryGetMathSubFieldById = DocumentNode(definitions: [
     name: NameNode(value: 'GetMathSubFieldById'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: true,
+          name: NameNode(value: 'IdentifierInput'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -264,12 +275,7 @@ const documentNodeQueryGetMathSubFieldById = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'id'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              )
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],
@@ -312,7 +318,7 @@ class Options$Query$GetMathSubFieldById
     extends graphql.QueryOptions<Query$GetMathSubFieldById> {
   Options$Query$GetMathSubFieldById({
     String? operationName,
-    required Variables$Query$GetMathSubFieldById variables,
+    Variables$Query$GetMathSubFieldById? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -324,7 +330,7 @@ class Options$Query$GetMathSubFieldById
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -360,7 +366,7 @@ class WatchOptions$Query$GetMathSubFieldById
     extends graphql.WatchQueryOptions<Query$GetMathSubFieldById> {
   WatchOptions$Query$GetMathSubFieldById({
     String? operationName,
-    required Variables$Query$GetMathSubFieldById variables,
+    Variables$Query$GetMathSubFieldById? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -372,7 +378,7 @@ class WatchOptions$Query$GetMathSubFieldById
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -392,10 +398,10 @@ class FetchMoreOptions$Query$GetMathSubFieldById
     extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$GetMathSubFieldById({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$GetMathSubFieldById variables,
+    Variables$Query$GetMathSubFieldById? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryGetMathSubFieldById,
         );
 }
@@ -403,35 +409,35 @@ class FetchMoreOptions$Query$GetMathSubFieldById
 extension ClientExtension$Query$GetMathSubFieldById on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$GetMathSubFieldById>>
       query$GetMathSubFieldById(
-              Options$Query$GetMathSubFieldById options) async =>
-          await this.query(options);
+              [Options$Query$GetMathSubFieldById? options]) async =>
+          await this.query(options ?? Options$Query$GetMathSubFieldById());
   graphql.ObservableQuery<Query$GetMathSubFieldById>
       watchQuery$GetMathSubFieldById(
-              WatchOptions$Query$GetMathSubFieldById options) =>
-          this.watchQuery(options);
+              [WatchOptions$Query$GetMathSubFieldById? options]) =>
+          this.watchQuery(options ?? WatchOptions$Query$GetMathSubFieldById());
   void writeQuery$GetMathSubFieldById({
     required Query$GetMathSubFieldById data,
-    required Variables$Query$GetMathSubFieldById variables,
+    Variables$Query$GetMathSubFieldById? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation:
               graphql.Operation(document: documentNodeQueryGetMathSubFieldById),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$GetMathSubFieldById? readQuery$GetMathSubFieldById({
-    required Variables$Query$GetMathSubFieldById variables,
+    Variables$Query$GetMathSubFieldById? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation:
             graphql.Operation(document: documentNodeQueryGetMathSubFieldById),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );

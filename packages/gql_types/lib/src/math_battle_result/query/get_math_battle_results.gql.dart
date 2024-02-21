@@ -1,11 +1,13 @@
+import '../../schema.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$GetMathBattleResults {
-  factory Variables$Query$GetMathBattleResults({required String matchId}) =>
+  factory Variables$Query$GetMathBattleResults(
+          {required Input$GetMathBattleResultsInput input}) =>
       Variables$Query$GetMathBattleResults._({
-        r'matchId': matchId,
+        r'input': input,
       });
 
   Variables$Query$GetMathBattleResults._(this._$data);
@@ -13,19 +15,21 @@ class Variables$Query$GetMathBattleResults {
   factory Variables$Query$GetMathBattleResults.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$matchId = data['matchId'];
-    result$data['matchId'] = (l$matchId as String);
+    final l$input = data['input'];
+    result$data['input'] = Input$GetMathBattleResultsInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Query$GetMathBattleResults._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get matchId => (_$data['matchId'] as String);
+  Input$GetMathBattleResultsInput get input =>
+      (_$data['input'] as Input$GetMathBattleResultsInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$matchId = matchId;
-    result$data['matchId'] = l$matchId;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -45,9 +49,9 @@ class Variables$Query$GetMathBattleResults {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$matchId = matchId;
-    final lOther$matchId = other.matchId;
-    if (l$matchId != lOther$matchId) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -55,8 +59,8 @@ class Variables$Query$GetMathBattleResults {
 
   @override
   int get hashCode {
-    final l$matchId = matchId;
-    return Object.hashAll([l$matchId]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -69,7 +73,7 @@ abstract class CopyWith$Variables$Query$GetMathBattleResults<TRes> {
   factory CopyWith$Variables$Query$GetMathBattleResults.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GetMathBattleResults;
 
-  TRes call({String? matchId});
+  TRes call({Input$GetMathBattleResultsInput? input});
 }
 
 class _CopyWithImpl$Variables$Query$GetMathBattleResults<TRes>
@@ -85,11 +89,11 @@ class _CopyWithImpl$Variables$Query$GetMathBattleResults<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? matchId = _undefined}) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$GetMathBattleResults._({
         ..._instance._$data,
-        if (matchId != _undefined && matchId != null)
-          'matchId': (matchId as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$GetMathBattleResultsInput),
       }));
 }
 
@@ -99,7 +103,7 @@ class _CopyWithStubImpl$Variables$Query$GetMathBattleResults<TRes>
 
   TRes _res;
 
-  call({String? matchId}) => _res;
+  call({Input$GetMathBattleResultsInput? input}) => _res;
 }
 
 class Query$GetMathBattleResults {
@@ -268,9 +272,9 @@ const documentNodeQueryGetMathBattleResults = DocumentNode(definitions: [
     name: NameNode(value: 'GetMathBattleResults'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'matchId')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'GetMathBattleResultsInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -285,12 +289,7 @@ const documentNodeQueryGetMathBattleResults = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'matchId'),
-                value: VariableNode(name: NameNode(value: 'matchId')),
-              )
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

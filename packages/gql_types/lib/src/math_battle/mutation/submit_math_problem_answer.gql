@@ -1,13 +1,7 @@
 mutation SubmitMathProblemAnswer(
-  $matchId: ID!,
-  $mathProblemId: ID!,
-  $answer: String!
+  $input: SubmitMathProblemAnswerInput!
 ) {
-  submitMathProblemAnswer(input: {
-    matchId: $matchId,
-    mathProblemId: $mathProblemId,
-    answer: $answer 
-  }) {
+  submitMathProblemAnswer(input: $input) {
     ...SuccessObject
   }
 }

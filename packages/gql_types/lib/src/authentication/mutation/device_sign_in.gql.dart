@@ -1,5 +1,5 @@
+import '../jwt_token_payload_object.gql.dart';
 import 'dart:async';
-import 'jwt_token_payload_object.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 

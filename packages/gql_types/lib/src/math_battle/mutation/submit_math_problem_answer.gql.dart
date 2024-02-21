@@ -1,18 +1,14 @@
+import '../../schema.gql.dart';
 import '../../shared/success_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$SubmitMathProblemAnswer {
-  factory Variables$Mutation$SubmitMathProblemAnswer({
-    required String matchId,
-    required String mathProblemId,
-    required String answer,
-  }) =>
+  factory Variables$Mutation$SubmitMathProblemAnswer(
+          {required Input$SubmitMathProblemAnswerInput input}) =>
       Variables$Mutation$SubmitMathProblemAnswer._({
-        r'matchId': matchId,
-        r'mathProblemId': mathProblemId,
-        r'answer': answer,
+        r'input': input,
       });
 
   Variables$Mutation$SubmitMathProblemAnswer._(this._$data);
@@ -20,31 +16,21 @@ class Variables$Mutation$SubmitMathProblemAnswer {
   factory Variables$Mutation$SubmitMathProblemAnswer.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$matchId = data['matchId'];
-    result$data['matchId'] = (l$matchId as String);
-    final l$mathProblemId = data['mathProblemId'];
-    result$data['mathProblemId'] = (l$mathProblemId as String);
-    final l$answer = data['answer'];
-    result$data['answer'] = (l$answer as String);
+    final l$input = data['input'];
+    result$data['input'] = Input$SubmitMathProblemAnswerInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Mutation$SubmitMathProblemAnswer._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get matchId => (_$data['matchId'] as String);
-
-  String get mathProblemId => (_$data['mathProblemId'] as String);
-
-  String get answer => (_$data['answer'] as String);
+  Input$SubmitMathProblemAnswerInput get input =>
+      (_$data['input'] as Input$SubmitMathProblemAnswerInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$matchId = matchId;
-    result$data['matchId'] = l$matchId;
-    final l$mathProblemId = mathProblemId;
-    result$data['mathProblemId'] = l$mathProblemId;
-    final l$answer = answer;
-    result$data['answer'] = l$answer;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -64,19 +50,9 @@ class Variables$Mutation$SubmitMathProblemAnswer {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$matchId = matchId;
-    final lOther$matchId = other.matchId;
-    if (l$matchId != lOther$matchId) {
-      return false;
-    }
-    final l$mathProblemId = mathProblemId;
-    final lOther$mathProblemId = other.mathProblemId;
-    if (l$mathProblemId != lOther$mathProblemId) {
-      return false;
-    }
-    final l$answer = answer;
-    final lOther$answer = other.answer;
-    if (l$answer != lOther$answer) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -84,14 +60,8 @@ class Variables$Mutation$SubmitMathProblemAnswer {
 
   @override
   int get hashCode {
-    final l$matchId = matchId;
-    final l$mathProblemId = mathProblemId;
-    final l$answer = answer;
-    return Object.hashAll([
-      l$matchId,
-      l$mathProblemId,
-      l$answer,
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -104,11 +74,7 @@ abstract class CopyWith$Variables$Mutation$SubmitMathProblemAnswer<TRes> {
   factory CopyWith$Variables$Mutation$SubmitMathProblemAnswer.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$SubmitMathProblemAnswer;
 
-  TRes call({
-    String? matchId,
-    String? mathProblemId,
-    String? answer,
-  });
+  TRes call({Input$SubmitMathProblemAnswerInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$SubmitMathProblemAnswer<TRes>
@@ -124,19 +90,11 @@ class _CopyWithImpl$Variables$Mutation$SubmitMathProblemAnswer<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? matchId = _undefined,
-    Object? mathProblemId = _undefined,
-    Object? answer = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$SubmitMathProblemAnswer._({
         ..._instance._$data,
-        if (matchId != _undefined && matchId != null)
-          'matchId': (matchId as String),
-        if (mathProblemId != _undefined && mathProblemId != null)
-          'mathProblemId': (mathProblemId as String),
-        if (answer != _undefined && answer != null)
-          'answer': (answer as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$SubmitMathProblemAnswerInput),
       }));
 }
 
@@ -146,12 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$SubmitMathProblemAnswer<TRes>
 
   TRes _res;
 
-  call({
-    String? matchId,
-    String? mathProblemId,
-    String? answer,
-  }) =>
-      _res;
+  call({Input$SubmitMathProblemAnswerInput? input}) => _res;
 }
 
 class Mutation$SubmitMathProblemAnswer {
@@ -297,32 +250,14 @@ const documentNodeMutationSubmitMathProblemAnswer = DocumentNode(definitions: [
     name: NameNode(value: 'SubmitMathProblemAnswer'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'matchId')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'SubmitMathProblemAnswerInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mathProblemId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'answer')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -332,20 +267,7 @@ const documentNodeMutationSubmitMathProblemAnswer = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'matchId'),
-                value: VariableNode(name: NameNode(value: 'matchId')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'mathProblemId'),
-                value: VariableNode(name: NameNode(value: 'mathProblemId')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'answer'),
-                value: VariableNode(name: NameNode(value: 'answer')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

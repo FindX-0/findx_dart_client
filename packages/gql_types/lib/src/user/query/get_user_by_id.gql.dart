@@ -1,31 +1,33 @@
+import '../../schema.gql.dart';
 import '../user_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$GetUserById {
-  factory Variables$Query$GetUserById({required String id}) =>
+  factory Variables$Query$GetUserById({required Input$IdentifierInput input}) =>
       Variables$Query$GetUserById._({
-        r'id': id,
+        r'input': input,
       });
 
   Variables$Query$GetUserById._(this._$data);
 
   factory Variables$Query$GetUserById.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$id = data['id'];
-    result$data['id'] = (l$id as String);
+    final l$input = data['input'];
+    result$data['input'] =
+        Input$IdentifierInput.fromJson((l$input as Map<String, dynamic>));
     return Variables$Query$GetUserById._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get id => (_$data['id'] as String);
+  Input$IdentifierInput get input => (_$data['input'] as Input$IdentifierInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$id = id;
-    result$data['id'] = l$id;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -44,9 +46,9 @@ class Variables$Query$GetUserById {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -54,8 +56,8 @@ class Variables$Query$GetUserById {
 
   @override
   int get hashCode {
-    final l$id = id;
-    return Object.hashAll([l$id]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -68,7 +70,7 @@ abstract class CopyWith$Variables$Query$GetUserById<TRes> {
   factory CopyWith$Variables$Query$GetUserById.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GetUserById;
 
-  TRes call({String? id});
+  TRes call({Input$IdentifierInput? input});
 }
 
 class _CopyWithImpl$Variables$Query$GetUserById<TRes>
@@ -84,9 +86,11 @@ class _CopyWithImpl$Variables$Query$GetUserById<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? id = _undefined}) => _then(Variables$Query$GetUserById._({
+  TRes call({Object? input = _undefined}) =>
+      _then(Variables$Query$GetUserById._({
         ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$IdentifierInput),
       }));
 }
 
@@ -96,7 +100,7 @@ class _CopyWithStubImpl$Variables$Query$GetUserById<TRes>
 
   TRes _res;
 
-  call({String? id}) => _res;
+  call({Input$IdentifierInput? input}) => _res;
 }
 
 class Query$GetUserById {
@@ -239,9 +243,9 @@ const documentNodeQueryGetUserById = DocumentNode(definitions: [
     name: NameNode(value: 'GetUserById'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'IdentifierInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -256,12 +260,7 @@ const documentNodeQueryGetUserById = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'id'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              )
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

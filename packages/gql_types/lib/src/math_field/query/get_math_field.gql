@@ -1,9 +1,7 @@
 query GetMathFieldById(
-  $id: ID!
+  $input: IdentifierInput!
 ) {
-  getMathFieldById(input: {
-    id: $id
-  }) {
+  getMathFieldById(input: $input) {
     ...MathField
   }
 }

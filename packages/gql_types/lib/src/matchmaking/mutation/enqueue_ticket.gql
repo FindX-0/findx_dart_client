@@ -1,9 +1,7 @@
 mutation EnqueueTicket(
-  $mathFieldId: ID!
+  $input: EnqueueTicketInput!
 ) {
-  enqueueTicket(input: {
-    mathFieldId: $mathFieldId
-  }) {
+  enqueueTicket(input: $input) {
     ...SuccessObject
   }
 }

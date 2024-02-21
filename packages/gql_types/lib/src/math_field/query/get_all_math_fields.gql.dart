@@ -1,31 +1,35 @@
+import '../../schema.gql.dart';
 import '../math_field.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$GetAllMathFields {
-  factory Variables$Query$GetAllMathFields({required bool onlyPublic}) =>
+  factory Variables$Query$GetAllMathFields(
+          {required Input$GetAllMathFieldsInput input}) =>
       Variables$Query$GetAllMathFields._({
-        r'onlyPublic': onlyPublic,
+        r'input': input,
       });
 
   Variables$Query$GetAllMathFields._(this._$data);
 
   factory Variables$Query$GetAllMathFields.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$onlyPublic = data['onlyPublic'];
-    result$data['onlyPublic'] = (l$onlyPublic as bool);
+    final l$input = data['input'];
+    result$data['input'] =
+        Input$GetAllMathFieldsInput.fromJson((l$input as Map<String, dynamic>));
     return Variables$Query$GetAllMathFields._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  bool get onlyPublic => (_$data['onlyPublic'] as bool);
+  Input$GetAllMathFieldsInput get input =>
+      (_$data['input'] as Input$GetAllMathFieldsInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$onlyPublic = onlyPublic;
-    result$data['onlyPublic'] = l$onlyPublic;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -44,9 +48,9 @@ class Variables$Query$GetAllMathFields {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$onlyPublic = onlyPublic;
-    final lOther$onlyPublic = other.onlyPublic;
-    if (l$onlyPublic != lOther$onlyPublic) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -54,8 +58,8 @@ class Variables$Query$GetAllMathFields {
 
   @override
   int get hashCode {
-    final l$onlyPublic = onlyPublic;
-    return Object.hashAll([l$onlyPublic]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -68,7 +72,7 @@ abstract class CopyWith$Variables$Query$GetAllMathFields<TRes> {
   factory CopyWith$Variables$Query$GetAllMathFields.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GetAllMathFields;
 
-  TRes call({bool? onlyPublic});
+  TRes call({Input$GetAllMathFieldsInput? input});
 }
 
 class _CopyWithImpl$Variables$Query$GetAllMathFields<TRes>
@@ -84,11 +88,11 @@ class _CopyWithImpl$Variables$Query$GetAllMathFields<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? onlyPublic = _undefined}) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$GetAllMathFields._({
         ..._instance._$data,
-        if (onlyPublic != _undefined && onlyPublic != null)
-          'onlyPublic': (onlyPublic as bool),
+        if (input != _undefined && input != null)
+          'input': (input as Input$GetAllMathFieldsInput),
       }));
 }
 
@@ -98,7 +102,7 @@ class _CopyWithStubImpl$Variables$Query$GetAllMathFields<TRes>
 
   TRes _res;
 
-  call({bool? onlyPublic}) => _res;
+  call({Input$GetAllMathFieldsInput? input}) => _res;
 }
 
 class Query$GetAllMathFields {
@@ -259,9 +263,9 @@ const documentNodeQueryGetAllMathFields = DocumentNode(definitions: [
     name: NameNode(value: 'GetAllMathFields'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'onlyPublic')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
+          name: NameNode(value: 'GetAllMathFieldsInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -276,12 +280,7 @@ const documentNodeQueryGetAllMathFields = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'onlyPublic'),
-                value: VariableNode(name: NameNode(value: 'onlyPublic')),
-              )
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

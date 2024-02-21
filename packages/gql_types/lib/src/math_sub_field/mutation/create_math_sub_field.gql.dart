@@ -1,16 +1,14 @@
+import '../../schema.gql.dart';
 import '../math_sub_field.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$CreateMathSubField {
-  factory Variables$Mutation$CreateMathSubField({
-    required String name,
-    required String mathFieldId,
-  }) =>
+  factory Variables$Mutation$CreateMathSubField(
+          {required Input$CreateMathSubFieldInput input}) =>
       Variables$Mutation$CreateMathSubField._({
-        r'name': name,
-        r'mathFieldId': mathFieldId,
+        r'input': input,
       });
 
   Variables$Mutation$CreateMathSubField._(this._$data);
@@ -18,25 +16,21 @@ class Variables$Mutation$CreateMathSubField {
   factory Variables$Mutation$CreateMathSubField.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$name = data['name'];
-    result$data['name'] = (l$name as String);
-    final l$mathFieldId = data['mathFieldId'];
-    result$data['mathFieldId'] = (l$mathFieldId as String);
+    final l$input = data['input'];
+    result$data['input'] = Input$CreateMathSubFieldInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Mutation$CreateMathSubField._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get name => (_$data['name'] as String);
-
-  String get mathFieldId => (_$data['mathFieldId'] as String);
+  Input$CreateMathSubFieldInput get input =>
+      (_$data['input'] as Input$CreateMathSubFieldInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$name = name;
-    result$data['name'] = l$name;
-    final l$mathFieldId = mathFieldId;
-    result$data['mathFieldId'] = l$mathFieldId;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -56,14 +50,9 @@ class Variables$Mutation$CreateMathSubField {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$mathFieldId = mathFieldId;
-    final lOther$mathFieldId = other.mathFieldId;
-    if (l$mathFieldId != lOther$mathFieldId) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -71,12 +60,8 @@ class Variables$Mutation$CreateMathSubField {
 
   @override
   int get hashCode {
-    final l$name = name;
-    final l$mathFieldId = mathFieldId;
-    return Object.hashAll([
-      l$name,
-      l$mathFieldId,
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -89,10 +74,7 @@ abstract class CopyWith$Variables$Mutation$CreateMathSubField<TRes> {
   factory CopyWith$Variables$Mutation$CreateMathSubField.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$CreateMathSubField;
 
-  TRes call({
-    String? name,
-    String? mathFieldId,
-  });
+  TRes call({Input$CreateMathSubFieldInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$CreateMathSubField<TRes>
@@ -108,15 +90,11 @@ class _CopyWithImpl$Variables$Mutation$CreateMathSubField<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? name = _undefined,
-    Object? mathFieldId = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$CreateMathSubField._({
         ..._instance._$data,
-        if (name != _undefined && name != null) 'name': (name as String),
-        if (mathFieldId != _undefined && mathFieldId != null)
-          'mathFieldId': (mathFieldId as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$CreateMathSubFieldInput),
       }));
 }
 
@@ -126,11 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$CreateMathSubField<TRes>
 
   TRes _res;
 
-  call({
-    String? name,
-    String? mathFieldId,
-  }) =>
-      _res;
+  call({Input$CreateMathSubFieldInput? input}) => _res;
 }
 
 class Mutation$CreateMathSubField {
@@ -281,23 +255,14 @@ const documentNodeMutationCreateMathSubField = DocumentNode(definitions: [
     name: NameNode(value: 'CreateMathSubField'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'String'),
+          name: NameNode(value: 'CreateMathSubFieldInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mathFieldId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -307,16 +272,7 @@ const documentNodeMutationCreateMathSubField = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'mathFieldId'),
-                value: VariableNode(name: NameNode(value: 'mathFieldId')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

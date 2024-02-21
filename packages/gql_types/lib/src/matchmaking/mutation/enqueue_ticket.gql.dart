@@ -1,31 +1,35 @@
+import '../../schema.gql.dart';
 import '../../shared/success_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$EnqueueTicket {
-  factory Variables$Mutation$EnqueueTicket({required String mathFieldId}) =>
+  factory Variables$Mutation$EnqueueTicket(
+          {required Input$EnqueueTicketInput input}) =>
       Variables$Mutation$EnqueueTicket._({
-        r'mathFieldId': mathFieldId,
+        r'input': input,
       });
 
   Variables$Mutation$EnqueueTicket._(this._$data);
 
   factory Variables$Mutation$EnqueueTicket.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$mathFieldId = data['mathFieldId'];
-    result$data['mathFieldId'] = (l$mathFieldId as String);
+    final l$input = data['input'];
+    result$data['input'] =
+        Input$EnqueueTicketInput.fromJson((l$input as Map<String, dynamic>));
     return Variables$Mutation$EnqueueTicket._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get mathFieldId => (_$data['mathFieldId'] as String);
+  Input$EnqueueTicketInput get input =>
+      (_$data['input'] as Input$EnqueueTicketInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$mathFieldId = mathFieldId;
-    result$data['mathFieldId'] = l$mathFieldId;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -44,9 +48,9 @@ class Variables$Mutation$EnqueueTicket {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$mathFieldId = mathFieldId;
-    final lOther$mathFieldId = other.mathFieldId;
-    if (l$mathFieldId != lOther$mathFieldId) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -54,8 +58,8 @@ class Variables$Mutation$EnqueueTicket {
 
   @override
   int get hashCode {
-    final l$mathFieldId = mathFieldId;
-    return Object.hashAll([l$mathFieldId]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -68,7 +72,7 @@ abstract class CopyWith$Variables$Mutation$EnqueueTicket<TRes> {
   factory CopyWith$Variables$Mutation$EnqueueTicket.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$EnqueueTicket;
 
-  TRes call({String? mathFieldId});
+  TRes call({Input$EnqueueTicketInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$EnqueueTicket<TRes>
@@ -84,11 +88,11 @@ class _CopyWithImpl$Variables$Mutation$EnqueueTicket<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? mathFieldId = _undefined}) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$EnqueueTicket._({
         ..._instance._$data,
-        if (mathFieldId != _undefined && mathFieldId != null)
-          'mathFieldId': (mathFieldId as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$EnqueueTicketInput),
       }));
 }
 
@@ -98,7 +102,7 @@ class _CopyWithStubImpl$Variables$Mutation$EnqueueTicket<TRes>
 
   TRes _res;
 
-  call({String? mathFieldId}) => _res;
+  call({Input$EnqueueTicketInput? input}) => _res;
 }
 
 class Mutation$EnqueueTicket {
@@ -242,9 +246,9 @@ const documentNodeMutationEnqueueTicket = DocumentNode(definitions: [
     name: NameNode(value: 'EnqueueTicket'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mathFieldId')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'EnqueueTicketInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -259,12 +263,7 @@ const documentNodeMutationEnqueueTicket = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'mathFieldId'),
-                value: VariableNode(name: NameNode(value: 'mathFieldId')),
-              )
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

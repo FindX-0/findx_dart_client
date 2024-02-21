@@ -1,41 +1,35 @@
+import '../../schema.gql.dart';
+import '../jwt_token_payload_object.gql.dart';
 import 'dart:async';
-import 'jwt_token_payload_object.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$AdminSignIn {
-  factory Variables$Mutation$AdminSignIn({
-    required String email,
-    required String password,
-  }) =>
+  factory Variables$Mutation$AdminSignIn(
+          {required Input$AdminSignInInput input}) =>
       Variables$Mutation$AdminSignIn._({
-        r'email': email,
-        r'password': password,
+        r'input': input,
       });
 
   Variables$Mutation$AdminSignIn._(this._$data);
 
   factory Variables$Mutation$AdminSignIn.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$email = data['email'];
-    result$data['email'] = (l$email as String);
-    final l$password = data['password'];
-    result$data['password'] = (l$password as String);
+    final l$input = data['input'];
+    result$data['input'] =
+        Input$AdminSignInInput.fromJson((l$input as Map<String, dynamic>));
     return Variables$Mutation$AdminSignIn._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get email => (_$data['email'] as String);
-
-  String get password => (_$data['password'] as String);
+  Input$AdminSignInInput get input =>
+      (_$data['input'] as Input$AdminSignInInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$email = email;
-    result$data['email'] = l$email;
-    final l$password = password;
-    result$data['password'] = l$password;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -54,14 +48,9 @@ class Variables$Mutation$AdminSignIn {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$email = email;
-    final lOther$email = other.email;
-    if (l$email != lOther$email) {
-      return false;
-    }
-    final l$password = password;
-    final lOther$password = other.password;
-    if (l$password != lOther$password) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -69,12 +58,8 @@ class Variables$Mutation$AdminSignIn {
 
   @override
   int get hashCode {
-    final l$email = email;
-    final l$password = password;
-    return Object.hashAll([
-      l$email,
-      l$password,
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -87,10 +72,7 @@ abstract class CopyWith$Variables$Mutation$AdminSignIn<TRes> {
   factory CopyWith$Variables$Mutation$AdminSignIn.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$AdminSignIn;
 
-  TRes call({
-    String? email,
-    String? password,
-  });
+  TRes call({Input$AdminSignInInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$AdminSignIn<TRes>
@@ -106,15 +88,11 @@ class _CopyWithImpl$Variables$Mutation$AdminSignIn<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? email = _undefined,
-    Object? password = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$AdminSignIn._({
         ..._instance._$data,
-        if (email != _undefined && email != null) 'email': (email as String),
-        if (password != _undefined && password != null)
-          'password': (password as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$AdminSignInInput),
       }));
 }
 
@@ -124,11 +102,7 @@ class _CopyWithStubImpl$Variables$Mutation$AdminSignIn<TRes>
 
   TRes _res;
 
-  call({
-    String? email,
-    String? password,
-  }) =>
-      _res;
+  call({Input$AdminSignInInput? input}) => _res;
 }
 
 class Mutation$AdminSignIn {
@@ -271,23 +245,14 @@ const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
     name: NameNode(value: 'AdminSignIn'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'email')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'String'),
+          name: NameNode(value: 'AdminSignInInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'password')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -297,16 +262,7 @@ const documentNodeMutationAdminSignIn = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'email'),
-                value: VariableNode(name: NameNode(value: 'email')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'password'),
-                value: VariableNode(name: NameNode(value: 'password')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

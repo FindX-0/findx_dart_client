@@ -1,0 +1,7 @@
+mutation AdminSignIn(
+  $input: AdminSignInInput!
+) {
+  adminSignIn(input: $input) {
+    ...JwtTokenPayload
+  }
+}

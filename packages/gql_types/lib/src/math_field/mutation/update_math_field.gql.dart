@@ -1,16 +1,14 @@
+import '../../schema.gql.dart';
 import '../math_field.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$UpdateMathField {
-  factory Variables$Mutation$UpdateMathField({
-    required String id,
-    String? name,
-  }) =>
+  factory Variables$Mutation$UpdateMathField(
+          {required Input$UpdateMathFieldInput input}) =>
       Variables$Mutation$UpdateMathField._({
-        r'id': id,
-        if (name != null) r'name': name,
+        r'input': input,
       });
 
   Variables$Mutation$UpdateMathField._(this._$data);
@@ -18,29 +16,21 @@ class Variables$Mutation$UpdateMathField {
   factory Variables$Mutation$UpdateMathField.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$id = data['id'];
-    result$data['id'] = (l$id as String);
-    if (data.containsKey('name')) {
-      final l$name = data['name'];
-      result$data['name'] = (l$name as String?);
-    }
+    final l$input = data['input'];
+    result$data['input'] =
+        Input$UpdateMathFieldInput.fromJson((l$input as Map<String, dynamic>));
     return Variables$Mutation$UpdateMathField._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get id => (_$data['id'] as String);
-
-  String? get name => (_$data['name'] as String?);
+  Input$UpdateMathFieldInput get input =>
+      (_$data['input'] as Input$UpdateMathFieldInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$id = id;
-    result$data['id'] = l$id;
-    if (_$data.containsKey('name')) {
-      final l$name = name;
-      result$data['name'] = l$name;
-    }
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -60,17 +50,9 @@ class Variables$Mutation$UpdateMathField {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
-      return false;
-    }
-    if (l$name != lOther$name) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -78,12 +60,8 @@ class Variables$Mutation$UpdateMathField {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    return Object.hashAll([
-      l$id,
-      _$data.containsKey('name') ? l$name : const {},
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -96,10 +74,7 @@ abstract class CopyWith$Variables$Mutation$UpdateMathField<TRes> {
   factory CopyWith$Variables$Mutation$UpdateMathField.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateMathField;
 
-  TRes call({
-    String? id,
-    String? name,
-  });
+  TRes call({Input$UpdateMathFieldInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$UpdateMathField<TRes>
@@ -115,14 +90,11 @@ class _CopyWithImpl$Variables$Mutation$UpdateMathField<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$UpdateMathField._({
         ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (name != _undefined) 'name': (name as String?),
+        if (input != _undefined && input != null)
+          'input': (input as Input$UpdateMathFieldInput),
       }));
 }
 
@@ -132,11 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateMathField<TRes>
 
   TRes _res;
 
-  call({
-    String? id,
-    String? name,
-  }) =>
-      _res;
+  call({Input$UpdateMathFieldInput? input}) => _res;
 }
 
 class Mutation$UpdateMathField {
@@ -282,23 +250,14 @@ const documentNodeMutationUpdateMathField = DocumentNode(definitions: [
     name: NameNode(value: 'UpdateMathField'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'UpdateMathFieldInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -308,16 +267,7 @@ const documentNodeMutationUpdateMathField = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'id'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

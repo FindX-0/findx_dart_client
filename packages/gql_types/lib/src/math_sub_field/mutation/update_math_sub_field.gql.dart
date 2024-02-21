@@ -1,18 +1,14 @@
+import '../../schema.gql.dart';
 import '../math_sub_field.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Mutation$UpdateMathSubField {
-  factory Variables$Mutation$UpdateMathSubField({
-    required String id,
-    String? name,
-    String? mathFieldId,
-  }) =>
+  factory Variables$Mutation$UpdateMathSubField(
+          {required Input$UpdateMathSubFieldInput input}) =>
       Variables$Mutation$UpdateMathSubField._({
-        r'id': id,
-        if (name != null) r'name': name,
-        if (mathFieldId != null) r'mathFieldId': mathFieldId,
+        r'input': input,
       });
 
   Variables$Mutation$UpdateMathSubField._(this._$data);
@@ -20,39 +16,21 @@ class Variables$Mutation$UpdateMathSubField {
   factory Variables$Mutation$UpdateMathSubField.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$id = data['id'];
-    result$data['id'] = (l$id as String);
-    if (data.containsKey('name')) {
-      final l$name = data['name'];
-      result$data['name'] = (l$name as String?);
-    }
-    if (data.containsKey('mathFieldId')) {
-      final l$mathFieldId = data['mathFieldId'];
-      result$data['mathFieldId'] = (l$mathFieldId as String?);
-    }
+    final l$input = data['input'];
+    result$data['input'] = Input$UpdateMathSubFieldInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Mutation$UpdateMathSubField._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get id => (_$data['id'] as String);
-
-  String? get name => (_$data['name'] as String?);
-
-  String? get mathFieldId => (_$data['mathFieldId'] as String?);
+  Input$UpdateMathSubFieldInput get input =>
+      (_$data['input'] as Input$UpdateMathSubFieldInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$id = id;
-    result$data['id'] = l$id;
-    if (_$data.containsKey('name')) {
-      final l$name = name;
-      result$data['name'] = l$name;
-    }
-    if (_$data.containsKey('mathFieldId')) {
-      final l$mathFieldId = mathFieldId;
-      result$data['mathFieldId'] = l$mathFieldId;
-    }
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -72,26 +50,9 @@ class Variables$Mutation$UpdateMathSubField {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
-      return false;
-    }
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$mathFieldId = mathFieldId;
-    final lOther$mathFieldId = other.mathFieldId;
-    if (_$data.containsKey('mathFieldId') !=
-        other._$data.containsKey('mathFieldId')) {
-      return false;
-    }
-    if (l$mathFieldId != lOther$mathFieldId) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -99,14 +60,8 @@ class Variables$Mutation$UpdateMathSubField {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$mathFieldId = mathFieldId;
-    return Object.hashAll([
-      l$id,
-      _$data.containsKey('name') ? l$name : const {},
-      _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -119,11 +74,7 @@ abstract class CopyWith$Variables$Mutation$UpdateMathSubField<TRes> {
   factory CopyWith$Variables$Mutation$UpdateMathSubField.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UpdateMathSubField;
 
-  TRes call({
-    String? id,
-    String? name,
-    String? mathFieldId,
-  });
+  TRes call({Input$UpdateMathSubFieldInput? input});
 }
 
 class _CopyWithImpl$Variables$Mutation$UpdateMathSubField<TRes>
@@ -139,16 +90,11 @@ class _CopyWithImpl$Variables$Mutation$UpdateMathSubField<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? mathFieldId = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Mutation$UpdateMathSubField._({
         ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as String),
-        if (name != _undefined) 'name': (name as String?),
-        if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
+        if (input != _undefined && input != null)
+          'input': (input as Input$UpdateMathSubFieldInput),
       }));
 }
 
@@ -158,12 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateMathSubField<TRes>
 
   TRes _res;
 
-  call({
-    String? id,
-    String? name,
-    String? mathFieldId,
-  }) =>
-      _res;
+  call({Input$UpdateMathSubFieldInput? input}) => _res;
 }
 
 class Mutation$UpdateMathSubField {
@@ -314,32 +255,14 @@ const documentNodeMutationUpdateMathSubField = DocumentNode(definitions: [
     name: NameNode(value: 'UpdateMathSubField'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'UpdateMathSubFieldInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mathFieldId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -349,20 +272,7 @@ const documentNodeMutationUpdateMathSubField = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'id'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'name'),
-                value: VariableNode(name: NameNode(value: 'name')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'mathFieldId'),
-                value: VariableNode(name: NameNode(value: 'mathFieldId')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

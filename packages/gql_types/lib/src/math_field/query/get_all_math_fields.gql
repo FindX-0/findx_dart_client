@@ -1,9 +1,7 @@
 query GetAllMathFields(
-  $onlyPublic: Boolean!,
+  $input: GetAllMathFieldsInput!
 ) {
-  getAllMathFields(input: {
-    onlyPublic: $onlyPublic
-  }) {
+  getAllMathFields(input: $input) {
     ...MathField
   }
 }

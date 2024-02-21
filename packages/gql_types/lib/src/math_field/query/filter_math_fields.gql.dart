@@ -1,45 +1,35 @@
+import '../../schema.gql.dart';
 import '../math_field.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$FilterMathFields {
-  factory Variables$Query$FilterMathFields({
-    String? lastId,
-    required int limit,
-  }) =>
+  factory Variables$Query$FilterMathFields(
+          {required Input$LastIdPageParamsObject input}) =>
       Variables$Query$FilterMathFields._({
-        if (lastId != null) r'lastId': lastId,
-        r'limit': limit,
+        r'input': input,
       });
 
   Variables$Query$FilterMathFields._(this._$data);
 
   factory Variables$Query$FilterMathFields.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('lastId')) {
-      final l$lastId = data['lastId'];
-      result$data['lastId'] = (l$lastId as String?);
-    }
-    final l$limit = data['limit'];
-    result$data['limit'] = (l$limit as int);
+    final l$input = data['input'];
+    result$data['input'] = Input$LastIdPageParamsObject.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Query$FilterMathFields._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String? get lastId => (_$data['lastId'] as String?);
-
-  int get limit => (_$data['limit'] as int);
+  Input$LastIdPageParamsObject get input =>
+      (_$data['input'] as Input$LastIdPageParamsObject);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('lastId')) {
-      final l$lastId = lastId;
-      result$data['lastId'] = l$lastId;
-    }
-    final l$limit = limit;
-    result$data['limit'] = l$limit;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -58,17 +48,9 @@ class Variables$Query$FilterMathFields {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$lastId = lastId;
-    final lOther$lastId = other.lastId;
-    if (_$data.containsKey('lastId') != other._$data.containsKey('lastId')) {
-      return false;
-    }
-    if (l$lastId != lOther$lastId) {
-      return false;
-    }
-    final l$limit = limit;
-    final lOther$limit = other.limit;
-    if (l$limit != lOther$limit) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -76,12 +58,8 @@ class Variables$Query$FilterMathFields {
 
   @override
   int get hashCode {
-    final l$lastId = lastId;
-    final l$limit = limit;
-    return Object.hashAll([
-      _$data.containsKey('lastId') ? l$lastId : const {},
-      l$limit,
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -94,10 +72,7 @@ abstract class CopyWith$Variables$Query$FilterMathFields<TRes> {
   factory CopyWith$Variables$Query$FilterMathFields.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FilterMathFields;
 
-  TRes call({
-    String? lastId,
-    int? limit,
-  });
+  TRes call({Input$LastIdPageParamsObject? input});
 }
 
 class _CopyWithImpl$Variables$Query$FilterMathFields<TRes>
@@ -113,14 +88,11 @@ class _CopyWithImpl$Variables$Query$FilterMathFields<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? lastId = _undefined,
-    Object? limit = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$FilterMathFields._({
         ..._instance._$data,
-        if (lastId != _undefined) 'lastId': (lastId as String?),
-        if (limit != _undefined && limit != null) 'limit': (limit as int),
+        if (input != _undefined && input != null)
+          'input': (input as Input$LastIdPageParamsObject),
       }));
 }
 
@@ -130,11 +102,7 @@ class _CopyWithStubImpl$Variables$Query$FilterMathFields<TRes>
 
   TRes _res;
 
-  call({
-    String? lastId,
-    int? limit,
-  }) =>
-      _res;
+  call({Input$LastIdPageParamsObject? input}) => _res;
 }
 
 class Query$FilterMathFields {
@@ -279,23 +247,14 @@ const documentNodeQueryFilterMathFields = DocumentNode(definitions: [
     name: NameNode(value: 'FilterMathFields'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'lastId')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'limit')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
+          name: NameNode(value: 'LastIdPageParamsObject'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -305,16 +264,7 @@ const documentNodeQueryFilterMathFields = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'lastId'),
-                value: VariableNode(name: NameNode(value: 'lastId')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'limit'),
-                value: VariableNode(name: NameNode(value: 'limit')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

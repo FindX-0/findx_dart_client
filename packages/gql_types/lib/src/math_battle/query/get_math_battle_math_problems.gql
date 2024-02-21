@@ -1,9 +1,7 @@
 query GetMathBattleMathProblems(
-  $matchId: ID!
+  $input: GetMathBattleMathProblemsInput!
 ) {
-  getMathBattleMathProblems(input: {
-    matchId: $matchId
-  }) {
+  getMathBattleMathProblems(input: $input) {
     id
     createdAt
     difficulty

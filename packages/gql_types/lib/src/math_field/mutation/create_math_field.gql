@@ -1,7 +1,5 @@
-mutation CreateMathField($name: String!) {
-  createMathField(input: {
-    name: $name
-  }) {
+mutation CreateMathField($input: CreateMathFieldInput!) {
+  createMathField(input: $input) {
     ...MathField
   }
 } 

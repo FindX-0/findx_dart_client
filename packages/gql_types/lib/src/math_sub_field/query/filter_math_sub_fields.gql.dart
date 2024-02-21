@@ -1,4 +1,5 @@
 import '../../math_field/math_field.gql.dart';
+import '../../schema.gql.dart';
 import '../math_sub_field.gql.dart';
 import '../math_sub_field_with_relations.gql.dart';
 import 'dart:async';
@@ -6,15 +7,10 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$FilterMathSubFields {
-  factory Variables$Query$FilterMathSubFields({
-    String? lastId,
-    required int limit,
-    String? mathFieldId,
-  }) =>
+  factory Variables$Query$FilterMathSubFields(
+          {required Input$FilterMathSubFieldsInput input}) =>
       Variables$Query$FilterMathSubFields._({
-        if (lastId != null) r'lastId': lastId,
-        r'limit': limit,
-        if (mathFieldId != null) r'mathFieldId': mathFieldId,
+        r'input': input,
       });
 
   Variables$Query$FilterMathSubFields._(this._$data);
@@ -22,39 +18,21 @@ class Variables$Query$FilterMathSubFields {
   factory Variables$Query$FilterMathSubFields.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('lastId')) {
-      final l$lastId = data['lastId'];
-      result$data['lastId'] = (l$lastId as String?);
-    }
-    final l$limit = data['limit'];
-    result$data['limit'] = (l$limit as int);
-    if (data.containsKey('mathFieldId')) {
-      final l$mathFieldId = data['mathFieldId'];
-      result$data['mathFieldId'] = (l$mathFieldId as String?);
-    }
+    final l$input = data['input'];
+    result$data['input'] = Input$FilterMathSubFieldsInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Query$FilterMathSubFields._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String? get lastId => (_$data['lastId'] as String?);
-
-  int get limit => (_$data['limit'] as int);
-
-  String? get mathFieldId => (_$data['mathFieldId'] as String?);
+  Input$FilterMathSubFieldsInput get input =>
+      (_$data['input'] as Input$FilterMathSubFieldsInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('lastId')) {
-      final l$lastId = lastId;
-      result$data['lastId'] = l$lastId;
-    }
-    final l$limit = limit;
-    result$data['limit'] = l$limit;
-    if (_$data.containsKey('mathFieldId')) {
-      final l$mathFieldId = mathFieldId;
-      result$data['mathFieldId'] = l$mathFieldId;
-    }
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -74,26 +52,9 @@ class Variables$Query$FilterMathSubFields {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$lastId = lastId;
-    final lOther$lastId = other.lastId;
-    if (_$data.containsKey('lastId') != other._$data.containsKey('lastId')) {
-      return false;
-    }
-    if (l$lastId != lOther$lastId) {
-      return false;
-    }
-    final l$limit = limit;
-    final lOther$limit = other.limit;
-    if (l$limit != lOther$limit) {
-      return false;
-    }
-    final l$mathFieldId = mathFieldId;
-    final lOther$mathFieldId = other.mathFieldId;
-    if (_$data.containsKey('mathFieldId') !=
-        other._$data.containsKey('mathFieldId')) {
-      return false;
-    }
-    if (l$mathFieldId != lOther$mathFieldId) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -101,14 +62,8 @@ class Variables$Query$FilterMathSubFields {
 
   @override
   int get hashCode {
-    final l$lastId = lastId;
-    final l$limit = limit;
-    final l$mathFieldId = mathFieldId;
-    return Object.hashAll([
-      _$data.containsKey('lastId') ? l$lastId : const {},
-      l$limit,
-      _$data.containsKey('mathFieldId') ? l$mathFieldId : const {},
-    ]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -121,11 +76,7 @@ abstract class CopyWith$Variables$Query$FilterMathSubFields<TRes> {
   factory CopyWith$Variables$Query$FilterMathSubFields.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FilterMathSubFields;
 
-  TRes call({
-    String? lastId,
-    int? limit,
-    String? mathFieldId,
-  });
+  TRes call({Input$FilterMathSubFieldsInput? input});
 }
 
 class _CopyWithImpl$Variables$Query$FilterMathSubFields<TRes>
@@ -141,16 +92,11 @@ class _CopyWithImpl$Variables$Query$FilterMathSubFields<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? lastId = _undefined,
-    Object? limit = _undefined,
-    Object? mathFieldId = _undefined,
-  }) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$FilterMathSubFields._({
         ..._instance._$data,
-        if (lastId != _undefined) 'lastId': (lastId as String?),
-        if (limit != _undefined && limit != null) 'limit': (limit as int),
-        if (mathFieldId != _undefined) 'mathFieldId': (mathFieldId as String?),
+        if (input != _undefined && input != null)
+          'input': (input as Input$FilterMathSubFieldsInput),
       }));
 }
 
@@ -160,12 +106,7 @@ class _CopyWithStubImpl$Variables$Query$FilterMathSubFields<TRes>
 
   TRes _res;
 
-  call({
-    String? lastId,
-    int? limit,
-    String? mathFieldId,
-  }) =>
-      _res;
+  call({Input$FilterMathSubFieldsInput? input}) => _res;
 }
 
 class Query$FilterMathSubFields {
@@ -316,32 +257,14 @@ const documentNodeQueryFilterMathSubFields = DocumentNode(definitions: [
     name: NameNode(value: 'FilterMathSubFields'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'lastId')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'limit')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
+          name: NameNode(value: 'FilterMathSubFieldsInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mathFieldId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -351,20 +274,7 @@ const documentNodeQueryFilterMathSubFields = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'lastId'),
-                value: VariableNode(name: NameNode(value: 'lastId')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'limit'),
-                value: VariableNode(name: NameNode(value: 'limit')),
-              ),
-              ObjectFieldNode(
-                name: NameNode(value: 'mathFieldId'),
-                value: VariableNode(name: NameNode(value: 'mathFieldId')),
-              ),
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],

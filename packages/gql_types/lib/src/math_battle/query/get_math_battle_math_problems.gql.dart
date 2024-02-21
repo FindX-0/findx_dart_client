@@ -1,13 +1,14 @@
 import '../../media_file/media_file.gql.dart';
+import '../../schema.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$GetMathBattleMathProblems {
   factory Variables$Query$GetMathBattleMathProblems(
-          {required String matchId}) =>
+          {required Input$GetMathBattleMathProblemsInput input}) =>
       Variables$Query$GetMathBattleMathProblems._({
-        r'matchId': matchId,
+        r'input': input,
       });
 
   Variables$Query$GetMathBattleMathProblems._(this._$data);
@@ -15,19 +16,21 @@ class Variables$Query$GetMathBattleMathProblems {
   factory Variables$Query$GetMathBattleMathProblems.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$matchId = data['matchId'];
-    result$data['matchId'] = (l$matchId as String);
+    final l$input = data['input'];
+    result$data['input'] = Input$GetMathBattleMathProblemsInput.fromJson(
+        (l$input as Map<String, dynamic>));
     return Variables$Query$GetMathBattleMathProblems._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get matchId => (_$data['matchId'] as String);
+  Input$GetMathBattleMathProblemsInput get input =>
+      (_$data['input'] as Input$GetMathBattleMathProblemsInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$matchId = matchId;
-    result$data['matchId'] = l$matchId;
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -47,9 +50,9 @@ class Variables$Query$GetMathBattleMathProblems {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$matchId = matchId;
-    final lOther$matchId = other.matchId;
-    if (l$matchId != lOther$matchId) {
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
       return false;
     }
     return true;
@@ -57,8 +60,8 @@ class Variables$Query$GetMathBattleMathProblems {
 
   @override
   int get hashCode {
-    final l$matchId = matchId;
-    return Object.hashAll([l$matchId]);
+    final l$input = input;
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -71,7 +74,7 @@ abstract class CopyWith$Variables$Query$GetMathBattleMathProblems<TRes> {
   factory CopyWith$Variables$Query$GetMathBattleMathProblems.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GetMathBattleMathProblems;
 
-  TRes call({String? matchId});
+  TRes call({Input$GetMathBattleMathProblemsInput? input});
 }
 
 class _CopyWithImpl$Variables$Query$GetMathBattleMathProblems<TRes>
@@ -87,11 +90,11 @@ class _CopyWithImpl$Variables$Query$GetMathBattleMathProblems<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? matchId = _undefined}) =>
+  TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$GetMathBattleMathProblems._({
         ..._instance._$data,
-        if (matchId != _undefined && matchId != null)
-          'matchId': (matchId as String),
+        if (input != _undefined && input != null)
+          'input': (input as Input$GetMathBattleMathProblemsInput),
       }));
 }
 
@@ -101,7 +104,7 @@ class _CopyWithStubImpl$Variables$Query$GetMathBattleMathProblems<TRes>
 
   TRes _res;
 
-  call({String? matchId}) => _res;
+  call({Input$GetMathBattleMathProblemsInput? input}) => _res;
 }
 
 class Query$GetMathBattleMathProblems {
@@ -276,9 +279,9 @@ const documentNodeQueryGetMathBattleMathProblems = DocumentNode(definitions: [
     name: NameNode(value: 'GetMathBattleMathProblems'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'matchId')),
+        variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'GetMathBattleMathProblemsInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -293,12 +296,7 @@ const documentNodeQueryGetMathBattleMathProblems = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: ObjectValueNode(fields: [
-              ObjectFieldNode(
-                name: NameNode(value: 'matchId'),
-                value: VariableNode(name: NameNode(value: 'matchId')),
-              )
-            ]),
+            value: VariableNode(name: NameNode(value: 'input')),
           )
         ],
         directives: [],
