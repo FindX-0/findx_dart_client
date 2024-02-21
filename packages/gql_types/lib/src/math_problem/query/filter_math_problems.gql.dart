@@ -1,5 +1,4 @@
 import '../../math_field/math_field.gql.dart';
-import '../../math_sub_field/math_sub_field.gql.dart';
 import '../../media_file/media_file.gql.dart';
 import '../../schema.gql.dart';
 import '../math_problem.gql.dart';
@@ -328,7 +327,6 @@ const documentNodeQueryFilterMathProblems = DocumentNode(definitions: [
   fragmentDefinitionMathProblem,
   fragmentDefinitionMediaFile,
   fragmentDefinitionMathField,
-  fragmentDefinitionMathSubField,
 ]);
 Query$FilterMathProblems _parserFn$Query$FilterMathProblems(
         Map<String, dynamic> data) =>

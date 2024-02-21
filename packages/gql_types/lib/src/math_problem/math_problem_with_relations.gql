@@ -7,6 +7,9 @@ fragment MathProblemWithRelations on MathProblemObject {
     ...MathField
   }
   mathSubField {
-    ...MathSubField
+    id
+    name
+    mathFieldId
+    createdAt
   }
 }
