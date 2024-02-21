@@ -64,9 +64,7 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
       () => _client.mutate$DeleteMathSubField(
         Options$Mutation$DeleteMathSubField(
           variables: Variables$Mutation$DeleteMathSubField(
-            input: Input$IdentifierInput(
-              id: id,
-            ),
+            input: Input$IdentifierInput(id: id),
           ),
         ),
       ),
@@ -112,7 +110,9 @@ class ApiMathSubFieldRemoteRepository with GqlRequestWrap implements MathSubFiel
     return callCatchWithFetchFailure(
       () => _client.query$GetMathSubFieldById(
         Options$Query$GetMathSubFieldById(
-          variables: Variables$Query$GetMathSubFieldById(id: id),
+          variables: Variables$Query$GetMathSubFieldById(
+            input: Input$IdentifierInput(id: id),
+          ),
         ),
       ),
       mapper: (r) => r.getMathSubFieldById,
