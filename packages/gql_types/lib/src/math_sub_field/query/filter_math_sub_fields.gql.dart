@@ -1,6 +1,5 @@
 import '../../math_field/math_field.gql.dart';
 import '../../schema.gql.dart';
-import '../math_sub_field.gql.dart';
 import '../math_sub_field_with_relations.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -324,7 +323,6 @@ const documentNodeQueryFilterMathSubFields = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionMathSubFieldWithRelations,
-  fragmentDefinitionMathSubField,
   fragmentDefinitionMathField,
 ]);
 Query$FilterMathSubFields _parserFn$Query$FilterMathSubFields(

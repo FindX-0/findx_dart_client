@@ -1,5 +1,8 @@
 fragment MathSubFieldWithRelations on MathSubFieldWithRelationsObject {
-  ...MathSubField
+  id
+  name
+  mathFieldId
+  createdAt
   mathField {
     ...MathField
   }
