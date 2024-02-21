@@ -1,4 +1,4 @@
-fragment MathSubFieldWithRelations on MathSubFieldObject {
+fragment MathSubFieldWithRelations on MathSubFieldWithRelationsObject {
   ...MathSubField
   mathField {
     ...MathField

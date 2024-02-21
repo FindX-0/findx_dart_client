@@ -59,7 +59,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
           : Fragment$MathField.fromJson((l$mathField as Map<String, dynamic>)),
       mathSubField: l$mathSubField == null
           ? null
-          : Fragment$MathSubField.fromJson(
+          : Fragment$MathProblemWithRelations$mathSubField.fromJson(
               (l$mathSubField as Map<String, dynamic>)),
     );
   }
@@ -88,7 +88,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
 
   final Fragment$MathField? mathField;
 
-  final Fragment$MathSubField? mathSubField;
+  final Fragment$MathProblemWithRelations$mathSubField? mathSubField;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
@@ -280,7 +280,7 @@ abstract class CopyWith$Fragment$MathProblemWithRelations<TRes> {
     String? $__typename,
     List<Fragment$MediaFile>? images,
     Fragment$MathField? mathField,
-    Fragment$MathSubField? mathSubField,
+    Fragment$MathProblemWithRelations$mathSubField? mathSubField,
   });
   TRes answers(
       Iterable<Fragment$MathProblemWithRelations$answers> Function(
@@ -293,7 +293,8 @@ abstract class CopyWith$Fragment$MathProblemWithRelations<TRes> {
               Iterable<CopyWith$Fragment$MediaFile<Fragment$MediaFile>>?)
           _fn);
   CopyWith$Fragment$MathField<TRes> get mathField;
-  CopyWith$Fragment$MathSubField<TRes> get mathSubField;
+  CopyWith$Fragment$MathProblemWithRelations$mathSubField<TRes>
+      get mathSubField;
 }
 
 class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
@@ -357,7 +358,7 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
             : (mathField as Fragment$MathField?),
         mathSubField: mathSubField == _undefined
             ? _instance.mathSubField
-            : (mathSubField as Fragment$MathSubField?),
+            : (mathSubField as Fragment$MathProblemWithRelations$mathSubField?),
       ));
 
   TRes answers(
@@ -391,11 +392,13 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
             local$mathField, (e) => call(mathField: e));
   }
 
-  CopyWith$Fragment$MathSubField<TRes> get mathSubField {
+  CopyWith$Fragment$MathProblemWithRelations$mathSubField<TRes>
+      get mathSubField {
     final local$mathSubField = _instance.mathSubField;
     return local$mathSubField == null
-        ? CopyWith$Fragment$MathSubField.stub(_then(_instance))
-        : CopyWith$Fragment$MathSubField(
+        ? CopyWith$Fragment$MathProblemWithRelations$mathSubField.stub(
+            _then(_instance))
+        : CopyWith$Fragment$MathProblemWithRelations$mathSubField(
             local$mathSubField, (e) => call(mathSubField: e));
   }
 }
@@ -419,7 +422,7 @@ class _CopyWithStubImpl$Fragment$MathProblemWithRelations<TRes>
     String? $__typename,
     List<Fragment$MediaFile>? images,
     Fragment$MathField? mathField,
-    Fragment$MathSubField? mathSubField,
+    Fragment$MathProblemWithRelations$mathSubField? mathSubField,
   }) =>
       _res;
 
@@ -430,8 +433,9 @@ class _CopyWithStubImpl$Fragment$MathProblemWithRelations<TRes>
   CopyWith$Fragment$MathField<TRes> get mathField =>
       CopyWith$Fragment$MathField.stub(_res);
 
-  CopyWith$Fragment$MathSubField<TRes> get mathSubField =>
-      CopyWith$Fragment$MathSubField.stub(_res);
+  CopyWith$Fragment$MathProblemWithRelations$mathSubField<TRes>
+      get mathSubField =>
+          CopyWith$Fragment$MathProblemWithRelations$mathSubField.stub(_res);
 }
 
 const fragmentDefinitionMathProblemWithRelations = FragmentDefinitionNode(
@@ -703,4 +707,100 @@ class _CopyWithStubImpl$Fragment$MathProblemWithRelations$answers<TRes>
     String? $__typename,
   }) =>
       _res;
+}
+
+class Fragment$MathProblemWithRelations$mathSubField {
+  Fragment$MathProblemWithRelations$mathSubField(
+      {this.$__typename = 'MathSubFieldWithRelationsObject'});
+
+  factory Fragment$MathProblemWithRelations$mathSubField.fromJson(
+      Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Fragment$MathProblemWithRelations$mathSubField(
+        $__typename: (l$$__typename as String));
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MathProblemWithRelations$mathSubField) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$MathProblemWithRelations$mathSubField
+    on Fragment$MathProblemWithRelations$mathSubField {
+  CopyWith$Fragment$MathProblemWithRelations$mathSubField<
+          Fragment$MathProblemWithRelations$mathSubField>
+      get copyWith => CopyWith$Fragment$MathProblemWithRelations$mathSubField(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$MathProblemWithRelations$mathSubField<TRes> {
+  factory CopyWith$Fragment$MathProblemWithRelations$mathSubField(
+    Fragment$MathProblemWithRelations$mathSubField instance,
+    TRes Function(Fragment$MathProblemWithRelations$mathSubField) then,
+  ) = _CopyWithImpl$Fragment$MathProblemWithRelations$mathSubField;
+
+  factory CopyWith$Fragment$MathProblemWithRelations$mathSubField.stub(
+          TRes res) =
+      _CopyWithStubImpl$Fragment$MathProblemWithRelations$mathSubField;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Fragment$MathProblemWithRelations$mathSubField<TRes>
+    implements CopyWith$Fragment$MathProblemWithRelations$mathSubField<TRes> {
+  _CopyWithImpl$Fragment$MathProblemWithRelations$mathSubField(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$MathProblemWithRelations$mathSubField _instance;
+
+  final TRes Function(Fragment$MathProblemWithRelations$mathSubField) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) =>
+      _then(Fragment$MathProblemWithRelations$mathSubField(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Fragment$MathProblemWithRelations$mathSubField<TRes>
+    implements CopyWith$Fragment$MathProblemWithRelations$mathSubField<TRes> {
+  _CopyWithStubImpl$Fragment$MathProblemWithRelations$mathSubField(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }

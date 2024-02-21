@@ -7,6 +7,8 @@ fragment AnswerFunctionWithRelations on AnswerFunctionWithRelationsObject {
   numberType
   mathSubFieldId
   mathSubField {
-    ...MathSubField
+    id
+    mathFieldId
+    name
   }
 }

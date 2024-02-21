@@ -1,4 +1,3 @@
-import '../../math_sub_field/math_sub_field.gql.dart';
 import '../../schema.gql.dart';
 import '../answer_function_with_relations.gql.dart';
 import 'dart:async';
@@ -323,7 +322,6 @@ const documentNodeQueryFilterAnswerFunctions = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionAnswerFunctionWithRelations,
-  fragmentDefinitionMathSubField,
 ]);
 Query$FilterAnswerFunctions _parserFn$Query$FilterAnswerFunctions(
         Map<String, dynamic> data) =>

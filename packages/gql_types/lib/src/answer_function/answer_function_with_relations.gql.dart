@@ -1,4 +1,3 @@
-import '../math_sub_field/math_sub_field.gql.dart';
 import '../schema.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -37,7 +36,7 @@ class Fragment$AnswerFunctionWithRelations {
       mathSubFieldId: (l$mathSubFieldId as String),
       mathSubField: l$mathSubField == null
           ? null
-          : Fragment$MathSubField.fromJson(
+          : Fragment$AnswerFunctionWithRelations$mathSubField.fromJson(
               (l$mathSubField as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -57,7 +56,7 @@ class Fragment$AnswerFunctionWithRelations {
 
   final String mathSubFieldId;
 
-  final Fragment$MathSubField? mathSubField;
+  final Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField;
 
   final String $__typename;
 
@@ -193,10 +192,11 @@ abstract class CopyWith$Fragment$AnswerFunctionWithRelations<TRes> {
     String? weight,
     Enum$NumberType? numberType,
     String? mathSubFieldId,
-    Fragment$MathSubField? mathSubField,
+    Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField,
     String? $__typename,
   });
-  CopyWith$Fragment$MathSubField<TRes> get mathSubField;
+  CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField<TRes>
+      get mathSubField;
 }
 
 class _CopyWithImpl$Fragment$AnswerFunctionWithRelations<TRes>
@@ -245,17 +245,20 @@ class _CopyWithImpl$Fragment$AnswerFunctionWithRelations<TRes>
             : (mathSubFieldId as String),
         mathSubField: mathSubField == _undefined
             ? _instance.mathSubField
-            : (mathSubField as Fragment$MathSubField?),
+            : (mathSubField
+                as Fragment$AnswerFunctionWithRelations$mathSubField?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Fragment$MathSubField<TRes> get mathSubField {
+  CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField<TRes>
+      get mathSubField {
     final local$mathSubField = _instance.mathSubField;
     return local$mathSubField == null
-        ? CopyWith$Fragment$MathSubField.stub(_then(_instance))
-        : CopyWith$Fragment$MathSubField(
+        ? CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField.stub(
+            _then(_instance))
+        : CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField(
             local$mathSubField, (e) => call(mathSubField: e));
   }
 }
@@ -274,13 +277,14 @@ class _CopyWithStubImpl$Fragment$AnswerFunctionWithRelations<TRes>
     String? weight,
     Enum$NumberType? numberType,
     String? mathSubFieldId,
-    Fragment$MathSubField? mathSubField,
+    Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Fragment$MathSubField<TRes> get mathSubField =>
-      CopyWith$Fragment$MathSubField.stub(_res);
+  CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField<TRes>
+      get mathSubField =>
+          CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField.stub(_res);
 }
 
 const fragmentDefinitionAnswerFunctionWithRelations = FragmentDefinitionNode(
@@ -347,9 +351,26 @@ const fragmentDefinitionAnswerFunctionWithRelations = FragmentDefinitionNode(
       arguments: [],
       directives: [],
       selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'MathSubField'),
+        FieldNode(
+          name: NameNode(value: 'id'),
+          alias: null,
+          arguments: [],
           directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'mathFieldId'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'name'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
         ),
         FieldNode(
           name: NameNode(value: '__typename'),
@@ -372,7 +393,6 @@ const fragmentDefinitionAnswerFunctionWithRelations = FragmentDefinitionNode(
 const documentNodeFragmentAnswerFunctionWithRelations =
     DocumentNode(definitions: [
   fragmentDefinitionAnswerFunctionWithRelations,
-  fragmentDefinitionMathSubField,
 ]);
 
 extension ClientExtension$Fragment$AnswerFunctionWithRelations
@@ -412,4 +432,175 @@ extension ClientExtension$Fragment$AnswerFunctionWithRelations
         ? null
         : Fragment$AnswerFunctionWithRelations.fromJson(result);
   }
+}
+
+class Fragment$AnswerFunctionWithRelations$mathSubField {
+  Fragment$AnswerFunctionWithRelations$mathSubField({
+    required this.id,
+    required this.mathFieldId,
+    required this.name,
+    this.$__typename = 'MathSubFieldObject',
+  });
+
+  factory Fragment$AnswerFunctionWithRelations$mathSubField.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$mathFieldId = json['mathFieldId'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Fragment$AnswerFunctionWithRelations$mathSubField(
+      id: (l$id as String),
+      mathFieldId: (l$mathFieldId as String),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String mathFieldId;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$mathFieldId = mathFieldId;
+    _resultData['mathFieldId'] = l$mathFieldId;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$mathFieldId = mathFieldId;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$mathFieldId,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$AnswerFunctionWithRelations$mathSubField) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$mathFieldId = mathFieldId;
+    final lOther$mathFieldId = other.mathFieldId;
+    if (l$mathFieldId != lOther$mathFieldId) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$AnswerFunctionWithRelations$mathSubField
+    on Fragment$AnswerFunctionWithRelations$mathSubField {
+  CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField<
+          Fragment$AnswerFunctionWithRelations$mathSubField>
+      get copyWith =>
+          CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField<
+    TRes> {
+  factory CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField(
+    Fragment$AnswerFunctionWithRelations$mathSubField instance,
+    TRes Function(Fragment$AnswerFunctionWithRelations$mathSubField) then,
+  ) = _CopyWithImpl$Fragment$AnswerFunctionWithRelations$mathSubField;
+
+  factory CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField.stub(
+          TRes res) =
+      _CopyWithStubImpl$Fragment$AnswerFunctionWithRelations$mathSubField;
+
+  TRes call({
+    String? id,
+    String? mathFieldId,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$AnswerFunctionWithRelations$mathSubField<TRes>
+    implements
+        CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField<TRes> {
+  _CopyWithImpl$Fragment$AnswerFunctionWithRelations$mathSubField(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$AnswerFunctionWithRelations$mathSubField _instance;
+
+  final TRes Function(Fragment$AnswerFunctionWithRelations$mathSubField) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? mathFieldId = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$AnswerFunctionWithRelations$mathSubField(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        mathFieldId: mathFieldId == _undefined || mathFieldId == null
+            ? _instance.mathFieldId
+            : (mathFieldId as String),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$AnswerFunctionWithRelations$mathSubField<TRes>
+    implements
+        CopyWith$Fragment$AnswerFunctionWithRelations$mathSubField<TRes> {
+  _CopyWithStubImpl$Fragment$AnswerFunctionWithRelations$mathSubField(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? mathFieldId,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
 }

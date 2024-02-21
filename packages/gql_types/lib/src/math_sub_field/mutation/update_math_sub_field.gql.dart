@@ -176,13 +176,14 @@ class Mutation$UpdateMathSubField {
     final l$updateMathSubField = json['updateMathSubField'];
     final l$$__typename = json['__typename'];
     return Mutation$UpdateMathSubField(
-      updateMathSubField: Fragment$MathSubField.fromJson(
-          (l$updateMathSubField as Map<String, dynamic>)),
+      updateMathSubField:
+          Mutation$UpdateMathSubField$updateMathSubField.fromJson(
+              (l$updateMathSubField as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Fragment$MathSubField updateMathSubField;
+  final Mutation$UpdateMathSubField$updateMathSubField updateMathSubField;
 
   final String $__typename;
 
@@ -247,10 +248,11 @@ abstract class CopyWith$Mutation$UpdateMathSubField<TRes> {
       _CopyWithStubImpl$Mutation$UpdateMathSubField;
 
   TRes call({
-    Fragment$MathSubField? updateMathSubField,
+    Mutation$UpdateMathSubField$updateMathSubField? updateMathSubField,
     String? $__typename,
   });
-  CopyWith$Fragment$MathSubField<TRes> get updateMathSubField;
+  CopyWith$Mutation$UpdateMathSubField$updateMathSubField<TRes>
+      get updateMathSubField;
 }
 
 class _CopyWithImpl$Mutation$UpdateMathSubField<TRes>
@@ -274,15 +276,17 @@ class _CopyWithImpl$Mutation$UpdateMathSubField<TRes>
         updateMathSubField:
             updateMathSubField == _undefined || updateMathSubField == null
                 ? _instance.updateMathSubField
-                : (updateMathSubField as Fragment$MathSubField),
+                : (updateMathSubField
+                    as Mutation$UpdateMathSubField$updateMathSubField),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Fragment$MathSubField<TRes> get updateMathSubField {
+  CopyWith$Mutation$UpdateMathSubField$updateMathSubField<TRes>
+      get updateMathSubField {
     final local$updateMathSubField = _instance.updateMathSubField;
-    return CopyWith$Fragment$MathSubField(
+    return CopyWith$Mutation$UpdateMathSubField$updateMathSubField(
         local$updateMathSubField, (e) => call(updateMathSubField: e));
   }
 }
@@ -294,13 +298,14 @@ class _CopyWithStubImpl$Mutation$UpdateMathSubField<TRes>
   TRes _res;
 
   call({
-    Fragment$MathSubField? updateMathSubField,
+    Mutation$UpdateMathSubField$updateMathSubField? updateMathSubField,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Fragment$MathSubField<TRes> get updateMathSubField =>
-      CopyWith$Fragment$MathSubField.stub(_res);
+  CopyWith$Mutation$UpdateMathSubField$updateMathSubField<TRes>
+      get updateMathSubField =>
+          CopyWith$Mutation$UpdateMathSubField$updateMathSubField.stub(_res);
 }
 
 const documentNodeMutationUpdateMathSubField = DocumentNode(definitions: [
@@ -484,4 +489,100 @@ extension ClientExtension$Mutation$UpdateMathSubField on graphql.GraphQLClient {
       watchMutation$UpdateMathSubField(
               WatchOptions$Mutation$UpdateMathSubField options) =>
           this.watchMutation(options);
+}
+
+class Mutation$UpdateMathSubField$updateMathSubField {
+  Mutation$UpdateMathSubField$updateMathSubField(
+      {this.$__typename = 'MathSubFieldWithRelationsObject'});
+
+  factory Mutation$UpdateMathSubField$updateMathSubField.fromJson(
+      Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Mutation$UpdateMathSubField$updateMathSubField(
+        $__typename: (l$$__typename as String));
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$UpdateMathSubField$updateMathSubField) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$UpdateMathSubField$updateMathSubField
+    on Mutation$UpdateMathSubField$updateMathSubField {
+  CopyWith$Mutation$UpdateMathSubField$updateMathSubField<
+          Mutation$UpdateMathSubField$updateMathSubField>
+      get copyWith => CopyWith$Mutation$UpdateMathSubField$updateMathSubField(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$UpdateMathSubField$updateMathSubField<TRes> {
+  factory CopyWith$Mutation$UpdateMathSubField$updateMathSubField(
+    Mutation$UpdateMathSubField$updateMathSubField instance,
+    TRes Function(Mutation$UpdateMathSubField$updateMathSubField) then,
+  ) = _CopyWithImpl$Mutation$UpdateMathSubField$updateMathSubField;
+
+  factory CopyWith$Mutation$UpdateMathSubField$updateMathSubField.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$UpdateMathSubField$updateMathSubField;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Mutation$UpdateMathSubField$updateMathSubField<TRes>
+    implements CopyWith$Mutation$UpdateMathSubField$updateMathSubField<TRes> {
+  _CopyWithImpl$Mutation$UpdateMathSubField$updateMathSubField(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$UpdateMathSubField$updateMathSubField _instance;
+
+  final TRes Function(Mutation$UpdateMathSubField$updateMathSubField) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) =>
+      _then(Mutation$UpdateMathSubField$updateMathSubField(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Mutation$UpdateMathSubField$updateMathSubField<TRes>
+    implements CopyWith$Mutation$UpdateMathSubField$updateMathSubField<TRes> {
+  _CopyWithStubImpl$Mutation$UpdateMathSubField$updateMathSubField(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }
