@@ -2612,6 +2612,7 @@ class _CopyWithStubImpl$Input$GenerateMathProblemNumberParameterInput<TRes>
 
 class Input$GenerateMathProblemValuesInput {
   factory Input$GenerateMathProblemValuesInput({
+    String? answerConditionFunc,
     required List<Input$GenerateMathProblemCustomStrParameterInput>
         customStrParams,
     required String mathSubFieldId,
@@ -2619,6 +2620,8 @@ class Input$GenerateMathProblemValuesInput {
     required String template,
   }) =>
       Input$GenerateMathProblemValuesInput._({
+        if (answerConditionFunc != null)
+          r'answerConditionFunc': answerConditionFunc,
         r'customStrParams': customStrParams,
         r'mathSubFieldId': mathSubFieldId,
         r'numberParams': numberParams,
@@ -2630,6 +2633,10 @@ class Input$GenerateMathProblemValuesInput {
   factory Input$GenerateMathProblemValuesInput.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('answerConditionFunc')) {
+      final l$answerConditionFunc = data['answerConditionFunc'];
+      result$data['answerConditionFunc'] = (l$answerConditionFunc as String?);
+    }
     final l$customStrParams = data['customStrParams'];
     result$data['customStrParams'] = (l$customStrParams as List<dynamic>)
         .map((e) => Input$GenerateMathProblemCustomStrParameterInput.fromJson(
@@ -2649,6 +2656,8 @@ class Input$GenerateMathProblemValuesInput {
 
   Map<String, dynamic> _$data;
 
+  String? get answerConditionFunc => (_$data['answerConditionFunc'] as String?);
+
   List<Input$GenerateMathProblemCustomStrParameterInput> get customStrParams =>
       (_$data['customStrParams']
           as List<Input$GenerateMathProblemCustomStrParameterInput>);
@@ -2663,6 +2672,10 @@ class Input$GenerateMathProblemValuesInput {
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('answerConditionFunc')) {
+      final l$answerConditionFunc = answerConditionFunc;
+      result$data['answerConditionFunc'] = l$answerConditionFunc;
+    }
     final l$customStrParams = customStrParams;
     result$data['customStrParams'] =
         l$customStrParams.map((e) => e.toJson()).toList();
@@ -2690,6 +2703,15 @@ class Input$GenerateMathProblemValuesInput {
     }
     if (!(other is Input$GenerateMathProblemValuesInput) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$answerConditionFunc = answerConditionFunc;
+    final lOther$answerConditionFunc = other.answerConditionFunc;
+    if (_$data.containsKey('answerConditionFunc') !=
+        other._$data.containsKey('answerConditionFunc')) {
+      return false;
+    }
+    if (l$answerConditionFunc != lOther$answerConditionFunc) {
       return false;
     }
     final l$customStrParams = customStrParams;
@@ -2731,11 +2753,15 @@ class Input$GenerateMathProblemValuesInput {
 
   @override
   int get hashCode {
+    final l$answerConditionFunc = answerConditionFunc;
     final l$customStrParams = customStrParams;
     final l$mathSubFieldId = mathSubFieldId;
     final l$numberParams = numberParams;
     final l$template = template;
     return Object.hashAll([
+      _$data.containsKey('answerConditionFunc')
+          ? l$answerConditionFunc
+          : const {},
       Object.hashAll(l$customStrParams.map((v) => v)),
       l$mathSubFieldId,
       Object.hashAll(l$numberParams.map((v) => v)),
@@ -2754,6 +2780,7 @@ abstract class CopyWith$Input$GenerateMathProblemValuesInput<TRes> {
       _CopyWithStubImpl$Input$GenerateMathProblemValuesInput;
 
   TRes call({
+    String? answerConditionFunc,
     List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
     String? mathSubFieldId,
     List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
@@ -2787,6 +2814,7 @@ class _CopyWithImpl$Input$GenerateMathProblemValuesInput<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? answerConditionFunc = _undefined,
     Object? customStrParams = _undefined,
     Object? mathSubFieldId = _undefined,
     Object? numberParams = _undefined,
@@ -2794,6 +2822,8 @@ class _CopyWithImpl$Input$GenerateMathProblemValuesInput<TRes>
   }) =>
       _then(Input$GenerateMathProblemValuesInput._({
         ..._instance._$data,
+        if (answerConditionFunc != _undefined)
+          'answerConditionFunc': (answerConditionFunc as String?),
         if (customStrParams != _undefined && customStrParams != null)
           'customStrParams': (customStrParams
               as List<Input$GenerateMathProblemCustomStrParameterInput>),
@@ -2840,6 +2870,7 @@ class _CopyWithStubImpl$Input$GenerateMathProblemValuesInput<TRes>
   TRes _res;
 
   call({
+    String? answerConditionFunc,
     List<Input$GenerateMathProblemCustomStrParameterInput>? customStrParams,
     String? mathSubFieldId,
     List<Input$GenerateMathProblemNumberParameterInput>? numberParams,
