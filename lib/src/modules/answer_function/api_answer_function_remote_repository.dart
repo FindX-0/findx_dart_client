@@ -17,7 +17,6 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
     required String func,
     required String? condition,
     required double weight,
-    required NumberType numberType,
     required String mathSubFieldId,
   }) async {
     return callCatchWithActionFailure(
@@ -28,7 +27,6 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
               func: func,
               weight: weight,
               condition: condition,
-              numberType: numberType,
               mathSubFieldId: mathSubFieldId,
             ),
           ),
@@ -58,7 +56,6 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
   Future<Either<FetchFailure, DataPage<AnswerFunctionPageItem>>> filter({
     required int limit,
     String? lastId,
-    NumberType? numberType,
     String? mathSubFieldId,
   }) async {
     return callCatchWithFetchFailure(
@@ -68,7 +65,6 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
             input: Input$FilterAnswerFunctionsInput(
               limit: limit,
               lastId: lastId,
-              numberType: numberType,
               mathSubFieldId: mathSubFieldId,
             ),
           ),
@@ -85,14 +81,14 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
 
   @override
   Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll({
-    NumberType? numberType,
+    String? mathSubFieldId,
   }) {
     return callCatchWithFetchFailure(
       () => _client.query$getAllAnswerFunctions(
         Options$Query$getAllAnswerFunctions(
           variables: Variables$Query$getAllAnswerFunctions(
             input: Input$GetAllAnswerFunctionsInput(
-              numberType: numberType,
+              mathSubFieldId: mathSubFieldId,
             ),
           ),
         ),
@@ -121,7 +117,6 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
     String? func,
     String? condition,
     double? weight,
-    NumberType? numberType,
     String? mathSubFieldId,
   }) async {
     return callCatchWithActionFailure(
@@ -133,7 +128,6 @@ class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFun
               func: func,
               weight: weight,
               condition: condition,
-              numberType: numberType,
               mathSubFieldId: mathSubFieldId,
             ),
           ),

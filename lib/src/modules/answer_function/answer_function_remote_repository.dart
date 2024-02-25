@@ -6,7 +6,6 @@ abstract interface class AnswerFunctionRemoteRepository {
     required String func,
     required String? condition,
     required double weight,
-    required NumberType numberType,
     required String mathSubFieldId,
   });
 
@@ -15,7 +14,6 @@ abstract interface class AnswerFunctionRemoteRepository {
     String? func,
     String? condition,
     double? weight,
-    NumberType? numberType,
     String? mathSubFieldId,
   });
 
@@ -28,11 +26,10 @@ abstract interface class AnswerFunctionRemoteRepository {
   Future<Either<FetchFailure, DataPage<AnswerFunctionPageItem>>> filter({
     required int limit,
     String? lastId,
-    NumberType? numberType,
     String? mathSubFieldId,
   });
 
   Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll({
-    NumberType? numberType,
+    String? mathSubFieldId,
   });
 }
