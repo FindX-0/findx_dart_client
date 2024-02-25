@@ -1,4 +1,3 @@
-import '../schema.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -9,7 +8,6 @@ class Fragment$AnswerFunctionWithRelations {
     required this.func,
     this.condition,
     required this.weight,
-    required this.numberType,
     required this.mathSubFieldId,
     this.mathSubField,
     this.$__typename = 'AnswerFunctionWithRelationsObject',
@@ -22,7 +20,6 @@ class Fragment$AnswerFunctionWithRelations {
     final l$func = json['func'];
     final l$condition = json['condition'];
     final l$weight = json['weight'];
-    final l$numberType = json['numberType'];
     final l$mathSubFieldId = json['mathSubFieldId'];
     final l$mathSubField = json['mathSubField'];
     final l$$__typename = json['__typename'];
@@ -32,7 +29,6 @@ class Fragment$AnswerFunctionWithRelations {
       func: (l$func as String),
       condition: (l$condition as String?),
       weight: (l$weight as String),
-      numberType: fromJson$Enum$NumberType((l$numberType as String)),
       mathSubFieldId: (l$mathSubFieldId as String),
       mathSubField: l$mathSubField == null
           ? null
@@ -52,8 +48,6 @@ class Fragment$AnswerFunctionWithRelations {
 
   final String weight;
 
-  final Enum$NumberType numberType;
-
   final String mathSubFieldId;
 
   final Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField;
@@ -72,8 +66,6 @@ class Fragment$AnswerFunctionWithRelations {
     _resultData['condition'] = l$condition;
     final l$weight = weight;
     _resultData['weight'] = l$weight;
-    final l$numberType = numberType;
-    _resultData['numberType'] = toJson$Enum$NumberType(l$numberType);
     final l$mathSubFieldId = mathSubFieldId;
     _resultData['mathSubFieldId'] = l$mathSubFieldId;
     final l$mathSubField = mathSubField;
@@ -90,7 +82,6 @@ class Fragment$AnswerFunctionWithRelations {
     final l$func = func;
     final l$condition = condition;
     final l$weight = weight;
-    final l$numberType = numberType;
     final l$mathSubFieldId = mathSubFieldId;
     final l$mathSubField = mathSubField;
     final l$$__typename = $__typename;
@@ -100,7 +91,6 @@ class Fragment$AnswerFunctionWithRelations {
       l$func,
       l$condition,
       l$weight,
-      l$numberType,
       l$mathSubFieldId,
       l$mathSubField,
       l$$__typename,
@@ -139,11 +129,6 @@ class Fragment$AnswerFunctionWithRelations {
     final l$weight = weight;
     final lOther$weight = other.weight;
     if (l$weight != lOther$weight) {
-      return false;
-    }
-    final l$numberType = numberType;
-    final lOther$numberType = other.numberType;
-    if (l$numberType != lOther$numberType) {
       return false;
     }
     final l$mathSubFieldId = mathSubFieldId;
@@ -190,7 +175,6 @@ abstract class CopyWith$Fragment$AnswerFunctionWithRelations<TRes> {
     String? func,
     String? condition,
     String? weight,
-    Enum$NumberType? numberType,
     String? mathSubFieldId,
     Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField,
     String? $__typename,
@@ -218,7 +202,6 @@ class _CopyWithImpl$Fragment$AnswerFunctionWithRelations<TRes>
     Object? func = _undefined,
     Object? condition = _undefined,
     Object? weight = _undefined,
-    Object? numberType = _undefined,
     Object? mathSubFieldId = _undefined,
     Object? mathSubField = _undefined,
     Object? $__typename = _undefined,
@@ -237,9 +220,6 @@ class _CopyWithImpl$Fragment$AnswerFunctionWithRelations<TRes>
         weight: weight == _undefined || weight == null
             ? _instance.weight
             : (weight as String),
-        numberType: numberType == _undefined || numberType == null
-            ? _instance.numberType
-            : (numberType as Enum$NumberType),
         mathSubFieldId: mathSubFieldId == _undefined || mathSubFieldId == null
             ? _instance.mathSubFieldId
             : (mathSubFieldId as String),
@@ -275,7 +255,6 @@ class _CopyWithStubImpl$Fragment$AnswerFunctionWithRelations<TRes>
     String? func,
     String? condition,
     String? weight,
-    Enum$NumberType? numberType,
     String? mathSubFieldId,
     Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField,
     String? $__typename,
@@ -326,13 +305,6 @@ const fragmentDefinitionAnswerFunctionWithRelations = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'weight'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'numberType'),
       alias: null,
       arguments: [],
       directives: [],

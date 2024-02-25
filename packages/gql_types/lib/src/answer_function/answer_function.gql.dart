@@ -1,4 +1,3 @@
-import '../schema.gql.dart';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
@@ -9,7 +8,6 @@ class Fragment$AnswerFunction {
     required this.func,
     this.condition,
     required this.weight,
-    required this.numberType,
     required this.mathSubFieldId,
     this.$__typename = 'AnswerFunctionObject',
   });
@@ -20,7 +18,6 @@ class Fragment$AnswerFunction {
     final l$func = json['func'];
     final l$condition = json['condition'];
     final l$weight = json['weight'];
-    final l$numberType = json['numberType'];
     final l$mathSubFieldId = json['mathSubFieldId'];
     final l$$__typename = json['__typename'];
     return Fragment$AnswerFunction(
@@ -29,7 +26,6 @@ class Fragment$AnswerFunction {
       func: (l$func as String),
       condition: (l$condition as String?),
       weight: (l$weight as String),
-      numberType: fromJson$Enum$NumberType((l$numberType as String)),
       mathSubFieldId: (l$mathSubFieldId as String),
       $__typename: (l$$__typename as String),
     );
@@ -44,8 +40,6 @@ class Fragment$AnswerFunction {
   final String? condition;
 
   final String weight;
-
-  final Enum$NumberType numberType;
 
   final String mathSubFieldId;
 
@@ -63,8 +57,6 @@ class Fragment$AnswerFunction {
     _resultData['condition'] = l$condition;
     final l$weight = weight;
     _resultData['weight'] = l$weight;
-    final l$numberType = numberType;
-    _resultData['numberType'] = toJson$Enum$NumberType(l$numberType);
     final l$mathSubFieldId = mathSubFieldId;
     _resultData['mathSubFieldId'] = l$mathSubFieldId;
     final l$$__typename = $__typename;
@@ -79,7 +71,6 @@ class Fragment$AnswerFunction {
     final l$func = func;
     final l$condition = condition;
     final l$weight = weight;
-    final l$numberType = numberType;
     final l$mathSubFieldId = mathSubFieldId;
     final l$$__typename = $__typename;
     return Object.hashAll([
@@ -88,7 +79,6 @@ class Fragment$AnswerFunction {
       l$func,
       l$condition,
       l$weight,
-      l$numberType,
       l$mathSubFieldId,
       l$$__typename,
     ]);
@@ -128,11 +118,6 @@ class Fragment$AnswerFunction {
     if (l$weight != lOther$weight) {
       return false;
     }
-    final l$numberType = numberType;
-    final lOther$numberType = other.numberType;
-    if (l$numberType != lOther$numberType) {
-      return false;
-    }
     final l$mathSubFieldId = mathSubFieldId;
     final lOther$mathSubFieldId = other.mathSubFieldId;
     if (l$mathSubFieldId != lOther$mathSubFieldId) {
@@ -170,7 +155,6 @@ abstract class CopyWith$Fragment$AnswerFunction<TRes> {
     String? func,
     String? condition,
     String? weight,
-    Enum$NumberType? numberType,
     String? mathSubFieldId,
     String? $__typename,
   });
@@ -195,7 +179,6 @@ class _CopyWithImpl$Fragment$AnswerFunction<TRes>
     Object? func = _undefined,
     Object? condition = _undefined,
     Object? weight = _undefined,
-    Object? numberType = _undefined,
     Object? mathSubFieldId = _undefined,
     Object? $__typename = _undefined,
   }) =>
@@ -213,9 +196,6 @@ class _CopyWithImpl$Fragment$AnswerFunction<TRes>
         weight: weight == _undefined || weight == null
             ? _instance.weight
             : (weight as String),
-        numberType: numberType == _undefined || numberType == null
-            ? _instance.numberType
-            : (numberType as Enum$NumberType),
         mathSubFieldId: mathSubFieldId == _undefined || mathSubFieldId == null
             ? _instance.mathSubFieldId
             : (mathSubFieldId as String),
@@ -237,7 +217,6 @@ class _CopyWithStubImpl$Fragment$AnswerFunction<TRes>
     String? func,
     String? condition,
     String? weight,
-    Enum$NumberType? numberType,
     String? mathSubFieldId,
     String? $__typename,
   }) =>
@@ -283,13 +262,6 @@ const fragmentDefinitionAnswerFunction = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'weight'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'numberType'),
       alias: null,
       arguments: [],
       directives: [],

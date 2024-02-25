@@ -4,6 +4,5 @@ fragment AnswerFunction on AnswerFunctionObject {
   func
   condition
   weight
-  numberType
   mathSubFieldId
 }

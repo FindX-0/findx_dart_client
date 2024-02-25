@@ -4,7 +4,6 @@ fragment AnswerFunctionWithRelations on AnswerFunctionWithRelationsObject {
   func
   condition
   weight
-  numberType
   mathSubFieldId
   mathSubField {
     id
