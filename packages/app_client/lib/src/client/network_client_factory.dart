@@ -9,7 +9,7 @@ import '../store/auth_token_store.dart';
 import 'interceptor/authorization_interceptor.dart';
 import 'usecase/refresh_token/refresh_token_usecase.dart';
 
-const Duration _kTimeoutDuration = Duration(seconds: 30);
+const Duration _kTimeoutDuration = Duration(minutes: 5);
 
 final class NetworkClientFactory {
   static GraphQLClient createGqlClient({
