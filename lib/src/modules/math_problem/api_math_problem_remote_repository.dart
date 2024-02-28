@@ -139,6 +139,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
     required List<GenerateMathProblemCustomStrParam> customStrParams,
     required String mathSubFieldId,
     required String? answerConditionFunc,
+    required String? correctAnswerConditionFunc,
   }) {
     return callCatchWithFetchFailure(
       () => _client.query$GenerateMathProblemValues(
@@ -150,6 +151,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
               template: template,
               mathSubFieldId: mathSubFieldId,
               answerConditionFunc: answerConditionFunc,
+              correctAnswerConditionFunc: correctAnswerConditionFunc,
             ),
           ),
         ),
