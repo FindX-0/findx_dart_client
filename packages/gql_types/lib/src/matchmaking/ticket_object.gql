@@ -1,0 +1,9 @@
+fragment Ticket on TicketObject {
+  concurrencyTimestamp
+  createdAt
+  id
+  matchId
+  mathFieldId
+  state
+  userId
+}

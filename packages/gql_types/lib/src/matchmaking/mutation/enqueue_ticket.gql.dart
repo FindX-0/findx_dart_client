@@ -1,5 +1,5 @@
 import '../../schema.gql.dart';
-import '../../shared/success_object.gql.dart';
+import '../ticket_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -115,13 +115,13 @@ class Mutation$EnqueueTicket {
     final l$enqueueTicket = json['enqueueTicket'];
     final l$$__typename = json['__typename'];
     return Mutation$EnqueueTicket(
-      enqueueTicket: Fragment$SuccessObject.fromJson(
-          (l$enqueueTicket as Map<String, dynamic>)),
+      enqueueTicket:
+          Fragment$Ticket.fromJson((l$enqueueTicket as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Fragment$SuccessObject enqueueTicket;
+  final Fragment$Ticket enqueueTicket;
 
   final String $__typename;
 
@@ -185,10 +185,10 @@ abstract class CopyWith$Mutation$EnqueueTicket<TRes> {
       _CopyWithStubImpl$Mutation$EnqueueTicket;
 
   TRes call({
-    Fragment$SuccessObject? enqueueTicket,
+    Fragment$Ticket? enqueueTicket,
     String? $__typename,
   });
-  CopyWith$Fragment$SuccessObject<TRes> get enqueueTicket;
+  CopyWith$Fragment$Ticket<TRes> get enqueueTicket;
 }
 
 class _CopyWithImpl$Mutation$EnqueueTicket<TRes>
@@ -211,15 +211,15 @@ class _CopyWithImpl$Mutation$EnqueueTicket<TRes>
       _then(Mutation$EnqueueTicket(
         enqueueTicket: enqueueTicket == _undefined || enqueueTicket == null
             ? _instance.enqueueTicket
-            : (enqueueTicket as Fragment$SuccessObject),
+            : (enqueueTicket as Fragment$Ticket),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Fragment$SuccessObject<TRes> get enqueueTicket {
+  CopyWith$Fragment$Ticket<TRes> get enqueueTicket {
     final local$enqueueTicket = _instance.enqueueTicket;
-    return CopyWith$Fragment$SuccessObject(
+    return CopyWith$Fragment$Ticket(
         local$enqueueTicket, (e) => call(enqueueTicket: e));
   }
 }
@@ -231,13 +231,13 @@ class _CopyWithStubImpl$Mutation$EnqueueTicket<TRes>
   TRes _res;
 
   call({
-    Fragment$SuccessObject? enqueueTicket,
+    Fragment$Ticket? enqueueTicket,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Fragment$SuccessObject<TRes> get enqueueTicket =>
-      CopyWith$Fragment$SuccessObject.stub(_res);
+  CopyWith$Fragment$Ticket<TRes> get enqueueTicket =>
+      CopyWith$Fragment$Ticket.stub(_res);
 }
 
 const documentNodeMutationEnqueueTicket = DocumentNode(definitions: [
@@ -269,7 +269,7 @@ const documentNodeMutationEnqueueTicket = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'SuccessObject'),
+            name: NameNode(value: 'Ticket'),
             directives: [],
           ),
           FieldNode(
@@ -290,7 +290,7 @@ const documentNodeMutationEnqueueTicket = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionSuccessObject,
+  fragmentDefinitionTicket,
 ]);
 Mutation$EnqueueTicket _parserFn$Mutation$EnqueueTicket(
         Map<String, dynamic> data) =>

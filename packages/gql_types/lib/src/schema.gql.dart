@@ -4896,6 +4896,38 @@ Enum$MatchState fromJson$Enum$MatchState(String value) {
   }
 }
 
+enum Enum$TicketState { CANCELLED, COMPLETED, EXPIRED, PROCESSING, $unknown }
+
+String toJson$Enum$TicketState(Enum$TicketState e) {
+  switch (e) {
+    case Enum$TicketState.CANCELLED:
+      return r'CANCELLED';
+    case Enum$TicketState.COMPLETED:
+      return r'COMPLETED';
+    case Enum$TicketState.EXPIRED:
+      return r'EXPIRED';
+    case Enum$TicketState.PROCESSING:
+      return r'PROCESSING';
+    case Enum$TicketState.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$TicketState fromJson$Enum$TicketState(String value) {
+  switch (value) {
+    case r'CANCELLED':
+      return Enum$TicketState.CANCELLED;
+    case r'COMPLETED':
+      return Enum$TicketState.COMPLETED;
+    case r'EXPIRED':
+      return Enum$TicketState.EXPIRED;
+    case r'PROCESSING':
+      return Enum$TicketState.PROCESSING;
+    default:
+      return Enum$TicketState.$unknown;
+  }
+}
+
 enum Enum$__TypeKind {
   SCALAR,
   OBJECT,
