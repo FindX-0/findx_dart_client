@@ -5,7 +5,7 @@ import 'model/create_math_problem_params.dart';
 
 abstract interface class MathProblemRemoteRepository {
   Future<Either<ActionFailure, CreateMathProblemRes>> create({
-    required int difficulty,
+    required double difficulty,
     required String? text,
     required String? tex,
     required String mathFieldId,
@@ -16,7 +16,7 @@ abstract interface class MathProblemRemoteRepository {
 
   Future<Either<ActionFailure, MathProblemUpdateResult>> update({
     required String id,
-    int? difficulty,
+    double? difficulty,
     String? text,
     String? tex,
     String? mathFieldId,

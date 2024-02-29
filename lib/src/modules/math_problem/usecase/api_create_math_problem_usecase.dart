@@ -18,7 +18,7 @@ class ApiCreateMathProblemUsecase implements CreateMathProblemUsecase {
 
   @override
   Future<Either<ActionFailure, CreateMathProblemRes>> call({
-    required int difficulty,
+    required double difficulty,
     required String? text,
     required String? tex,
     required String mathFieldId,

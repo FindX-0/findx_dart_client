@@ -13,7 +13,7 @@ class RawCreateMathProblemParams {
     required this.answers,
   });
 
-  final int difficulty;
+  final double difficulty;
   final String? text;
   final String? tex;
   final String mathFieldId;
@@ -33,7 +33,7 @@ class CreateMathProblemParams {
     required this.answers,
   });
 
-  final int difficulty;
+  final double difficulty;
   final String? text;
   final String? tex;
   final String mathFieldId;

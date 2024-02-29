@@ -19,7 +19,7 @@ class ApiUpdateMathProblemUsecase implements UpdateMathProblemUsecase {
   @override
   Future<Either<ActionFailure, MathProblemUpdateResult>> call({
     required String id,
-    int? difficulty,
+    double? difficulty,
     String? text,
     String? tex,
     String? mathFieldId,

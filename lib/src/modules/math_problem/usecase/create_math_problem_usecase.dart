@@ -5,7 +5,7 @@ import 'package:gql_types/gql_types.dart';
 
 abstract interface class CreateMathProblemUsecase {
   Future<Either<ActionFailure, CreateMathProblemRes>> call({
-    required int difficulty,
+    required double difficulty,
     required String? text,
     required String? tex,
     required String mathFieldId,

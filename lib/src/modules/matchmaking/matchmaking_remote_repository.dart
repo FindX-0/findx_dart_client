@@ -7,4 +7,9 @@ abstract interface class MatchmakingRemoteRepository {
   });
 
   Future<Either<FetchFailure, GetMatchByIdRes>> getMatchById(String id);
+
+  Future<Either<ActionFailure, Unit>> cancelTicket({
+    required String ticketId,
+    required String concurrencyTimestamp,
+  });
 }

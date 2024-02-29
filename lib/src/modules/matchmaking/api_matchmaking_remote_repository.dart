@@ -45,4 +45,22 @@ class ApiMatchmakingRemoteRepository with GqlRequestWrap implements MatchmakingR
       mapper: (r) => r.getMatchById,
     );
   }
+
+  @override
+  Future<Either<ActionFailure, Unit>> cancelTicket({
+    required String ticketId,
+    required String concurrencyTimestamp,
+  }) {
+    return callCatchWithActionFailure(
+      () => _client.mutate$CancelTicket(Options$Mutation$CancelTicket(
+        variables: Variables$Mutation$CancelTicket(
+          input: Input$CancelTicketInput(
+            ticketId: ticketId,
+            concurrencyTimestamp: concurrencyTimestamp,
+          ),
+        ),
+      )),
+      mapper: (_) => unit,
+    );
+  }
 }

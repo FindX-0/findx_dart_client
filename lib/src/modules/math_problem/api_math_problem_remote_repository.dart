@@ -17,7 +17,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
 
   @override
   Future<Either<ActionFailure, CreateMathProblemRes>> create({
-    required int difficulty,
+    required double difficulty,
     required String? text,
     required String? tex,
     required String mathFieldId,
@@ -48,7 +48,7 @@ class ApiMathProblemRemoteRepository with GqlRequestWrap implements MathProblemR
   @override
   Future<Either<ActionFailure, MathProblemUpdateResult>> update({
     required String id,
-    int? difficulty,
+    double? difficulty,
     String? text,
     String? tex,
     String? mathFieldId,
