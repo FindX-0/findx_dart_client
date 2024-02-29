@@ -1,0 +1,5 @@
+mutation CancelTicket($input: CancelTicketInput) {
+  cancelTicket(input: $input) {
+    ...SuccessObject
+  }
+}

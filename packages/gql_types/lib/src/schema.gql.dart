@@ -435,6 +435,135 @@ class _CopyWithStubImpl$Input$BulkCreateMathProblemInput<TRes>
   values(_fn) => _res;
 }
 
+class Input$CancelTicketInput {
+  factory Input$CancelTicketInput({
+    required String concurrencyTimestamp,
+    required String ticketId,
+  }) =>
+      Input$CancelTicketInput._({
+        r'concurrencyTimestamp': concurrencyTimestamp,
+        r'ticketId': ticketId,
+      });
+
+  Input$CancelTicketInput._(this._$data);
+
+  factory Input$CancelTicketInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$concurrencyTimestamp = data['concurrencyTimestamp'];
+    result$data['concurrencyTimestamp'] = (l$concurrencyTimestamp as String);
+    final l$ticketId = data['ticketId'];
+    result$data['ticketId'] = (l$ticketId as String);
+    return Input$CancelTicketInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get concurrencyTimestamp => (_$data['concurrencyTimestamp'] as String);
+
+  String get ticketId => (_$data['ticketId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$concurrencyTimestamp = concurrencyTimestamp;
+    result$data['concurrencyTimestamp'] = l$concurrencyTimestamp;
+    final l$ticketId = ticketId;
+    result$data['ticketId'] = l$ticketId;
+    return result$data;
+  }
+
+  CopyWith$Input$CancelTicketInput<Input$CancelTicketInput> get copyWith =>
+      CopyWith$Input$CancelTicketInput(
+        this,
+        (i) => i,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$CancelTicketInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$concurrencyTimestamp = concurrencyTimestamp;
+    final lOther$concurrencyTimestamp = other.concurrencyTimestamp;
+    if (l$concurrencyTimestamp != lOther$concurrencyTimestamp) {
+      return false;
+    }
+    final l$ticketId = ticketId;
+    final lOther$ticketId = other.ticketId;
+    if (l$ticketId != lOther$ticketId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$concurrencyTimestamp = concurrencyTimestamp;
+    final l$ticketId = ticketId;
+    return Object.hashAll([
+      l$concurrencyTimestamp,
+      l$ticketId,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$CancelTicketInput<TRes> {
+  factory CopyWith$Input$CancelTicketInput(
+    Input$CancelTicketInput instance,
+    TRes Function(Input$CancelTicketInput) then,
+  ) = _CopyWithImpl$Input$CancelTicketInput;
+
+  factory CopyWith$Input$CancelTicketInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CancelTicketInput;
+
+  TRes call({
+    String? concurrencyTimestamp,
+    String? ticketId,
+  });
+}
+
+class _CopyWithImpl$Input$CancelTicketInput<TRes>
+    implements CopyWith$Input$CancelTicketInput<TRes> {
+  _CopyWithImpl$Input$CancelTicketInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$CancelTicketInput _instance;
+
+  final TRes Function(Input$CancelTicketInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? concurrencyTimestamp = _undefined,
+    Object? ticketId = _undefined,
+  }) =>
+      _then(Input$CancelTicketInput._({
+        ..._instance._$data,
+        if (concurrencyTimestamp != _undefined && concurrencyTimestamp != null)
+          'concurrencyTimestamp': (concurrencyTimestamp as String),
+        if (ticketId != _undefined && ticketId != null)
+          'ticketId': (ticketId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$CancelTicketInput<TRes>
+    implements CopyWith$Input$CancelTicketInput<TRes> {
+  _CopyWithStubImpl$Input$CancelTicketInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? concurrencyTimestamp,
+    String? ticketId,
+  }) =>
+      _res;
+}
+
 class Input$CountGenerateMathProblemValuesInput {
   factory Input$CountGenerateMathProblemValuesInput({
     required List<Input$GenerateMathProblemCustomStrParameterInput>
