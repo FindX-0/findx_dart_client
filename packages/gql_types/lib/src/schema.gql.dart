@@ -1041,7 +1041,7 @@ class _CopyWithStubImpl$Input$CreateMathProblemAnswerInput<TRes>
 class Input$CreateMathProblemInput {
   factory Input$CreateMathProblemInput({
     required List<Input$CreateMathProblemAnswerInput> answers,
-    required int difficulty,
+    required double difficulty,
     List<String>? imageMediaIds,
     required String mathFieldId,
     required String mathSubFieldId,
@@ -1068,7 +1068,7 @@ class Input$CreateMathProblemInput {
             (e as Map<String, dynamic>)))
         .toList();
     final l$difficulty = data['difficulty'];
-    result$data['difficulty'] = (l$difficulty as int);
+    result$data['difficulty'] = (l$difficulty as num).toDouble();
     if (data.containsKey('imageMediaIds')) {
       final l$imageMediaIds = data['imageMediaIds'];
       result$data['imageMediaIds'] = (l$imageMediaIds as List<dynamic>?)
@@ -1095,7 +1095,7 @@ class Input$CreateMathProblemInput {
   List<Input$CreateMathProblemAnswerInput> get answers =>
       (_$data['answers'] as List<Input$CreateMathProblemAnswerInput>);
 
-  int get difficulty => (_$data['difficulty'] as int);
+  double get difficulty => (_$data['difficulty'] as double);
 
   List<String>? get imageMediaIds => (_$data['imageMediaIds'] as List<String>?);
 
@@ -1249,7 +1249,7 @@ abstract class CopyWith$Input$CreateMathProblemInput<TRes> {
 
   TRes call({
     List<Input$CreateMathProblemAnswerInput>? answers,
-    int? difficulty,
+    double? difficulty,
     List<String>? imageMediaIds,
     String? mathFieldId,
     String? mathSubFieldId,
@@ -1291,7 +1291,7 @@ class _CopyWithImpl$Input$CreateMathProblemInput<TRes>
         if (answers != _undefined && answers != null)
           'answers': (answers as List<Input$CreateMathProblemAnswerInput>),
         if (difficulty != _undefined && difficulty != null)
-          'difficulty': (difficulty as int),
+          'difficulty': (difficulty as double),
         if (imageMediaIds != _undefined)
           'imageMediaIds': (imageMediaIds as List<String>?),
         if (mathFieldId != _undefined && mathFieldId != null)
@@ -1324,7 +1324,7 @@ class _CopyWithStubImpl$Input$CreateMathProblemInput<TRes>
 
   call({
     List<Input$CreateMathProblemAnswerInput>? answers,
-    int? difficulty,
+    double? difficulty,
     List<String>? imageMediaIds,
     String? mathFieldId,
     String? mathSubFieldId,
@@ -4195,7 +4195,7 @@ class _CopyWithStubImpl$Input$UpdateMathFieldInput<TRes>
 class Input$UpdateMathProblemInput {
   factory Input$UpdateMathProblemInput({
     List<Input$CreateMathProblemAnswerInput>? answers,
-    int? difficulty,
+    double? difficulty,
     required String id,
     List<String>? imageMediaIds,
     String? mathFieldId,
@@ -4227,7 +4227,7 @@ class Input$UpdateMathProblemInput {
     }
     if (data.containsKey('difficulty')) {
       final l$difficulty = data['difficulty'];
-      result$data['difficulty'] = (l$difficulty as int?);
+      result$data['difficulty'] = (l$difficulty as num?)?.toDouble();
     }
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
@@ -4261,7 +4261,7 @@ class Input$UpdateMathProblemInput {
   List<Input$CreateMathProblemAnswerInput>? get answers =>
       (_$data['answers'] as List<Input$CreateMathProblemAnswerInput>?);
 
-  int? get difficulty => (_$data['difficulty'] as int?);
+  double? get difficulty => (_$data['difficulty'] as double?);
 
   String get id => (_$data['id'] as String);
 
@@ -4457,7 +4457,7 @@ abstract class CopyWith$Input$UpdateMathProblemInput<TRes> {
 
   TRes call({
     List<Input$CreateMathProblemAnswerInput>? answers,
-    int? difficulty,
+    double? difficulty,
     String? id,
     List<String>? imageMediaIds,
     String? mathFieldId,
@@ -4500,7 +4500,7 @@ class _CopyWithImpl$Input$UpdateMathProblemInput<TRes>
         ..._instance._$data,
         if (answers != _undefined)
           'answers': (answers as List<Input$CreateMathProblemAnswerInput>?),
-        if (difficulty != _undefined) 'difficulty': (difficulty as int?),
+        if (difficulty != _undefined) 'difficulty': (difficulty as double?),
         if (id != _undefined && id != null) 'id': (id as String),
         if (imageMediaIds != _undefined)
           'imageMediaIds': (imageMediaIds as List<String>?),
@@ -4533,7 +4533,7 @@ class _CopyWithStubImpl$Input$UpdateMathProblemInput<TRes>
 
   call({
     List<Input$CreateMathProblemAnswerInput>? answers,
-    int? difficulty,
+    double? difficulty,
     String? id,
     List<String>? imageMediaIds,
     String? mathFieldId,

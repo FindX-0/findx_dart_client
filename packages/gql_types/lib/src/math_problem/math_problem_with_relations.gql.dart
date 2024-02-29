@@ -39,7 +39,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
     return Fragment$MathProblemWithRelations(
       id: (l$id as String),
       createdAt: DateTime.parse((l$createdAt as String)),
-      difficulty: (l$difficulty as int),
+      difficulty: (l$difficulty as num).toDouble(),
       text: (l$text as String?),
       tex: (l$tex as String?),
       mathFieldId: (l$mathFieldId as String),
@@ -67,7 +67,7 @@ class Fragment$MathProblemWithRelations implements Fragment$MathProblem {
 
   final DateTime createdAt;
 
-  final int difficulty;
+  final double difficulty;
 
   final String? text;
 
@@ -269,7 +269,7 @@ abstract class CopyWith$Fragment$MathProblemWithRelations<TRes> {
   TRes call({
     String? id,
     DateTime? createdAt,
-    int? difficulty,
+    double? difficulty,
     String? text,
     String? tex,
     String? mathFieldId,
@@ -331,7 +331,7 @@ class _CopyWithImpl$Fragment$MathProblemWithRelations<TRes>
             : (createdAt as DateTime),
         difficulty: difficulty == _undefined || difficulty == null
             ? _instance.difficulty
-            : (difficulty as int),
+            : (difficulty as double),
         text: text == _undefined ? _instance.text : (text as String?),
         tex: tex == _undefined ? _instance.tex : (tex as String?),
         mathFieldId: mathFieldId == _undefined || mathFieldId == null
@@ -411,7 +411,7 @@ class _CopyWithStubImpl$Fragment$MathProblemWithRelations<TRes>
   call({
     String? id,
     DateTime? createdAt,
-    int? difficulty,
+    double? difficulty,
     String? text,
     String? tex,
     String? mathFieldId,

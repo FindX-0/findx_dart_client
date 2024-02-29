@@ -28,7 +28,7 @@ class Fragment$AnswerFunctionWithRelations {
       createdAt: DateTime.parse((l$createdAt as String)),
       func: (l$func as String),
       condition: (l$condition as String?),
-      weight: (l$weight as String),
+      weight: (l$weight as num).toDouble(),
       mathSubFieldId: (l$mathSubFieldId as String),
       mathSubField: l$mathSubField == null
           ? null
@@ -46,7 +46,7 @@ class Fragment$AnswerFunctionWithRelations {
 
   final String? condition;
 
-  final String weight;
+  final double weight;
 
   final String mathSubFieldId;
 
@@ -174,7 +174,7 @@ abstract class CopyWith$Fragment$AnswerFunctionWithRelations<TRes> {
     DateTime? createdAt,
     String? func,
     String? condition,
-    String? weight,
+    double? weight,
     String? mathSubFieldId,
     Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField,
     String? $__typename,
@@ -219,7 +219,7 @@ class _CopyWithImpl$Fragment$AnswerFunctionWithRelations<TRes>
             : (condition as String?),
         weight: weight == _undefined || weight == null
             ? _instance.weight
-            : (weight as String),
+            : (weight as double),
         mathSubFieldId: mathSubFieldId == _undefined || mathSubFieldId == null
             ? _instance.mathSubFieldId
             : (mathSubFieldId as String),
@@ -254,7 +254,7 @@ class _CopyWithStubImpl$Fragment$AnswerFunctionWithRelations<TRes>
     DateTime? createdAt,
     String? func,
     String? condition,
-    String? weight,
+    double? weight,
     String? mathSubFieldId,
     Fragment$AnswerFunctionWithRelations$mathSubField? mathSubField,
     String? $__typename,
