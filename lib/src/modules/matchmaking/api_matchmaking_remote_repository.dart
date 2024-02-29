@@ -13,7 +13,7 @@ class ApiMatchmakingRemoteRepository with GqlRequestWrap implements MatchmakingR
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, Unit>> enqueueTicket({
+  Future<Either<ActionFailure, EnqueueTicketRes>> enqueueTicket({
     required String mathFieldId,
   }) {
     return callCatchWithActionFailure(
@@ -26,7 +26,7 @@ class ApiMatchmakingRemoteRepository with GqlRequestWrap implements MatchmakingR
           ),
         ),
       ),
-      mapper: (_) => unit,
+      mapper: (r) => r.enqueueTicket,
     );
   }
 

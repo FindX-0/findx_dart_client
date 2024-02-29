@@ -2,7 +2,7 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
 abstract interface class MatchmakingRemoteRepository {
-  Future<Either<ActionFailure, Unit>> enqueueTicket({
+  Future<Either<ActionFailure, EnqueueTicketRes>> enqueueTicket({
     required String mathFieldId,
   });
 
