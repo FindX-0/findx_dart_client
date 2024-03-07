@@ -38,9 +38,9 @@ abstract class SocketChannel<T extends Object?> {
     await _streamController.close();
   }
 
-  Future<void> _handleEvent(dynamic event) async {
+  Future<void> _handleEvent(dynamic payload) async {
     try {
-      final T mapped = await map(event);
+      final T mapped = await map(payload);
 
       _streamController.sink.add(mapped);
     } catch (e) {
@@ -49,5 +49,5 @@ abstract class SocketChannel<T extends Object?> {
   }
 
   @protected
-  FutureOr<T> map(dynamic event);
+  FutureOr<T> map(dynamic payload);
 }
