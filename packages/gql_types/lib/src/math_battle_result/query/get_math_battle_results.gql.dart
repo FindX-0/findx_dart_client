@@ -538,9 +538,9 @@ class Query$GetMathBattleResults$getMathBattleResults {
       isDraw: (l$isDraw as bool),
       isWinner: (l$isWinner as bool),
       matchId: (l$matchId as String),
-      score: (l$score as num).toDouble(),
+      score: (l$score as int),
       userId: (l$userId as String),
-      trophyChange: (l$trophyChange as num).toDouble(),
+      trophyChange: (l$trophyChange as int),
       $__typename: (l$$__typename as String),
     );
   }
@@ -555,11 +555,11 @@ class Query$GetMathBattleResults$getMathBattleResults {
 
   final String matchId;
 
-  final double score;
+  final int score;
 
   final String userId;
 
-  final double trophyChange;
+  final int trophyChange;
 
   final String $__typename;
 
@@ -694,9 +694,9 @@ abstract class CopyWith$Query$GetMathBattleResults$getMathBattleResults<TRes> {
     bool? isDraw,
     bool? isWinner,
     String? matchId,
-    double? score,
+    int? score,
     String? userId,
-    double? trophyChange,
+    int? trophyChange,
     String? $__typename,
   });
 }
@@ -741,13 +741,13 @@ class _CopyWithImpl$Query$GetMathBattleResults$getMathBattleResults<TRes>
             : (matchId as String),
         score: score == _undefined || score == null
             ? _instance.score
-            : (score as double),
+            : (score as int),
         userId: userId == _undefined || userId == null
             ? _instance.userId
             : (userId as String),
         trophyChange: trophyChange == _undefined || trophyChange == null
             ? _instance.trophyChange
-            : (trophyChange as double),
+            : (trophyChange as int),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -766,9 +766,9 @@ class _CopyWithStubImpl$Query$GetMathBattleResults$getMathBattleResults<TRes>
     bool? isDraw,
     bool? isWinner,
     String? matchId,
-    double? score,
+    int? score,
     String? userId,
-    double? trophyChange,
+    int? trophyChange,
     String? $__typename,
   }) =>
       _res;
