@@ -344,6 +344,13 @@ const documentNodeQueryGetMathBattleResults = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'trophyChange'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
@@ -510,6 +517,7 @@ class Query$GetMathBattleResults$getMathBattleResults {
     required this.matchId,
     required this.score,
     required this.userId,
+    required this.trophyChange,
     this.$__typename = 'MathBattleResultObject',
   });
 
@@ -522,6 +530,7 @@ class Query$GetMathBattleResults$getMathBattleResults {
     final l$matchId = json['matchId'];
     final l$score = json['score'];
     final l$userId = json['userId'];
+    final l$trophyChange = json['trophyChange'];
     final l$$__typename = json['__typename'];
     return Query$GetMathBattleResults$getMathBattleResults(
       createdAt: DateTime.parse((l$createdAt as String)),
@@ -531,6 +540,7 @@ class Query$GetMathBattleResults$getMathBattleResults {
       matchId: (l$matchId as String),
       score: (l$score as num).toDouble(),
       userId: (l$userId as String),
+      trophyChange: (l$trophyChange as num).toDouble(),
       $__typename: (l$$__typename as String),
     );
   }
@@ -548,6 +558,8 @@ class Query$GetMathBattleResults$getMathBattleResults {
   final double score;
 
   final String userId;
+
+  final double trophyChange;
 
   final String $__typename;
 
@@ -567,6 +579,8 @@ class Query$GetMathBattleResults$getMathBattleResults {
     _resultData['score'] = l$score;
     final l$userId = userId;
     _resultData['userId'] = l$userId;
+    final l$trophyChange = trophyChange;
+    _resultData['trophyChange'] = l$trophyChange;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -581,6 +595,7 @@ class Query$GetMathBattleResults$getMathBattleResults {
     final l$matchId = matchId;
     final l$score = score;
     final l$userId = userId;
+    final l$trophyChange = trophyChange;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$createdAt,
@@ -590,6 +605,7 @@ class Query$GetMathBattleResults$getMathBattleResults {
       l$matchId,
       l$score,
       l$userId,
+      l$trophyChange,
       l$$__typename,
     ]);
   }
@@ -638,6 +654,11 @@ class Query$GetMathBattleResults$getMathBattleResults {
     if (l$userId != lOther$userId) {
       return false;
     }
+    final l$trophyChange = trophyChange;
+    final lOther$trophyChange = other.trophyChange;
+    if (l$trophyChange != lOther$trophyChange) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -675,6 +696,7 @@ abstract class CopyWith$Query$GetMathBattleResults$getMathBattleResults<TRes> {
     String? matchId,
     double? score,
     String? userId,
+    double? trophyChange,
     String? $__typename,
   });
 }
@@ -700,6 +722,7 @@ class _CopyWithImpl$Query$GetMathBattleResults$getMathBattleResults<TRes>
     Object? matchId = _undefined,
     Object? score = _undefined,
     Object? userId = _undefined,
+    Object? trophyChange = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$GetMathBattleResults$getMathBattleResults(
@@ -722,6 +745,9 @@ class _CopyWithImpl$Query$GetMathBattleResults$getMathBattleResults<TRes>
         userId: userId == _undefined || userId == null
             ? _instance.userId
             : (userId as String),
+        trophyChange: trophyChange == _undefined || trophyChange == null
+            ? _instance.trophyChange
+            : (trophyChange as double),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -742,6 +768,7 @@ class _CopyWithStubImpl$Query$GetMathBattleResults$getMathBattleResults<TRes>
     String? matchId,
     double? score,
     String? userId,
+    double? trophyChange,
     String? $__typename,
   }) =>
       _res;
