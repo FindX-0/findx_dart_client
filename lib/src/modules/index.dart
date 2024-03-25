@@ -9,3 +9,4 @@ export 'math_sub_field/index.dart';
 export 'media_file/index.dart';
 export 'server_time/index.dart';
 export 'user/index.dart';
+export 'user_meta/index.dart';
