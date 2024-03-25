@@ -1,0 +1,6 @@
+fragment UserMetaObject on UserMetaObject {
+  id
+  createdAt
+  trophies
+  userId
+}

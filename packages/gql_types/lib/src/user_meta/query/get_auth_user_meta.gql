@@ -1,0 +1,5 @@
+query GetAuthUserMeta {
+  getAuthUserMeta {
+    ...UserMetaObject
+  }
+}

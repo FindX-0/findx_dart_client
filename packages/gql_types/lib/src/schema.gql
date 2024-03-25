@@ -356,6 +356,7 @@ type Query {
   getAllMathFields(input: GetAllMathFieldsInput!): [MathFieldObject!]!
   getAnswerFunctionById(input: IdentifierInput!): AnswerFunctionObject!
   getAuthUser: UserObject!
+  getAuthUserMeta: UserMetaObject!
   getMatchById(input: IdentifierInput!): MatchObject!
   getMathBattleMathProblems(input: GetMathBattleMathProblemsInput!): [MathBattleMathProblemObject!]!
   getMathBattleResults(input: GetMathBattleResultsInput!): [MathBattleResultObject!]!
@@ -431,11 +432,19 @@ input UpdateMathSubFieldInput {
   name: String
 }
 
+type UserMetaObject {
+  createdAt: DateTime!
+  id: ID!
+  trophies: Int!
+  userId: ID!
+}
+
 type UserObject {
   authProvider: AuthProvider!
   createdAt: DateTime!
   email: String
   id: ID!
   isCompleted: Boolean!
+  userMeta: UserMetaObject
   userName: String
 }
