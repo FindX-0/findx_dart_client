@@ -62,8 +62,13 @@ class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRem
       () => _client.query$GetMathBattleData(
         Options$Query$GetMathBattleData(
           variables: Variables$Query$GetMathBattleData(
-            matchId: matchId,
-            opponentUserId: opponentUserId,
+            getMathBattleMathProblemsInput: Input$GetMathBattleMathProblemsInput(
+              matchId: matchId,
+            ),
+            getOpponentUserInput: Input$IdentifierInput(id: opponentUserId),
+            getMatchMathFieldInput: Input$GetMatchMathFieldInput(
+              matchId: matchId,
+            ),
           ),
         ),
       ),
@@ -71,6 +76,7 @@ class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRem
         authUser: r.getAuthUser,
         opponentUser: r.getUserById,
         mathProblems: r.getMathBattleMathProblems,
+        mathField: r.getMatchMathField,
       ),
     );
   }

@@ -17,6 +17,8 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
   @override
   Future<Either<ActionFailure, MathFieldCreateResult>> create({
     required String name,
+    required bool isPublic,
+    required int spamDelayMillis,
   }) {
     return callCatchWithActionFailure(
       () => _client.mutate$CreateMathField(
@@ -24,6 +26,8 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
           variables: Variables$Mutation$CreateMathField(
             input: Input$CreateMathFieldInput(
               name: name,
+              isPublic: isPublic,
+              spamDelayMillis: spamDelayMillis,
             ),
           ),
         ),
@@ -36,6 +40,8 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
   Future<Either<ActionFailure, MathFieldUpdateResult>> update({
     required String id,
     String? name,
+    bool? isPublic,
+    int? spamDelayMillis,
   }) {
     return callCatchWithActionFailure(
       () => _client.mutate$UpdateMathField(
@@ -44,6 +50,8 @@ class ApiMathFieldRemoteRepository with GqlRequestWrap implements MathFieldRemot
             input: Input$UpdateMathFieldInput(
               id: id,
               name: name,
+              isPublic: isPublic,
+              spamDelayMillis: spamDelayMillis,
             ),
           ),
         ),

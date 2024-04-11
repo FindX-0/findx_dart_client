@@ -6,11 +6,15 @@ import 'math_field_failure.dart';
 abstract interface class MathFieldRemoteRepository {
   Future<Either<ActionFailure, MathFieldCreateResult>> create({
     required String name,
+    required bool isPublic,
+    required int spamDelayMillis,
   });
 
   Future<Either<ActionFailure, MathFieldUpdateResult>> update({
     required String id,
     String? name,
+    bool? isPublic,
+    int? spamDelayMillis,
   });
 
   Future<Either<DeleteMathFieldFailure, Unit>> delete({
