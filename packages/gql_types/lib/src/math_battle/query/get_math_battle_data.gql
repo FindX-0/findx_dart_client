@@ -7,7 +7,7 @@ query GetMathBattleData(
     ...UserObject
   }
 
-  getUserById(input: getOpponentUserInput) {
+  getUserById(input: $getOpponentUserInput) {
     ...UserObject
   }
 

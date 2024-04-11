@@ -23,7 +23,7 @@ class Fragment$MathField {
       name: (l$name as String),
       createdAt: DateTime.parse((l$createdAt as String)),
       isPublic: (l$isPublic as bool),
-      spamDelayMillis: (l$spamDelayMillis as num).toDouble(),
+      spamDelayMillis: (l$spamDelayMillis as int),
       $__typename: (l$$__typename as String),
     );
   }
@@ -36,7 +36,7 @@ class Fragment$MathField {
 
   final bool isPublic;
 
-  final double spamDelayMillis;
+  final int spamDelayMillis;
 
   final String $__typename;
 
@@ -139,7 +139,7 @@ abstract class CopyWith$Fragment$MathField<TRes> {
     String? name,
     DateTime? createdAt,
     bool? isPublic,
-    double? spamDelayMillis,
+    int? spamDelayMillis,
     String? $__typename,
   });
 }
@@ -179,7 +179,7 @@ class _CopyWithImpl$Fragment$MathField<TRes>
         spamDelayMillis:
             spamDelayMillis == _undefined || spamDelayMillis == null
                 ? _instance.spamDelayMillis
-                : (spamDelayMillis as double),
+                : (spamDelayMillis as int),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -197,7 +197,7 @@ class _CopyWithStubImpl$Fragment$MathField<TRes>
     String? name,
     DateTime? createdAt,
     bool? isPublic,
-    double? spamDelayMillis,
+    int? spamDelayMillis,
     String? $__typename,
   }) =>
       _res;

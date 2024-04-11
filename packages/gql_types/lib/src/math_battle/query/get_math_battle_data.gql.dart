@@ -496,7 +496,7 @@ const documentNodeQueryGetMathBattleData = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: EnumValueNode(name: NameNode(value: 'getOpponentUserInput')),
+            value: VariableNode(name: NameNode(value: 'getOpponentUserInput')),
           )
         ],
         directives: [],
