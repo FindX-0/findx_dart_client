@@ -1,3 +1,5 @@
+import '../../schema.gql.dart';
+import '../../user_meta/user_meta_object.gql.dart';
 import '../user_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -13,13 +15,13 @@ class Query$GetAuthUser {
     final l$getAuthUser = json['getAuthUser'];
     final l$$__typename = json['__typename'];
     return Query$GetAuthUser(
-      getAuthUser:
-          Fragment$UserObject.fromJson((l$getAuthUser as Map<String, dynamic>)),
+      getAuthUser: Query$GetAuthUser$getAuthUser.fromJson(
+          (l$getAuthUser as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Fragment$UserObject getAuthUser;
+  final Query$GetAuthUser$getAuthUser getAuthUser;
 
   final String $__typename;
 
@@ -82,10 +84,10 @@ abstract class CopyWith$Query$GetAuthUser<TRes> {
       _CopyWithStubImpl$Query$GetAuthUser;
 
   TRes call({
-    Fragment$UserObject? getAuthUser,
+    Query$GetAuthUser$getAuthUser? getAuthUser,
     String? $__typename,
   });
-  CopyWith$Fragment$UserObject<TRes> get getAuthUser;
+  CopyWith$Query$GetAuthUser$getAuthUser<TRes> get getAuthUser;
 }
 
 class _CopyWithImpl$Query$GetAuthUser<TRes>
@@ -108,15 +110,15 @@ class _CopyWithImpl$Query$GetAuthUser<TRes>
       _then(Query$GetAuthUser(
         getAuthUser: getAuthUser == _undefined || getAuthUser == null
             ? _instance.getAuthUser
-            : (getAuthUser as Fragment$UserObject),
+            : (getAuthUser as Query$GetAuthUser$getAuthUser),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Fragment$UserObject<TRes> get getAuthUser {
+  CopyWith$Query$GetAuthUser$getAuthUser<TRes> get getAuthUser {
     final local$getAuthUser = _instance.getAuthUser;
-    return CopyWith$Fragment$UserObject(
+    return CopyWith$Query$GetAuthUser$getAuthUser(
         local$getAuthUser, (e) => call(getAuthUser: e));
   }
 }
@@ -128,13 +130,13 @@ class _CopyWithStubImpl$Query$GetAuthUser<TRes>
   TRes _res;
 
   call({
-    Fragment$UserObject? getAuthUser,
+    Query$GetAuthUser$getAuthUser? getAuthUser,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Fragment$UserObject<TRes> get getAuthUser =>
-      CopyWith$Fragment$UserObject.stub(_res);
+  CopyWith$Query$GetAuthUser$getAuthUser<TRes> get getAuthUser =>
+      CopyWith$Query$GetAuthUser$getAuthUser.stub(_res);
 }
 
 const documentNodeQueryGetAuthUser = DocumentNode(definitions: [
@@ -155,6 +157,25 @@ const documentNodeQueryGetAuthUser = DocumentNode(definitions: [
             directives: [],
           ),
           FieldNode(
+            name: NameNode(value: 'userMeta'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FragmentSpreadNode(
+                name: NameNode(value: 'UserMetaObject'),
+                directives: [],
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
@@ -173,6 +194,7 @@ const documentNodeQueryGetAuthUser = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionUserObject,
+  fragmentDefinitionUserMetaObject,
 ]);
 Query$GetAuthUser _parserFn$Query$GetAuthUser(Map<String, dynamic> data) =>
     Query$GetAuthUser.fromJson(data);
@@ -289,4 +311,259 @@ extension ClientExtension$Query$GetAuthUser on graphql.GraphQLClient {
     );
     return result == null ? null : Query$GetAuthUser.fromJson(result);
   }
+}
+
+class Query$GetAuthUser$getAuthUser implements Fragment$UserObject {
+  Query$GetAuthUser$getAuthUser({
+    required this.authProvider,
+    required this.createdAt,
+    this.email,
+    required this.id,
+    required this.isCompleted,
+    this.userName,
+    this.$__typename = 'UserObject',
+    this.userMeta,
+  });
+
+  factory Query$GetAuthUser$getAuthUser.fromJson(Map<String, dynamic> json) {
+    final l$authProvider = json['authProvider'];
+    final l$createdAt = json['createdAt'];
+    final l$email = json['email'];
+    final l$id = json['id'];
+    final l$isCompleted = json['isCompleted'];
+    final l$userName = json['userName'];
+    final l$$__typename = json['__typename'];
+    final l$userMeta = json['userMeta'];
+    return Query$GetAuthUser$getAuthUser(
+      authProvider: fromJson$Enum$AuthProvider((l$authProvider as String)),
+      createdAt: DateTime.parse((l$createdAt as String)),
+      email: (l$email as String?),
+      id: (l$id as String),
+      isCompleted: (l$isCompleted as bool),
+      userName: (l$userName as String?),
+      $__typename: (l$$__typename as String),
+      userMeta: l$userMeta == null
+          ? null
+          : Fragment$UserMetaObject.fromJson(
+              (l$userMeta as Map<String, dynamic>)),
+    );
+  }
+
+  final Enum$AuthProvider authProvider;
+
+  final DateTime createdAt;
+
+  final String? email;
+
+  final String id;
+
+  final bool isCompleted;
+
+  final String? userName;
+
+  final String $__typename;
+
+  final Fragment$UserMetaObject? userMeta;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$authProvider = authProvider;
+    _resultData['authProvider'] = toJson$Enum$AuthProvider(l$authProvider);
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt.toIso8601String();
+    final l$email = email;
+    _resultData['email'] = l$email;
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$isCompleted = isCompleted;
+    _resultData['isCompleted'] = l$isCompleted;
+    final l$userName = userName;
+    _resultData['userName'] = l$userName;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$userMeta = userMeta;
+    _resultData['userMeta'] = l$userMeta?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$authProvider = authProvider;
+    final l$createdAt = createdAt;
+    final l$email = email;
+    final l$id = id;
+    final l$isCompleted = isCompleted;
+    final l$userName = userName;
+    final l$$__typename = $__typename;
+    final l$userMeta = userMeta;
+    return Object.hashAll([
+      l$authProvider,
+      l$createdAt,
+      l$email,
+      l$id,
+      l$isCompleted,
+      l$userName,
+      l$$__typename,
+      l$userMeta,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetAuthUser$getAuthUser) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$authProvider = authProvider;
+    final lOther$authProvider = other.authProvider;
+    if (l$authProvider != lOther$authProvider) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$email = email;
+    final lOther$email = other.email;
+    if (l$email != lOther$email) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$isCompleted = isCompleted;
+    final lOther$isCompleted = other.isCompleted;
+    if (l$isCompleted != lOther$isCompleted) {
+      return false;
+    }
+    final l$userName = userName;
+    final lOther$userName = other.userName;
+    if (l$userName != lOther$userName) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    final l$userMeta = userMeta;
+    final lOther$userMeta = other.userMeta;
+    if (l$userMeta != lOther$userMeta) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetAuthUser$getAuthUser
+    on Query$GetAuthUser$getAuthUser {
+  CopyWith$Query$GetAuthUser$getAuthUser<Query$GetAuthUser$getAuthUser>
+      get copyWith => CopyWith$Query$GetAuthUser$getAuthUser(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetAuthUser$getAuthUser<TRes> {
+  factory CopyWith$Query$GetAuthUser$getAuthUser(
+    Query$GetAuthUser$getAuthUser instance,
+    TRes Function(Query$GetAuthUser$getAuthUser) then,
+  ) = _CopyWithImpl$Query$GetAuthUser$getAuthUser;
+
+  factory CopyWith$Query$GetAuthUser$getAuthUser.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetAuthUser$getAuthUser;
+
+  TRes call({
+    Enum$AuthProvider? authProvider,
+    DateTime? createdAt,
+    String? email,
+    String? id,
+    bool? isCompleted,
+    String? userName,
+    String? $__typename,
+    Fragment$UserMetaObject? userMeta,
+  });
+  CopyWith$Fragment$UserMetaObject<TRes> get userMeta;
+}
+
+class _CopyWithImpl$Query$GetAuthUser$getAuthUser<TRes>
+    implements CopyWith$Query$GetAuthUser$getAuthUser<TRes> {
+  _CopyWithImpl$Query$GetAuthUser$getAuthUser(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetAuthUser$getAuthUser _instance;
+
+  final TRes Function(Query$GetAuthUser$getAuthUser) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? authProvider = _undefined,
+    Object? createdAt = _undefined,
+    Object? email = _undefined,
+    Object? id = _undefined,
+    Object? isCompleted = _undefined,
+    Object? userName = _undefined,
+    Object? $__typename = _undefined,
+    Object? userMeta = _undefined,
+  }) =>
+      _then(Query$GetAuthUser$getAuthUser(
+        authProvider: authProvider == _undefined || authProvider == null
+            ? _instance.authProvider
+            : (authProvider as Enum$AuthProvider),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as DateTime),
+        email: email == _undefined ? _instance.email : (email as String?),
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        isCompleted: isCompleted == _undefined || isCompleted == null
+            ? _instance.isCompleted
+            : (isCompleted as bool),
+        userName:
+            userName == _undefined ? _instance.userName : (userName as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        userMeta: userMeta == _undefined
+            ? _instance.userMeta
+            : (userMeta as Fragment$UserMetaObject?),
+      ));
+
+  CopyWith$Fragment$UserMetaObject<TRes> get userMeta {
+    final local$userMeta = _instance.userMeta;
+    return local$userMeta == null
+        ? CopyWith$Fragment$UserMetaObject.stub(_then(_instance))
+        : CopyWith$Fragment$UserMetaObject(
+            local$userMeta, (e) => call(userMeta: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GetAuthUser$getAuthUser<TRes>
+    implements CopyWith$Query$GetAuthUser$getAuthUser<TRes> {
+  _CopyWithStubImpl$Query$GetAuthUser$getAuthUser(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$AuthProvider? authProvider,
+    DateTime? createdAt,
+    String? email,
+    String? id,
+    bool? isCompleted,
+    String? userName,
+    String? $__typename,
+    Fragment$UserMetaObject? userMeta,
+  }) =>
+      _res;
+
+  CopyWith$Fragment$UserMetaObject<TRes> get userMeta =>
+      CopyWith$Fragment$UserMetaObject.stub(_res);
 }

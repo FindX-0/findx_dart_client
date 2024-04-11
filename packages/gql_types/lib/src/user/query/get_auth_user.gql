@@ -1,5 +1,8 @@
 query GetAuthUser {
   getAuthUser {
     ...UserObject
+    userMeta {
+      ...UserMetaObject
+    }
   }
 }
