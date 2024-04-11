@@ -1,16 +1,17 @@
 query GetMathBattleData(
-  $matchId: ID!,
-  $opponentUserId: ID!
+  $getOpponentUserInput: IdentifierInput!,
+  $getMathBattleMathProblemsInput: GetMathBattleMathProblemsInput!,
+  $getMathFieldInput: IdentifierInput!
 ) {
   getAuthUser {
     ...UserObject
   }
 
-  getUserById(input: { id: $opponentUserId }) {
+  getUserById(input: getOpponentUserInput) {
     ...UserObject
   }
 
-  getMathBattleMathProblems(input: { matchId: $matchId }) {
+  getMathBattleMathProblems(input: $getMathBattleMathProblemsInput) {
     id
     createdAt
     difficulty
@@ -24,5 +25,9 @@ query GetMathBattleData(
     images {
       ...MediaFile
     }
+  }
+
+  getMathFieldById(input: $getMathFieldInput) {
+    ...MathField
   }
 }
