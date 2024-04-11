@@ -945,7 +945,7 @@ class Input$CreateMathFieldInput {
   factory Input$CreateMathFieldInput({
     required bool isPublic,
     required String name,
-    required double spamDelayMillis,
+    required int spamDelayMillis,
   }) =>
       Input$CreateMathFieldInput._({
         r'isPublic': isPublic,
@@ -962,7 +962,7 @@ class Input$CreateMathFieldInput {
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
     final l$spamDelayMillis = data['spamDelayMillis'];
-    result$data['spamDelayMillis'] = (l$spamDelayMillis as num).toDouble();
+    result$data['spamDelayMillis'] = (l$spamDelayMillis as int);
     return Input$CreateMathFieldInput._(result$data);
   }
 
@@ -972,7 +972,7 @@ class Input$CreateMathFieldInput {
 
   String get name => (_$data['name'] as String);
 
-  double get spamDelayMillis => (_$data['spamDelayMillis'] as double);
+  int get spamDelayMillis => (_$data['spamDelayMillis'] as int);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -1043,7 +1043,7 @@ abstract class CopyWith$Input$CreateMathFieldInput<TRes> {
   TRes call({
     bool? isPublic,
     String? name,
-    double? spamDelayMillis,
+    int? spamDelayMillis,
   });
 }
 
@@ -1071,7 +1071,7 @@ class _CopyWithImpl$Input$CreateMathFieldInput<TRes>
           'isPublic': (isPublic as bool),
         if (name != _undefined && name != null) 'name': (name as String),
         if (spamDelayMillis != _undefined && spamDelayMillis != null)
-          'spamDelayMillis': (spamDelayMillis as double),
+          'spamDelayMillis': (spamDelayMillis as int),
       }));
 }
 
@@ -1084,7 +1084,7 @@ class _CopyWithStubImpl$Input$CreateMathFieldInput<TRes>
   call({
     bool? isPublic,
     String? name,
-    double? spamDelayMillis,
+    int? spamDelayMillis,
   }) =>
       _res;
 }
@@ -4342,7 +4342,7 @@ class Input$UpdateMathFieldInput {
     required String id,
     bool? isPublic,
     String? name,
-    double? spamDelayMillis,
+    int? spamDelayMillis,
   }) =>
       Input$UpdateMathFieldInput._({
         r'id': id,
@@ -4367,7 +4367,7 @@ class Input$UpdateMathFieldInput {
     }
     if (data.containsKey('spamDelayMillis')) {
       final l$spamDelayMillis = data['spamDelayMillis'];
-      result$data['spamDelayMillis'] = (l$spamDelayMillis as num?)?.toDouble();
+      result$data['spamDelayMillis'] = (l$spamDelayMillis as int?);
     }
     return Input$UpdateMathFieldInput._(result$data);
   }
@@ -4380,7 +4380,7 @@ class Input$UpdateMathFieldInput {
 
   String? get name => (_$data['name'] as String?);
 
-  double? get spamDelayMillis => (_$data['spamDelayMillis'] as double?);
+  int? get spamDelayMillis => (_$data['spamDelayMillis'] as int?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -4478,7 +4478,7 @@ abstract class CopyWith$Input$UpdateMathFieldInput<TRes> {
     String? id,
     bool? isPublic,
     String? name,
-    double? spamDelayMillis,
+    int? spamDelayMillis,
   });
 }
 
@@ -4507,7 +4507,7 @@ class _CopyWithImpl$Input$UpdateMathFieldInput<TRes>
         if (isPublic != _undefined) 'isPublic': (isPublic as bool?),
         if (name != _undefined) 'name': (name as String?),
         if (spamDelayMillis != _undefined)
-          'spamDelayMillis': (spamDelayMillis as double?),
+          'spamDelayMillis': (spamDelayMillis as int?),
       }));
 }
 
@@ -4521,7 +4521,7 @@ class _CopyWithStubImpl$Input$UpdateMathFieldInput<TRes>
     String? id,
     bool? isPublic,
     String? name,
-    double? spamDelayMillis,
+    int? spamDelayMillis,
   }) =>
       _res;
 }

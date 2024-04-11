@@ -80,7 +80,7 @@ input CreateAnswerFunctionInput {
 input CreateMathFieldInput {
   isPublic: Boolean!
   name: String!
-  spamDelayMillis: Float!
+  spamDelayMillis: Int!
 }
 
 input CreateMathProblemAnswerInput {
@@ -423,7 +423,7 @@ input UpdateMathFieldInput {
   id: ID!
   isPublic: Boolean
   name: String
-  spamDelayMillis: Float
+  spamDelayMillis: Int
 }
 
 input UpdateMathProblemInput {
