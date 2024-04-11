@@ -3250,6 +3250,104 @@ class _CopyWithStubImpl$Input$GetAllMathFieldsInput<TRes>
   call({bool? onlyPublic}) => _res;
 }
 
+class Input$GetMatchMathFieldInput {
+  factory Input$GetMatchMathFieldInput({required String matchId}) =>
+      Input$GetMatchMathFieldInput._({
+        r'matchId': matchId,
+      });
+
+  Input$GetMatchMathFieldInput._(this._$data);
+
+  factory Input$GetMatchMathFieldInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$matchId = data['matchId'];
+    result$data['matchId'] = (l$matchId as String);
+    return Input$GetMatchMathFieldInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get matchId => (_$data['matchId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$matchId = matchId;
+    result$data['matchId'] = l$matchId;
+    return result$data;
+  }
+
+  CopyWith$Input$GetMatchMathFieldInput<Input$GetMatchMathFieldInput>
+      get copyWith => CopyWith$Input$GetMatchMathFieldInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GetMatchMathFieldInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$matchId = matchId;
+    final lOther$matchId = other.matchId;
+    if (l$matchId != lOther$matchId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$matchId = matchId;
+    return Object.hashAll([l$matchId]);
+  }
+}
+
+abstract class CopyWith$Input$GetMatchMathFieldInput<TRes> {
+  factory CopyWith$Input$GetMatchMathFieldInput(
+    Input$GetMatchMathFieldInput instance,
+    TRes Function(Input$GetMatchMathFieldInput) then,
+  ) = _CopyWithImpl$Input$GetMatchMathFieldInput;
+
+  factory CopyWith$Input$GetMatchMathFieldInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$GetMatchMathFieldInput;
+
+  TRes call({String? matchId});
+}
+
+class _CopyWithImpl$Input$GetMatchMathFieldInput<TRes>
+    implements CopyWith$Input$GetMatchMathFieldInput<TRes> {
+  _CopyWithImpl$Input$GetMatchMathFieldInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GetMatchMathFieldInput _instance;
+
+  final TRes Function(Input$GetMatchMathFieldInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? matchId = _undefined}) =>
+      _then(Input$GetMatchMathFieldInput._({
+        ..._instance._$data,
+        if (matchId != _undefined && matchId != null)
+          'matchId': (matchId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GetMatchMathFieldInput<TRes>
+    implements CopyWith$Input$GetMatchMathFieldInput<TRes> {
+  _CopyWithStubImpl$Input$GetMatchMathFieldInput(this._res);
+
+  TRes _res;
+
+  call({String? matchId}) => _res;
+}
+
 class Input$GetMathBattleMathProblemsInput {
   factory Input$GetMathBattleMathProblemsInput({required String matchId}) =>
       Input$GetMathBattleMathProblemsInput._({

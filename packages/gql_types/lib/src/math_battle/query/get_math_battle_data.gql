@@ -1,7 +1,7 @@
 query GetMathBattleData(
   $getOpponentUserInput: IdentifierInput!,
   $getMathBattleMathProblemsInput: GetMathBattleMathProblemsInput!,
-  $getMathFieldInput: IdentifierInput!
+  $getMatchMathFieldInput: GetMatchMathFieldInput!
 ) {
   getAuthUser {
     ...UserObject
@@ -27,7 +27,7 @@ query GetMathBattleData(
     }
   }
 
-  getMathFieldById(input: $getMathFieldInput) {
+  getMatchMathField(input: $getMatchMathFieldInput) {
     ...MathField
   }
 }

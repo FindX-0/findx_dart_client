@@ -184,6 +184,10 @@ input GetAllMathFieldsInput {
   onlyPublic: Boolean!
 }
 
+input GetMatchMathFieldInput {
+  matchId: ID!
+}
+
 input GetMathBattleMathProblemsInput {
   matchId: ID!
 }
@@ -362,6 +366,7 @@ type Query {
   getAuthUser: UserObject!
   getAuthUserMeta: UserMetaObject!
   getMatchById(input: IdentifierInput!): MatchObject!
+  getMatchMathField(input: GetMatchMathFieldInput!): MathFieldObject!
   getMathBattleMathProblems(input: GetMathBattleMathProblemsInput!): [MathBattleMathProblemObject!]!
   getMathBattleResults(input: GetMathBattleResultsInput!): [MathBattleResultObject!]!
   getMathFieldById(input: IdentifierInput!): MathFieldObject!

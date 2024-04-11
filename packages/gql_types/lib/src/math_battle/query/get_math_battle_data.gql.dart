@@ -11,12 +11,12 @@ class Variables$Query$GetMathBattleData {
     required Input$IdentifierInput getOpponentUserInput,
     required Input$GetMathBattleMathProblemsInput
         getMathBattleMathProblemsInput,
-    required Input$IdentifierInput getMathFieldInput,
+    required Input$GetMatchMathFieldInput getMatchMathFieldInput,
   }) =>
       Variables$Query$GetMathBattleData._({
         r'getOpponentUserInput': getOpponentUserInput,
         r'getMathBattleMathProblemsInput': getMathBattleMathProblemsInput,
-        r'getMathFieldInput': getMathFieldInput,
+        r'getMatchMathFieldInput': getMatchMathFieldInput,
       });
 
   Variables$Query$GetMathBattleData._(this._$data);
@@ -32,9 +32,10 @@ class Variables$Query$GetMathBattleData {
     result$data['getMathBattleMathProblemsInput'] =
         Input$GetMathBattleMathProblemsInput.fromJson(
             (l$getMathBattleMathProblemsInput as Map<String, dynamic>));
-    final l$getMathFieldInput = data['getMathFieldInput'];
-    result$data['getMathFieldInput'] = Input$IdentifierInput.fromJson(
-        (l$getMathFieldInput as Map<String, dynamic>));
+    final l$getMatchMathFieldInput = data['getMatchMathFieldInput'];
+    result$data['getMatchMathFieldInput'] =
+        Input$GetMatchMathFieldInput.fromJson(
+            (l$getMatchMathFieldInput as Map<String, dynamic>));
     return Variables$Query$GetMathBattleData._(result$data);
   }
 
@@ -47,8 +48,8 @@ class Variables$Query$GetMathBattleData {
       (_$data['getMathBattleMathProblemsInput']
           as Input$GetMathBattleMathProblemsInput);
 
-  Input$IdentifierInput get getMathFieldInput =>
-      (_$data['getMathFieldInput'] as Input$IdentifierInput);
+  Input$GetMatchMathFieldInput get getMatchMathFieldInput =>
+      (_$data['getMatchMathFieldInput'] as Input$GetMatchMathFieldInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -57,8 +58,8 @@ class Variables$Query$GetMathBattleData {
     final l$getMathBattleMathProblemsInput = getMathBattleMathProblemsInput;
     result$data['getMathBattleMathProblemsInput'] =
         l$getMathBattleMathProblemsInput.toJson();
-    final l$getMathFieldInput = getMathFieldInput;
-    result$data['getMathFieldInput'] = l$getMathFieldInput.toJson();
+    final l$getMatchMathFieldInput = getMatchMathFieldInput;
+    result$data['getMatchMathFieldInput'] = l$getMatchMathFieldInput.toJson();
     return result$data;
   }
 
@@ -89,9 +90,9 @@ class Variables$Query$GetMathBattleData {
         lOther$getMathBattleMathProblemsInput) {
       return false;
     }
-    final l$getMathFieldInput = getMathFieldInput;
-    final lOther$getMathFieldInput = other.getMathFieldInput;
-    if (l$getMathFieldInput != lOther$getMathFieldInput) {
+    final l$getMatchMathFieldInput = getMatchMathFieldInput;
+    final lOther$getMatchMathFieldInput = other.getMatchMathFieldInput;
+    if (l$getMatchMathFieldInput != lOther$getMatchMathFieldInput) {
       return false;
     }
     return true;
@@ -101,11 +102,11 @@ class Variables$Query$GetMathBattleData {
   int get hashCode {
     final l$getOpponentUserInput = getOpponentUserInput;
     final l$getMathBattleMathProblemsInput = getMathBattleMathProblemsInput;
-    final l$getMathFieldInput = getMathFieldInput;
+    final l$getMatchMathFieldInput = getMatchMathFieldInput;
     return Object.hashAll([
       l$getOpponentUserInput,
       l$getMathBattleMathProblemsInput,
-      l$getMathFieldInput,
+      l$getMatchMathFieldInput,
     ]);
   }
 }
@@ -122,7 +123,7 @@ abstract class CopyWith$Variables$Query$GetMathBattleData<TRes> {
   TRes call({
     Input$IdentifierInput? getOpponentUserInput,
     Input$GetMathBattleMathProblemsInput? getMathBattleMathProblemsInput,
-    Input$IdentifierInput? getMathFieldInput,
+    Input$GetMatchMathFieldInput? getMatchMathFieldInput,
   });
 }
 
@@ -142,7 +143,7 @@ class _CopyWithImpl$Variables$Query$GetMathBattleData<TRes>
   TRes call({
     Object? getOpponentUserInput = _undefined,
     Object? getMathBattleMathProblemsInput = _undefined,
-    Object? getMathFieldInput = _undefined,
+    Object? getMatchMathFieldInput = _undefined,
   }) =>
       _then(Variables$Query$GetMathBattleData._({
         ..._instance._$data,
@@ -153,8 +154,10 @@ class _CopyWithImpl$Variables$Query$GetMathBattleData<TRes>
             getMathBattleMathProblemsInput != null)
           'getMathBattleMathProblemsInput': (getMathBattleMathProblemsInput
               as Input$GetMathBattleMathProblemsInput),
-        if (getMathFieldInput != _undefined && getMathFieldInput != null)
-          'getMathFieldInput': (getMathFieldInput as Input$IdentifierInput),
+        if (getMatchMathFieldInput != _undefined &&
+            getMatchMathFieldInput != null)
+          'getMatchMathFieldInput':
+              (getMatchMathFieldInput as Input$GetMatchMathFieldInput),
       }));
 }
 
@@ -167,7 +170,7 @@ class _CopyWithStubImpl$Variables$Query$GetMathBattleData<TRes>
   call({
     Input$IdentifierInput? getOpponentUserInput,
     Input$GetMathBattleMathProblemsInput? getMathBattleMathProblemsInput,
-    Input$IdentifierInput? getMathFieldInput,
+    Input$GetMatchMathFieldInput? getMatchMathFieldInput,
   }) =>
       _res;
 }
@@ -177,7 +180,7 @@ class Query$GetMathBattleData {
     required this.getAuthUser,
     required this.getUserById,
     required this.getMathBattleMathProblems,
-    required this.getMathFieldById,
+    required this.getMatchMathField,
     this.$__typename = 'Query',
   });
 
@@ -185,7 +188,7 @@ class Query$GetMathBattleData {
     final l$getAuthUser = json['getAuthUser'];
     final l$getUserById = json['getUserById'];
     final l$getMathBattleMathProblems = json['getMathBattleMathProblems'];
-    final l$getMathFieldById = json['getMathFieldById'];
+    final l$getMatchMathField = json['getMatchMathField'];
     final l$$__typename = json['__typename'];
     return Query$GetMathBattleData(
       getAuthUser:
@@ -197,8 +200,8 @@ class Query$GetMathBattleData {
               Query$GetMathBattleData$getMathBattleMathProblems.fromJson(
                   (e as Map<String, dynamic>)))
           .toList(),
-      getMathFieldById: Fragment$MathField.fromJson(
-          (l$getMathFieldById as Map<String, dynamic>)),
+      getMatchMathField: Fragment$MathField.fromJson(
+          (l$getMatchMathField as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -210,7 +213,7 @@ class Query$GetMathBattleData {
   final List<Query$GetMathBattleData$getMathBattleMathProblems>
       getMathBattleMathProblems;
 
-  final Fragment$MathField getMathFieldById;
+  final Fragment$MathField getMatchMathField;
 
   final String $__typename;
 
@@ -223,8 +226,8 @@ class Query$GetMathBattleData {
     final l$getMathBattleMathProblems = getMathBattleMathProblems;
     _resultData['getMathBattleMathProblems'] =
         l$getMathBattleMathProblems.map((e) => e.toJson()).toList();
-    final l$getMathFieldById = getMathFieldById;
-    _resultData['getMathFieldById'] = l$getMathFieldById.toJson();
+    final l$getMatchMathField = getMatchMathField;
+    _resultData['getMatchMathField'] = l$getMatchMathField.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -235,13 +238,13 @@ class Query$GetMathBattleData {
     final l$getAuthUser = getAuthUser;
     final l$getUserById = getUserById;
     final l$getMathBattleMathProblems = getMathBattleMathProblems;
-    final l$getMathFieldById = getMathFieldById;
+    final l$getMatchMathField = getMatchMathField;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$getAuthUser,
       l$getUserById,
       Object.hashAll(l$getMathBattleMathProblems.map((v) => v)),
-      l$getMathFieldById,
+      l$getMatchMathField,
       l$$__typename,
     ]);
   }
@@ -280,9 +283,9 @@ class Query$GetMathBattleData {
         return false;
       }
     }
-    final l$getMathFieldById = getMathFieldById;
-    final lOther$getMathFieldById = other.getMathFieldById;
-    if (l$getMathFieldById != lOther$getMathFieldById) {
+    final l$getMatchMathField = getMatchMathField;
+    final lOther$getMatchMathField = other.getMatchMathField;
+    if (l$getMatchMathField != lOther$getMatchMathField) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -316,7 +319,7 @@ abstract class CopyWith$Query$GetMathBattleData<TRes> {
     Fragment$UserObject? getUserById,
     List<Query$GetMathBattleData$getMathBattleMathProblems>?
         getMathBattleMathProblems,
-    Fragment$MathField? getMathFieldById,
+    Fragment$MathField? getMatchMathField,
     String? $__typename,
   });
   CopyWith$Fragment$UserObject<TRes> get getAuthUser;
@@ -327,7 +330,7 @@ abstract class CopyWith$Query$GetMathBattleData<TRes> {
                   CopyWith$Query$GetMathBattleData$getMathBattleMathProblems<
                       Query$GetMathBattleData$getMathBattleMathProblems>>)
           _fn);
-  CopyWith$Fragment$MathField<TRes> get getMathFieldById;
+  CopyWith$Fragment$MathField<TRes> get getMatchMathField;
 }
 
 class _CopyWithImpl$Query$GetMathBattleData<TRes>
@@ -347,7 +350,7 @@ class _CopyWithImpl$Query$GetMathBattleData<TRes>
     Object? getAuthUser = _undefined,
     Object? getUserById = _undefined,
     Object? getMathBattleMathProblems = _undefined,
-    Object? getMathFieldById = _undefined,
+    Object? getMatchMathField = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$GetMathBattleData(
@@ -362,10 +365,10 @@ class _CopyWithImpl$Query$GetMathBattleData<TRes>
             ? _instance.getMathBattleMathProblems
             : (getMathBattleMathProblems
                 as List<Query$GetMathBattleData$getMathBattleMathProblems>),
-        getMathFieldById:
-            getMathFieldById == _undefined || getMathFieldById == null
-                ? _instance.getMathFieldById
-                : (getMathFieldById as Fragment$MathField),
+        getMatchMathField:
+            getMatchMathField == _undefined || getMatchMathField == null
+                ? _instance.getMatchMathField
+                : (getMatchMathField as Fragment$MathField),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -397,10 +400,10 @@ class _CopyWithImpl$Query$GetMathBattleData<TRes>
                     (i) => i,
                   ))).toList());
 
-  CopyWith$Fragment$MathField<TRes> get getMathFieldById {
-    final local$getMathFieldById = _instance.getMathFieldById;
+  CopyWith$Fragment$MathField<TRes> get getMatchMathField {
+    final local$getMatchMathField = _instance.getMatchMathField;
     return CopyWith$Fragment$MathField(
-        local$getMathFieldById, (e) => call(getMathFieldById: e));
+        local$getMatchMathField, (e) => call(getMatchMathField: e));
   }
 }
 
@@ -415,7 +418,7 @@ class _CopyWithStubImpl$Query$GetMathBattleData<TRes>
     Fragment$UserObject? getUserById,
     List<Query$GetMathBattleData$getMathBattleMathProblems>?
         getMathBattleMathProblems,
-    Fragment$MathField? getMathFieldById,
+    Fragment$MathField? getMatchMathField,
     String? $__typename,
   }) =>
       _res;
@@ -428,7 +431,7 @@ class _CopyWithStubImpl$Query$GetMathBattleData<TRes>
 
   getMathBattleMathProblems(_fn) => _res;
 
-  CopyWith$Fragment$MathField<TRes> get getMathFieldById =>
+  CopyWith$Fragment$MathField<TRes> get getMatchMathField =>
       CopyWith$Fragment$MathField.stub(_res);
 }
 
@@ -457,9 +460,9 @@ const documentNodeQueryGetMathBattleData = DocumentNode(definitions: [
         directives: [],
       ),
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'getMathFieldInput')),
+        variable: VariableNode(name: NameNode(value: 'getMatchMathFieldInput')),
         type: NamedTypeNode(
-          name: NameNode(value: 'IdentifierInput'),
+          name: NameNode(value: 'GetMatchMathFieldInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -623,12 +626,13 @@ const documentNodeQueryGetMathBattleData = DocumentNode(definitions: [
         ]),
       ),
       FieldNode(
-        name: NameNode(value: 'getMathFieldById'),
+        name: NameNode(value: 'getMatchMathField'),
         alias: null,
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'getMathFieldInput')),
+            value:
+                VariableNode(name: NameNode(value: 'getMatchMathFieldInput')),
           )
         ],
         directives: [],
