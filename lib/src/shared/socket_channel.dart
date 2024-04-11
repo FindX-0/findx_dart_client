@@ -15,7 +15,7 @@ abstract class SocketChannel<T extends Object?> {
   @protected
   String get event;
 
-  final StreamController<T> _streamController = StreamController<T>();
+  final StreamController<T> _streamController = StreamController<T>.broadcast();
 
   @nonVirtual
   Stream<T> get events => _streamController.stream;
