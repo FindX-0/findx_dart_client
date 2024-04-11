@@ -13,7 +13,7 @@ class ApiUserRemoteRepository with GqlRequestWrap implements UserRemoteRepositor
   final GraphQLClient _client;
 
   @override
-  Future<Either<FetchFailure, User>> getAuthUser() {
+  Future<Either<FetchFailure, GetAuthUserRes>> getAuthUser() {
     return callCatchWithFetchFailure(
       () => _client.query$GetAuthUser(),
       mapper: (r) => r.getAuthUser,
