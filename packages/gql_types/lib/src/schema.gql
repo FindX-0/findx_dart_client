@@ -78,7 +78,9 @@ input CreateAnswerFunctionInput {
 }
 
 input CreateMathFieldInput {
+  isPublic: Boolean!
   name: String!
+  spamDelayMillis: Float!
 }
 
 input CreateMathProblemAnswerInput {
@@ -252,7 +254,9 @@ type MathBattleResultObject {
 type MathFieldObject {
   createdAt: DateTime!
   id: ID!
+  isPublic: Boolean!
   name: String!
+  spamDelayMillis: Float!
 }
 
 type MathFieldPageObject {
@@ -412,7 +416,9 @@ input UpdateAnswerFunctionInput {
 
 input UpdateMathFieldInput {
   id: ID!
+  isPublic: Boolean
   name: String
+  spamDelayMillis: Float
 }
 
 input UpdateMathProblemInput {

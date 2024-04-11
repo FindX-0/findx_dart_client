@@ -2,4 +2,6 @@ fragment MathField on MathFieldObject {
   id
   name
   createdAt
+  isPublic
+  spamDelayMillis
 }

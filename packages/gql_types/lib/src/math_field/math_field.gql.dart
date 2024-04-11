@@ -6,6 +6,8 @@ class Fragment$MathField {
     required this.id,
     required this.name,
     required this.createdAt,
+    required this.isPublic,
+    required this.spamDelayMillis,
     this.$__typename = 'MathFieldObject',
   });
 
@@ -13,11 +15,15 @@ class Fragment$MathField {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$createdAt = json['createdAt'];
+    final l$isPublic = json['isPublic'];
+    final l$spamDelayMillis = json['spamDelayMillis'];
     final l$$__typename = json['__typename'];
     return Fragment$MathField(
       id: (l$id as String),
       name: (l$name as String),
       createdAt: DateTime.parse((l$createdAt as String)),
+      isPublic: (l$isPublic as bool),
+      spamDelayMillis: (l$spamDelayMillis as num).toDouble(),
       $__typename: (l$$__typename as String),
     );
   }
@@ -27,6 +33,10 @@ class Fragment$MathField {
   final String name;
 
   final DateTime createdAt;
+
+  final bool isPublic;
+
+  final double spamDelayMillis;
 
   final String $__typename;
 
@@ -38,6 +48,10 @@ class Fragment$MathField {
     _resultData['name'] = l$name;
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt.toIso8601String();
+    final l$isPublic = isPublic;
+    _resultData['isPublic'] = l$isPublic;
+    final l$spamDelayMillis = spamDelayMillis;
+    _resultData['spamDelayMillis'] = l$spamDelayMillis;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -48,11 +62,15 @@ class Fragment$MathField {
     final l$id = id;
     final l$name = name;
     final l$createdAt = createdAt;
+    final l$isPublic = isPublic;
+    final l$spamDelayMillis = spamDelayMillis;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
       l$createdAt,
+      l$isPublic,
+      l$spamDelayMillis,
       l$$__typename,
     ]);
   }
@@ -78,6 +96,16 @@ class Fragment$MathField {
     final l$createdAt = createdAt;
     final lOther$createdAt = other.createdAt;
     if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$isPublic = isPublic;
+    final lOther$isPublic = other.isPublic;
+    if (l$isPublic != lOther$isPublic) {
+      return false;
+    }
+    final l$spamDelayMillis = spamDelayMillis;
+    final lOther$spamDelayMillis = other.spamDelayMillis;
+    if (l$spamDelayMillis != lOther$spamDelayMillis) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -110,6 +138,8 @@ abstract class CopyWith$Fragment$MathField<TRes> {
     String? id,
     String? name,
     DateTime? createdAt,
+    bool? isPublic,
+    double? spamDelayMillis,
     String? $__typename,
   });
 }
@@ -131,6 +161,8 @@ class _CopyWithImpl$Fragment$MathField<TRes>
     Object? id = _undefined,
     Object? name = _undefined,
     Object? createdAt = _undefined,
+    Object? isPublic = _undefined,
+    Object? spamDelayMillis = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$MathField(
@@ -141,6 +173,13 @@ class _CopyWithImpl$Fragment$MathField<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as DateTime),
+        isPublic: isPublic == _undefined || isPublic == null
+            ? _instance.isPublic
+            : (isPublic as bool),
+        spamDelayMillis:
+            spamDelayMillis == _undefined || spamDelayMillis == null
+                ? _instance.spamDelayMillis
+                : (spamDelayMillis as double),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -157,6 +196,8 @@ class _CopyWithStubImpl$Fragment$MathField<TRes>
     String? id,
     String? name,
     DateTime? createdAt,
+    bool? isPublic,
+    double? spamDelayMillis,
     String? $__typename,
   }) =>
       _res;
@@ -187,6 +228,20 @@ const fragmentDefinitionMathField = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isPublic'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'spamDelayMillis'),
       alias: null,
       arguments: [],
       directives: [],

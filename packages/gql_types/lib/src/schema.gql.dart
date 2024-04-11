@@ -942,28 +942,46 @@ class _CopyWithStubImpl$Input$CreateAnswerFunctionInput<TRes>
 }
 
 class Input$CreateMathFieldInput {
-  factory Input$CreateMathFieldInput({required String name}) =>
+  factory Input$CreateMathFieldInput({
+    required bool isPublic,
+    required String name,
+    required double spamDelayMillis,
+  }) =>
       Input$CreateMathFieldInput._({
+        r'isPublic': isPublic,
         r'name': name,
+        r'spamDelayMillis': spamDelayMillis,
       });
 
   Input$CreateMathFieldInput._(this._$data);
 
   factory Input$CreateMathFieldInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    final l$isPublic = data['isPublic'];
+    result$data['isPublic'] = (l$isPublic as bool);
     final l$name = data['name'];
     result$data['name'] = (l$name as String);
+    final l$spamDelayMillis = data['spamDelayMillis'];
+    result$data['spamDelayMillis'] = (l$spamDelayMillis as num).toDouble();
     return Input$CreateMathFieldInput._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
+  bool get isPublic => (_$data['isPublic'] as bool);
+
   String get name => (_$data['name'] as String);
+
+  double get spamDelayMillis => (_$data['spamDelayMillis'] as double);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    final l$isPublic = isPublic;
+    result$data['isPublic'] = l$isPublic;
     final l$name = name;
     result$data['name'] = l$name;
+    final l$spamDelayMillis = spamDelayMillis;
+    result$data['spamDelayMillis'] = l$spamDelayMillis;
     return result$data;
   }
 
@@ -982,9 +1000,19 @@ class Input$CreateMathFieldInput {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$isPublic = isPublic;
+    final lOther$isPublic = other.isPublic;
+    if (l$isPublic != lOther$isPublic) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
     if (l$name != lOther$name) {
+      return false;
+    }
+    final l$spamDelayMillis = spamDelayMillis;
+    final lOther$spamDelayMillis = other.spamDelayMillis;
+    if (l$spamDelayMillis != lOther$spamDelayMillis) {
       return false;
     }
     return true;
@@ -992,8 +1020,14 @@ class Input$CreateMathFieldInput {
 
   @override
   int get hashCode {
+    final l$isPublic = isPublic;
     final l$name = name;
-    return Object.hashAll([l$name]);
+    final l$spamDelayMillis = spamDelayMillis;
+    return Object.hashAll([
+      l$isPublic,
+      l$name,
+      l$spamDelayMillis,
+    ]);
   }
 }
 
@@ -1006,7 +1040,11 @@ abstract class CopyWith$Input$CreateMathFieldInput<TRes> {
   factory CopyWith$Input$CreateMathFieldInput.stub(TRes res) =
       _CopyWithStubImpl$Input$CreateMathFieldInput;
 
-  TRes call({String? name});
+  TRes call({
+    bool? isPublic,
+    String? name,
+    double? spamDelayMillis,
+  });
 }
 
 class _CopyWithImpl$Input$CreateMathFieldInput<TRes>
@@ -1022,9 +1060,18 @@ class _CopyWithImpl$Input$CreateMathFieldInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Input$CreateMathFieldInput._({
+  TRes call({
+    Object? isPublic = _undefined,
+    Object? name = _undefined,
+    Object? spamDelayMillis = _undefined,
+  }) =>
+      _then(Input$CreateMathFieldInput._({
         ..._instance._$data,
+        if (isPublic != _undefined && isPublic != null)
+          'isPublic': (isPublic as bool),
         if (name != _undefined && name != null) 'name': (name as String),
+        if (spamDelayMillis != _undefined && spamDelayMillis != null)
+          'spamDelayMillis': (spamDelayMillis as double),
       }));
 }
 
@@ -1034,7 +1081,12 @@ class _CopyWithStubImpl$Input$CreateMathFieldInput<TRes>
 
   TRes _res;
 
-  call({String? name}) => _res;
+  call({
+    bool? isPublic,
+    String? name,
+    double? spamDelayMillis,
+  }) =>
+      _res;
 }
 
 class Input$CreateMathProblemAnswerInput {
@@ -4190,11 +4242,15 @@ class _CopyWithStubImpl$Input$UpdateAnswerFunctionInput<TRes>
 class Input$UpdateMathFieldInput {
   factory Input$UpdateMathFieldInput({
     required String id,
+    bool? isPublic,
     String? name,
+    double? spamDelayMillis,
   }) =>
       Input$UpdateMathFieldInput._({
         r'id': id,
+        if (isPublic != null) r'isPublic': isPublic,
         if (name != null) r'name': name,
+        if (spamDelayMillis != null) r'spamDelayMillis': spamDelayMillis,
       });
 
   Input$UpdateMathFieldInput._(this._$data);
@@ -4203,9 +4259,17 @@ class Input$UpdateMathFieldInput {
     final result$data = <String, dynamic>{};
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
+    if (data.containsKey('isPublic')) {
+      final l$isPublic = data['isPublic'];
+      result$data['isPublic'] = (l$isPublic as bool?);
+    }
     if (data.containsKey('name')) {
       final l$name = data['name'];
       result$data['name'] = (l$name as String?);
+    }
+    if (data.containsKey('spamDelayMillis')) {
+      final l$spamDelayMillis = data['spamDelayMillis'];
+      result$data['spamDelayMillis'] = (l$spamDelayMillis as num?)?.toDouble();
     }
     return Input$UpdateMathFieldInput._(result$data);
   }
@@ -4214,15 +4278,27 @@ class Input$UpdateMathFieldInput {
 
   String get id => (_$data['id'] as String);
 
+  bool? get isPublic => (_$data['isPublic'] as bool?);
+
   String? get name => (_$data['name'] as String?);
+
+  double? get spamDelayMillis => (_$data['spamDelayMillis'] as double?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
     result$data['id'] = l$id;
+    if (_$data.containsKey('isPublic')) {
+      final l$isPublic = isPublic;
+      result$data['isPublic'] = l$isPublic;
+    }
     if (_$data.containsKey('name')) {
       final l$name = name;
       result$data['name'] = l$name;
+    }
+    if (_$data.containsKey('spamDelayMillis')) {
+      final l$spamDelayMillis = spamDelayMillis;
+      result$data['spamDelayMillis'] = l$spamDelayMillis;
     }
     return result$data;
   }
@@ -4247,6 +4323,15 @@ class Input$UpdateMathFieldInput {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$isPublic = isPublic;
+    final lOther$isPublic = other.isPublic;
+    if (_$data.containsKey('isPublic') !=
+        other._$data.containsKey('isPublic')) {
+      return false;
+    }
+    if (l$isPublic != lOther$isPublic) {
+      return false;
+    }
     final l$name = name;
     final lOther$name = other.name;
     if (_$data.containsKey('name') != other._$data.containsKey('name')) {
@@ -4255,16 +4340,29 @@ class Input$UpdateMathFieldInput {
     if (l$name != lOther$name) {
       return false;
     }
+    final l$spamDelayMillis = spamDelayMillis;
+    final lOther$spamDelayMillis = other.spamDelayMillis;
+    if (_$data.containsKey('spamDelayMillis') !=
+        other._$data.containsKey('spamDelayMillis')) {
+      return false;
+    }
+    if (l$spamDelayMillis != lOther$spamDelayMillis) {
+      return false;
+    }
     return true;
   }
 
   @override
   int get hashCode {
     final l$id = id;
+    final l$isPublic = isPublic;
     final l$name = name;
+    final l$spamDelayMillis = spamDelayMillis;
     return Object.hashAll([
       l$id,
+      _$data.containsKey('isPublic') ? l$isPublic : const {},
       _$data.containsKey('name') ? l$name : const {},
+      _$data.containsKey('spamDelayMillis') ? l$spamDelayMillis : const {},
     ]);
   }
 }
@@ -4280,7 +4378,9 @@ abstract class CopyWith$Input$UpdateMathFieldInput<TRes> {
 
   TRes call({
     String? id,
+    bool? isPublic,
     String? name,
+    double? spamDelayMillis,
   });
 }
 
@@ -4299,12 +4399,17 @@ class _CopyWithImpl$Input$UpdateMathFieldInput<TRes>
 
   TRes call({
     Object? id = _undefined,
+    Object? isPublic = _undefined,
     Object? name = _undefined,
+    Object? spamDelayMillis = _undefined,
   }) =>
       _then(Input$UpdateMathFieldInput._({
         ..._instance._$data,
         if (id != _undefined && id != null) 'id': (id as String),
+        if (isPublic != _undefined) 'isPublic': (isPublic as bool?),
         if (name != _undefined) 'name': (name as String?),
+        if (spamDelayMillis != _undefined)
+          'spamDelayMillis': (spamDelayMillis as double?),
       }));
 }
 
@@ -4316,7 +4421,9 @@ class _CopyWithStubImpl$Input$UpdateMathFieldInput<TRes>
 
   call({
     String? id,
+    bool? isPublic,
     String? name,
+    double? spamDelayMillis,
   }) =>
       _res;
 }
