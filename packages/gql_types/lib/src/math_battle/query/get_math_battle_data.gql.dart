@@ -1,7 +1,6 @@
 import '../../math_field/math_field.gql.dart';
 import '../../media_file/media_file.gql.dart';
 import '../../schema.gql.dart';
-import '../../user/user_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -477,9 +476,26 @@ const documentNodeQueryGetMathBattleData = DocumentNode(definitions: [
         arguments: [],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'UserObject'),
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
             directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'userName'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -501,9 +517,26 @@ const documentNodeQueryGetMathBattleData = DocumentNode(definitions: [
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'UserObject'),
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
             directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'userName'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -659,7 +692,6 @@ const documentNodeQueryGetMathBattleData = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserObject,
   fragmentDefinitionMediaFile,
   fragmentDefinitionMathField,
 ]);
@@ -801,20 +833,43 @@ extension ClientExtension$Query$GetMathBattleData on graphql.GraphQLClient {
 }
 
 class Query$GetMathBattleData$getAuthUser {
-  Query$GetMathBattleData$getAuthUser(
-      {this.$__typename = 'UserWithRelationsObject'});
+  Query$GetMathBattleData$getAuthUser({
+    required this.id,
+    required this.createdAt,
+    this.userName,
+    this.$__typename = 'UserWithRelationsObject',
+  });
 
   factory Query$GetMathBattleData$getAuthUser.fromJson(
       Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$createdAt = json['createdAt'];
+    final l$userName = json['userName'];
     final l$$__typename = json['__typename'];
     return Query$GetMathBattleData$getAuthUser(
-        $__typename: (l$$__typename as String));
+      id: (l$id as String),
+      createdAt: DateTime.parse((l$createdAt as String)),
+      userName: (l$userName as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
+
+  final String id;
+
+  final DateTime createdAt;
+
+  final String? userName;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt.toIso8601String();
+    final l$userName = userName;
+    _resultData['userName'] = l$userName;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -822,8 +877,16 @@ class Query$GetMathBattleData$getAuthUser {
 
   @override
   int get hashCode {
+    final l$id = id;
+    final l$createdAt = createdAt;
+    final l$userName = userName;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
+    return Object.hashAll([
+      l$id,
+      l$createdAt,
+      l$userName,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -833,6 +896,21 @@ class Query$GetMathBattleData$getAuthUser {
     }
     if (!(other is Query$GetMathBattleData$getAuthUser) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$userName = userName;
+    final lOther$userName = other.userName;
+    if (l$userName != lOther$userName) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -863,7 +941,12 @@ abstract class CopyWith$Query$GetMathBattleData$getAuthUser<TRes> {
   factory CopyWith$Query$GetMathBattleData$getAuthUser.stub(TRes res) =
       _CopyWithStubImpl$Query$GetMathBattleData$getAuthUser;
 
-  TRes call({String? $__typename});
+  TRes call({
+    String? id,
+    DateTime? createdAt,
+    String? userName,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$GetMathBattleData$getAuthUser<TRes>
@@ -879,11 +962,23 @@ class _CopyWithImpl$Query$GetMathBattleData$getAuthUser<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? createdAt = _undefined,
+    Object? userName = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$GetMathBattleData$getAuthUser(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as DateTime),
+        userName:
+            userName == _undefined ? _instance.userName : (userName as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$GetMathBattleData$getAuthUser<TRes>
@@ -892,24 +987,53 @@ class _CopyWithStubImpl$Query$GetMathBattleData$getAuthUser<TRes>
 
   TRes _res;
 
-  call({String? $__typename}) => _res;
+  call({
+    String? id,
+    DateTime? createdAt,
+    String? userName,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$GetMathBattleData$getUserById {
-  Query$GetMathBattleData$getUserById(
-      {this.$__typename = 'UserWithRelationsObject'});
+  Query$GetMathBattleData$getUserById({
+    required this.id,
+    required this.createdAt,
+    this.userName,
+    this.$__typename = 'UserWithRelationsObject',
+  });
 
   factory Query$GetMathBattleData$getUserById.fromJson(
       Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$createdAt = json['createdAt'];
+    final l$userName = json['userName'];
     final l$$__typename = json['__typename'];
     return Query$GetMathBattleData$getUserById(
-        $__typename: (l$$__typename as String));
+      id: (l$id as String),
+      createdAt: DateTime.parse((l$createdAt as String)),
+      userName: (l$userName as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
+
+  final String id;
+
+  final DateTime createdAt;
+
+  final String? userName;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt.toIso8601String();
+    final l$userName = userName;
+    _resultData['userName'] = l$userName;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -917,8 +1041,16 @@ class Query$GetMathBattleData$getUserById {
 
   @override
   int get hashCode {
+    final l$id = id;
+    final l$createdAt = createdAt;
+    final l$userName = userName;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
+    return Object.hashAll([
+      l$id,
+      l$createdAt,
+      l$userName,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -928,6 +1060,21 @@ class Query$GetMathBattleData$getUserById {
     }
     if (!(other is Query$GetMathBattleData$getUserById) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$userName = userName;
+    final lOther$userName = other.userName;
+    if (l$userName != lOther$userName) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -958,7 +1105,12 @@ abstract class CopyWith$Query$GetMathBattleData$getUserById<TRes> {
   factory CopyWith$Query$GetMathBattleData$getUserById.stub(TRes res) =
       _CopyWithStubImpl$Query$GetMathBattleData$getUserById;
 
-  TRes call({String? $__typename});
+  TRes call({
+    String? id,
+    DateTime? createdAt,
+    String? userName,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$GetMathBattleData$getUserById<TRes>
@@ -974,11 +1126,23 @@ class _CopyWithImpl$Query$GetMathBattleData$getUserById<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? createdAt = _undefined,
+    Object? userName = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$GetMathBattleData$getUserById(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as DateTime),
+        userName:
+            userName == _undefined ? _instance.userName : (userName as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$GetMathBattleData$getUserById<TRes>
@@ -987,7 +1151,13 @@ class _CopyWithStubImpl$Query$GetMathBattleData$getUserById<TRes>
 
   TRes _res;
 
-  call({String? $__typename}) => _res;
+  call({
+    String? id,
+    DateTime? createdAt,
+    String? userName,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$GetMathBattleData$getMathBattleMathProblems {

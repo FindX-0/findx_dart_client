@@ -10,3 +10,6 @@ typedef GetMathBattleMathProblemsRes = Query$GetMathBattleMathProblems$getMathBa
 typedef GetMatchByIdRes = Fragment$MatchObject;
 typedef GetMathBattleDataRes = Query$GetMathBattleData;
 typedef GetMathBattleDataMathProblemItem = Query$GetMathBattleData$getMathBattleMathProblems;
+
+typedef GetMathBattleDataOpponentUserRes = Query$GetMathBattleData$getUserById;
+typedef GetMathBattleDataAuthUserRes = Query$GetMathBattleData$getAuthUser;
