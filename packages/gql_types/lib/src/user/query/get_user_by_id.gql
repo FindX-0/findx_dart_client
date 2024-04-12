@@ -2,6 +2,6 @@ query GetUserById(
   $input: IdentifierInput!
 ) {
   getUserById(input: $input) {
-    ...UserObject
+    ...UserWithRelObject
   }
 }

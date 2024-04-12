@@ -1,5 +1,5 @@
 import '../../user_meta/user_meta_object.gql.dart';
-import '../user_object.gql.dart';
+import '../user_with_rel_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -14,13 +14,13 @@ class Query$GetAuthUser {
     final l$getAuthUser = json['getAuthUser'];
     final l$$__typename = json['__typename'];
     return Query$GetAuthUser(
-      getAuthUser: Query$GetAuthUser$getAuthUser.fromJson(
+      getAuthUser: Fragment$UserWithRelObject.fromJson(
           (l$getAuthUser as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$GetAuthUser$getAuthUser getAuthUser;
+  final Fragment$UserWithRelObject getAuthUser;
 
   final String $__typename;
 
@@ -83,10 +83,10 @@ abstract class CopyWith$Query$GetAuthUser<TRes> {
       _CopyWithStubImpl$Query$GetAuthUser;
 
   TRes call({
-    Query$GetAuthUser$getAuthUser? getAuthUser,
+    Fragment$UserWithRelObject? getAuthUser,
     String? $__typename,
   });
-  CopyWith$Query$GetAuthUser$getAuthUser<TRes> get getAuthUser;
+  CopyWith$Fragment$UserWithRelObject<TRes> get getAuthUser;
 }
 
 class _CopyWithImpl$Query$GetAuthUser<TRes>
@@ -109,15 +109,15 @@ class _CopyWithImpl$Query$GetAuthUser<TRes>
       _then(Query$GetAuthUser(
         getAuthUser: getAuthUser == _undefined || getAuthUser == null
             ? _instance.getAuthUser
-            : (getAuthUser as Query$GetAuthUser$getAuthUser),
+            : (getAuthUser as Fragment$UserWithRelObject),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Query$GetAuthUser$getAuthUser<TRes> get getAuthUser {
+  CopyWith$Fragment$UserWithRelObject<TRes> get getAuthUser {
     final local$getAuthUser = _instance.getAuthUser;
-    return CopyWith$Query$GetAuthUser$getAuthUser(
+    return CopyWith$Fragment$UserWithRelObject(
         local$getAuthUser, (e) => call(getAuthUser: e));
   }
 }
@@ -129,13 +129,13 @@ class _CopyWithStubImpl$Query$GetAuthUser<TRes>
   TRes _res;
 
   call({
-    Query$GetAuthUser$getAuthUser? getAuthUser,
+    Fragment$UserWithRelObject? getAuthUser,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Query$GetAuthUser$getAuthUser<TRes> get getAuthUser =>
-      CopyWith$Query$GetAuthUser$getAuthUser.stub(_res);
+  CopyWith$Fragment$UserWithRelObject<TRes> get getAuthUser =>
+      CopyWith$Fragment$UserWithRelObject.stub(_res);
 }
 
 const documentNodeQueryGetAuthUser = DocumentNode(definitions: [
@@ -152,27 +152,8 @@ const documentNodeQueryGetAuthUser = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'UserObject'),
+            name: NameNode(value: 'UserWithRelObject'),
             directives: [],
-          ),
-          FieldNode(
-            name: NameNode(value: 'userMeta'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'UserMetaObject'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -192,7 +173,7 @@ const documentNodeQueryGetAuthUser = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserObject,
+  fragmentDefinitionUserWithRelObject,
   fragmentDefinitionUserMetaObject,
 ]);
 Query$GetAuthUser _parserFn$Query$GetAuthUser(Map<String, dynamic> data) =>
@@ -310,144 +291,4 @@ extension ClientExtension$Query$GetAuthUser on graphql.GraphQLClient {
     );
     return result == null ? null : Query$GetAuthUser.fromJson(result);
   }
-}
-
-class Query$GetAuthUser$getAuthUser {
-  Query$GetAuthUser$getAuthUser({
-    this.userMeta,
-    this.$__typename = 'UserWithRelationsObject',
-  });
-
-  factory Query$GetAuthUser$getAuthUser.fromJson(Map<String, dynamic> json) {
-    final l$userMeta = json['userMeta'];
-    final l$$__typename = json['__typename'];
-    return Query$GetAuthUser$getAuthUser(
-      userMeta: l$userMeta == null
-          ? null
-          : Fragment$UserMetaObject.fromJson(
-              (l$userMeta as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final Fragment$UserMetaObject? userMeta;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$userMeta = userMeta;
-    _resultData['userMeta'] = l$userMeta?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$userMeta = userMeta;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userMeta,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$GetAuthUser$getAuthUser) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$userMeta = userMeta;
-    final lOther$userMeta = other.userMeta;
-    if (l$userMeta != lOther$userMeta) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$GetAuthUser$getAuthUser
-    on Query$GetAuthUser$getAuthUser {
-  CopyWith$Query$GetAuthUser$getAuthUser<Query$GetAuthUser$getAuthUser>
-      get copyWith => CopyWith$Query$GetAuthUser$getAuthUser(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$GetAuthUser$getAuthUser<TRes> {
-  factory CopyWith$Query$GetAuthUser$getAuthUser(
-    Query$GetAuthUser$getAuthUser instance,
-    TRes Function(Query$GetAuthUser$getAuthUser) then,
-  ) = _CopyWithImpl$Query$GetAuthUser$getAuthUser;
-
-  factory CopyWith$Query$GetAuthUser$getAuthUser.stub(TRes res) =
-      _CopyWithStubImpl$Query$GetAuthUser$getAuthUser;
-
-  TRes call({
-    Fragment$UserMetaObject? userMeta,
-    String? $__typename,
-  });
-  CopyWith$Fragment$UserMetaObject<TRes> get userMeta;
-}
-
-class _CopyWithImpl$Query$GetAuthUser$getAuthUser<TRes>
-    implements CopyWith$Query$GetAuthUser$getAuthUser<TRes> {
-  _CopyWithImpl$Query$GetAuthUser$getAuthUser(
-    this._instance,
-    this._then,
-  );
-
-  final Query$GetAuthUser$getAuthUser _instance;
-
-  final TRes Function(Query$GetAuthUser$getAuthUser) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? userMeta = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GetAuthUser$getAuthUser(
-        userMeta: userMeta == _undefined
-            ? _instance.userMeta
-            : (userMeta as Fragment$UserMetaObject?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWith$Fragment$UserMetaObject<TRes> get userMeta {
-    final local$userMeta = _instance.userMeta;
-    return local$userMeta == null
-        ? CopyWith$Fragment$UserMetaObject.stub(_then(_instance))
-        : CopyWith$Fragment$UserMetaObject(
-            local$userMeta, (e) => call(userMeta: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$GetAuthUser$getAuthUser<TRes>
-    implements CopyWith$Query$GetAuthUser$getAuthUser<TRes> {
-  _CopyWithStubImpl$Query$GetAuthUser$getAuthUser(this._res);
-
-  TRes _res;
-
-  call({
-    Fragment$UserMetaObject? userMeta,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWith$Fragment$UserMetaObject<TRes> get userMeta =>
-      CopyWith$Fragment$UserMetaObject.stub(_res);
 }

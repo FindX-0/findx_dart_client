@@ -1,5 +1,6 @@
 import '../../schema.gql.dart';
-import '../user_object.gql.dart';
+import '../../user_meta/user_meta_object.gql.dart';
+import '../user_with_rel_object.gql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
@@ -113,13 +114,13 @@ class Query$GetUserById {
     final l$getUserById = json['getUserById'];
     final l$$__typename = json['__typename'];
     return Query$GetUserById(
-      getUserById: Query$GetUserById$getUserById.fromJson(
+      getUserById: Fragment$UserWithRelObject.fromJson(
           (l$getUserById as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$GetUserById$getUserById getUserById;
+  final Fragment$UserWithRelObject getUserById;
 
   final String $__typename;
 
@@ -182,10 +183,10 @@ abstract class CopyWith$Query$GetUserById<TRes> {
       _CopyWithStubImpl$Query$GetUserById;
 
   TRes call({
-    Query$GetUserById$getUserById? getUserById,
+    Fragment$UserWithRelObject? getUserById,
     String? $__typename,
   });
-  CopyWith$Query$GetUserById$getUserById<TRes> get getUserById;
+  CopyWith$Fragment$UserWithRelObject<TRes> get getUserById;
 }
 
 class _CopyWithImpl$Query$GetUserById<TRes>
@@ -208,15 +209,15 @@ class _CopyWithImpl$Query$GetUserById<TRes>
       _then(Query$GetUserById(
         getUserById: getUserById == _undefined || getUserById == null
             ? _instance.getUserById
-            : (getUserById as Query$GetUserById$getUserById),
+            : (getUserById as Fragment$UserWithRelObject),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Query$GetUserById$getUserById<TRes> get getUserById {
+  CopyWith$Fragment$UserWithRelObject<TRes> get getUserById {
     final local$getUserById = _instance.getUserById;
-    return CopyWith$Query$GetUserById$getUserById(
+    return CopyWith$Fragment$UserWithRelObject(
         local$getUserById, (e) => call(getUserById: e));
   }
 }
@@ -228,13 +229,13 @@ class _CopyWithStubImpl$Query$GetUserById<TRes>
   TRes _res;
 
   call({
-    Query$GetUserById$getUserById? getUserById,
+    Fragment$UserWithRelObject? getUserById,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Query$GetUserById$getUserById<TRes> get getUserById =>
-      CopyWith$Query$GetUserById$getUserById.stub(_res);
+  CopyWith$Fragment$UserWithRelObject<TRes> get getUserById =>
+      CopyWith$Fragment$UserWithRelObject.stub(_res);
 }
 
 const documentNodeQueryGetUserById = DocumentNode(definitions: [
@@ -266,7 +267,7 @@ const documentNodeQueryGetUserById = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'UserObject'),
+            name: NameNode(value: 'UserWithRelObject'),
             directives: [],
           ),
           FieldNode(
@@ -287,7 +288,8 @@ const documentNodeQueryGetUserById = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserObject,
+  fragmentDefinitionUserWithRelObject,
+  fragmentDefinitionUserMetaObject,
 ]);
 Query$GetUserById _parserFn$Query$GetUserById(Map<String, dynamic> data) =>
     Query$GetUserById.fromJson(data);
@@ -418,96 +420,4 @@ extension ClientExtension$Query$GetUserById on graphql.GraphQLClient {
     );
     return result == null ? null : Query$GetUserById.fromJson(result);
   }
-}
-
-class Query$GetUserById$getUserById {
-  Query$GetUserById$getUserById({this.$__typename = 'UserWithRelationsObject'});
-
-  factory Query$GetUserById$getUserById.fromJson(Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return Query$GetUserById$getUserById(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$GetUserById$getUserById) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$GetUserById$getUserById
-    on Query$GetUserById$getUserById {
-  CopyWith$Query$GetUserById$getUserById<Query$GetUserById$getUserById>
-      get copyWith => CopyWith$Query$GetUserById$getUserById(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$GetUserById$getUserById<TRes> {
-  factory CopyWith$Query$GetUserById$getUserById(
-    Query$GetUserById$getUserById instance,
-    TRes Function(Query$GetUserById$getUserById) then,
-  ) = _CopyWithImpl$Query$GetUserById$getUserById;
-
-  factory CopyWith$Query$GetUserById$getUserById.stub(TRes res) =
-      _CopyWithStubImpl$Query$GetUserById$getUserById;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImpl$Query$GetUserById$getUserById<TRes>
-    implements CopyWith$Query$GetUserById$getUserById<TRes> {
-  _CopyWithImpl$Query$GetUserById$getUserById(
-    this._instance,
-    this._then,
-  );
-
-  final Query$GetUserById$getUserById _instance;
-
-  final TRes Function(Query$GetUserById$getUserById) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$GetUserById$getUserById(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImpl$Query$GetUserById$getUserById<TRes>
-    implements CopyWith$Query$GetUserById$getUserById<TRes> {
-  _CopyWithStubImpl$Query$GetUserById$getUserById(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
 }

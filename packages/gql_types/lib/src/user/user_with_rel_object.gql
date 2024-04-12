@@ -1,0 +1,11 @@
+fragment UserWithRelObject on UserWithRelationsObject {
+  authProvider
+  createdAt
+  email
+  id
+  isCompleted
+  userName
+  userMeta {
+    ...UserMetaObject
+  }
+}
