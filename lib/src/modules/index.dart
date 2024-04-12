@@ -1,5 +1,6 @@
 export 'answer_function/index.dart';
 export 'authentication/index.dart';
+export 'friend/index.dart';
 export 'matchmaking/index.dart';
 export 'math_battle/index.dart';
 export 'math_battle_result/index.dart';

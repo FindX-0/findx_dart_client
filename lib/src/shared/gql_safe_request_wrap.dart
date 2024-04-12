@@ -4,7 +4,7 @@ import 'package:app_client/app_client.dart';
 import 'package:common_models/common_models.dart';
 import 'package:graphql/client.dart';
 
-mixin GqlRequestWrap {
+mixin GqlSafeRequestWrap {
   Future<Either<ActionFailure, T>> callCatchWithActionFailure<R, T>(
     Future<QueryResult<R>> Function() request, {
     required T Function(R r) mapper,

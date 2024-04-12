@@ -2,10 +2,10 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../shared/gql_request_wrap.dart';
+import '../../shared/gql_safe_request_wrap.dart';
 import 'answer_function_remote_repository.dart';
 
-class ApiAnswerFunctionRemoteRepository with GqlRequestWrap implements AnswerFunctionRemoteRepository {
+class ApiAnswerFunctionRemoteRepository with GqlSafeRequestWrap implements AnswerFunctionRemoteRepository {
   ApiAnswerFunctionRemoteRepository(
     this._client,
   );

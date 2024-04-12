@@ -2,10 +2,10 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../shared/gql_request_wrap.dart';
+import '../../shared/gql_safe_request_wrap.dart';
 import 'user_meta_remote_repository.dart';
 
-class ApiUserMetaRemoteRepository with GqlRequestWrap implements UserMetaRemoteRepository {
+class ApiUserMetaRemoteRepository with GqlSafeRequestWrap implements UserMetaRemoteRepository {
   ApiUserMetaRemoteRepository(
     this._client,
   );

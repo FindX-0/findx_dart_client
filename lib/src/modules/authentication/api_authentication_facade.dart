@@ -5,11 +5,11 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../shared/gql_request_wrap.dart';
+import '../../shared/gql_safe_request_wrap.dart';
 import 'authentication_facade.dart';
 import 'model/admin_sign_in_failure.dart';
 
-class ApiAuthenticationFacade with GqlRequestWrap implements AuthenticationFacade {
+class ApiAuthenticationFacade with GqlSafeRequestWrap implements AuthenticationFacade {
   ApiAuthenticationFacade(
     this._client,
   );

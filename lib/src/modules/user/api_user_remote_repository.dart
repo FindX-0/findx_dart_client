@@ -2,10 +2,10 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../shared/gql_request_wrap.dart';
+import '../../shared/gql_safe_request_wrap.dart';
 import 'user_remote_repository.dart';
 
-class ApiUserRemoteRepository with GqlRequestWrap implements UserRemoteRepository {
+class ApiUserRemoteRepository with GqlSafeRequestWrap implements UserRemoteRepository {
   ApiUserRemoteRepository(
     this._client,
   );
@@ -21,7 +21,7 @@ class ApiUserRemoteRepository with GqlRequestWrap implements UserRemoteRepositor
   }
 
   @override
-  Future<Either<FetchFailure, User>> getUserById(String id) {
+  Future<Either<FetchFailure, GetUserByIdRes>> getUserById(String id) {
     return callCatchWithFetchFailure(
       () => _client.query$GetUserById(
         Options$Query$GetUserById(

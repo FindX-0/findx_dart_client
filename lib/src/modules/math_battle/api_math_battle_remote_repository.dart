@@ -2,11 +2,11 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
-import '../../shared/gql_request_wrap.dart';
+import '../../shared/gql_safe_request_wrap.dart';
 import 'math_battle_remote_repository.dart';
 import 'model/math_battle_data.dart';
 
-class ApiMathBattleRemoteRepository with GqlRequestWrap implements MathBattleRemoteRepository {
+class ApiMathBattleRemoteRepository with GqlSafeRequestWrap implements MathBattleRemoteRepository {
   ApiMathBattleRemoteRepository(
     this._client,
   );

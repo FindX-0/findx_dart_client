@@ -8,8 +8,8 @@ class MathBattleData {
     required this.mathField,
   });
 
-  final User authUser;
-  final User opponentUser;
+  final GetMathBattleDataAuthUserRes authUser;
+  final GetMathBattleDataOpponentUserRes opponentUser;
   final List<GetMathBattleDataMathProblemItem> mathProblems;
   final MathField mathField;
 }
