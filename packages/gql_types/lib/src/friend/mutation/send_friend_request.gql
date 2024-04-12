@@ -1,0 +1,7 @@
+mutation SendFriendRequest(
+  $input: SendFriendRequestInput!
+) {
+  sendFriendRequest(input: $input) {
+    ...SuccessObject
+  }
+}

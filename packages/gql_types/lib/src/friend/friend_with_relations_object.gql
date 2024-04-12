@@ -1,0 +1,12 @@
+fragment FriendWithRelationsObject on FriendWithRelationsObject {
+  userId
+  friendId
+  createdAt
+  status
+  user {
+    ...UserObject
+  }
+  friend {
+    ...UserObject
+  }
+}

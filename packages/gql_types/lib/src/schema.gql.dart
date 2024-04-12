@@ -1,3 +1,101 @@
+class Input$AcceptFriendRequestInput {
+  factory Input$AcceptFriendRequestInput({required String userId}) =>
+      Input$AcceptFriendRequestInput._({
+        r'userId': userId,
+      });
+
+  Input$AcceptFriendRequestInput._(this._$data);
+
+  factory Input$AcceptFriendRequestInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$userId = data['userId'];
+    result$data['userId'] = (l$userId as String);
+    return Input$AcceptFriendRequestInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get userId => (_$data['userId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$userId = userId;
+    result$data['userId'] = l$userId;
+    return result$data;
+  }
+
+  CopyWith$Input$AcceptFriendRequestInput<Input$AcceptFriendRequestInput>
+      get copyWith => CopyWith$Input$AcceptFriendRequestInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$AcceptFriendRequestInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$userId = userId;
+    return Object.hashAll([l$userId]);
+  }
+}
+
+abstract class CopyWith$Input$AcceptFriendRequestInput<TRes> {
+  factory CopyWith$Input$AcceptFriendRequestInput(
+    Input$AcceptFriendRequestInput instance,
+    TRes Function(Input$AcceptFriendRequestInput) then,
+  ) = _CopyWithImpl$Input$AcceptFriendRequestInput;
+
+  factory CopyWith$Input$AcceptFriendRequestInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$AcceptFriendRequestInput;
+
+  TRes call({String? userId});
+}
+
+class _CopyWithImpl$Input$AcceptFriendRequestInput<TRes>
+    implements CopyWith$Input$AcceptFriendRequestInput<TRes> {
+  _CopyWithImpl$Input$AcceptFriendRequestInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$AcceptFriendRequestInput _instance;
+
+  final TRes Function(Input$AcceptFriendRequestInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? userId = _undefined}) =>
+      _then(Input$AcceptFriendRequestInput._({
+        ..._instance._$data,
+        if (userId != _undefined && userId != null)
+          'userId': (userId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$AcceptFriendRequestInput<TRes>
+    implements CopyWith$Input$AcceptFriendRequestInput<TRes> {
+  _CopyWithStubImpl$Input$AcceptFriendRequestInput(this._res);
+
+  TRes _res;
+
+  call({String? userId}) => _res;
+}
+
 class Input$AdminSignInInput {
   factory Input$AdminSignInInput({
     required String email,
@@ -1645,6 +1743,104 @@ class _CopyWithStubImpl$Input$CreateMathSubFieldInput<TRes>
       _res;
 }
 
+class Input$DeclineFriendRequestInput {
+  factory Input$DeclineFriendRequestInput({required String userId}) =>
+      Input$DeclineFriendRequestInput._({
+        r'userId': userId,
+      });
+
+  Input$DeclineFriendRequestInput._(this._$data);
+
+  factory Input$DeclineFriendRequestInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$userId = data['userId'];
+    result$data['userId'] = (l$userId as String);
+    return Input$DeclineFriendRequestInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get userId => (_$data['userId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$userId = userId;
+    result$data['userId'] = l$userId;
+    return result$data;
+  }
+
+  CopyWith$Input$DeclineFriendRequestInput<Input$DeclineFriendRequestInput>
+      get copyWith => CopyWith$Input$DeclineFriendRequestInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$DeclineFriendRequestInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$userId = userId;
+    return Object.hashAll([l$userId]);
+  }
+}
+
+abstract class CopyWith$Input$DeclineFriendRequestInput<TRes> {
+  factory CopyWith$Input$DeclineFriendRequestInput(
+    Input$DeclineFriendRequestInput instance,
+    TRes Function(Input$DeclineFriendRequestInput) then,
+  ) = _CopyWithImpl$Input$DeclineFriendRequestInput;
+
+  factory CopyWith$Input$DeclineFriendRequestInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$DeclineFriendRequestInput;
+
+  TRes call({String? userId});
+}
+
+class _CopyWithImpl$Input$DeclineFriendRequestInput<TRes>
+    implements CopyWith$Input$DeclineFriendRequestInput<TRes> {
+  _CopyWithImpl$Input$DeclineFriendRequestInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$DeclineFriendRequestInput _instance;
+
+  final TRes Function(Input$DeclineFriendRequestInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? userId = _undefined}) =>
+      _then(Input$DeclineFriendRequestInput._({
+        ..._instance._$data,
+        if (userId != _undefined && userId != null)
+          'userId': (userId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$DeclineFriendRequestInput<TRes>
+    implements CopyWith$Input$DeclineFriendRequestInput<TRes> {
+  _CopyWithStubImpl$Input$DeclineFriendRequestInput(this._res);
+
+  TRes _res;
+
+  call({String? userId}) => _res;
+}
+
 class Input$DeviceSignInInput {
   factory Input$DeviceSignInInput({required String deviceId}) =>
       Input$DeviceSignInInput._({
@@ -2277,6 +2473,112 @@ class _CopyWithStubImpl$Input$FilterAnswerFunctionsInput<TRes>
     String? mathSubFieldId,
   }) =>
       _res;
+}
+
+class Input$FilterFriendsInput {
+  factory Input$FilterFriendsInput({String? searchQuery}) =>
+      Input$FilterFriendsInput._({
+        if (searchQuery != null) r'searchQuery': searchQuery,
+      });
+
+  Input$FilterFriendsInput._(this._$data);
+
+  factory Input$FilterFriendsInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('searchQuery')) {
+      final l$searchQuery = data['searchQuery'];
+      result$data['searchQuery'] = (l$searchQuery as String?);
+    }
+    return Input$FilterFriendsInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get searchQuery => (_$data['searchQuery'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('searchQuery')) {
+      final l$searchQuery = searchQuery;
+      result$data['searchQuery'] = l$searchQuery;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$FilterFriendsInput<Input$FilterFriendsInput> get copyWith =>
+      CopyWith$Input$FilterFriendsInput(
+        this,
+        (i) => i,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$FilterFriendsInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$searchQuery = searchQuery;
+    final lOther$searchQuery = other.searchQuery;
+    if (_$data.containsKey('searchQuery') !=
+        other._$data.containsKey('searchQuery')) {
+      return false;
+    }
+    if (l$searchQuery != lOther$searchQuery) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$searchQuery = searchQuery;
+    return Object.hashAll(
+        [_$data.containsKey('searchQuery') ? l$searchQuery : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$FilterFriendsInput<TRes> {
+  factory CopyWith$Input$FilterFriendsInput(
+    Input$FilterFriendsInput instance,
+    TRes Function(Input$FilterFriendsInput) then,
+  ) = _CopyWithImpl$Input$FilterFriendsInput;
+
+  factory CopyWith$Input$FilterFriendsInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$FilterFriendsInput;
+
+  TRes call({String? searchQuery});
+}
+
+class _CopyWithImpl$Input$FilterFriendsInput<TRes>
+    implements CopyWith$Input$FilterFriendsInput<TRes> {
+  _CopyWithImpl$Input$FilterFriendsInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$FilterFriendsInput _instance;
+
+  final TRes Function(Input$FilterFriendsInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? searchQuery = _undefined}) =>
+      _then(Input$FilterFriendsInput._({
+        ..._instance._$data,
+        if (searchQuery != _undefined) 'searchQuery': (searchQuery as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$FilterFriendsInput<TRes>
+    implements CopyWith$Input$FilterFriendsInput<TRes> {
+  _CopyWithStubImpl$Input$FilterFriendsInput(this._res);
+
+  TRes _res;
+
+  call({String? searchQuery}) => _res;
 }
 
 class Input$FilterMathSubFieldsInput {
@@ -3971,6 +4273,104 @@ class _CopyWithStubImpl$Input$RefreshTokenInput<TRes>
   call({String? refreshToken}) => _res;
 }
 
+class Input$SendFriendRequestInput {
+  factory Input$SendFriendRequestInput({required String userId}) =>
+      Input$SendFriendRequestInput._({
+        r'userId': userId,
+      });
+
+  Input$SendFriendRequestInput._(this._$data);
+
+  factory Input$SendFriendRequestInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$userId = data['userId'];
+    result$data['userId'] = (l$userId as String);
+    return Input$SendFriendRequestInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get userId => (_$data['userId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$userId = userId;
+    result$data['userId'] = l$userId;
+    return result$data;
+  }
+
+  CopyWith$Input$SendFriendRequestInput<Input$SendFriendRequestInput>
+      get copyWith => CopyWith$Input$SendFriendRequestInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$SendFriendRequestInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$userId = userId;
+    return Object.hashAll([l$userId]);
+  }
+}
+
+abstract class CopyWith$Input$SendFriendRequestInput<TRes> {
+  factory CopyWith$Input$SendFriendRequestInput(
+    Input$SendFriendRequestInput instance,
+    TRes Function(Input$SendFriendRequestInput) then,
+  ) = _CopyWithImpl$Input$SendFriendRequestInput;
+
+  factory CopyWith$Input$SendFriendRequestInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$SendFriendRequestInput;
+
+  TRes call({String? userId});
+}
+
+class _CopyWithImpl$Input$SendFriendRequestInput<TRes>
+    implements CopyWith$Input$SendFriendRequestInput<TRes> {
+  _CopyWithImpl$Input$SendFriendRequestInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$SendFriendRequestInput _instance;
+
+  final TRes Function(Input$SendFriendRequestInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? userId = _undefined}) =>
+      _then(Input$SendFriendRequestInput._({
+        ..._instance._$data,
+        if (userId != _undefined && userId != null)
+          'userId': (userId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$SendFriendRequestInput<TRes>
+    implements CopyWith$Input$SendFriendRequestInput<TRes> {
+  _CopyWithStubImpl$Input$SendFriendRequestInput(this._res);
+
+  TRes _res;
+
+  call({String? userId}) => _res;
+}
+
 class Input$SubmitMathProblemAnswerInput {
   factory Input$SubmitMathProblemAnswerInput({
     required String answer,
@@ -5041,6 +5441,104 @@ class _CopyWithStubImpl$Input$UpdateMathSubFieldInput<TRes>
       _res;
 }
 
+class Input$WithdrawFriendRequestInput {
+  factory Input$WithdrawFriendRequestInput({required String userId}) =>
+      Input$WithdrawFriendRequestInput._({
+        r'userId': userId,
+      });
+
+  Input$WithdrawFriendRequestInput._(this._$data);
+
+  factory Input$WithdrawFriendRequestInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$userId = data['userId'];
+    result$data['userId'] = (l$userId as String);
+    return Input$WithdrawFriendRequestInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get userId => (_$data['userId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$userId = userId;
+    result$data['userId'] = l$userId;
+    return result$data;
+  }
+
+  CopyWith$Input$WithdrawFriendRequestInput<Input$WithdrawFriendRequestInput>
+      get copyWith => CopyWith$Input$WithdrawFriendRequestInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$WithdrawFriendRequestInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$userId = userId;
+    return Object.hashAll([l$userId]);
+  }
+}
+
+abstract class CopyWith$Input$WithdrawFriendRequestInput<TRes> {
+  factory CopyWith$Input$WithdrawFriendRequestInput(
+    Input$WithdrawFriendRequestInput instance,
+    TRes Function(Input$WithdrawFriendRequestInput) then,
+  ) = _CopyWithImpl$Input$WithdrawFriendRequestInput;
+
+  factory CopyWith$Input$WithdrawFriendRequestInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$WithdrawFriendRequestInput;
+
+  TRes call({String? userId});
+}
+
+class _CopyWithImpl$Input$WithdrawFriendRequestInput<TRes>
+    implements CopyWith$Input$WithdrawFriendRequestInput<TRes> {
+  _CopyWithImpl$Input$WithdrawFriendRequestInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$WithdrawFriendRequestInput _instance;
+
+  final TRes Function(Input$WithdrawFriendRequestInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? userId = _undefined}) =>
+      _then(Input$WithdrawFriendRequestInput._({
+        ..._instance._$data,
+        if (userId != _undefined && userId != null)
+          'userId': (userId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$WithdrawFriendRequestInput<TRes>
+    implements CopyWith$Input$WithdrawFriendRequestInput<TRes> {
+  _CopyWithStubImpl$Input$WithdrawFriendRequestInput(this._res);
+
+  TRes _res;
+
+  call({String? userId}) => _res;
+}
+
 enum Enum$AuthProvider { APPLE, EMAIL, FACEBOOK, GOOGLE, NONE, $unknown }
 
 String toJson$Enum$AuthProvider(Enum$AuthProvider e) {
@@ -5074,6 +5572,30 @@ Enum$AuthProvider fromJson$Enum$AuthProvider(String value) {
       return Enum$AuthProvider.NONE;
     default:
       return Enum$AuthProvider.$unknown;
+  }
+}
+
+enum Enum$FriendshipStatus { ACCEPTED, REQUESTED, $unknown }
+
+String toJson$Enum$FriendshipStatus(Enum$FriendshipStatus e) {
+  switch (e) {
+    case Enum$FriendshipStatus.ACCEPTED:
+      return r'ACCEPTED';
+    case Enum$FriendshipStatus.REQUESTED:
+      return r'REQUESTED';
+    case Enum$FriendshipStatus.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$FriendshipStatus fromJson$Enum$FriendshipStatus(String value) {
+  switch (value) {
+    case r'ACCEPTED':
+      return Enum$FriendshipStatus.ACCEPTED;
+    case r'REQUESTED':
+      return Enum$FriendshipStatus.REQUESTED;
+    default:
+      return Enum$FriendshipStatus.$unknown;
   }
 }
 

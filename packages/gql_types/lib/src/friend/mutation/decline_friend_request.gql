@@ -1,0 +1,7 @@
+mutation DeclineFriendRequest(
+  $input: DeclineFriendRequestInput!
+) {
+  declineFriendRequest(input: $input) {
+    ...SuccessObject
+  }
+}

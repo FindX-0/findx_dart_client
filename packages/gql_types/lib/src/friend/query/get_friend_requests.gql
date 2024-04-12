@@ -1,0 +1,9 @@
+query GetFriendRequests(
+  $input: FilterFriendsInput!
+) {
+  getFriendRequests(
+    input: $input
+  ) {
+    ...FriendWithRelationsObject
+  }
+}

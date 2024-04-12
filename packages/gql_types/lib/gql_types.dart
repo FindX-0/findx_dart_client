@@ -3,6 +3,7 @@ library;
 export 'src/answer_function/index.dart';
 export 'src/authentication/index.dart';
 export 'src/enums.dart';
+export 'src/friend/index.dart';
 export 'src/matchmaking/index.dart';
 export 'src/math_battle/index.dart';
 export 'src/math_battle_result/index.dart';

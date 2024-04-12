@@ -191,10 +191,10 @@ class Query$GetMathBattleData {
     final l$getMatchMathField = json['getMatchMathField'];
     final l$$__typename = json['__typename'];
     return Query$GetMathBattleData(
-      getAuthUser:
-          Fragment$UserObject.fromJson((l$getAuthUser as Map<String, dynamic>)),
-      getUserById:
-          Fragment$UserObject.fromJson((l$getUserById as Map<String, dynamic>)),
+      getAuthUser: Query$GetMathBattleData$getAuthUser.fromJson(
+          (l$getAuthUser as Map<String, dynamic>)),
+      getUserById: Query$GetMathBattleData$getUserById.fromJson(
+          (l$getUserById as Map<String, dynamic>)),
       getMathBattleMathProblems: (l$getMathBattleMathProblems as List<dynamic>)
           .map((e) =>
               Query$GetMathBattleData$getMathBattleMathProblems.fromJson(
@@ -206,9 +206,9 @@ class Query$GetMathBattleData {
     );
   }
 
-  final Fragment$UserObject getAuthUser;
+  final Query$GetMathBattleData$getAuthUser getAuthUser;
 
-  final Fragment$UserObject getUserById;
+  final Query$GetMathBattleData$getUserById getUserById;
 
   final List<Query$GetMathBattleData$getMathBattleMathProblems>
       getMathBattleMathProblems;
@@ -315,15 +315,15 @@ abstract class CopyWith$Query$GetMathBattleData<TRes> {
       _CopyWithStubImpl$Query$GetMathBattleData;
 
   TRes call({
-    Fragment$UserObject? getAuthUser,
-    Fragment$UserObject? getUserById,
+    Query$GetMathBattleData$getAuthUser? getAuthUser,
+    Query$GetMathBattleData$getUserById? getUserById,
     List<Query$GetMathBattleData$getMathBattleMathProblems>?
         getMathBattleMathProblems,
     Fragment$MathField? getMatchMathField,
     String? $__typename,
   });
-  CopyWith$Fragment$UserObject<TRes> get getAuthUser;
-  CopyWith$Fragment$UserObject<TRes> get getUserById;
+  CopyWith$Query$GetMathBattleData$getAuthUser<TRes> get getAuthUser;
+  CopyWith$Query$GetMathBattleData$getUserById<TRes> get getUserById;
   TRes getMathBattleMathProblems(
       Iterable<Query$GetMathBattleData$getMathBattleMathProblems> Function(
               Iterable<
@@ -356,10 +356,10 @@ class _CopyWithImpl$Query$GetMathBattleData<TRes>
       _then(Query$GetMathBattleData(
         getAuthUser: getAuthUser == _undefined || getAuthUser == null
             ? _instance.getAuthUser
-            : (getAuthUser as Fragment$UserObject),
+            : (getAuthUser as Query$GetMathBattleData$getAuthUser),
         getUserById: getUserById == _undefined || getUserById == null
             ? _instance.getUserById
-            : (getUserById as Fragment$UserObject),
+            : (getUserById as Query$GetMathBattleData$getUserById),
         getMathBattleMathProblems: getMathBattleMathProblems == _undefined ||
                 getMathBattleMathProblems == null
             ? _instance.getMathBattleMathProblems
@@ -374,15 +374,15 @@ class _CopyWithImpl$Query$GetMathBattleData<TRes>
             : ($__typename as String),
       ));
 
-  CopyWith$Fragment$UserObject<TRes> get getAuthUser {
+  CopyWith$Query$GetMathBattleData$getAuthUser<TRes> get getAuthUser {
     final local$getAuthUser = _instance.getAuthUser;
-    return CopyWith$Fragment$UserObject(
+    return CopyWith$Query$GetMathBattleData$getAuthUser(
         local$getAuthUser, (e) => call(getAuthUser: e));
   }
 
-  CopyWith$Fragment$UserObject<TRes> get getUserById {
+  CopyWith$Query$GetMathBattleData$getUserById<TRes> get getUserById {
     final local$getUserById = _instance.getUserById;
-    return CopyWith$Fragment$UserObject(
+    return CopyWith$Query$GetMathBattleData$getUserById(
         local$getUserById, (e) => call(getUserById: e));
   }
 
@@ -414,8 +414,8 @@ class _CopyWithStubImpl$Query$GetMathBattleData<TRes>
   TRes _res;
 
   call({
-    Fragment$UserObject? getAuthUser,
-    Fragment$UserObject? getUserById,
+    Query$GetMathBattleData$getAuthUser? getAuthUser,
+    Query$GetMathBattleData$getUserById? getUserById,
     List<Query$GetMathBattleData$getMathBattleMathProblems>?
         getMathBattleMathProblems,
     Fragment$MathField? getMatchMathField,
@@ -423,11 +423,11 @@ class _CopyWithStubImpl$Query$GetMathBattleData<TRes>
   }) =>
       _res;
 
-  CopyWith$Fragment$UserObject<TRes> get getAuthUser =>
-      CopyWith$Fragment$UserObject.stub(_res);
+  CopyWith$Query$GetMathBattleData$getAuthUser<TRes> get getAuthUser =>
+      CopyWith$Query$GetMathBattleData$getAuthUser.stub(_res);
 
-  CopyWith$Fragment$UserObject<TRes> get getUserById =>
-      CopyWith$Fragment$UserObject.stub(_res);
+  CopyWith$Query$GetMathBattleData$getUserById<TRes> get getUserById =>
+      CopyWith$Query$GetMathBattleData$getUserById.stub(_res);
 
   getMathBattleMathProblems(_fn) => _res;
 
@@ -798,6 +798,196 @@ extension ClientExtension$Query$GetMathBattleData on graphql.GraphQLClient {
     );
     return result == null ? null : Query$GetMathBattleData.fromJson(result);
   }
+}
+
+class Query$GetMathBattleData$getAuthUser {
+  Query$GetMathBattleData$getAuthUser(
+      {this.$__typename = 'UserWithRelationsObject'});
+
+  factory Query$GetMathBattleData$getAuthUser.fromJson(
+      Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Query$GetMathBattleData$getAuthUser(
+        $__typename: (l$$__typename as String));
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetMathBattleData$getAuthUser) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetMathBattleData$getAuthUser
+    on Query$GetMathBattleData$getAuthUser {
+  CopyWith$Query$GetMathBattleData$getAuthUser<
+          Query$GetMathBattleData$getAuthUser>
+      get copyWith => CopyWith$Query$GetMathBattleData$getAuthUser(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetMathBattleData$getAuthUser<TRes> {
+  factory CopyWith$Query$GetMathBattleData$getAuthUser(
+    Query$GetMathBattleData$getAuthUser instance,
+    TRes Function(Query$GetMathBattleData$getAuthUser) then,
+  ) = _CopyWithImpl$Query$GetMathBattleData$getAuthUser;
+
+  factory CopyWith$Query$GetMathBattleData$getAuthUser.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetMathBattleData$getAuthUser;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Query$GetMathBattleData$getAuthUser<TRes>
+    implements CopyWith$Query$GetMathBattleData$getAuthUser<TRes> {
+  _CopyWithImpl$Query$GetMathBattleData$getAuthUser(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetMathBattleData$getAuthUser _instance;
+
+  final TRes Function(Query$GetMathBattleData$getAuthUser) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) =>
+      _then(Query$GetMathBattleData$getAuthUser(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query$GetMathBattleData$getAuthUser<TRes>
+    implements CopyWith$Query$GetMathBattleData$getAuthUser<TRes> {
+  _CopyWithStubImpl$Query$GetMathBattleData$getAuthUser(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
+}
+
+class Query$GetMathBattleData$getUserById {
+  Query$GetMathBattleData$getUserById(
+      {this.$__typename = 'UserWithRelationsObject'});
+
+  factory Query$GetMathBattleData$getUserById.fromJson(
+      Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    return Query$GetMathBattleData$getUserById(
+        $__typename: (l$$__typename as String));
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetMathBattleData$getUserById) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetMathBattleData$getUserById
+    on Query$GetMathBattleData$getUserById {
+  CopyWith$Query$GetMathBattleData$getUserById<
+          Query$GetMathBattleData$getUserById>
+      get copyWith => CopyWith$Query$GetMathBattleData$getUserById(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetMathBattleData$getUserById<TRes> {
+  factory CopyWith$Query$GetMathBattleData$getUserById(
+    Query$GetMathBattleData$getUserById instance,
+    TRes Function(Query$GetMathBattleData$getUserById) then,
+  ) = _CopyWithImpl$Query$GetMathBattleData$getUserById;
+
+  factory CopyWith$Query$GetMathBattleData$getUserById.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetMathBattleData$getUserById;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Query$GetMathBattleData$getUserById<TRes>
+    implements CopyWith$Query$GetMathBattleData$getUserById<TRes> {
+  _CopyWithImpl$Query$GetMathBattleData$getUserById(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetMathBattleData$getUserById _instance;
+
+  final TRes Function(Query$GetMathBattleData$getUserById) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) =>
+      _then(Query$GetMathBattleData$getUserById(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Query$GetMathBattleData$getUserById<TRes>
+    implements CopyWith$Query$GetMathBattleData$getUserById<TRes> {
+  _CopyWithStubImpl$Query$GetMathBattleData$getUserById(this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }
 
 class Query$GetMathBattleData$getMathBattleMathProblems {

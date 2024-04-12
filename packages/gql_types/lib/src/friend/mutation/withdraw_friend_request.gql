@@ -1,0 +1,7 @@
+mutation WithdrawFriendRequest(
+  $input: WithdrawFriendRequestInput!
+) {
+  withdrawFriendRequest(input: $input) {
+    ...SuccessObject
+  }
+}
