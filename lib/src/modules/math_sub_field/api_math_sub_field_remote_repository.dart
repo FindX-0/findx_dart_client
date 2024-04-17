@@ -4,7 +4,7 @@ import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
 import '../../shared/gql_safe_request_wrap.dart';
-import 'math_sub_field_failure.dart';
+import 'math_sub_field_error.dart';
 import 'math_sub_field_remote_repository.dart';
 
 class ApiMathSubFieldRemoteRepository with GqlSafeRequestWrap implements MathSubFieldRemoteRepository {
@@ -57,7 +57,7 @@ class ApiMathSubFieldRemoteRepository with GqlSafeRequestWrap implements MathSub
   }
 
   @override
-  Future<Either<DeleteMathSubFieldFailure, Unit>> delete({
+  Future<Either<DeleteMathSubFieldError, Unit>> delete({
     required String id,
   }) {
     return callCatch(
@@ -69,11 +69,11 @@ class ApiMathSubFieldRemoteRepository with GqlSafeRequestWrap implements MathSub
         ),
       ),
       mapper: (_) => unit,
-      unknownFailure: DeleteMathSubFieldFailure.unknown,
+      unknownErr: DeleteMathSubFieldError.unknown,
       onError: (code) => switch (code) {
-        GqlApiErrorCode.mathSubFieldHasRelations => DeleteMathSubFieldFailure.mathSubFieldHasRelations,
-        GqlApiErrorCode.mathSubFieldNotFound => DeleteMathSubFieldFailure.mathSubFieldNotFound,
-        _ => DeleteMathSubFieldFailure.unknown,
+        GqlApiErrorCode.mathSubFieldHasRelations => DeleteMathSubFieldError.mathSubFieldHasRelations,
+        GqlApiErrorCode.mathSubFieldNotFound => DeleteMathSubFieldError.mathSubFieldNotFound,
+        _ => DeleteMathSubFieldError.unknown,
       },
     );
   }

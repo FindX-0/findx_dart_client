@@ -1,10 +1,10 @@
 import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
-import 'model/admin_sign_in_failure.dart';
+import 'model/admin_sign_in_error.dart';
 
 abstract interface class AuthenticationFacade {
-  Future<Either<AdminSignInFailure, AdminSignInRes>> adminSignIn({
+  Future<Either<AdminSignInError, AdminSignInRes>> adminSignIn({
     required String email,
     required String password,
   });

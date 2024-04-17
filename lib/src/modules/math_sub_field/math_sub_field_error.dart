@@ -1,4 +1,4 @@
-enum DeleteMathSubFieldFailure {
+enum DeleteMathSubFieldError {
   unknown,
   mathSubFieldNotFound,
   mathSubFieldHasRelations,

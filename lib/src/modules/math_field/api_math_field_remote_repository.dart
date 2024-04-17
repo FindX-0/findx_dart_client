@@ -4,7 +4,7 @@ import 'package:gql_types/gql_types.dart';
 import 'package:graphql/client.dart';
 
 import '../../shared/gql_safe_request_wrap.dart';
-import 'math_field_failure.dart';
+import 'math_field_error.dart';
 import 'math_field_remote_repository.dart';
 
 class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldRemoteRepository {
@@ -61,7 +61,7 @@ class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldR
   }
 
   @override
-  Future<Either<DeleteMathFieldFailure, Unit>> delete({
+  Future<Either<DeleteMathFieldError, Unit>> delete({
     required String id,
   }) {
     return callCatch(
@@ -76,11 +76,11 @@ class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldR
       ),
       mapper: (_) => unit,
       onError: (code) => switch (code) {
-        GqlApiErrorCode.mathFieldNotFound => DeleteMathFieldFailure.mathFieldNotFound,
-        GqlApiErrorCode.mathFieldHasRelations => DeleteMathFieldFailure.mathFieldHasRelations,
-        _ => DeleteMathFieldFailure.unknown,
+        GqlApiErrorCode.mathFieldNotFound => DeleteMathFieldError.mathFieldNotFound,
+        GqlApiErrorCode.mathFieldHasRelations => DeleteMathFieldError.mathFieldHasRelations,
+        _ => DeleteMathFieldError.unknown,
       },
-      unknownFailure: DeleteMathFieldFailure.unknown,
+      unknownErr: DeleteMathFieldError.unknown,
     );
   }
 

@@ -1,4 +1,4 @@
-enum AdminSignInFailure {
+enum AdminSignInError {
   unknown,
   emailOrPasswordInvalid,
   userEmailExists,

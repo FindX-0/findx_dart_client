@@ -1,7 +1,7 @@
 import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
-import 'math_field_failure.dart';
+import 'math_field_error.dart';
 
 abstract interface class MathFieldRemoteRepository {
   Future<Either<NetworkCallError, MathFieldCreateResult>> create({
@@ -17,7 +17,7 @@ abstract interface class MathFieldRemoteRepository {
     int? spamDelayMillis,
   });
 
-  Future<Either<DeleteMathFieldFailure, Unit>> delete({
+  Future<Either<DeleteMathFieldError, Unit>> delete({
     required String id,
   });
 

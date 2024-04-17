@@ -12,7 +12,7 @@ mixin GqlSafeRequestWrap {
     return callCatch(
       request,
       mapper: mapper,
-      unknownFailure: NetworkCallError.unknown,
+      unknownErr: NetworkCallError.unknown,
       onError: (code) => NetworkCallError.unknown,
     );
   }
@@ -20,20 +20,20 @@ mixin GqlSafeRequestWrap {
   Future<Either<F, T>> callCatch<F, R, T>(
     Future<QueryResult<R>> Function() request, {
     required T Function(R r) mapper,
-    required F unknownFailure,
+    required F unknownErr,
     required F Function(GqlApiErrorCode code) onError,
   }) async {
     try {
       final result = await request();
 
       if (result.hasException) {
-        final firstError = _parseFirstError<F, T>(result.exception, unknownFailure, onError);
+        final firstError = _parseFirstError<F, T>(result.exception, unknownErr, onError);
 
-        return left(firstError ?? unknownFailure);
+        return left(firstError ?? unknownErr);
       }
 
       if (result.parsedData == null) {
-        return left(unknownFailure);
+        return left(unknownErr);
       }
 
       return right(mapper(result.parsedData as R));
@@ -41,13 +41,13 @@ mixin GqlSafeRequestWrap {
       log(e.toString());
     }
 
-    return left(unknownFailure);
+    return left(unknownErr);
   }
 
-  F? _parseFirstError<F, T>(
+  E? _parseFirstError<E, T>(
     OperationException? exception,
-    F unknownFailure,
-    F Function(GqlApiErrorCode code) onError,
+    E unknownErr,
+    E Function(GqlApiErrorCode code) onError,
   ) {
     if (exception == null) {
       return null;
@@ -55,7 +55,7 @@ mixin GqlSafeRequestWrap {
 
     final firstError = exception.graphqlErrors.isNotEmpty ? exception.graphqlErrors.first : null;
     if (firstError == null) {
-      return unknownFailure;
+      return unknownErr;
     }
 
     final errorCode = GqlApiErrorCode.fromApiString(firstError.message);

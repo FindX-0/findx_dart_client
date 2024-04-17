@@ -7,7 +7,7 @@ import 'package:graphql/client.dart';
 
 import '../../shared/gql_safe_request_wrap.dart';
 import 'authentication_facade.dart';
-import 'model/admin_sign_in_failure.dart';
+import 'model/admin_sign_in_error.dart';
 
 class ApiAuthenticationFacade with GqlSafeRequestWrap implements AuthenticationFacade {
   ApiAuthenticationFacade(
@@ -17,7 +17,7 @@ class ApiAuthenticationFacade with GqlSafeRequestWrap implements AuthenticationF
   final GraphQLClient _client;
 
   @override
-  Future<Either<AdminSignInFailure, AdminSignInRes>> adminSignIn({
+  Future<Either<AdminSignInError, AdminSignInRes>> adminSignIn({
     required String email,
     required String password,
   }) async {
@@ -33,11 +33,11 @@ class ApiAuthenticationFacade with GqlSafeRequestWrap implements AuthenticationF
         ),
       ),
       mapper: (r) => r.adminSignIn,
-      unknownFailure: AdminSignInFailure.unknown,
+      unknownErr: AdminSignInError.unknown,
       onError: (code) => switch (code) {
-        GqlApiErrorCode.emailOrPasswordInvalid => AdminSignInFailure.emailOrPasswordInvalid,
-        GqlApiErrorCode.userEmailExists => AdminSignInFailure.userEmailExists,
-        _ => AdminSignInFailure.unknown,
+        GqlApiErrorCode.emailOrPasswordInvalid => AdminSignInError.emailOrPasswordInvalid,
+        GqlApiErrorCode.userEmailExists => AdminSignInError.userEmailExists,
+        _ => AdminSignInError.unknown,
       },
     );
   }

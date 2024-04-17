@@ -1,7 +1,7 @@
 import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
-import 'math_sub_field_failure.dart';
+import 'math_sub_field_error.dart';
 
 abstract interface class MathSubFieldRemoteRepository {
   Future<Either<NetworkCallError, MathSubFieldCreateResult>> create({
@@ -15,7 +15,7 @@ abstract interface class MathSubFieldRemoteRepository {
     String? mathFieldId,
   });
 
-  Future<Either<DeleteMathSubFieldFailure, Unit>> delete({
+  Future<Either<DeleteMathSubFieldError, Unit>> delete({
     required String id,
   });
 
