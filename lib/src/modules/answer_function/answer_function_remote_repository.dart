@@ -2,14 +2,14 @@ import 'package:common_models/common_models.dart';
 import 'package:gql_types/gql_types.dart';
 
 abstract interface class AnswerFunctionRemoteRepository {
-  Future<Either<ActionFailure, AnswerFunctionCreateResult>> create({
+  Future<Either<NetworkCallError, AnswerFunctionCreateResult>> create({
     required String func,
     required String? condition,
     required double weight,
     required String mathSubFieldId,
   });
 
-  Future<Either<ActionFailure, AnswerFunctionUpdateResult>> update({
+  Future<Either<NetworkCallError, AnswerFunctionUpdateResult>> update({
     required String id,
     String? func,
     String? condition,
@@ -17,19 +17,19 @@ abstract interface class AnswerFunctionRemoteRepository {
     String? mathSubFieldId,
   });
 
-  Future<Either<ActionFailure, Unit>> delete({
+  Future<Either<NetworkCallError, Unit>> delete({
     required String id,
   });
 
-  Future<Either<FetchFailure, AnswerFunctionGetByIdRes>> getById(String id);
+  Future<Either<NetworkCallError, AnswerFunctionGetByIdRes>> getById(String id);
 
-  Future<Either<FetchFailure, DataPage<AnswerFunctionPageItem>>> filter({
+  Future<Either<NetworkCallError, DataPage<AnswerFunctionPageItem>>> filter({
     required int limit,
     String? lastId,
     String? mathSubFieldId,
   });
 
-  Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll({
+  Future<Either<NetworkCallError, List<GetAllAnswerFunctionsItem>>> getAll({
     String? mathSubFieldId,
   });
 }

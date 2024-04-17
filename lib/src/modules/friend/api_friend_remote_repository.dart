@@ -13,10 +13,10 @@ class ApiFriendRemoteRepository with GqlSafeRequestWrap implements FriendRemoteR
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, Unit>> sendFriendRequest({
+  Future<Either<NetworkCallError, Unit>> sendFriendRequest({
     required String userId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$SendFriendRequest(
         Options$Mutation$SendFriendRequest(
           variables: Variables$Mutation$SendFriendRequest(
@@ -29,10 +29,10 @@ class ApiFriendRemoteRepository with GqlSafeRequestWrap implements FriendRemoteR
   }
 
   @override
-  Future<Either<ActionFailure, Unit>> declineFriendRequest({
+  Future<Either<NetworkCallError, Unit>> declineFriendRequest({
     required String userId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$DeclineFriendRequest(
         Options$Mutation$DeclineFriendRequest(
           variables: Variables$Mutation$DeclineFriendRequest(
@@ -45,10 +45,10 @@ class ApiFriendRemoteRepository with GqlSafeRequestWrap implements FriendRemoteR
   }
 
   @override
-  Future<Either<ActionFailure, Unit>> acceptFriendRequest({
+  Future<Either<NetworkCallError, Unit>> acceptFriendRequest({
     required String userId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$AcceptFriendRequest(
         Options$Mutation$AcceptFriendRequest(
           variables: Variables$Mutation$AcceptFriendRequest(
@@ -61,10 +61,10 @@ class ApiFriendRemoteRepository with GqlSafeRequestWrap implements FriendRemoteR
   }
 
   @override
-  Future<Either<ActionFailure, Unit>> withdrawFriendRequest({
+  Future<Either<NetworkCallError, Unit>> withdrawFriendRequest({
     required String userId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$WithdrawFriendRequest(
         Options$Mutation$WithdrawFriendRequest(
           variables: Variables$Mutation$WithdrawFriendRequest(
@@ -77,10 +77,10 @@ class ApiFriendRemoteRepository with GqlSafeRequestWrap implements FriendRemoteR
   }
 
   @override
-  Future<Either<FetchFailure, List<FriendWithRel>>> getFriends({
+  Future<Either<NetworkCallError, List<FriendWithRel>>> getFriends({
     String? searchQuery,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$GetFriends(
         Options$Query$GetFriends(
           variables: Variables$Query$GetFriends(
@@ -93,10 +93,10 @@ class ApiFriendRemoteRepository with GqlSafeRequestWrap implements FriendRemoteR
   }
 
   @override
-  Future<Either<FetchFailure, List<FriendWithRel>>> getFriendRequests({
+  Future<Either<NetworkCallError, List<FriendWithRel>>> getFriendRequests({
     String? searchQuery,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$GetFriendRequests(
         Options$Query$GetFriendRequests(
           variables: Variables$Query$GetFriendRequests(

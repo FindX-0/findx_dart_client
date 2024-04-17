@@ -16,7 +16,7 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, CreateMathProblemRes>> create({
+  Future<Either<NetworkCallError, CreateMathProblemRes>> create({
     required double difficulty,
     required String? text,
     required String? tex,
@@ -25,7 +25,7 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
     required List<String>? imageMediaIds,
     required List<CreateMathProblemAnswerInput> answers,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$CreateMathProblem(
         Options$Mutation$CreateMathProblem(
           variables: Variables$Mutation$CreateMathProblem(
@@ -46,7 +46,7 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   }
 
   @override
-  Future<Either<ActionFailure, MathProblemUpdateResult>> update({
+  Future<Either<NetworkCallError, MathProblemUpdateResult>> update({
     required String id,
     double? difficulty,
     String? text,
@@ -56,7 +56,7 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
     List<String>? imageMediaIds,
     List<CreateMathProblemAnswerInput>? answers,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$UpdateMathProblem(
         Options$Mutation$UpdateMathProblem(
           variables: Variables$Mutation$UpdateMathProblem(
@@ -78,10 +78,10 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   }
 
   @override
-  Future<Either<ActionFailure, Unit>> delete({
+  Future<Either<NetworkCallError, Unit>> delete({
     required String id,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$DeleteMathProblem(
         Options$Mutation$DeleteMathProblem(
           variables: Variables$Mutation$DeleteMathProblem(
@@ -94,11 +94,11 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   }
 
   @override
-  Future<Either<FetchFailure, DataPage<MathProblemPageItem>>> filter({
+  Future<Either<NetworkCallError, DataPage<MathProblemPageItem>>> filter({
     required int limit,
     String? lastId,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$FilterMathProblems(
         Options$Query$FilterMathProblems(
           variables: Variables$Query$FilterMathProblems(
@@ -119,8 +119,8 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   }
 
   @override
-  Future<Either<FetchFailure, MathProblemGetByIdRes>> getById(String id) {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, MathProblemGetByIdRes>> getById(String id) {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetMathProblemById(
         Options$Query$GetMathProblemById(
           variables: Variables$Query$GetMathProblemById(
@@ -133,7 +133,7 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   }
 
   @override
-  Future<Either<FetchFailure, List<GenerateMathProblemValuesRes>>> generateValues({
+  Future<Either<NetworkCallError, List<GenerateMathProblemValuesRes>>> generateValues({
     required String template,
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
@@ -141,7 +141,7 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
     required String? answerConditionFunc,
     required String? correctAnswerConditionFunc,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$GenerateMathProblemValues(
         Options$Query$GenerateMathProblemValues(
           variables: Variables$Query$GenerateMathProblemValues(
@@ -161,11 +161,11 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   }
 
   @override
-  Future<Either<FetchFailure, CountGenerateMathProblemValuesRes>> countGenerateValues({
+  Future<Either<NetworkCallError, CountGenerateMathProblemValuesRes>> countGenerateValues({
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
   }) async {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$CountGenerateMathProblemValues(
         Options$Query$CountGenerateMathProblemValues(
           variables: Variables$Query$CountGenerateMathProblemValues(
@@ -181,11 +181,11 @@ class ApiMathProblemRemoteRepository with GqlSafeRequestWrap implements MathProb
   }
 
   @override
-  Future<Either<ActionFailure, BulkCreateMathProblemRes>> bulkCreate(
+  Future<Either<NetworkCallError, BulkCreateMathProblemRes>> bulkCreate(
     List<RawCreateMathProblemParams> params, {
     required String generatedBatchName,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () {
         final values = params
             .map(

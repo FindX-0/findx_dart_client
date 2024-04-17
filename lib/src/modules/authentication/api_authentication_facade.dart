@@ -43,10 +43,10 @@ class ApiAuthenticationFacade with GqlSafeRequestWrap implements AuthenticationF
   }
 
   @override
-  Future<Either<ActionFailure, DeviceSignInRes>> deviceSignIn({
+  Future<Either<NetworkCallError, DeviceSignInRes>> deviceSignIn({
     required String deviceId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$DeviceSignIn(
         Options$Mutation$DeviceSignIn(
           variables: Variables$Mutation$DeviceSignIn(deviceId: deviceId),

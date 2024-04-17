@@ -4,13 +4,13 @@ import 'package:gql_types/gql_types.dart';
 import 'math_field_failure.dart';
 
 abstract interface class MathFieldRemoteRepository {
-  Future<Either<ActionFailure, MathFieldCreateResult>> create({
+  Future<Either<NetworkCallError, MathFieldCreateResult>> create({
     required String name,
     required bool isPublic,
     required int spamDelayMillis,
   });
 
-  Future<Either<ActionFailure, MathFieldUpdateResult>> update({
+  Future<Either<NetworkCallError, MathFieldUpdateResult>> update({
     required String id,
     String? name,
     bool? isPublic,
@@ -21,14 +21,14 @@ abstract interface class MathFieldRemoteRepository {
     required String id,
   });
 
-  Future<Either<FetchFailure, MathFieldGetByIdRes>> getById(String id);
+  Future<Either<NetworkCallError, MathFieldGetByIdRes>> getById(String id);
 
-  Future<Either<FetchFailure, DataPage<MathFieldPageItem>>> filter({
+  Future<Either<NetworkCallError, DataPage<MathFieldPageItem>>> filter({
     required int limit,
     String? lastId,
   });
 
-  Future<Either<FetchFailure, List<GetAllMathFieldsItem>>> getAll({
+  Future<Either<NetworkCallError, List<GetAllMathFieldsItem>>> getAll({
     required bool onlyPublic,
   });
 }

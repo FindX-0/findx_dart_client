@@ -15,12 +15,12 @@ class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldR
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, MathFieldCreateResult>> create({
+  Future<Either<NetworkCallError, MathFieldCreateResult>> create({
     required String name,
     required bool isPublic,
     required int spamDelayMillis,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$CreateMathField(
         Options$Mutation$CreateMathField(
           variables: Variables$Mutation$CreateMathField(
@@ -37,13 +37,13 @@ class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldR
   }
 
   @override
-  Future<Either<ActionFailure, MathFieldUpdateResult>> update({
+  Future<Either<NetworkCallError, MathFieldUpdateResult>> update({
     required String id,
     String? name,
     bool? isPublic,
     int? spamDelayMillis,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$UpdateMathField(
         Options$Mutation$UpdateMathField(
           variables: Variables$Mutation$UpdateMathField(
@@ -85,11 +85,11 @@ class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldR
   }
 
   @override
-  Future<Either<FetchFailure, DataPage<MathFieldPageItem>>> filter({
+  Future<Either<NetworkCallError, DataPage<MathFieldPageItem>>> filter({
     required int limit,
     String? lastId,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$FilterMathFields(
         Options$Query$FilterMathFields(
           variables: Variables$Query$FilterMathFields(
@@ -110,8 +110,8 @@ class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldR
   }
 
   @override
-  Future<Either<FetchFailure, MathFieldGetByIdRes>> getById(String id) {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, MathFieldGetByIdRes>> getById(String id) {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetMathFieldById(
         Options$Query$GetMathFieldById(
           variables: Variables$Query$GetMathFieldById(
@@ -126,10 +126,10 @@ class ApiMathFieldRemoteRepository with GqlSafeRequestWrap implements MathFieldR
   }
 
   @override
-  Future<Either<FetchFailure, List<GetAllMathFieldsItem>>> getAll({
+  Future<Either<NetworkCallError, List<GetAllMathFieldsItem>>> getAll({
     required bool onlyPublic,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$GetAllMathFields(
         Options$Query$GetAllMathFields(
           variables: Variables$Query$GetAllMathFields(

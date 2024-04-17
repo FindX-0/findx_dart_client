@@ -4,7 +4,7 @@ import 'package:gql_types/gql_types.dart';
 import 'model/create_math_problem_params.dart';
 
 abstract interface class MathProblemRemoteRepository {
-  Future<Either<ActionFailure, CreateMathProblemRes>> create({
+  Future<Either<NetworkCallError, CreateMathProblemRes>> create({
     required double difficulty,
     required String? text,
     required String? tex,
@@ -14,7 +14,7 @@ abstract interface class MathProblemRemoteRepository {
     required List<CreateMathProblemAnswerInput> answers,
   });
 
-  Future<Either<ActionFailure, MathProblemUpdateResult>> update({
+  Future<Either<NetworkCallError, MathProblemUpdateResult>> update({
     required String id,
     double? difficulty,
     String? text,
@@ -25,18 +25,18 @@ abstract interface class MathProblemRemoteRepository {
     List<CreateMathProblemAnswerInput>? answers,
   });
 
-  Future<Either<ActionFailure, Unit>> delete({
+  Future<Either<NetworkCallError, Unit>> delete({
     required String id,
   });
 
-  Future<Either<FetchFailure, MathProblemGetByIdRes>> getById(String id);
+  Future<Either<NetworkCallError, MathProblemGetByIdRes>> getById(String id);
 
-  Future<Either<FetchFailure, DataPage<MathProblemPageItem>>> filter({
+  Future<Either<NetworkCallError, DataPage<MathProblemPageItem>>> filter({
     required int limit,
     String? lastId,
   });
 
-  Future<Either<FetchFailure, List<GenerateMathProblemValuesRes>>> generateValues({
+  Future<Either<NetworkCallError, List<GenerateMathProblemValuesRes>>> generateValues({
     required String template,
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
@@ -45,12 +45,12 @@ abstract interface class MathProblemRemoteRepository {
     required String? correctAnswerConditionFunc,
   });
 
-  Future<Either<FetchFailure, CountGenerateMathProblemValuesRes>> countGenerateValues({
+  Future<Either<NetworkCallError, CountGenerateMathProblemValuesRes>> countGenerateValues({
     required List<GenerateMathProblemNumberParam> numberParams,
     required List<GenerateMathProblemCustomStrParam> customStrParams,
   });
 
-  Future<Either<ActionFailure, BulkCreateMathProblemRes>> bulkCreate(
+  Future<Either<NetworkCallError, BulkCreateMathProblemRes>> bulkCreate(
     List<RawCreateMathProblemParams> params, {
     required String generatedBatchName,
   });

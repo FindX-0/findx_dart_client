@@ -15,11 +15,11 @@ class ApiMathSubFieldRemoteRepository with GqlSafeRequestWrap implements MathSub
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, MathSubFieldCreateResult>> create({
+  Future<Either<NetworkCallError, MathSubFieldCreateResult>> create({
     required String name,
     required String mathFieldId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$CreateMathSubField(
         Options$Mutation$CreateMathSubField(
           variables: Variables$Mutation$CreateMathSubField(
@@ -35,12 +35,12 @@ class ApiMathSubFieldRemoteRepository with GqlSafeRequestWrap implements MathSub
   }
 
   @override
-  Future<Either<ActionFailure, MathSubFieldUpdateResult>> update({
+  Future<Either<NetworkCallError, MathSubFieldUpdateResult>> update({
     required String id,
     String? name,
     String? mathFieldId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$UpdateMathSubField(
         Options$Mutation$UpdateMathSubField(
           variables: Variables$Mutation$UpdateMathSubField(
@@ -79,12 +79,12 @@ class ApiMathSubFieldRemoteRepository with GqlSafeRequestWrap implements MathSub
   }
 
   @override
-  Future<Either<FetchFailure, DataPage<MathSubFieldPageItem>>> filter({
+  Future<Either<NetworkCallError, DataPage<MathSubFieldPageItem>>> filter({
     required int limit,
     String? lastId,
     String? mathFieldId,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$FilterMathSubFields(
         Options$Query$FilterMathSubFields(
           variables: Variables$Query$FilterMathSubFields(
@@ -106,8 +106,8 @@ class ApiMathSubFieldRemoteRepository with GqlSafeRequestWrap implements MathSub
   }
 
   @override
-  Future<Either<FetchFailure, MathSubFieldGetByIdRes>> getById(String id) {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, MathSubFieldGetByIdRes>> getById(String id) {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetMathSubFieldById(
         Options$Query$GetMathSubFieldById(
           variables: Variables$Query$GetMathSubFieldById(

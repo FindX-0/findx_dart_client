@@ -13,10 +13,10 @@ class ApiMatchmakingRemoteRepository with GqlSafeRequestWrap implements Matchmak
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, EnqueueTicketRes>> enqueueTicket({
+  Future<Either<NetworkCallError, EnqueueTicketRes>> enqueueTicket({
     required String mathFieldId,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$EnqueueTicket(
         Options$Mutation$EnqueueTicket(
           variables: Variables$Mutation$EnqueueTicket(
@@ -31,8 +31,8 @@ class ApiMatchmakingRemoteRepository with GqlSafeRequestWrap implements Matchmak
   }
 
   @override
-  Future<Either<FetchFailure, GetMatchByIdRes>> getMatchById(String id) {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, GetMatchByIdRes>> getMatchById(String id) {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetMatchById(
         Options$Query$GetMatchById(
           variables: Variables$Query$GetMatchById(
@@ -47,11 +47,11 @@ class ApiMatchmakingRemoteRepository with GqlSafeRequestWrap implements Matchmak
   }
 
   @override
-  Future<Either<ActionFailure, Unit>> cancelTicket({
+  Future<Either<NetworkCallError, Unit>> cancelTicket({
     required String ticketId,
     required String concurrencyTimestamp,
   }) {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$CancelTicket(Options$Mutation$CancelTicket(
         variables: Variables$Mutation$CancelTicket(
           input: Input$CancelTicketInput(

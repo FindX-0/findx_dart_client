@@ -45,33 +45,13 @@ mixin RestRequestWrap {
   }
 
   @protected
-  Future<Either<FetchFailure, T>> callCatchWithFetchFailure<T>(
+  Future<Either<NetworkCallError, T>> callCatchWithNetworkCallError<T>(
     Future<T> Function() call,
   ) async {
     return callCatch(
       call: call,
-      networkError: FetchFailure.network,
-      unknownError: FetchFailure.unknown,
-      onResponseError: (Response<dynamic>? response) {
-        if (response != null && response.statusCode != null) {
-          final int statusCode = response.statusCode!;
-          if (statusCode >= 500 && statusCode < 600) {
-            return FetchFailure.server;
-          }
-        }
-        return FetchFailure.unknown;
-      },
-    );
-  }
-
-  @protected
-  Future<Either<ActionFailure, T>> callCatchWithActionFailure<T>(
-    Future<T> Function() call,
-  ) async {
-    return callCatch(
-      call: call,
-      networkError: ActionFailure.network,
-      unknownError: ActionFailure.unknown,
+      networkError: NetworkCallError.network,
+      unknownError: NetworkCallError.unknown,
     );
   }
 }

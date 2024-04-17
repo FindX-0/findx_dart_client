@@ -15,10 +15,10 @@ class ApiMathBattleResultRemoteRepository
   final GraphQLClient _client;
 
   @override
-  Future<Either<FetchFailure, List<GetMathBattleResultsRes>>> getByMatchId({
+  Future<Either<NetworkCallError, List<GetMathBattleResultsRes>>> getByMatchId({
     required String matchId,
   }) async {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$GetMathBattleResults(
         Options$Query$GetMathBattleResults(
           variables: Variables$Query$GetMathBattleResults(

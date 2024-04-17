@@ -13,8 +13,8 @@ class ApiServerTimeRemoteRepository with GqlSafeRequestWrap implements ServerTim
   final GraphQLClient _client;
 
   @override
-  Future<Either<FetchFailure, ServerTime>> getServerTime() {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, ServerTime>> getServerTime() {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetServerTime(),
       mapper: (r) => r.getServerTime,
     );

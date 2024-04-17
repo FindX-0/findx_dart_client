@@ -9,7 +9,7 @@ abstract interface class AuthenticationFacade {
     required String password,
   });
 
-  Future<Either<ActionFailure, DeviceSignInRes>> deviceSignIn({
+  Future<Either<NetworkCallError, DeviceSignInRes>> deviceSignIn({
     required String deviceId,
   });
 }

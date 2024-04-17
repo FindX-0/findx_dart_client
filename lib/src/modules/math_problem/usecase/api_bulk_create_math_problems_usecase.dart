@@ -17,11 +17,11 @@ class ApiBulkCreateMathProblemsUsecase implements BulkCreateMathProblemsUsecase 
   final MathProblemRemoteRepository _mathProblemRemoteRepository;
 
   @override
-  Future<Either<ActionFailure, BulkCreateMathProblemRes>> call(
+  Future<Either<NetworkCallError, BulkCreateMathProblemRes>> call(
     List<CreateMathProblemParams> params, {
     required String generatedBatchName,
   }) async {
-    final List<Either<ActionFailure, RawCreateMathProblemParams>> mediaFilesWithCreateParams =
+    final List<Either<NetworkCallError, RawCreateMathProblemParams>> mediaFilesWithCreateParams =
         await Future.wait(
       params.map(
         (e) async {

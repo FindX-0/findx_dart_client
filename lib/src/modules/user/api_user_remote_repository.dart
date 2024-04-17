@@ -13,16 +13,16 @@ class ApiUserRemoteRepository with GqlSafeRequestWrap implements UserRemoteRepos
   final GraphQLClient _client;
 
   @override
-  Future<Either<FetchFailure, GetAuthUserRes>> getAuthUser() {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, GetAuthUserRes>> getAuthUser() {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetAuthUser(),
       mapper: (r) => r.getAuthUser,
     );
   }
 
   @override
-  Future<Either<FetchFailure, GetUserByIdRes>> getUserById(String id) {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, GetUserByIdRes>> getUserById(String id) {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetUserById(
         Options$Query$GetUserById(
           variables: Variables$Query$GetUserById(

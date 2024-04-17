@@ -13,13 +13,13 @@ class ApiAnswerFunctionRemoteRepository with GqlSafeRequestWrap implements Answe
   final GraphQLClient _client;
 
   @override
-  Future<Either<ActionFailure, AnswerFunctionCreateResult>> create({
+  Future<Either<NetworkCallError, AnswerFunctionCreateResult>> create({
     required String func,
     required String? condition,
     required double weight,
     required String mathSubFieldId,
   }) async {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$CreateAnswerFunction(
         Options$Mutation$CreateAnswerFunction(
           variables: Variables$Mutation$CreateAnswerFunction(
@@ -37,10 +37,10 @@ class ApiAnswerFunctionRemoteRepository with GqlSafeRequestWrap implements Answe
   }
 
   @override
-  Future<Either<ActionFailure, Unit>> delete({
+  Future<Either<NetworkCallError, Unit>> delete({
     required String id,
   }) async {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$DeleteAnswerFunction(
         Options$Mutation$DeleteAnswerFunction(
           variables: Variables$Mutation$DeleteAnswerFunction(
@@ -53,12 +53,12 @@ class ApiAnswerFunctionRemoteRepository with GqlSafeRequestWrap implements Answe
   }
 
   @override
-  Future<Either<FetchFailure, DataPage<AnswerFunctionPageItem>>> filter({
+  Future<Either<NetworkCallError, DataPage<AnswerFunctionPageItem>>> filter({
     required int limit,
     String? lastId,
     String? mathSubFieldId,
   }) async {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$FilterAnswerFunctions(
         Options$Query$FilterAnswerFunctions(
           variables: Variables$Query$FilterAnswerFunctions(
@@ -80,10 +80,10 @@ class ApiAnswerFunctionRemoteRepository with GqlSafeRequestWrap implements Answe
   }
 
   @override
-  Future<Either<FetchFailure, List<GetAllAnswerFunctionsItem>>> getAll({
+  Future<Either<NetworkCallError, List<GetAllAnswerFunctionsItem>>> getAll({
     String? mathSubFieldId,
   }) {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$getAllAnswerFunctions(
         Options$Query$getAllAnswerFunctions(
           variables: Variables$Query$getAllAnswerFunctions(
@@ -98,8 +98,8 @@ class ApiAnswerFunctionRemoteRepository with GqlSafeRequestWrap implements Answe
   }
 
   @override
-  Future<Either<FetchFailure, AnswerFunctionGetByIdRes>> getById(String id) {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, AnswerFunctionGetByIdRes>> getById(String id) {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetAnswerFunctionById(
         Options$Query$GetAnswerFunctionById(
           variables: Variables$Query$GetAnswerFunctionById(
@@ -112,14 +112,14 @@ class ApiAnswerFunctionRemoteRepository with GqlSafeRequestWrap implements Answe
   }
 
   @override
-  Future<Either<ActionFailure, AnswerFunctionUpdateResult>> update({
+  Future<Either<NetworkCallError, AnswerFunctionUpdateResult>> update({
     required String id,
     String? func,
     String? condition,
     double? weight,
     String? mathSubFieldId,
   }) async {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$UpdateAnswerFunction(
         Options$Mutation$UpdateAnswerFunction(
           variables: Variables$Mutation$UpdateAnswerFunction(

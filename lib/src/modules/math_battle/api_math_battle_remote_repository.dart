@@ -14,10 +14,10 @@ class ApiMathBattleRemoteRepository with GqlSafeRequestWrap implements MathBattl
   final GraphQLClient _client;
 
   @override
-  Future<Either<FetchFailure, List<GetMathBattleMathProblemsRes>>> getMathBattleMathProblems({
+  Future<Either<NetworkCallError, List<GetMathBattleMathProblemsRes>>> getMathBattleMathProblems({
     required String matchId,
   }) async {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$GetMathBattleMathProblems(
         Options$Query$GetMathBattleMathProblems(
           variables: Variables$Query$GetMathBattleMathProblems(
@@ -32,12 +32,12 @@ class ApiMathBattleRemoteRepository with GqlSafeRequestWrap implements MathBattl
   }
 
   @override
-  Future<Either<ActionFailure, Unit>> submitMathProblemAnswer({
+  Future<Either<NetworkCallError, Unit>> submitMathProblemAnswer({
     required String matchId,
     required String mathProblemId,
     required String answer,
   }) async {
-    return callCatchWithActionFailure(
+    return callCatchWithNetworkCallError(
       () => _client.mutate$SubmitMathProblemAnswer(
         Options$Mutation$SubmitMathProblemAnswer(
           variables: Variables$Mutation$SubmitMathProblemAnswer(
@@ -54,11 +54,11 @@ class ApiMathBattleRemoteRepository with GqlSafeRequestWrap implements MathBattl
   }
 
   @override
-  Future<Either<FetchFailure, MathBattleData>> getMathBattleData({
+  Future<Either<NetworkCallError, MathBattleData>> getMathBattleData({
     required String matchId,
     required String opponentUserId,
   }) async {
-    return callCatchWithFetchFailure(
+    return callCatchWithNetworkCallError(
       () => _client.query$GetMathBattleData(
         Options$Query$GetMathBattleData(
           variables: Variables$Query$GetMathBattleData(

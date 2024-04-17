@@ -13,8 +13,8 @@ class ApiUserMetaRemoteRepository with GqlSafeRequestWrap implements UserMetaRem
   final GraphQLClient _client;
 
   @override
-  Future<Either<FetchFailure, UserMeta>> getAuthUserMeta() {
-    return callCatchWithFetchFailure(
+  Future<Either<NetworkCallError, UserMeta>> getAuthUserMeta() {
+    return callCatchWithNetworkCallError(
       () => _client.query$GetAuthUserMeta(),
       mapper: (r) => r.getAuthUserMeta,
     );
