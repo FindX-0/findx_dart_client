@@ -2742,6 +2742,166 @@ class _CopyWithStubImpl$Input$FilterMathSubFieldsInput<TRes>
       _res;
 }
 
+class Input$FilterUsersArgs {
+  factory Input$FilterUsersArgs({
+    String? lastId,
+    required int limit,
+    String? searchQuery,
+  }) =>
+      Input$FilterUsersArgs._({
+        if (lastId != null) r'lastId': lastId,
+        r'limit': limit,
+        if (searchQuery != null) r'searchQuery': searchQuery,
+      });
+
+  Input$FilterUsersArgs._(this._$data);
+
+  factory Input$FilterUsersArgs.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('lastId')) {
+      final l$lastId = data['lastId'];
+      result$data['lastId'] = (l$lastId as String?);
+    }
+    final l$limit = data['limit'];
+    result$data['limit'] = (l$limit as int);
+    if (data.containsKey('searchQuery')) {
+      final l$searchQuery = data['searchQuery'];
+      result$data['searchQuery'] = (l$searchQuery as String?);
+    }
+    return Input$FilterUsersArgs._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get lastId => (_$data['lastId'] as String?);
+
+  int get limit => (_$data['limit'] as int);
+
+  String? get searchQuery => (_$data['searchQuery'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('lastId')) {
+      final l$lastId = lastId;
+      result$data['lastId'] = l$lastId;
+    }
+    final l$limit = limit;
+    result$data['limit'] = l$limit;
+    if (_$data.containsKey('searchQuery')) {
+      final l$searchQuery = searchQuery;
+      result$data['searchQuery'] = l$searchQuery;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$FilterUsersArgs<Input$FilterUsersArgs> get copyWith =>
+      CopyWith$Input$FilterUsersArgs(
+        this,
+        (i) => i,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$FilterUsersArgs) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$lastId = lastId;
+    final lOther$lastId = other.lastId;
+    if (_$data.containsKey('lastId') != other._$data.containsKey('lastId')) {
+      return false;
+    }
+    if (l$lastId != lOther$lastId) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$searchQuery = searchQuery;
+    final lOther$searchQuery = other.searchQuery;
+    if (_$data.containsKey('searchQuery') !=
+        other._$data.containsKey('searchQuery')) {
+      return false;
+    }
+    if (l$searchQuery != lOther$searchQuery) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$lastId = lastId;
+    final l$limit = limit;
+    final l$searchQuery = searchQuery;
+    return Object.hashAll([
+      _$data.containsKey('lastId') ? l$lastId : const {},
+      l$limit,
+      _$data.containsKey('searchQuery') ? l$searchQuery : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$FilterUsersArgs<TRes> {
+  factory CopyWith$Input$FilterUsersArgs(
+    Input$FilterUsersArgs instance,
+    TRes Function(Input$FilterUsersArgs) then,
+  ) = _CopyWithImpl$Input$FilterUsersArgs;
+
+  factory CopyWith$Input$FilterUsersArgs.stub(TRes res) =
+      _CopyWithStubImpl$Input$FilterUsersArgs;
+
+  TRes call({
+    String? lastId,
+    int? limit,
+    String? searchQuery,
+  });
+}
+
+class _CopyWithImpl$Input$FilterUsersArgs<TRes>
+    implements CopyWith$Input$FilterUsersArgs<TRes> {
+  _CopyWithImpl$Input$FilterUsersArgs(
+    this._instance,
+    this._then,
+  );
+
+  final Input$FilterUsersArgs _instance;
+
+  final TRes Function(Input$FilterUsersArgs) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? lastId = _undefined,
+    Object? limit = _undefined,
+    Object? searchQuery = _undefined,
+  }) =>
+      _then(Input$FilterUsersArgs._({
+        ..._instance._$data,
+        if (lastId != _undefined) 'lastId': (lastId as String?),
+        if (limit != _undefined && limit != null) 'limit': (limit as int),
+        if (searchQuery != _undefined) 'searchQuery': (searchQuery as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$FilterUsersArgs<TRes>
+    implements CopyWith$Input$FilterUsersArgs<TRes> {
+  _CopyWithStubImpl$Input$FilterUsersArgs(this._res);
+
+  TRes _res;
+
+  call({
+    String? lastId,
+    int? limit,
+    String? searchQuery,
+  }) =>
+      _res;
+}
+
 class Input$GenerateMathProblemCustomStrParameterInput {
   factory Input$GenerateMathProblemCustomStrParameterInput({
     required int index,

@@ -1,0 +1,14 @@
+query FilterUsers($input: FilterUsersArgs) {
+  filterUsers(input: $input) {
+    data {
+      id
+      createdAt
+      userName
+      email
+      authProvider
+      isCompleted
+      friendshipStatus 
+    }
+    count
+  }
+}
