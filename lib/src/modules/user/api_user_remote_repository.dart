@@ -33,4 +33,31 @@ class ApiUserRemoteRepository with GqlSafeRequestWrap implements UserRemoteRepos
       mapper: (r) => r.getUserById,
     );
   }
+
+  @override
+  Future<Either<NetworkCallError, DataPage<FilterUsersDataRes>>> filter({
+    required String? lastId,
+    required int limit,
+    String? searchQuery,
+  }) {
+    return callCatchWithNetworkCallError(
+      () => _client.query$FilterUsers(
+        Options$Query$FilterUsers(
+          variables: Variables$Query$FilterUsers(
+            input: Input$FilterUsersArgs(
+              limit: limit,
+              lastId: lastId,
+              searchQuery: searchQuery,
+            ),
+          ),
+        ),
+      ),
+      mapper: (r) {
+        return DataPage(
+          items: r.filterUsers.data,
+          count: r.filterUsers.count,
+        );
+      },
+    );
+  }
 }

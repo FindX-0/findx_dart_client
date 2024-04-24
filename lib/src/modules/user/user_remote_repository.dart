@@ -5,4 +5,10 @@ abstract interface class UserRemoteRepository {
   Future<Either<NetworkCallError, GetAuthUserRes>> getAuthUser();
 
   Future<Either<NetworkCallError, GetUserByIdRes>> getUserById(String id);
+
+  Future<Either<NetworkCallError, DataPage<FilterUsersDataRes>>> filter({
+    required String? lastId,
+    required int limit,
+    String? searchQuery,
+  });
 }
