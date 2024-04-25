@@ -1,4 +1,4 @@
-query FilterUsers($input: FilterUsersArgs) {
+query FilterUsers($input: FilterUsersArgs!) {
   filterUsers(input: $input) {
     data {
       id

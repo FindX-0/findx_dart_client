@@ -4,35 +4,29 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$FilterUsers {
-  factory Variables$Query$FilterUsers({Input$FilterUsersArgs? input}) =>
+  factory Variables$Query$FilterUsers({required Input$FilterUsersArgs input}) =>
       Variables$Query$FilterUsers._({
-        if (input != null) r'input': input,
+        r'input': input,
       });
 
   Variables$Query$FilterUsers._(this._$data);
 
   factory Variables$Query$FilterUsers.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('input')) {
-      final l$input = data['input'];
-      result$data['input'] = l$input == null
-          ? null
-          : Input$FilterUsersArgs.fromJson((l$input as Map<String, dynamic>));
-    }
+    final l$input = data['input'];
+    result$data['input'] =
+        Input$FilterUsersArgs.fromJson((l$input as Map<String, dynamic>));
     return Variables$Query$FilterUsers._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$FilterUsersArgs? get input =>
-      (_$data['input'] as Input$FilterUsersArgs?);
+  Input$FilterUsersArgs get input => (_$data['input'] as Input$FilterUsersArgs);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('input')) {
-      final l$input = input;
-      result$data['input'] = l$input?.toJson();
-    }
+    final l$input = input;
+    result$data['input'] = l$input.toJson();
     return result$data;
   }
 
@@ -53,9 +47,6 @@ class Variables$Query$FilterUsers {
     }
     final l$input = input;
     final lOther$input = other.input;
-    if (_$data.containsKey('input') != other._$data.containsKey('input')) {
-      return false;
-    }
     if (l$input != lOther$input) {
       return false;
     }
@@ -65,7 +56,7 @@ class Variables$Query$FilterUsers {
   @override
   int get hashCode {
     final l$input = input;
-    return Object.hashAll([_$data.containsKey('input') ? l$input : const {}]);
+    return Object.hashAll([l$input]);
   }
 }
 
@@ -97,7 +88,8 @@ class _CopyWithImpl$Variables$Query$FilterUsers<TRes>
   TRes call({Object? input = _undefined}) =>
       _then(Variables$Query$FilterUsers._({
         ..._instance._$data,
-        if (input != _undefined) 'input': (input as Input$FilterUsersArgs?),
+        if (input != _undefined && input != null)
+          'input': (input as Input$FilterUsersArgs),
       }));
 }
 
@@ -253,7 +245,7 @@ const documentNodeQueryFilterUsers = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
           name: NameNode(value: 'FilterUsersArgs'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -373,7 +365,7 @@ class Options$Query$FilterUsers
     extends graphql.QueryOptions<Query$FilterUsers> {
   Options$Query$FilterUsers({
     String? operationName,
-    Variables$Query$FilterUsers? variables,
+    required Variables$Query$FilterUsers variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -385,7 +377,7 @@ class Options$Query$FilterUsers
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -419,7 +411,7 @@ class WatchOptions$Query$FilterUsers
     extends graphql.WatchQueryOptions<Query$FilterUsers> {
   WatchOptions$Query$FilterUsers({
     String? operationName,
-    Variables$Query$FilterUsers? variables,
+    required Variables$Query$FilterUsers variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -431,7 +423,7 @@ class WatchOptions$Query$FilterUsers
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -450,42 +442,42 @@ class WatchOptions$Query$FilterUsers
 class FetchMoreOptions$Query$FilterUsers extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$FilterUsers({
     required graphql.UpdateQuery updateQuery,
-    Variables$Query$FilterUsers? variables,
+    required Variables$Query$FilterUsers variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables?.toJson() ?? {},
+          variables: variables.toJson(),
           document: documentNodeQueryFilterUsers,
         );
 }
 
 extension ClientExtension$Query$FilterUsers on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$FilterUsers>> query$FilterUsers(
-          [Options$Query$FilterUsers? options]) async =>
-      await this.query(options ?? Options$Query$FilterUsers());
+          Options$Query$FilterUsers options) async =>
+      await this.query(options);
   graphql.ObservableQuery<Query$FilterUsers> watchQuery$FilterUsers(
-          [WatchOptions$Query$FilterUsers? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$FilterUsers());
+          WatchOptions$Query$FilterUsers options) =>
+      this.watchQuery(options);
   void writeQuery$FilterUsers({
     required Query$FilterUsers data,
-    Variables$Query$FilterUsers? variables,
+    required Variables$Query$FilterUsers variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(document: documentNodeQueryFilterUsers),
-          variables: variables?.toJson() ?? const {},
+          variables: variables.toJson(),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$FilterUsers? readQuery$FilterUsers({
-    Variables$Query$FilterUsers? variables,
+    required Variables$Query$FilterUsers variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(document: documentNodeQueryFilterUsers),
-        variables: variables?.toJson() ?? const {},
+        variables: variables.toJson(),
       ),
       optimistic: optimistic,
     );
